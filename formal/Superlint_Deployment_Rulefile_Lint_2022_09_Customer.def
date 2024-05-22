@@ -1,0 +1,1352 @@
+               //*******************************************
+               //******   SUPERLINT LINT RULE FILE  ********
+               //*******************************************
+
+//DESCRIPTION JG Version: JG 2022.09 FCS
+//DESCRIPTION Rulefile Date: Oct 17th, 2022
+//DESCRIPTION LINT Rulefile for initial engagement 
+    
+// Each category definition contains the name and description of
+// checks that make up the body of the category.
+
+domain LINT "List of categories in LINT domain"
+{
+  NAMING
+  FILEFORMAT
+  CODINGSTYLE
+  SIM_SYNTH
+  SYNTHESIS
+  STRUCTURAL
+  BLACKBOX
+  DFT_FUNCTIONAL
+}
+
+
+//*********************************************************************************
+//** Following is the detail of the checks present in each category in SUPERLINT **
+//*********************************************************************************
+
+
+category NAMING "Naming convention rules"
+{
+  IDN_NF_ALCA {severity = error}   {msg = "Identifier '%s' contains characters or user specified keywords that are not allowed"}
+  IDN_NR_ESCA {severity = warning} {msg = "Identifier '%s' contains escaped names, which should not be used"}
+  INS_NF_NMCV {severity = warning} {msg = "Instance name '%s' does not follow the naming convention (rule pattern '%s')"}
+  MOD_NF_NMCV {severity = warning} {msg = "Module name '%s' does not follow the naming convention (rule pattern '%s')"}
+  PAR_NF_NMCV {severity = warning} {msg = "Parameter name '%s' does not follow the naming convention (rule pattern '%s')"}
+}
+
+category FILEFORMAT "File format rules"
+{
+  FIL_NR_ABSP {severity = warning} {msg = "Absolute path is used to specify file '%s' in an `include statement"} 
+  FIL_MS_DUNM {severity = warning} {msg = "%s name '%s' differs from file name '%s'"}
+  FIL_NR_MMOD {severity = warning} {msg = "More than one design-unit definition in file '%s'"}
+  FIL_NS_SUFX {severity = warning} {msg = "The file name '%s' is missing a valid HDL file name extension"}
+}
+
+
+category CODINGSTYLE "Coding style rules"
+{
+  ALW_IS_TASK {severity = info}    {msg = "Task '%s' used in always block"}
+  ALW_NR_EMSL {severity = warning} {msg = "In module '%s', @* expands to an empty list and will never wake up"}
+  ALW_NR_OPSL {severity = error}   {msg = "Operator other than 'or' or ',' used in sensitivity list '%s'"}
+  ARY_MS_DRNG {severity = warning} {msg = "Inconsistent ordering of bits in range declarations in design-unit %s -- should be all %s ranges"}
+  ARY_NR_DFDR {severity = warning} {msg = "In design unit '%s', bits of bus signal '%s' have different types of drivers"}
+  ARY_NR_LOPR {severity = error}   {msg = "%s operator applied to multi-bit operand %s in design-unit %s"}
+  ARY_NR_NERG {severity = warning} {msg = "Negative value '%s' used as an array range for '%s' in design-unit '%s'"}
+  ASG_MS_RPAD {severity = info}    {msg = "Unequal length operands in assignment in design-unit/block '%s'. Length of RHS is less than LHS: LHS '%s' (%s) - %s bit(s), RHS '%s' (%s) - %s bit(s). RHS will be padded by %s bit(s)"}
+  ASG_MS_RTRU {severity = info}    {msg = "Unequal length operands in assignment in design-unit/block '%s'. Length of RHS is greater than LHS: LHS '%s' (%s) - %s bit(s), RHS '%s' (%s) - %s bit(s). %s most significant bit(s) will be lost"}
+  ASG_MS_VALR {severity = warning} {msg = "In VHDL design-unit/block '%s', for the given assignment, value range of RHS  '%s' cannot be accommodated in LHS range '%s'"}
+  ASG_NR_EVNT {severity = error}   {msg = "In design-unit '%s', event control '%s' is used at the right-hand side of an assignment statement"}
+  ASG_NR_LMSB {severity = warning} {msg = "Truncation of bits in a constant '%s' in design-unit/block %s. The most significant bits are lost"}
+  ASG_NR_MINP {severity = warning} {msg = "Assignment to a %s input port '%s' is not supported"}
+  ASG_NR_NBFC {severity = warning} {msg = "Non-blocking assignment encountered in function '%s'"}
+  ASG_NR_POVF {severity = warning} {msg = "Potential overflow in assignment in design-unit/block '%s'. LHS '%s' (%s) is of %s bit(s), RHS '%s' (%s) can be of %s bit(s) %s"}
+  ASG_NR_SOVF {severity = warning} {msg = "Overflow in assignment due to shift operation in design-unit '%s'. LHS '%s' (%s) is of %s bit(s) and RHS '%s' (%s) is of %s bit(s)"}
+  CAS_NO_CNST {severity = warning} {msg = "Case item expression '%s' is not a constant"}
+  CAS_NR_CMUL {severity = error}   {msg = "Case item expression '%s' is covered more than once in design-unit %s"}
+  CAS_NR_DEFN {severity = error}   {msg = "Case statement with selector '%s' in %s '%s' is incomplete, %s"}
+  CAS_NR_DEFX {severity = warning} {msg = "Signal '%s' assigned in case statement is not assigned to X in default case"}
+  CAS_NR_FCDF {severity = warning} {msg = "In module %s, case with select expression '%s' having default statement, has redundant full_case pragma statement"}
+  CAS_NR_OVCI {severity = error}   {msg = "Casex/Casez item expression '%s' overlapping with casex/casez item expression '%s' in design-unit %s"}
+  CAS_NR_UCIT {severity = warning} {msg = "Unequal length in case item comparison (selector is %d bits, case tag expression is %d bits) in design-unit %s"}
+  CAS_NR_XCAZ {severity = error}   {msg = "Case item expression contains 'x' for a casez statement (useful only in casex statements) in design-unit %s"}
+  CND_NS_MBEX {severity = warning} {msg = "The expression '%s' in condition does not result in a single bit value in design-unit %s"}
+  CND_NR_BWOP {severity = warning} {msg = "In module '%s', using a bit-wise operation in a conditional expression '%s' is not recommended"}
+  CND_NR_DUPF {severity = warning} {msg = "In design unit '%s', a duplicate condition '%s' is found inside the '%s' statement"}
+  CST_MS_SIZE {severity = warning} {msg = "Constant '%s' has a value greater than its size"}
+  CST_NO_DELY {severity = warning} {msg = "Delay %s in assignment is not a constant expression"}
+  DLY_NO_CSAG {severity = error}   {msg = "Delay used in VHDL conditional signal assignment to '%s'"}
+  DLY_NR_NEGT {severity = error}   {msg = "Negative delay '%s' used in the statement"}
+  EXP_NR_DIVZ {severity = warning} {msg = "Division by zero operation in expression '%s'"}
+  EXP_NR_OVFB {severity = warning} {msg = "All bits are lost in shift operation '%s' in module/design-unit '%s'. '%d' bit data has been shifted by '%d'"}
+  FLP_NR_MXCS {severity = warning} {msg = "Combinational logic detected in sequential block for flop '%s'"}
+  FNC_MS_AFPR {severity = error}   {msg = "Width mismatch between formal '%s' of %s bit(s) and actual '%s' of %s bit(s) arguments of function/task '%s'"}
+  FNC_MS_MTYP {severity = warning} {msg = "Task/function call argument '%s' is of incorrect type (formal %s versus actual %s)"}
+  FNC_NO_AVAC {severity = warning} {msg = "Function %s"}
+  FNC_NO_LRET {severity = warning} {msg = "Function '%s' in module/design-unit '%s' must have only one return statement, which should be the last statement in the function"}
+  FNC_NO_UASG {severity = warning} {msg = "Function '%s' is not assigned a value or is partially assigned. '%s' is not assigned"}
+  FNC_NR_AVGV {severity = warning} {msg = "Function '%s' in design-unit '%s' assigns a value to global variable '%s'"}
+  FNC_NR_NARG {severity = warning} {msg = "Task/function/procedure '%s' call has wrong number of arguments"}
+  FNC_NR_RETV {severity = warning} {msg = "In function '%s', the %s of return type and return value are not same"}
+  FNC_NR_UGLV {severity = warning} {msg = "Variable '%s' used in function '%s' of design-unit '%s' is outside of the function scope"}
+  IDN_NR_AMKW {severity = warning} {msg = "AMS reserved word '%s' used as an identifier or label"}
+  IDN_NR_CKYW {severity = warning} {msg = "C/C++ reserved word '%s' used as an identifier or label"}
+  INS_NR_PRMP {severity = warning} {msg = "In design-unit '%s', parameter is used in actual expression '%s' of port '%s' in instance '%s'" }
+  IDN_NR_DCSU {severity = warning} {msg = "In design-unit '%s', identifier name '%s' is used with case difference as '%s'"}
+  IDN_NR_SVKW {severity = warning} {msg = "SystemVerilog reserved word '%s' used as an identifier or label"}
+  IDN_NR_VHKW {severity = warning} {msg = "VHDL reserved word '%s' used as an identifier or label"}
+  IDN_NR_VKYW {severity = warning} {msg = "Verilog reserved word '%s' used as an identifier or label"}
+  IDX_MS_INDL {severity = warning} {msg = "VHDL port '%s' has index bounds mismatch between component declaration (%s) and entity declaration (%s)"}
+  IDX_NR_DTTY {severity = warning} {msg = "Variable '%s' used as index in expression '%s' should be 2-state data type"}
+  IFC_NO_FALW {severity = error}   {msg = "The 'if' statement specifying an asynchronous set/reset is not the first statement of the always block : '%s'"}
+  IFC_NR_DGEL {severity = warning} {msg = "else/else-if statement of '%s' in %s '%s' is ambiguous"}
+  INP_NO_LOAD {severity = warning} {msg = "Input/inout port '%s' declared in the design-unit '%s' has a driver but no load"}
+  INP_UC_INST {severity = error}   {msg = "Input port '%s' of design-unit '%s' is being used inside design-unit, but not connected in its instance '%s'"}
+  INS_MS_MTYP {severity = warning} {msg = "Port '%s' of instance '%s' has type mismatch (formal %s versus actual %s)"}
+  INS_MS_PSIZ {severity = error}   {msg = "Port '%s' has size mismatch between design-unit instantiation and port declaration, '%s' bits at instantiation and '%s' bits at declaration"}
+  INS_NO_INAM {severity = warning} {msg = "Instantiation of %s '%s' should have an instance name"}
+  INS_NR_EXPR {severity = warning} {msg = "In design-unit '%s', formal port '%s' is connected to expression '%s'"}
+  INS_NR_MPRM {severity = warning} {msg = "Too many parameters are present in %s instance: '%s'"}
+  INS_NR_MPRT {severity = warning} {msg = "In module '%s', too many ports for module instance '%s'"}
+  INS_NR_PODL {severity = warning} {msg = "Port connections for instance '%s' of %s '%s' should be made by name rather than by positional ordered list"}
+  INS_NR_PTEX {severity = error}   {msg = "%s is used in a port expression"}
+  INT_NR_PSBT {severity = error}   {msg = "Bit/part select of %s variable '%s' encountered"}
+  IOP_NO_USED {severity = warning} {msg = "The inout port '%s' declared in the %s '%s' is unused (neither read nor assigned)"}
+  IOP_NR_UASG {severity = warning} {msg = "The inout port '%s' declared in the %s '%s' is unassigned, but read"}
+  IOP_NR_UNRD {severity = warning} {msg = "The inout port '%s' declared in the %s '%s' is unread, but assigned"}
+  LOP_NR_CTCE {severity = error}   {msg = "Design-unit '%s' contains a loop with a constant conditional expression '%s'"}
+  LOP_NR_IDTY {severity = warning} {msg = "Loop variable '%s' of the 'for' loop is not of recommended data type(s) (%s)"}
+  LOP_NR_MLPV {severity = error}   {msg = "Value of loop variable '%s' modified within the loop"}
+  LOP_NR_MSTP {severity = error}   {msg = "Loop step variable '%s' is different from the loop condition or initialization statement"}
+  MAC_NO_USED {severity = warning} {msg = "Macro '%s' is unused"}
+  MAC_NR_DMUL {severity = warning} {msg = "Macro '%s' is defined with same definition"}
+  MAC_NR_RDEF {severity = warning} {msg = "Macro '%s' is redefined"}
+  MOD_NO_PRTD {severity = warning} {msg = "%s '%s' has %s ports"}
+  MOD_NO_TMSL {severity = warning} {msg = "Timescale is missing for %s '%s' having delays"}
+  MOD_NR_CASX {severity = warning} {msg = "'casex' statement used in design-unit '%s'"}
+  MOD_NR_DEFP {severity = warning} {msg = "In module %s, defparam assignment to '%s' is not recommended"}
+  MOD_NR_PGAT {severity = warning} {msg = "Gate instance '%s' is not expected in an RTL design"}
+  MOD_NR_PRIM {severity = error}   {msg = "Primitive instance '%s' is not expected in an RTL design"}
+  MOD_NR_RPXZ {severity = warning} {msg = "In design-unit '%s', repetition multiplier contains x/z"}
+  MOD_NS_EVNT {severity = warning} {msg = "In design-unit '%s' the use of named event '%s' is not supported"}
+  REP_NR_ZERO {severity = warning} {msg = "In design unit '%s', all zero replication in concat expression '%s' is not recommended."}
+  OPR_NR_REAL {severity = warning} {msg = "Real operand ('%s') is used in logical comparison"}
+  OPR_NR_TERN {severity = warning} {msg = "Unequal length operand in ternary operator in design-unit/block %s. First operand '%s' is %s bits. Second operand '%s' is %s bits"}
+  OPR_NR_UCMP {severity = info}    {msg = "Unequal length operands in equality operator encountered in design-unit/block %s. LHS operand is %d bits, RHS operand is %d bits"}
+  OPR_NR_UEAS {severity = warning} {msg = "Unequal length operand in arithmetic operator %s in design-unit/block %s. LHS operand '%s' is %s bits, RHS operand '%s' is %s bits"}
+  OPR_NR_UEOP {severity = info}    {msg = "Unequal length operand in bit operator %s in design-unit/block %s. LHS operand '%s' is %s bits, RHS operand '%s' is %s bits"}
+  OTP_NO_FDRV {severity = error}   {msg = "Output/inout '%s' is not fully driven in the design-unit '%s'"}
+  OTP_NO_USED {severity = warning} {msg = "The output port '%s' declared in the %s '%s' is unused"}
+  OTP_NR_READ {severity = warning} {msg = "Output port '%s' is read inside the design-unit '%s'"}
+  OTP_NR_TSUP {severity = error}   {msg = "The output/inout '%s' is tied to supply0/supply1"}
+  OTP_NR_UDRV {severity = error}   {msg = "Output/inout '%s' is not driven in the design-unit '%s'"}
+  OTP_UC_INST {severity = warning} {msg = "Port '%s' (which is being used as an output) of design-unit '%s' is being driven inside the design, but not connected in its instance '%s'"}
+  PAR_MS_SDAS {severity = info}    {msg = "Parameter '%s' has a size mismatch between its declaration and its value assigned, '%s' bits at declaration and '%s' bits at assigned value"}
+  PRG_NO_EXPT {severity = error}   {msg = "Nested '%s' found inside '%s' block"}
+  PRG_NR_PROF {severity = error}   {msg = "'%s' found without corresponding off pragma"}
+  PRT_NO_MODE {severity = warning} {msg = "In design-unit '%s', the port '%s' does not have a direction"}
+  PRT_NR_BUFF {severity = error}   {msg = "Port '%s' should not be of mode buffer in design-unit '%s'"}
+  PRT_NR_DFRG {severity = error}   {msg = "Port '%s' with range (%d to %d) is re-declared with a different range (%d to %d)"}
+  PRT_NR_IOPT {severity = warning} {msg = "Port '%s' of %s '%s' is of type inout"}
+  REG_NO_READ {severity = info}    {msg = "Local register variable '%s' is not read, but is assigned at least once in %s '%s'"}
+  REG_NO_USED {severity = warning} {msg = "Local register variable '%s' is unused (neither read nor assigned) in %s '%s'"}
+  REG_NR_MBNT {severity = error}   {msg = "The notifier in timing check '%s' can not be greater than 1 bit"}
+  REG_NR_UASR {severity = error}   {msg = "Local register variable '%s' is unassigned, but is read at least once in %s %s"}
+  REP_NR_NPOS {severity = error}   {msg = "Replication multiplier '%s' is non-positive in expression '%s'"}
+  RST_IS_CPLX {severity = error}   {msg = "In design-unit '%s', for flip-flop '%s', reset is an expression"}
+  RST_IS_NFST {severity = error}   {msg = "Reset '%s' of one or more flip-flops is not derived from first signal from reset order"}
+  SEQ_NR_BLKA {severity = warning} {msg = "Blocking assignment to variable '%s' encountered in a sequential block"}
+  SIG_NO_ASIG {severity = error}   {msg = "VHDL signal '%s' is unassigned, but is read at least once in %s '%s'"}
+  SIG_NO_READ {severity = info}    {msg = "VHDL signal '%s' is not read, but assigned at least once in %s '%s'"}
+  SIG_NO_USED {severity = info}    {msg = "VHDL signal '%s' declared in %s '%s' is unused (neither read nor assigned)"}
+  SIG_NR_INDL {severity = warning} {msg = "A signal '%s' in an RTL description is initialized in its declaration"}
+  TSK_NR_ASGV {severity = warning} {msg = "Task '%s' in design-unit '%s' assigns a value to global variable '%s'"}
+  VAR_NO_ASIG {severity = error}   {msg = "VHDL variable '%s' is unassigned, but is read at least once in %s '%s'"}
+  VAR_NO_EVTR {severity = error}   {msg = "Event variable '%s' is unused"}
+  VAR_NO_INTL {severity = warning} {msg = "Variable '%s' is not initialized before being incremented/decremented in the for loop"}
+  VAR_NO_READ {severity = info}    {msg = "VHDL variable '%s' is not read, but assigned at least once in %s '%s'"}
+  VAR_NO_USED {severity = info}    {msg = "VHDL variable '%s' declared in %s '%s' is unused (neither read nor assigned)"}
+  VAR_NR_NEGT {severity = warning} {msg = "In design-unit '%s', the %s '%s' has a negative value"}
+  VAR_NR_PACK {severity = warning} {msg = "In module '%s', a concatenation expression is assigned to an unpacked variable "%s""}
+  VAR_NR_RDBA {severity = warning} {msg = "Signal/Variable '%s', is being read before getting assigned"}
+  VAR_NR_RDEC {severity = warning} {msg = "Redeclaration of variable '%s' is not allowed"}
+  VAR_NR_STRN {severity = warning} {msg = "Variable '%s' is of string datatype"}
+  VAR_NR_UBDL {severity = warning} {msg = "Variable/Wire '%s' is used before declaration in design-unit '%s'"}  
+}
+
+category SIM_SYNTH "Pre and post-synthesis simulation mismatch rules"
+{
+  ALW_NR_MSLV {severity = warning} {msg = "Signal '%s' appearing in the sensitivity list is modified inside the block"}
+  ALW_NR_UNUV {severity = warning} {msg = "Signal '%s' appearing in the sensitivity list is not used in the '%s' block"}
+  DLY_NR_XZVL {severity = error}   {msg = "Delay value '%s' contains an x/z"}
+  MOD_NR_SYXZ {severity = warning} {msg = "Synthesizing 'x'/'z' value '%s' in %s '%s'"}
+  VAR_NR_MBNB {severity = warning} {msg = "In design-unit '%s', %s is assigned via both blocking and non-blocking assignments"}
+  VAR_NR_NDCL {severity = error}   {msg = "Variable '%s' is declared as '%s'"}
+}
+
+category SYNTHESIS "Synthesizability rules"
+{
+  ALW_IC_SENL {severity = error}   {msg = "Sensitivity list of always block is incomplete in design-unit %s, missing variable(s): %s"}
+  ALW_NO_COMB {severity = warning} {msg = "The variable '%s' models a %s in an 'always_comb' block"}
+  ALW_NO_ETRG {severity = error}   {msg = "Always block with no event trigger at the start in design-unit '%s'"}
+  ALW_NO_EVTS {severity = error}   {msg = "%s block with no event trigger at the start in %s %s"}
+  ALW_NO_FFLP {severity = warning} {msg = "The variable '%s' models a %s in an 'always_ff' block"}
+  ALW_NR_MCLK {severity = error}   {msg = "Multiple clocks specified in variable %s of design-unit %s"}
+  ALW_NR_MIFF {severity = warning} {msg = "Sensitivity list '%s' of always block containing 'iff' qualifiers, should be sensitive to at most one signal"}
+  ALW_NR_MXCK {severity = error}   {msg = "Always block has both level and edge sensitive variables in its sensitivity list: %s"}
+  ALW_NR_TCST {severity = error}   {msg = "The event expression '%s' cannot be synthesized"}
+  ASG_NR_NBCB {severity = error}   {msg = "Non-blocking assignment at '%s' encountered in a combinational block"}
+  ASG_NR_SUPN {severity = warning} {msg = "Assignment to a supply0/supply1 net %s in design-unit %s is ignored"}
+  CAS_NR_EVLX {severity = error}   {msg = "In %s '%s', case item expressions evaluating to 'x/z/?' are ignored"}
+  CLK_NR_DDBE {severity = error}   {msg = "Clock %s for flip-flop %s is driving data on both edges"}
+  CND_NR_CMXZ {severity = error}   {msg = "In design-unit '%s', conditional expression containing 'x'/'z' is statically evaluated to false"}
+  CST_NR_REAL {severity = error}   {msg = "In design-unit '%s', real literal constant '%s' found"}
+  FLP_NR_ASMX {severity = warning} {msg = "In the specified always/process block, descriptions of flip-flops with and without asynchronous set/reset are mixed. Flip-flops without asynchronous set/reset are: %s"}
+  FLP_NR_INDL {severity = error}   {msg = "The flip-flop output '%s' is initialized in its declaration or in initial block"}
+  FLP_NR_MBCK {severity = warning} {msg = "In %s '%s', multi-bit '%s' used as clock for flip-flop '%s'"}
+  FNC_NR_CREC {severity = warning} {msg = "Function '%s' is called recursively in %s '%s'"}
+  FNC_NR_RLRT {severity = error}   {msg = "Function '%s' in design-unit '%s' has return of real datatype"} 
+  IDX_NR_LBOU {severity = error}   {msg = "Variable index/range selection in LHS of assignment of '%s' is potentially outside the defined range"}
+  IDX_NR_ORNG {severity = warning} {msg = "Variable index/range selection of '%s' is potentially outside the defined range"}
+  LAT_NR_MXCB {severity = warning} {msg = "The latches '%s' in the always block are mixed with combinational logic"}
+  LOP_NR_FCND {severity = error}   {msg = "Loop condition '%s' is false"}
+  LOP_NR_INFL {severity = warning} {msg = "%s '%s' contains a potential infinite loop"}
+  MOD_IS_RCMP {severity = warning} {msg = "Overwriting previous definition of %s '%s'"}
+  MOD_NR_ALAS {severity = error}   {msg = "Design-unit %s has duplicate ports"}
+  MOD_NR_ASLD {severity = warning} {msg = "In design-unit %s, the reset value of flip-flop %s is not constant. This infers an asynchronous load"}
+  MOD_NR_CNDO {severity = error}   {msg = "In design-unit %s, %s comparison is treated as %s"}
+  MOD_NR_DSBC {severity = error}   {msg = "Design-unit %s contains non-synthesizable disable construct"}
+  MOD_NR_EVRP {severity = error}   {msg = "%s %s contains event specification which cannot be synthesized"}
+  MOD_NR_FINB {severity = warning} {msg = "Design-unit '%s' has a final block"}
+  MOD_NR_FKJN {severity = error}   {msg = "%s %s contains non-synthesizable fork-join constructs"}
+  MOD_NR_FORE {severity = error}   {msg = "Design-unit %s contains forever construct"}
+  MOD_NR_FREL {severity = error}   {msg = "%s %s contains non-synthesizable force/release constructs"}
+  MOD_NR_INIB {severity = warning} {msg = "Design-unit '%s' has an initial block"}
+  MOD_NR_NSLP {severity = error}   {msg = "%s %s contains non-static loop"}
+  MOD_NR_NULP {severity = error}   {msg = "Module %s has null formal port(s)"}
+  MOD_NR_PHYD {severity = error}   {msg = "Physical data type '%s' in design-unit '%s' is non-synthesizable"}
+  MOD_NR_STRN {severity = error}   {msg = "Signal strength '%s' found in the design-unit '%s'"}
+  MOD_NR_USWC {severity = error}   {msg = "%s %s contains non-synthesizable wait construct"}
+  MOD_NS_ADAS {severity = error}   {msg = "Design-unit %s has assign/de-assign statements"}
+  NOW_NS_FUNC {severity = error}   {msg = "'now' function in design-unit '%s' is not synthesizable"}
+  OPR_NR_WCCO {severity = warning} {msg = "RHS Inside or wildcard equality operator (==? or !=?) is not constant in '%s'"}
+  SIG_NO_HIER {severity = error}   {msg = "Design-unit '%s' has unsynthesizable hierarchical reference '%s'"}
+  SIG_NO_UHIR {severity = error}   {msg = "Design-unit '%s' has unresolved hierarchical reference '%s'"}
+  SIG_NR_TIME {severity = error}   {msg = "Signal '%s' of data type 'time' used in %s %s"}
+  TSK_NR_CLKE {severity = error}   {msg = "%s of variable '%s' used in task '%s'"}
+  VAR_NR_MBLA {severity = warning} {msg = "In design-unit '%s', variable '%s' has multiple blocking assignments"}
+  VAR_NR_MNBA {severity = warning} {msg = "In design-unit '%s', variable '%s' has multiple non-blocking assignments%s"}
+  VAR_NR_OUTR {severity = warning} {msg = "Bit/part select '%s' is outside the defined range %s for '%s'"}
+  VAR_NR_RDTA {severity = info}    {msg = "VHDL variable '%s' is used to register data"}
+  VAR_NR_REAL {severity = error}   {msg = "Variable '%s' of data type 'real' used in %s %s"}  
+}  
+
+category STRUCTURAL "Structural rules"
+{
+  ASG_NR_FNCP {severity = warning} {msg = "In module '%s', illegal %s port in function '%s' used in continuous assignment statement"}
+  CLK_NO_INPT {severity = warning} {msg = "In design-unit '%m', clock '%l' driving one or more flip-flops, is not an input. One such flip-flop is '%l'"}
+  CLK_NS_EDMX {severity = warning} {msg = "Both edges of clock '%s' used"}
+  CMB_NR_TLIO {severity = warning} {msg = "Combinational path detected between top-level input '%s' and top-level output '%s'"}
+  FLP_NO_SRST {severity = info}    {msg = "Flip-flop '%s' does not have any set or reset"}
+  FLP_NR_ASRT {severity = warning} {msg = "Flip-flop '%s' has both asynchronous set and reset"}
+  FLP_NR_ENCT {severity = info}    {msg = "Net '%h' driving enable pin of one or more flip-flops, is constant"}
+  LAT_IS_FLSE {severity = info}    {msg = "Latch '%h' is feeding latch '%h' having same enable %h"}
+  MOD_NO_IPRG {severity = info}    {msg = "Input port '%h' of top-level design-unit is not registered"}
+  MOD_NR_SPFY {severity = error}   {msg = "The module '%s' contains non-synthesizable specify block"}
+  NET_IS_INTB {severity = warning} {msg = "Net '%l' defined in design-unit '%m', is inferred as a tri-state buffer"}
+  NET_NO_DRIV {severity = error}   {msg = "Net '%s' declared in design-unit '%s' has no driver but has at least one load"}
+  NET_NO_LDDR {severity = info}    {msg = "Net '%s' declared in design-unit '%s' neither has driver nor any load"}
+  NET_NO_LOAD {severity = info}    {msg = "Net '%s' declared in design-unit '%s' has a driver but has no load"}
+  REG_NO_LOAD {severity = warning} {msg = "Flip-flop/latch '%s' declared in design-unit '%s' does not have any load"}
+  RST_IS_DCMB {severity = error}   {msg = "Net '%h' generated from combinational logic is driving reset of one or more flip-flops"}
+  RST_IS_DFLP {severity = warning} {msg = "Net '%h' generated from flip-flop is driving reset of one or more flip-flops"}
+  RST_IS_DLAT {severity = warning} {msg = "Net '%h' generated from latch is driving reset of one or more flip-flops"}
+  RST_MX_EDGE {severity = warning} {msg = "Signal '%s' is used as active-high reset as well as active-low reset"}
+  RST_NR_PENA {severity = warning} {msg = "Net '%h' driving reset of one or more flip-flops, is permanently enabled"}
+  SIG_IS_MDRV {severity = error}   {msg = "Net '%s' has multiple drivers"}
+}
+
+
+category BLACKBOX "Blackbox related rules"
+{
+  ELB_IS_ERRO {severity = error}   {msg= "Failed to elaborate design-unit '%s'. For more details check errors in the "Design Build" view"}
+  INS_IS_EBXE {severity = info}    {msg = "Instance %s was explicitly blackboxed by user"}
+  MOD_IS_EBXE {severity = info}    {msg = "Module/design-unit %s was explicitly blackboxed by user"}
+  MOD_IS_IBXE {severity = error}   {msg = "Design-unit %s was implicitly blackboxed by the tool. Check for more details under the BBOX category in the "Design Build" view"}
+  MOD_IS_RBXE {severity = error}   {msg = "Design-unit %s was blackboxed as a result of resilient compilation. Check for more details under the BBOX category in the "Design Build" view"}
+  SIG_IS_ATBX {severity = warning} {msg = "%s '%s' is automatically blackboxed"}
+}
+
+
+category DFT_FUNCTIONAL "Functional mode DFT rules"
+{
+  CLK_IS_ACRF {severity = info}    {msg = "Clock signal '%h' drives reset '%s' and clock pin '%h' of one or more flip-flops"}
+  CLK_IS_ACRL {severity = info}    {msg = "Clock signal '%s' drives reset '%s' and enable pin '%s' of one or more latches"}
+  CLK_IS_CDLA {severity = info}    {msg = "Clock signal '%h' drives the data pin '%s' of one or more latches"}
+  CLK_IS_CDTF {severity = info}    {msg = "Clock signal '%h' drives the data pin '%s' of one or more flip-flops"}
+  CLK_IS_DDCF {severity = info}    {msg = "Clock signal '%h' drives the data pin '%s' and clock pin '%h' of one or more flip-flops"}
+  CLK_IS_DDCL {severity = info}    {msg = "Clock signal '%s' drives the data pin '%s' and enable pin '%s' of one or more latches"}
+  CLK_IS_DRFF {severity = info}    {msg = "Clock signal '%h' drives a set or reset pin '%s' of one or more flip-flops"}
+  CLK_IS_DRLA {severity = info}    {msg = "Clock signal '%h' drives a set or reset pin '%s' of one or more latches"} 
+  CLK_IS_DLAT {severity = warning} {msg = "Signal '%h' generated from latch is driving clock of one or more flip-flops"}
+  CLK_IS_NDPI {severity = warning} {msg = "Signal '%h' driving clock of one or more flip-flops, is undriven"}
+  CLK_IS_BDPI {severity = warning} {msg = "Signal '%h' driving clock of one or more flip-flops is blackbox driven. One such flip-flop is '%h'"}
+  CLK_IS_CDPI {severity = warning} {msg = "Signal '%h' driving clock of one or more flip-flops is constant driven. One such flip-flop is '%h'"}
+  FLP_IS_CDFF {severity = warning} {msg = ""Signal '%h' generated from a flip-flop is driving clock of one or more flip-flops"}
+  FLP_IS_CKLP {severity = error}   {msg = "Feedback loop detected through clock of flip-flop and '%s'"}
+  FLP_IS_GTCK {severity = warning} {msg = "Signal '%s' generated from combinational logic is driving clock of one or more flip-flops"}
+  FLP_IS_TNEF {severity = warning} {msg = "Flip-flop '%l' is triggered at the negative edge of clock '%l'"}
+  LAT_IS_CSTD {severity = warning} {msg = "Inferred latch '%' has a constant data input"}
+  LAT_IS_INFR {severity = error}   {msg = "Process/always block models a latch, or signal '%s' is not assigned a value in all branches"}
+  MOD_IS_CMBL {severity = error}   {msg = "Combinational loop detected passing through: '%h'"}
+  NUM_LP_CMBL {severity = info}    {msg = "Loops connected through the signal '%s' exceed the loop limit threshold '%s'"}
+  OTP_NO_RGTM {severity = info}    {msg = "Output '%h' of top-level module/design-unit is not registered"}
+  INS_IS_FEED {severity = warning} {msg = "Feedthrough detected from input/inout '%s' to port '%s'"}
+  RST_IS_DDAF {severity = warning} {msg = "Reset signal '%s' drives the data pin '%s' of one or more flip-flops/latches"}
+  RST_MX_SYAS {severity = warning} {msg = "Design uses a mix of both synchronous and asynchronous reset. '%s' is used as synchronous reset and '%s' is used as asynchronous reset"}
+  TRI_NO_EPTB {severity = error}   {msg = "Signal '%h' driving enable pin of the tristate buffer '%h' is not directly controllable by primary input(s)"}
+}
+ 
+
+//***************************************************************************
+//**    Following is the description of the default SUPERLINT parameters   **
+//***************************************************************************
+
+// *****************************
+// Overall SUPERLINT parameters
+// *****************************
+
+// ***********************************************************
+// **      Parameters for naming convention rules           **
+// ***********************************************************
+// In Superlint two parameters are used to control the regex style
+// for naming convention rules
+// 1. For regex style in general
+//  params LINT {global_pattern_style="wildcard|regex"}
+// 2. Local regex style for each naming convention rule
+// params <rule_name> {local_pattern_style="regex|wildcard"}
+//
+// params LINT {global_pattern_style="wildcard|regex"} controls the regular
+// expression style which is followed in Superlint globally
+// and the 'pattern' parameter for the naming convention rule
+// needs to be written according to the style selected.
+// "wildcard" is the wildcard style which is
+// same as used on the c shell command line and "regex" is the
+// regex style regular expression.
+// Default value is "regex"
+// This global Superlint regex style can be overwritten for each
+// naming rule locally by using the following parameter
+// params <rule_name> {local_pattern_style="regex|wildcard"}
+//
+// example of "regex" regular expression
+// params INS_NF_NMCV {pattern="^[a-zA-Z0-9]*_inst$"}
+// This pattern will match any instance name which starts with
+// allowable character set, that is, lower/upper case alphabets or number
+// and should end with _inst
+
+// example of "wildcard" regular expression
+// params INS_NF_NMCV {pattern="*_inst"}
+// This pattern will match any instance name which ends with _inst
+
+params LINT {global_pattern_style=wildcard}
+//params LINT {global_pattern_style=regex}
+
+// *************************************************************
+// Parameter to control the behavior of size matching rules
+// in Verilog/SystemVerilog
+// *************************************************************
+
+// Parameter "unbased_literal" impacts the size calculation of the
+// unsized literals, for example, integers. This will impact the behavior of
+// all size related check such as OPR_NR_UCMP, OPR_NR_UREL, CAS_NR_UCIT, OPR_NR_UEOP, OPR_NR_UEAS etc. 
+// where by default this parameter will be set to "size_as_per_type", integer size 
+// will be taken as 32 bits irrespective of their value. If its value is set to
+// "size_as_per_value" then size will be the number of bits in which
+// integer can be accommodated. For example, size of 3 will be 2 bits.
+
+params LINT {unbased_literal="size_as_per_type"}
+//params LINT {unbased_literal="size_as_per_value"}
+
+//The "size_as_per_calculation" parameter impacts all size-related rules.
+//If this parameter is set to "yes", these rules consider calculated size.
+//If it is set to "no", these rules consider LRM size.
+//params LINT {size_as_per_calculation="yes"}
+params LINT {size_as_per_calculation="no"}
+
+
+// *******************************************************************
+//  Parameter to control the behavior for partial unused vector,
+//  if set to no, partially unused vector will be ignored.
+// *******************************************************************
+params LINT {report_partially_unused_vector="yes"}
+//params LINT {report_partially_unused_vector="no"}
+
+
+// *******************************************************************
+//  Parameter to control the behavior for complex expressions,
+//  if set to no, complex expressions set in array (prefixes/indices) would be ignored.
+// *******************************************************************
+
+//params LINT {report_complex_indexed_expr="yes"}
+params LINT {report_complex_indexed_expr="no"}
+
+
+// *******************************************************************
+//  Parameter to control the supported bit size of signals
+//  current bit size is 16384, user can modify this size to change limit.
+// *******************************************************************
+params LINT {max_supported_bit_size="16384"}
+
+
+// ******************************************************************
+// *********** Parameter for controlling Black-box ****************
+// ******************************************************************
+// This parameter controls how to treat black box instance.
+// if param is set to:
+// all_bbox: assume all bbox instance as fully controllable/observable
+// explicit_bbox: assume only explicitly black boxed instance as fully controllable/observable
+// no_bbox: assume black boxed instance as neither controllable nor observable
+
+params LINT {assume_bbox_connected="all_bbox"}
+//params LINT {assume_bbox_connected="no_bbox"}
+//params LINT {assume_bbox_connected="explicit_bbox"}
+
+
+// **************************************************************************************
+// ***************** Parameter to control constant propagation through flip-flop
+// **************************************************************************************
+// This parameter controls the behavior of constant propagation through flip-flops.If the value of parameter
+// is set to "yes", tool will propagate the constant through flop. If value is set
+// to "no", tool will not propagate the constant through flop . The default value of
+// the parameter  is set to "no".
+
+//params SUPERLINT {allow_constant_propagation_through_flip_flop ="yes"}
+params SUPERLINT {allow_constant_propagation_through_flip_flop="no"}
+
+
+// **************************************************************************************
+// ***************** Parameter to control constant propagation through latch
+// **************************************************************************************
+// This parameter controls the behavior of constant propagation through latches.If the value of parameter
+// is set to "yes", tool will propagate the constant through latch. If value is set
+// to "no", tool will not propagate the constant through latch . The default value of
+// the parameter  is set to "no".
+
+//params SUPERLINT {allow_constant_propagation_through_latch="yes"}
+params SUPERLINT {allow_constant_propagation_through_latch="no"}
+
+// **************************************************************************************
+// ***************** Parameter to control processing of -y/-v option
+// **************************************************************************************
+// This parameter controls whether to skip violations inside -y/-v files provided with the "analyze" command.
+// If the value of this parameter is set to "compile_v_option", the tool does not issue violations inside modules processed with the -v option.
+// If the value of this parameter is set to "compile_y_option", the tool does not issue violations inside modules processed with the -y option.
+// If the value of parameter is set to "both", the tool does not issue violations inside modules processed witheither -v or -y options.
+// If the value of parameter is set to "none", the tool issues violations inside modules processed with both -v and -y options.
+// The default value of the parameter is "compile_v_option".
+params SUPERLINT {skip_library_modules="compile_v_option"}
+//params SUPERLINT {skip_library_modules="compile_v_option|compile_y_option|both|none"}
+
+
+// **************************************************************************************
+// ***************** Parameter to skip unloaded clock gates
+// **************************************************************************************
+// This parameter controls the behavior of unloaded clock gates. If the value of this parameter
+// is set to "yes", the tool ignores unloaded clock gates. If the value is set
+// to "no", the tool detects unloaded clock gates. The default value of this
+// parameter is "no".
+
+//params SUPERLINT {skip_unloaded_clock_gates="yes"}
+params SUPERLINT {skip_unloaded_clock_gates="no"}
+
+// ********************************************************************
+// ***************Parameter to disable checking unused code************
+// ********************************************************************
+// The "skip_checking_unused_code" parameter disables checks of unused modules,
+// functions, and tasks. If the value of this parameter is "yes", the tool
+// skips checks for unused modules, functions, and tasks. By default, the value
+// is set to "no".
+
+params SUPERLINT {skip_checking_unused_code ="no"}
+//params SUPERLINT {skip_checking_unused_code ="yes"}
+
+// *****************************************************************************
+// ************ Parameter for controlling latch data in loops  *****************
+// *****************************************************************************
+//  Messages for loops passing through the data of a latch are issued
+//  when the value of the "include_latch_data_for_loops" parameter is "yes".
+//  Set this parameter to "no" to disable such messages.
+//  The default is "yes".
+
+params SUPERLINT {include_latch_data_for_loops="yes"}
+//params SUPERLINT {include_latch_data_for_loops="no"}
+
+// ***********************************************************
+// **   Rule specific parameter for naming convention rules   
+// ***********************************************************
+
+params MOD_NF_NMCV {pattern=""}
+params INS_NF_NMCV {pattern=""}
+params PAR_NF_NMCV {pattern_parameter=""}
+params PAR_NF_NMCV {pattern_localparam=""}
+params IDN_NF_ALCA {pattern=""}
+params FIL_NS_SUFX {pattern="(^vhd$|^vhdl$|^v$|^sv$)"}
+params FIL_NS_SUFX {local_pattern_style=regex}
+params IDN_NF_ALCA {reserved_keyword_list=""}
+params IDN_NF_ALCA {reserved_keyword_list_case_sensitive="yes"}
+
+
+// ***********************************************************
+// **   Rule specific parameters for categories other than NAMING 
+// ***********************************************************
+
+// *******************************************************************
+// Parameter to control the behavior of LOP_NR_CTCE
+// *******************************************************************
+// When the value of parameter 'optimize_condition' is set to 'yes', Tool
+// optimizes conditional expressions for LOP_NR_CTCE checks in the
+// following cases:
+//   * If any operand of the "logical AND" or "Bitwise AND" operation is false, the "AND/Bitwise AND"
+//     operation evaluates to false.
+//   * If any operand of the "logical OR" or "bitwise or" operation is true, the "OR/Bitwise OR"
+//     operation evaluates to true.
+// When the value of this parameter is set to 'no', these optimizations are not attempted.
+// The default value of this parameter is 'yes'
+
+params LOP_NR_CTCE {optimize_condition="yes"}
+//params LOP_NR_CTCE {optimize_condition="no"}
+
+// ***********************************************************
+// ** Parameters to control the direction range for arrays  **
+// ***********************************************************
+
+// Default direction for range in array/vector declarations is "descending".
+// This can be changed to "ascending", if that is preferred.  This
+// only affects the ARY_MS_DRNG check.
+
+// params ARY_MS_DRNG {direction="ascending"}
+params ARY_MS_DRNG {direction="descending"}
+
+// By default ARY_MS_DRNG reports for both packed and unpacked dimensions of arrays.
+// When this parameter is explictly set to "no" the tool will not check the
+// unpacked dimensions of arrays.
+
+params ARY_MS_DRNG {report_unpacked="yes"}
+//params ARY_MS_DRNG {report_unpacked="no"}
+
+// By default, following check is not issued on component declaration
+// If parameter is set to 'no' then this check is performed on component declaration also.
+//params ARY_MS_DRNG {skip_component_declaration="no"}
+params ARY_MS_DRNG {skip_component_declaration="yes"}
+
+// ***********************************************************
+// Parameter to control the behavior of CST_NR_REAL
+// ***********************************************************
+// This parameter controls the behavior of CST_NR_REAL. When
+// the parameter "check_case_only" is set to "yes",
+// the violation is reported only when real constant is used inside case items.
+// When this parameter is set to "no", CST_NR_REAL
+// is reported when real constants are used, irrespective of where they are used.
+// The default value of this parameter is "no".
+
+params CST_NR_REAL {check_case_only="no"}
+//params CST_NR_REAL {check_case_only="yes"}
+
+// ***********************************************************
+// Parameters to control the behavior of OTP_NR_READ
+// ***********************************************************
+// When 'skip_assigned_output' is set to 'yes',
+// the tool does not issue an OTP_NR_READ message if
+// the output port is assigned as well.
+// Alternatively, if set to 'no', the tool issues OTP_NR_READ
+// even if the output is assigned.
+// The default value of this parameter is 'no'.
+
+params OTP_NR_READ {skip_assigned_output="no"}
+//params OTP_NR_READ {skip_assigned_output="yes"}
+
+// *************************************************************
+// ** Parameter to control the behavior of MOD_NO_PRTD	      **
+// *************************************************************
+// The behavior of this check is controlled by the following parameter.
+// The values of "report_port_type" parameter can be "no_port|input_only|output_only".
+// The "no_port" option will report when a design unit/module doesnot contain any port declarations.
+// The "input_only" option will report when a design unit/module contains only input ports.
+// The "output_only" option will report when a design unit/module contains only output ports.
+// Multiple options can also be used with the "|" sign.
+// By default this parameter reports for "no_port" option only.
+
+params MOD_NO_PRTD {report_port_type="no_port"}
+
+// ****************************************************************
+// ************Parameter for INS_NR_EXPR **********************
+// *******************************************************
+// This parameter controls the behavior of INS_NR_EXPR. If the value of
+// this parameter is set to "unary", INS_NR_EXPR is not reported for cases
+// with unary operator. If the value is set to "concat", INS_NR_EXPR is not
+// reported for cases with concat operator. If the value is set to "replicate",
+// INS_NR_EXPR is not reported for cases with multiconcat operator. The default
+// value is set to "unary:concat:replicate".
+
+params INS_NR_EXPR {skip_operation="unary:concat:replicate"}
+
+// **************************************************************
+// ******* Parameter for controlling INS_NR_PTEX**********
+// **************************************************************
+// This parameter controls the behavior of INS_NR_PTEX. If the value of
+// this parameter is set to "no", INS_NR_PTEX is reported for sized as
+// well as unsized literals. If the parameter is set to "yes", INS_NR_PTEX
+// is not reported for sized literals. The default value is set to "yes".
+
+params INS_NR_PTEX {ignore_sized_literal="yes"}
+//params INS_NR_PTEX {ignore_sized_literal="no"}
+
+// ***********************************************************
+// **  Parameters to control the behavior of INS_NR_PODL check **
+// ***********************************************************
+
+// The following parameter controls whether the INS_NR_PODL messages should
+// be issued for library cells that is
+// modules with `celldefine statement in Verilog.
+// By default, LINT will flag this check for technology cells instantiated
+// in the design.
+
+params INS_NR_PODL {check_tech_cells="yes"}
+// params INS_NR_PODL {check_tech_cells="no"}
+
+
+// ***********************************************************
+// **  Parameters to control the behavior of VAR_NR_NEGT check **
+// ***********************************************************
+
+// The following parameter allows user to control the datatypes
+// on which VAR_NR_NEGT check should be reported. By default,
+// it is "reg:logic:wire" which means violation will be reported
+// for all of them.
+
+params VAR_NR_NEGT {check_datatype="reg:logic:wire"}
+// params VAR_NR_NEGT {check_datatype=""}
+
+
+// *****************************************************************************
+// ************Parameter for REG_NR_UASR:REG_NO_USED:REG_NO_READ  **************
+// *****************************************************************************
+// This pattern parameter controls the behavior of REG_NR_UASR:REG_NO_USED:REG_NO_READ
+// rules. It specifies the pattern of the signal name on which these checks
+// should not be reported.
+// By default the rules are applied to all registers in the module
+// The 'pattern' here follows the same regex style as naming convention
+// rules and is controlled by the same global parameters as naming convention
+// rules.
+
+params REG_NR_UASR:REG_NO_USED:REG_NO_READ {pattern=""}
+
+// *****************************************************************************
+// ** Parameter to control the behavior of CAS_NR_CMUL checks **
+// *****************************************************************************
+
+// The parameter "report_non_constant_case_item" controls
+// the behavior of CAS_NR_CMUL. When this parameter is set
+// to "yes", the tool reports CAS_NR_CMUL for non-constant
+// duplicate case items. However, if this parameter is set
+// to "no", the tool does not report CAS_NR_CMUL for
+// non-constant duplicate case items. The default value of
+// this parameter is "no".
+params CAS_NR_CMUL {report_non_constant_case_item ="no"}
+//params CAS_NR_CMUL {report_non_constant_case_item ="yes"}
+
+// ***********************************************************
+// Parameters to control the behavior of CAS_NR_DEFN
+// ***********************************************************
+params CAS_NR_DEFN {full_case_with_no_default_allowed="yes"}
+//params CAS_NR_DEFN {full_case_with_no_default_allowed="no"}
+
+// When the 'combinational_block_only' is set to 'yes',
+// then the tool will issue a message CAS_NR_DEFN ONLY if, the
+// case block appears in a pure combinational block.
+// Alternatively, when set to 'no',
+// the tool will issue a message CAS_NR_DEFN,
+// for both combinational as well as sequential blocks .
+// The default value of this parameter is 'no'.
+
+//params CAS_NR_DEFN {combinational_block_only="no"}
+params CAS_NR_DEFN {combinational_block_only="yes"}
+
+// when the 'consider_default_item_as_full' is set to 'no', we will not consider
+// case statement as full if case items are incomplete and default is provided
+// if value is 'yes', then we consider item as full if default is available, even if items are incomplete.
+params CAS_NR_DEFN {consider_default_item_as_full="yes"}
+//params CAS_NR_DEFN {consider_default_item_as_full="no"}
+
+// When the parameter is "yes", if all the enum values for the case selector are covered,
+// tool does not report any violation.
+params CAS_NR_DEFN {consider_all_enum_covered_as_full="no"}
+//params CAS_NR_DEFN {consider_all_enum_covered_as_full="yes"}
+
+// ************************************************************
+// ** Parameter to control the behavior of CAS_NR_DEFN check **
+// ************************************************************
+
+// The following parameter allows you to control the behavior of
+// CAS_NR_DEFN. If consider_full_case
+// as_full="no", the tool reports a violation when full_case pragma
+// is used with incomplete case statement. Whereas, when consider
+// full_case_as_full="yes", a violation is not reported in
+// scenarios where full_case pragma is used with incomplete case
+// statement. By default, this parameter is disabled. Enable this
+// parameter with caution, to avoid any unwanted masking of issues.
+params CAS_NR_DEFN {consider_full_case_as_full="no"}
+//params CAS_NR_DEFN {consider_full_case_as_full="yes"}
+
+// ***********************************************************
+// ** Parameters to control the behavior of CAS_NR_DEFX check **
+// ***********************************************************
+
+// The parameter "skip_incomplete_case" allows the user to
+// control the behavior of CAS_NR_DEFX. If the value of
+// parameter is set to "no", tool will report violation when
+// default clause is not assigned 'x' for incomplete case
+// statement. However, if the parameter is set to "yes",
+// tool will not report this violation for incomplete case
+// statement. By default, the value is set to "no".
+params CAS_NR_DEFX {skip_incomplete_case="no"}
+//params  CAS_NR_DEFX {skip_incomplete_case="yes"}
+
+// The parameter "consider_full_case_as_full" allows the user
+// to control the behavior of CAS_NR_DEFX. If the parameter
+// value is set to "yes", the tool considers incomplete case
+// statements with full_case pragma as full. Whereas, when
+// this parameter is set to "no", the tool considers incomplete
+// case statements as incomplete even if full_case pragma is
+// mentioned. By default, the value is set to "no".
+params CAS_NR_DEFX {consider_full_case_as_full="no"}
+//params CAS_NR_DEFX {consider_full_case_as_full="yes"}
+
+// The parameter "consider_all_enum_covered_as_full" allows the user
+// to control the behavior of CAS_NR_DEFX. When the parameter value
+// is set to "yes", if all the enum values for the case selector are
+// covered the tool considers case statement as full/ complete.
+// However, if the parameter value is set to "no", the tool does not
+// consider case statement as full even if all the enum values for the
+// case selector are covered. The default value of this parameter is set to "no".
+params CAS_NR_DEFX {consider_all_enum_covered_as_full="no"}
+//params CAS_NR_DEFX {consider_all_enum_covered_as_full="yes"}
+
+
+// ****************************************************************
+// Parameter to control the behavior of PRT_NR_IOPT
+// The default value of this parameter is "all". When the value is
+// set to "all", the check is reported for all the "inout" ports
+// in the design. When the value of this parameter is set to
+// "top_only", the check applies to "inout" ports of only the
+// top-level module/design unit in the design. When the value of
+// this parameter is set to "sub_only", the check applies to
+// "inout" ports of all modules/design-units other than the
+// top-level module/design-unit in the design.
+// ****************************************************************
+
+//params PRT_NR_IOPT {applicable_hierarchy="all"}
+//params PRT_NR_IOPT {applicable_hierarchy="top_only"}
+params PRT_NR_IOPT {applicable_hierarchy="sub_only"}
+
+
+// **************************************************************************
+// The following parameter specifies the recommended data types
+// for the loop variable of the "for" loop.
+// params LOP_NR_IDTY {allow_loopvar="integer:int:shortint:longint"}
+// The recommended data types for the loop variable are integer,
+// int,shortint,longint.
+// ***************************************************************************
+params LOP_NR_IDTY {allow_loopvar="integer:int:shortint:longint"}
+
+// ***********************************************************
+// Parameter to control the behavior of ALW_NR_TCST
+// ***********************************************************
+// This parameter controls the behavior of ALW_NR_TCST. When
+// the parameter "check_edge_sensitive_only" is set to "no",
+// the violation is reported for both edge and level-sensitive
+// always blocks. When this parameter is set to "yes", ALW_NR_TCST
+// is reported for edge-sensitive always blocks only.
+// The default value of this parameter is "yes".
+
+params ALW_NR_TCST {check_edge_sensitive_only="yes"}
+//params ALW_NR_TCST {check_edge_sensitive_only="no"}
+
+//***********************************************************
+// ** Parameter to control the behavior of TRI_NO_EPTB ***********
+//***********************************************************
+// If the enable of a tristate buffer is controllable by primary inputs
+// through some combinational logic, LINT does not consider it to be
+// controllable. However, you can use the following parameter to change
+// this default behavior, and consider the enable of a tristate buffer
+// driven through combinational logic as controllable if any net in the
+// combinational logic is controlled by a primary input.
+
+params TRI_NO_EPTB {controllable_thru_comb_logic="no"}
+// params TRI_NO_EPTB {controllable_thru_comb_logic="yes"}
+
+// *******************************************************************
+//  Parameter to control the behavior for FLP_NR_MBCK,
+//  if set to yes, FLP_NR_MBCK will be reported on bus clock signal
+// *******************************************************************
+params FLP_NR_MBCK {clock_using_bus_signal="no"}
+//params FLP_NR_MBCK {clock_using_bus_signal="yes"}
+
+
+// *******************************************************************
+//  Parameter to control whether the rule MOD_NR_SYXZ need to report on 'x', 'z'
+//  or both.
+// *******************************************************************
+params MOD_NR_SYXZ {report_value_type="both"}
+//params MOD_NR_SYXZ {report_value_type="x"}
+//params MOD_NR_SYXZ {report_value_type="z"}
+
+//****************************************************************
+// ** Parameter to control the behavior of VAR_NR_NDCL ***********
+//****************************************************************
+// This parameter controls the list of primitives to ignore.
+// To ignore a primitive, write the name of the primitive in the parameter.
+// Use an ':' sign to separate multiple primitives.
+params VAR_NR_NDCL {ignore_primitive=""}
+
+
+// *******************************************************************
+//  Parameters to control the behavior of Combinational Loops found in the design:
+//
+//  disable_enumerated_loops: When set to "no", if one signal is part of
+//  multiple loops, then tools issues message for all such loops. Setting
+//  the value to "yes" will issue message only once.
+//
+//  loop_count_limit: Controls the maximum number of messages that will to be
+//  issued. Tool will stop issuing message after the limit is reached. When the
+//  the value is "0", tool will issue messages for all the loops in the design.
+//
+// *******************************************************************
+params MOD_IS_CMBL {disable_enumerated_loops="no"}
+//params MOD_IS_CMBL {disable_enumerated_loops="yes"}
+
+params MOD_IS_CMBL {loop_count_limit="20"}
+//params MOD_IS_CMBL {loop_count_limit="0"}
+
+
+// *****************************************************************************
+// ************Parameter for OTP_UC_INST:INP_UC_INST  **************
+// *****************************************************************************
+// The following parameter controls the settings for OTP_UC_INST:INP_UC_INST rule
+// If 'ignore_explicitly_unconnected_port' is set to 'yes',
+// then the tool will not report OTP_UC_INST:INP_UC_INST for explicitly
+// unconnected input ports.
+
+params OTP_UC_INST:INP_UC_INST {ignore_explicitly_unconnected_port="no"}
+// params OTP_UC_INST:INP_UC_INST {ignore_explicitly_unconnected_port="yes"}
+
+// The following parameter controls the settings for OTP_UC_INST:INP_UC_INST rule
+// If 'report_partially_unused' is set to 'yes',
+// then the tool will report OTP_UC_INST:INP_UC_INST for signals that are partially 
+// unconnected input ports.
+// If 'report_partially_unused' is set to 'yes',
+// then the tool will report only in the case when there are no bits connected
+
+params OTP_UC_INST:INP_UC_INST {report_partially_unused="yes"}
+// params OTP_UC_INST:INP_UC_INST {report_partially_unused="no"}
+
+// The following parameter controls the settings for the
+// OTP_UC_INST:INP_UC_INST:INP_NO_LOAD:OTP_NO_FDRV:OTP_NR_UDRV
+// rules. If the 'ignore_inout_ports' is set to 'yes', the
+// tool ignores inout ports and no violations of
+// OTP_UC_INST:INP_UC_INST:INP_NO_LOAD:OTP_NO_FDRV:OTP_NR_UDRV
+// are reported. If the 'ignore_inout_ports' is set to 'no',
+// the tool reports INP_UC_INST or INP_NO_LOAD if inout port is
+// behaving like input port and OTP_UC_INST, OTP_NO_FDRV, OTP_NR_UDRV
+// if inout port is behaving like output port.
+
+
+params OTP_UC_INST:INP_UC_INST:INP_NO_LOAD:OTP_NO_FDRV:OTP_NR_UDRV {ignore_inout_ports="no"}
+//params OTP_UC_INST:INP_UC_INST:INP_NO_LOAD:OTP_NO_FDRV:OTP_NR_UDRV {ignore_inout_ports="yes"}
+
+// ***************************************************************
+// ** Parameter to the control the behavior of the check SIG_IS_MDRV **
+// ***************************************************************
+// By default, the rule SIG_IS_MDRV will be flagged if a signal
+// has more than one driver and none of the multiple drivers are
+// driven by 'Z'. This rule does not consider the 'Z' driver
+// as a valid driver and will ignore that driver. This behavior can be
+// changed by the parameter 'ignore_z_drivers'
+// When the parameter 'ignore_z_drivers' is set to "no", and if a
+// signal has two drivers. And one of the drivers is 'Z', then the
+// tool will consider the 'Z' driver as a valid driver and the check
+// will be reported.
+// Alternatively, when the parameter is set to 'yes', the tool will
+// allow the signal to have a 'Z' driver and not flag the check.
+// The default value of this parameter is set to "yes".
+
+//params SIG_IS_MDRV {ignore_z_drivers="yes"}
+params SIG_IS_MDRV {ignore_z_drivers="no"}
+
+//When the parameter 'report_same_drivers" is set to "no" ,the tool does
+//not flag the check when the drivers are same. When the parameter
+//'report_same_drivers' is set to "yes" , the tool flags the check even when
+//drivers are same. Default value for this parameter is set to "no"
+
+params SIG_IS_MDRV {report_same_drivers="no"}
+//params SIG_IS_MDRV {report_same_drivers="yes"}
+
+// **************************************************************
+// ******* Parameter for controlling ALW_NR_MSLV ********
+// **************************************************************
+// This parameter controls the behavior of ALW_NR_MSLV. If the value
+// of parameter is set to "yes", then tool with not report ALW_NR_MSLV
+// for signals which were also read in the same always/ process block.
+// By default, value is "no"
+params ALW_NR_MSLV {skip_read_and_assigned="no"}
+//params ALW_NR_MSLV {skip_read_and_assigned="yes"}
+
+// **************************************************************
+// ******* Parameter for controlling RST_MX_EDGE **********
+// **************************************************************
+params RST_MX_EDGE {convention_for_set_reset_style="mixed"}
+//params RST_MX_EDGE {convention_for_set_reset_style="asynchronous"}
+//params RST_MX_EDGE {convention_for_set_reset_style="synchronous"}
+
+// *****************************************************************************
+// ** Parameter to control the behavior of CAS_NR_OVCI and CAS_NR_CMUL checks **
+// *****************************************************************************
+
+// The "consider_parallel_case_pragma" paramater controls the behavior of
+// CAS_NR_OVCI and CAS_NR_CMUL. If this parameter is set to "no", the tool
+// reports the violation when a parallel_case pragma is used with a case
+// statement that has overlapping case items. When "consider_parallel_case_pragma"
+// is set to "yes", the violation is not reported in scenarios where
+// a parallel_case pragma is used with a case statement that has overlapping
+// case items. By default, this parameter is disabled. Use caution when
+// enabling this parameter to avoid any unwanted masking of issues.
+params CAS_NR_OVCI:CAS_NR_CMUL {consider_parallel_case_pragma ="no"}
+//params CAS_NR_OVCI:CAS_NR_CMUL {consider_parallel_case_pragma ="yes"}
+
+// ***********************************************************
+// ** Parameter to disable CAS_NR_OVCI on 'Z' overlap**
+// ***********************************************************
+//This parameter controls the behavior of MULCAS. If the value
+//of parameter is set to "yes", then tool with not check MULCAS
+//for z overlap.By default value is "no"
+
+params CAS_NR_OVCI {ignore_z_overlap ="no"}
+params CAS_NR_OVCI {ignore_within_list_overlap ="no"}
+params CAS_NR_OVCI {ignore_overlap_except_unique ="no"}
+
+// *******************************************************************
+// *********** Parameter for controlling OTP_NR_UDRV:OTP_NO_FDRV *****
+// *******************************************************************
+// Parameter to control the behavior of OTP_NR_UDRV:OTP_NO_FDRV. When the 'top_only' is
+// set to 'yes', then the tool will check for OTP_NR_UDRV:OTP_NO_FDRV only for TOP level
+// modules. Alternatively, when set to 'no', the tool will check for
+// OTP_NR_UDRV:OTP_NO_FDRV for all the modules. The default value of 'top_only' is set
+// to 'no'
+
+params OTP_NR_UDRV:OTP_NO_FDRV {top_only="no"}
+//params OTP_NR_UDRV:OTP_NO_FDRV {top_only="yes"}
+
+// This parameter controls the behaviour of the OTP_NR_UDRV:OTP_NO_FDRV check.
+// When 'ignore_unloaded_ports' is set to 'yes', the tool ignores ports that
+// do not have fanouts. When set to 'no', the violation is thrown
+// for all undriven output ports. The default value of 'ignore_unloaded_ports'
+// is 'yes'.
+
+params OTP_NR_UDRV:OTP_NO_FDRV {ignore_unloaded_ports="yes"}
+//params OTP_NR_UDRV:OTP_NO_FDRV {ignore_unloaded_ports="no"}
+
+// *******************************************************************
+// *********** Parameter for controlling INP_NO_LOAD *****************
+// *******************************************************************
+// This parameter controls the behavior of INP_NO_LOAD check.
+// When 'ignore_undriven_ports' is set to 'yes', tool will ignore ports which
+// does not have fanins. When set to 'no', the violation will be thrown
+// for all the unloaded input ports. The default value of 'ignore_undriven_ports'
+// is set to 'yes'
+
+params INP_NO_LOAD {ignore_undriven_ports="yes"}
+//params INP_NO_LOAD {ignore_undriven_ports="no"}
+
+// *******************************************************************
+// *********** Parameter for controlling MOD_NO_IPRG *****************
+// *******************************************************************
+// This parameter controls the behavior of MOD_NO_IPRG. The value given
+// in the parameter is used to define the maximum number of levels of combinational
+// logic that should be present before a flip-flop is encountered.
+// The default value is "0".
+
+params MOD_NO_IPRG {levels_of_combinational_logic="0"}
+
+// *******************************************************************
+// *********** Parameter for controlling OTP_NO_RGTM *****************
+// *******************************************************************
+// This parameter controls the behavior of OTP_NO_RGTM. The value given
+// in the parameter is used to define the maximum number of levels of combinational
+// logic that should be present before a flip-flop is encountered.
+// The default value is "0".
+
+params OTP_NO_RGTM {levels_of_combinational_logic="0"}
+
+
+// *********** Parameter for controlling CAS_NR_UCIT ****************
+// ******************************************************************
+// This parameter controls the behavior of CAS_NR_UCIT check.
+// If this parameter is set to yes, this check is ignored
+// when selector is less than the case tags.
+//params CAS_NR_UCIT {casesel_lessthan_casetag_allow="yes"}
+params CAS_NR_UCIT {casesel_lessthan_casetag_allow="no"}
+
+// if parameter allow_padding_by_zero is set to "yes" then
+// CAS_NR_UCIT check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// CAS_NR_UCIT check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+//params CAS_NR_UCIT {allow_truncation_by_zero="no"}
+params CAS_NR_UCIT {allow_truncation_by_zero="yes"}
+params CAS_NR_UCIT {allow_padding_by_zero="no"}
+//params CAS_NR_UCIT {allow_padding_by_zero="yes"}
+
+//****************************************************************
+// ** Parameter to control the behavior of ASG_NR_POVF ***********
+//****************************************************************
+// By default this check is reported on statement like increment "a = a + constant"
+// or decrement "a = a - constant". If this parameter is set to increment/decrement
+// then this violation is not reported.
+
+params ASG_NR_POVF {skip_statement=""}
+// params ASG_NR_POVF {skip_statement="increment:decrement"}
+
+// If negative value is assigned to unsigned expression in a statement
+// then by default minimum number of bits required to represent that
+// negative value is taken in consideration.
+// If this parameter is set to 'yes' then for every negative value
+// assignment to unsigned expression will be considered as potential overflow.
+
+//params ASG_NR_POVF {report_all_negative_assignment_to_unsigned="no"}
+params ASG_NR_POVF {report_all_negative_assignment_to_unsigned="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling REG_NR_MBNT ****************
+// ******************************************************************
+// if parameter allow_truncation_by_zero is set to "yes" then
+// REG_NR_MBNT check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+params REG_NR_MBNT {allow_truncation_by_zero="no"}
+//params REG_NR_MBNT {allow_truncation_by_zero="yes"}
+
+
+// ******************************************************************
+// *********** Parameter for controlling FNC_MS_AFPR ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// FNC_MS_AFPR check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// FNC_MS_AFPR check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+//params FNC_MS_AFPR {allow_truncation_by_zero="no"}
+params FNC_MS_AFPR {allow_truncation_by_zero="yes"}
+params FNC_MS_AFPR {allow_padding_by_zero="no"}
+//params FNC_MS_AFPR {allow_padding_by_zero="yes"}
+
+
+// ******************************************************************
+// *********** Parameter for controlling INS_MS_PSIZ ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// INS_MS_PSIZ check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// INS_MS_PSIZ check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+params INS_MS_PSIZ {allow_truncation_by_zero="no"}
+//params INS_MS_PSIZ {allow_truncation_by_zero="yes"}
+params INS_MS_PSIZ {allow_padding_by_zero="no"}
+//params INS_MS_PSIZ {allow_padding_by_zero="yes"}
+
+
+// ******************************************************************
+// *********** Parameter for controlling ARY_NR_LOPR ****************
+// ******************************************************************
+// if parameter allow_truncation_by_zero is set to "yes" then
+// ARY_NR_LOPR check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+params ARY_NR_LOPR {allow_truncation_by_zero="no"}
+//params ARY_NR_LOPR {allow_truncation_by_zero="yes"}
+
+// **************************************************************************
+// ***************** Parameter to control ASG_MS_RPAD check         *********
+// **************************************************************************
+// Parameter "report_rhs_arithmetic_expression_size_same_as_lhs" is used to
+// report ASG_MS_RPAD violation according to arithmetic operation calculative size
+// If parameter is set to "no", tool will not report violation if calculative size of RHS is same as LHS.
+// Default value of this parameter is "yes".
+params ASG_MS_RPAD {report_rhs_arithmetic_expression_size_same_as_lhs="yes"}
+//params ASG_MS_RPAD {report_rhs_arithmetic_expression_size_same_as_lhs="no"}
+
+// Parameter "report_rhs_expression_logical_only" is used to report
+// the ASG_MS_RPAD violation according to logical operation on RHS.
+// If this parameter is set to "yes", tool will report violation on
+// logical operation on RHS only and skips the rest.
+// If parameter is set to "no", the tool behaves normally as per expected behavior.
+// By default value is "no".
+params ASG_MS_RPAD {report_rhs_expression_logical_only="no"}
+//params ASG_MS_RPAD {report_rhs_expression_logical_only="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling OPR_NR_UCMP ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// OPR_NR_UCMP check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// OPR_NR_UCMP check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+//params OPR_NR_UCMP {allow_truncation_by_zero="no"}
+params OPR_NR_UCMP {allow_truncation_by_zero="yes"}
+params OPR_NR_UCMP {allow_padding_by_zero="no"}
+//params OPR_NR_UCMP {allow_padding_by_zero="yes"}
+
+
+// ******************************************************************
+// *********** Parameter for controlling OPR_NR_UEOP ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// OPR_NR_UEOP check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// OPR_NR_UEOP check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+//params OPR_NR_UEOP {allow_truncation_by_zero="no"}
+params OPR_NR_UEOP {allow_truncation_by_zero="yes"}
+params OPR_NR_UEOP {allow_padding_by_zero="no"}
+//params OPR_NR_UEOP {allow_padding_by_zero="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling OPR_NR_UEAS ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// OPR_NR_UEAS check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// OPR_NR_UEAS check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+//params OPR_NR_UEAS {allow_truncation_by_zero="no"}
+params OPR_NR_UEAS {allow_truncation_by_zero="yes"}
+params OPR_NR_UEAS {allow_padding_by_zero="no"}
+//params OPR_NR_UEAS {allow_padding_by_zero="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling OPR_NR_TERN ****************
+// ******************************************************************
+// if parameter allow_padding_by_zero is set to "yes" then
+// OPR_NR_TERN check is reported due to padding of 0s,
+// will not be thrown, applicable over constants only.
+
+// if parameter allow_truncation_by_zero is set to "yes" then
+// OPR_NR_TERN check is reported due to truncation of 0s,
+// will not be thrown, applicable over constants only.
+
+params OPR_NR_TERN {allow_truncation_by_zero="no"}
+//params OPR_NR_TERN {allow_truncation_by_zero="yes"}
+params OPR_NR_TERN {allow_padding_by_zero="no"}
+//params OPR_NR_TERN {allow_padding_by_zero="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling PAR_MS_SDAS ****************
+// ******************************************************************
+// if parameter allow_truncation_by_zero is set to "yes" then
+// PAR_MS_SDAS check is not reported due to truncation of 0s,
+// if actual parameter size is greater than formal parameter size,
+// applicable over constants only.
+params PAR_MS_SDAS {allow_truncation_by_zero="no"}
+//params PAR_MS_SDAS {allow_truncation_by_zero="yes"}
+
+// if parameter allow_padding_by_zero is set to "yes" then
+// PAR_MS_SDAS check is not reported due to padding of 0s,
+// if actual parameter size is less than formal parameter size,
+// applicable over constants only.
+params PAR_MS_SDAS {allow_padding_by_zero="no"}
+//params PAR_MS_SDAS {allow_padding_by_zero="yes"}
+
+// ******************************************************************
+// *********** Parameter for controlling IDX_NR_DTTY ****************
+// ******************************************************************
+// This parameter controls the behavior of IDX_NR_DTTY check.
+// The check is currently issued when index is of type reg, logic or
+// integer. Using this parameter following data types can be allowed
+//params IDX_NR_DTTY {allowed_datatypes="reg:integer:logic"}
+params IDX_NR_DTTY {allowed_datatypes=""}
+
+
+// ******************************************************************
+// *********** Parameter for controlling CMB_NR_TLIO ****************
+// ******************************************************************
+// This parameter controls the behavior of CMB_NR_TLIO check.
+// The check is currently not reported when the path from output to
+// input goes through a latch, when the value of the parameter is
+// set to "yes", such paths are also reported.
+//params CMB_NR_TLIO {report_with_latch_in_path="yes"}
+params CMB_NR_TLIO {report_with_latch_in_path="no"}
+
+// ******************************************************************
+// ***************** Parameter to SEQ_NR_BLKA *********************
+// ******************************************************************
+// If parameter allow_single_blocking_assignment is set to 'yes' and there is only one blocking
+// assignment inside sequential block then this warning will not be thrown. By default, this warning
+// is reported even for single blocking assignment.
+//params SEQ_NR_BLKA {allow_single_blocking_assignment="yes"}
+params SEQ_NR_BLKA {allow_single_blocking_assignment="no"}
+
+// *******************************************************************
+//  Parameter to control the behavior of check RST_MX_SYAS
+// *******************************************************************
+// The behavior of the check RST_MX_SYAS is controlled by the parameter
+// 'same_reset_line'.
+// When the value of the parameter is set to 'no', RST_MX_SYAS reports the usage
+// of asynchronous and synchronous resets/sets in the entire design. When
+// the value of this parameter is set to 'yes', RST_MX_SYAS reports the usage
+// of asynchronous and synchronous resets/sets for the same reset only.
+// The default value of this parameter is set to 'no'.
+params RST_MX_SYAS {same_reset_line="no"}
+//params RST_MX_SYAS {same_reset_line="yes"}
+
+/****************************************************************
+// ** Parameter to control the behavior of MOD_NR_CNDO ***********
+//****************************************************************
+// This parameter controls the reporting of this rule for non constants operands.
+// Additionally, the operands here need to be 4-state non constants. This rule
+// is not reported for 2-state data types.
+// When the parameter "ignore_non_const" is "yes", this check will not be reported
+// when the "===" or "!==" operator is used but the operands are 4-state non
+// constants.
+
+//params MOD_NR_CNDO {ignore_non_const="no"}
+params MOD_NR_CNDO {ignore_non_const="yes"}
+
+// **************************************************************************
+// ***************** Parameter to control the behavior of FLP_NO_SRST
+// **************************************************************************
+// This parameter controls the behavior of FLP_NO_SRST. If value of parameter
+// is set to "yes", tool will report check on instance level. If value is set
+// to "no", tool will report check on module level. The default value of
+// 'check_on_instance' is set to "no".
+//params FLP_NO_SRST {check_on_instance="yes"}
+params FLP_NO_SRST {check_on_instance="no"}
+
+// This parameter controls the behavior of FLP_NO_SRST. If value of parameter
+// is set to "yes", tool will not report when the data pin is getting constant
+//  value.If value is set to "no", tool will report check even when the data
+// pin of flop gets constant value. The default value of 'ignore_constant_flops'
+// is set to "no"
+//params FLP_NO_SRST {ignore_constant_flops="yes"}
+params FLP_NO_SRST {ignore_constant_flops="no"}
+
+// **************************************************************************
+// ***************** Parameter to control the behavior of FLP_IS_GTCK
+// **************************************************************************
+// This parameter controls the behavior of FLP_IS_GTCK. The parameter can
+// control which type of combinational logic are not allowed in clock tree.
+// 'all' issues violations for all type of combinationational logic.
+// The defult of value of this parameter is 'all'.
+//params FLP_IS_GTCK {disallowed_combinational_logic="and:nand:or:nor:xor:xnor:mux:tri:multi-driven:others"}
+params FLP_IS_GTCK{disallowed_combinational_logic="all"}
+
+// **************************************************************************
+// ***************** Parameter to control the behavior of CND_NR_BWOP
+// **************************************************************************
+//When CND_NR_BWOP mode_type = "strict", which is default, the tool does not
+//check oprand size for this violation.
+//If mode_type = "relax", the tool does check, and issues this violation if 
+//oprand size is greater than 1 bit.  
+params CND_NR_BWOP {mode_type ="strict"}
+//params CND_NR_BWOP {mode_type ="relax"}
+
+
+// **************************************************************************
+// ***************** Parameter to control the behavior of ARY_NR_DFDR
+// **************************************************************************
+// This parameter controls the behavior of ARY_NR_DFDR. The parameter can
+// control whether the violation ARY_NR_DFDR is issued for struct and record
+// variable or not. By default violations are not reported for such variables.
+// The default value of this parameter is 'no'
+params ARY_NR_DFDR {report_for_struct="no"}
+//params ARY_NR_DFDR {report_for_struct="yes"}
+
+// **************************************************************************
+// ***************** Parameter to control the behavior of VAR_NR_RDBA
+// **************************************************************************
+// This parameter controls the behavior of VAR_NR_RDBA. If the value of this parameter
+// is set to "yes", the tool does not report violations for flip-flops. If the value is set
+// to "no", the tool report violation for flip-flops. The default value of
+// 'skip_flip_flop' is set to "no".
+params VAR_NR_RDBA {skip_flip_flop="no"}
+//params VAR_NR_RDBA {skip_flip_flop="yes"}
+
+
+// ******************************************************************
+// ***************** Parameter to control Where checks are reported
+// ******************************************************************
+
+// By default, following checks are not issued on wire, variable, parameter, enum declarations.
+// If parameter is set to 'no' then these checks are performed on declarations also.
+//params OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS:EXP_NR_OVFB:OPR_NR_UCMP:ARY_NR_LOPR {skip_declarations="no"}
+ params OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS:EXP_NR_OVFB:OPR_NR_UCMP:ARY_NR_LOPR {skip_declarations="yes"}
+
+// By default, following check is not issued on parameter assigned or initial value
+// If parameter is set to 'no' then this check is performed on assigned or initial value also.
+// enum member initialization is taken as parameter initialization
+//params MOD_NR_SYXZ {skip_param_value="no"}
+params MOD_NR_SYXZ {skip_param_value="yes"}
+
+// By default, following check is not issued in case default statement
+// If parameter is set to 'no' then this check is performed in default statement as well.
+//params MOD_NR_SYXZ {skip_case_default_statement="no"}
+params MOD_NR_SYXZ {skip_case_default_statement="yes"}
+
+// By default, Superlint issues MOD_NR_SYXZ for 'z' detection inside tri-state logic.
+// If the 'skip_tristate_logic' parameter is set to 'yes', the tool does not perform
+// this check if logic resides inside tri-state logic. If this parameter is set to 'no',
+// this check is issued for tri-state logic as well.
+params MOD_NR_SYXZ {skip_tristate_logic="no"}
+//params MOD_NR_SYXZ {skip_tristate_logic="yes"}
+
+// By default, following check is not issued on component declaration
+// If parameter is set to 'no' then this check is performed on component declaration also.
+//params FNC_MS_AFPR {skip_component_declaration="no"}
+params FNC_MS_AFPR {skip_component_declaration="yes"}
+
+// By default, following checks are not performed on event expression used in always block sensitive list.
+// if parameter 'skip_event_expression' is set to 'no' then these checks are performed on event expressions also.
+//params OPR_NR_UEOP:OPR_NR_UEAS:OPR_NR_UCMP {skip_event_expression="no"}
+params OPR_NR_UEOP:OPR_NR_UEAS:OPR_NR_UCMP {skip_event_expression="yes"}
+
+
+// By default, following checks are not performed in 'if-condition' if 'for' loop index variable is part of an operand
+// for ex. if(i == 2'b0); if i is 'for' loop index variable and its data type let say 'int' then OPR_NR_UCMP is not reported
+// If parameter is set to 'no' then these check are performed in mentioned condition as well.
+//params OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS:OPR_NR_UCMP {skip_loop_index_comparison="no"}
+params OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS:OPR_NR_UCMP {skip_loop_index_comparison="yes"}
+
+// By default, following checks are not performed on 'for' loop declaration statement (initial statement, condition, repetition)
+// If parameter is set to 'no' then these check are performed in loop declaration statement as well.
+//params ASG_NR_LMSB:ASG_MS_RPAD:ASG_MS_RTRU:ASG_NR_POVF:OPR_NR_UCMP:OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS {skip_loop_declaration="no"}
+//params LOP_NR_MLPV:SIG_NR_INDL:VAR_NR_RDBA:SEQ_NR_BLKA:CAS_NR_DEFX {skip_loop_declaration="no"}
+params ASG_NR_LMSB:ASG_MS_RPAD:ASG_MS_RTRU:ASG_NR_POVF:OPR_NR_UCMP:OPR_NR_UEOP:OPR_NR_TERN:OPR_NR_UEAS {skip_loop_declaration="yes"}
+params LOP_NR_MLPV:SIG_NR_INDL:VAR_NR_RDBA:SEQ_NR_BLKA:CAS_NR_DEFX {skip_loop_declaration="yes"}
