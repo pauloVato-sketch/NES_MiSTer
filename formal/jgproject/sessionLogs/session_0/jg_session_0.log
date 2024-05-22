@@ -1,0 +1,306 @@
+# ----------------------------------------
+# Jasper Version Info
+# tool      : Jasper 2023.09
+# platform  : Linux 6.5.0-35-generic
+# version   : 2023.09p002 64 bits
+# build date: 2023.11.21 13:10:30 UTC
+# ----------------------------------------
+# started   : 2024-05-22 14:50:13 -03
+# hostname  : victorhug-340XAA-350XAA-550XAA.(none)
+# pid       : 9742
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:35965' '-style' 'windows' '-data' 'AAAA2nicVYyxCsJAEETfKfYWfoKVkCNqBIsUNumUEAVbEUwRCIloRLDRT/VPLsOFgM6wM7D7WAPEb+ccXsOXYsyWHXsSZcpRDVNWLFgTslGHsmXOUmOVVrtIhJf5dk1s+JXJPn8Nox7skYFmRsCZUq55cuJBxV15lWtuNORctE85iJ6I7q65biWF6Ma/bgHfKBow' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl'
+
+Any disclosure about the Cadence Design Systems software or its use
+model to any third party violates the written Non-Disclosure Agreement
+between Cadence Design Systems, Inc. and the customer.
+
+THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION AND TRADE SECRETS OF
+CADENCE DESIGN SYSTEMS, INC. USE, DISCLOSURE, OR REPRODUCTION IS
+PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF CADENCE
+DESIGN SYSTEMS, INC.
+
+Copyright (C) 2000-2023 Cadence Design Systems, Inc. All Rights
+Reserved.  Unpublished -- rights reserved under the copyright laws of
+the United States.
+
+This product includes software developed by others and redistributed
+according to license agreement. See doc/third_party_readme.txt for
+further details.
+
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c) (1) (ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c) (1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+
+                          Cadence Design Systems, Inc.
+                          2655 Seely Avenue
+                          San Jose, CA 95134
+                          Phone: 408.943.1234
+
+For technical assistance visit http://support.cadence.com.
+
+Jasper Apps Analysis Session - /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0
+
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_dao".
+INFO: reading configuration file "/home/victorhug/.config/cadence/jasper.conf".
+% check_superlint -init
+% include /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+WARNING (WSL056): Change in Message, Arguments for tag: RST_MX_SYAS have changed.
+    For message help, type "help -message WSL056".
+WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from next release FLP_NR_BLAS, LAT_NR_BLAS will be issued instead.
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% analyze -vhdl ../rtl/statemanager.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(13): analyzing package 'textio'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(114): analyzing package body 'textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd' into library 'vl'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(22): analyzing package 'vl_types'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(101): analyzing package body 'vl_types'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd' into library 'synopsys'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd(39): analyzing package 'attributes'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(15): analyzing package 'std_logic_1164'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(178): analyzing package body 'std_logic_1164'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(57): analyzing package 'numeric_std'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(874): analyzing package body 'numeric_std'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(54): analyzing package 'numeric_bit'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(834): analyzing package body 'numeric_bit'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd(68): analyzing package 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd(54): analyzing package body 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd(50): analyzing package 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd(38): analyzing package body 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(25): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(206): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(35): analyzing package 'std_logic_unsigned'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(94): analyzing package body 'std_logic_unsigned'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(35): analyzing package 'std_logic_signed'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(96): analyzing package body 'std_logic_signed'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(27): analyzing package 'std_logic_misc'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(110): analyzing package body 'std_logic_misc'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(26): analyzing package 'std_logic_textio'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(78): analyzing package body 'std_logic_textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd' into library 'arithmetic'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(22): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(274): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd' into library 'qsim_logic'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(18): analyzing package 'qsim_logic'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(753): analyzing package body 'qsim_logic'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd' into library 'jasper_package'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd(8): analyzing package 'jasper_package'
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/statemanager.vhd'
+[INFO (VHDL-1012)] ../rtl/statemanager.vhd(5): analyzing entity 'statemanager'
+[INFO (VHDL-1010)] ../rtl/statemanager.vhd(33): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/bus_savestates.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/bus_savestates.vhd'
+[INFO (VHDL-1014)] ../rtl/bus_savestates.vhd(9): analyzing package 'pbus_savestates'
+[INFO (VHDL-1012)] ../rtl/bus_savestates.vhd(27): analyzing entity 'ereg_savestatev'
+[INFO (VHDL-1010)] ../rtl/bus_savestates.vhd(46): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/savestates.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/savestates.vhd'
+[INFO (VHDL-1012)] ../rtl/savestates.vhd(7): analyzing entity 'savestates'
+[INFO (VHDL-1010)] ../rtl/savestates.vhd(52): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/t65/T65_Pack.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_Pack.vhd'
+[INFO (VHDL-1014)] ../rtl/t65/T65_Pack.vhd(55): analyzing package 't65_pack'
+[INFO (VHDL-1013)] ../rtl/t65/T65_Pack.vhd(154): analyzing package body 't65_pack'
+%% analyze -vhdl ../rtl/t65/T65_MCode.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_MCode.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65_MCode.vhd(58): analyzing entity 't65_mcode'
+[INFO (VHDL-1010)] ../rtl/t65/T65_MCode.vhd(95): analyzing architecture 'rtl'
+%% analyze -vhdl ../rtl/t65/T65_ALU.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_ALU.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65_ALU.vhd(57): analyzing entity 't65_alu'
+[INFO (VHDL-1010)] ../rtl/t65/T65_ALU.vhd(70): analyzing architecture 'rtl'
+%% analyze -vhdl ../rtl/t65/T65.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
+[INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
+%% 
+%% 
+%% 
+%% analyze -sv -f files_sv.f
+INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_sv.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
+[WARN (VERI-2013)] ../rtl/sdram.sv(105): variable 'last_a' must explicitly be declared as automatic or static
+[WARN (VERI-1875)] ../rtl/sdram.sv(110): identifier 'mode' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(110): identifier 'MODE_NORMAL' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(162): identifier 'mode' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(162): identifier 'MODE_NORMAL' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(162): identifier 'reset' is used before its declaration
+[WARN (VERI-2013)] ../rtl/sdram.sv(177): variable 'init_old' must explicitly be declared as automatic or static
+[ERROR (VERI-1100)] ../rtl/sdram.sv(210): procedural assignment to a non-register 'SDRAM_DQ' is not permitted
+[ERROR (VERI-1100)] ../rtl/sdram.sv(213): procedural assignment to a non-register 'SDRAM_DQ' is not permitted
+[ERROR (VERI-1042)] ../rtl/sdram.sv(213): illegal expression in target
+[ERROR (VERI-1072)] ../rtl/sdram.sv(304): module 'sdram' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1100)] ../rtl/sdram.sv(210): procedural assignment to a non-register 'SDRAM_DQ' is not permitted
+	[ERROR (VERI-1100)] ../rtl/sdram.sv(213): procedural assignment to a non-register 'SDRAM_DQ' is not permitted
+	[ERROR (VERI-1042)] ../rtl/sdram.sv(213): illegal expression in target
+	[ERROR (VERI-1072)] ../rtl/sdram.sv(304): module 'sdram' is ignored due to previous errors
+ERROR at line 22 in file /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 4 errors detected in the design file(s).
+
+
+% include /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+WARNING (WSL056): Change in Message, Arguments for tag: RST_MX_SYAS have changed.
+    For message help, type "help -message WSL056".
+WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from next release FLP_NR_BLAS, LAT_NR_BLAS will be issued instead.
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% analyze -vhdl ../rtl/statemanager.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(13): analyzing package 'textio'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(114): analyzing package body 'textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd' into library 'vl'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(22): analyzing package 'vl_types'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(101): analyzing package body 'vl_types'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd' into library 'synopsys'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd(39): analyzing package 'attributes'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(15): analyzing package 'std_logic_1164'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(178): analyzing package body 'std_logic_1164'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(57): analyzing package 'numeric_std'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(874): analyzing package body 'numeric_std'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(54): analyzing package 'numeric_bit'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(834): analyzing package body 'numeric_bit'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd(68): analyzing package 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd(54): analyzing package body 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd(50): analyzing package 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd(38): analyzing package body 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(25): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(206): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(35): analyzing package 'std_logic_unsigned'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(94): analyzing package body 'std_logic_unsigned'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(35): analyzing package 'std_logic_signed'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(96): analyzing package body 'std_logic_signed'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(27): analyzing package 'std_logic_misc'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(110): analyzing package body 'std_logic_misc'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(26): analyzing package 'std_logic_textio'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(78): analyzing package body 'std_logic_textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd' into library 'arithmetic'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(22): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(274): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd' into library 'qsim_logic'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(18): analyzing package 'qsim_logic'
+[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(753): analyzing package body 'qsim_logic'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd' into library 'jasper_package'
+[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd(8): analyzing package 'jasper_package'
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/statemanager.vhd'
+[INFO (VHDL-1012)] ../rtl/statemanager.vhd(5): analyzing entity 'statemanager'
+[INFO (VHDL-1010)] ../rtl/statemanager.vhd(33): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/bus_savestates.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/bus_savestates.vhd'
+[INFO (VHDL-1014)] ../rtl/bus_savestates.vhd(9): analyzing package 'pbus_savestates'
+[INFO (VHDL-1012)] ../rtl/bus_savestates.vhd(27): analyzing entity 'ereg_savestatev'
+[INFO (VHDL-1010)] ../rtl/bus_savestates.vhd(46): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/savestates.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/savestates.vhd'
+[INFO (VHDL-1012)] ../rtl/savestates.vhd(7): analyzing entity 'savestates'
+[INFO (VHDL-1010)] ../rtl/savestates.vhd(52): analyzing architecture 'arch'
+%% analyze -vhdl ../rtl/t65/T65_Pack.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_Pack.vhd'
+[INFO (VHDL-1014)] ../rtl/t65/T65_Pack.vhd(55): analyzing package 't65_pack'
+[INFO (VHDL-1013)] ../rtl/t65/T65_Pack.vhd(154): analyzing package body 't65_pack'
+%% analyze -vhdl ../rtl/t65/T65_MCode.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_MCode.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65_MCode.vhd(58): analyzing entity 't65_mcode'
+[INFO (VHDL-1010)] ../rtl/t65/T65_MCode.vhd(95): analyzing architecture 'rtl'
+%% analyze -vhdl ../rtl/t65/T65_ALU.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_ALU.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65_ALU.vhd(57): analyzing entity 't65_alu'
+[INFO (VHDL-1010)] ../rtl/t65/T65_ALU.vhd(70): analyzing architecture 'rtl'
+%% analyze -vhdl ../rtl/t65/T65.vhd
+[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65.vhd'
+[INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
+[INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
+%% 
+%% 
+%% 
+%% analyze -sv -f files_sv.f
+INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_sv.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
+[WARN (VERI-2013)] ../rtl/sdram.sv(108): variable 'last_a' must explicitly be declared as automatic or static
+[WARN (VERI-1875)] ../rtl/sdram.sv(113): identifier 'mode' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(113): identifier 'MODE_NORMAL' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(165): identifier 'mode' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(165): identifier 'MODE_NORMAL' is used before its declaration
+[WARN (VERI-1875)] ../rtl/sdram.sv(165): identifier 'reset' is used before its declaration
+[WARN (VERI-2013)] ../rtl/sdram.sv(180): variable 'init_old' must explicitly be declared as automatic or static
+[-- (VERI-1482)] Analyzing Verilog file '../rtl/ddram.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../rtl/cheatcodes.sv'
+[WARN (VERI-1875)] ../rtl/cheatcodes.sv(15): identifier 'ADDR_WIDTH' is used before its declaration
+[WARN (VERI-1875)] ../rtl/cheatcodes.sv(16): identifier 'DATA_WIDTH' is used before its declaration
+[WARN (VERI-1875)] ../rtl/cheatcodes.sv(19): identifier 'DATA_WIDTH' is used before its declaration
+[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(65): procedural assignment to a non-register 'genie_ovr' is not permitted
+[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(66): procedural assignment to a non-register 'genie_data' is not permitted
+[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(72): procedural assignment to a non-register 'genie_ovr' is not permitted
+[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(73): procedural assignment to a non-register 'genie_data' is not permitted
+[ERROR (VERI-1072)] ../rtl/cheatcodes.sv(80): module 'CODES' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(65): procedural assignment to a non-register 'genie_ovr' is not permitted
+	[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(66): procedural assignment to a non-register 'genie_data' is not permitted
+	[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(72): procedural assignment to a non-register 'genie_ovr' is not permitted
+	[ERROR (VERI-1100)] ../rtl/cheatcodes.sv(73): procedural assignment to a non-register 'genie_data' is not permitted
+	[ERROR (VERI-1072)] ../rtl/cheatcodes.sv(80): module 'CODES' is ignored due to previous errors
+ERROR at line 22 in file /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 5 errors detected in the design file(s).
+
+
+INFO (IPL005): Received request to exit from the console.
+INFO (IPL014): Waiting for the Tcl-thread to exit.
+INFO (IPL018): The peak resident set memory use for this session was 0.391 GB.
+INFO (IPL015): The Tcl-thread exited with status 0.
+INFO (IPL016): Exiting the analysis session with status 0.

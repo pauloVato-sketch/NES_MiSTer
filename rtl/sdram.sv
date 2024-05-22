@@ -23,7 +23,7 @@ module sdram
 (
 
 	// interface to the MT48LC16M16 chip
-	inout  reg [15:0] SDRAM_DQ,   // 16 bit bidirectional data bus
+	inout      [15:0] SDRAM_DQ,   // 16 bit bidirectional data bus
 	output reg [12:0] SDRAM_A,    // 13 bit multiplexed address bus
 	output reg        SDRAM_DQML, // byte mask
 	output reg        SDRAM_DQMH, // byte mask
@@ -92,6 +92,9 @@ reg  [1:0] bank;
 reg [15:0] data;
 reg        we;
 reg        ram_req=0;
+
+
+reg controle;
 
 wire [2:0] rd,wr;
 
@@ -200,6 +203,10 @@ localparam CMD_LOAD_MODE       = 3'b000;
 
 wire [1:0] dqm = {we & ~a[0], we & a[0]};
 
+
+assign SDRAM_DQ = (controle)? data: {16{1'bZ}};
+
+
 // SDRAM state machines
 always @(posedge clk) begin
 	reg [15:0] last_data[3];
@@ -207,10 +214,17 @@ always @(posedge clk) begin
 
 	if(state == STATE_START) SDRAM_BA <= (mode == MODE_NORMAL) ? bank : 2'b00;
 
-	SDRAM_DQ <= 'Z;
+	// SDRAM_DQ <= 'Z;
+
+	if({ram_req,we,mode,state} == {2'b11, MODE_NORMAL, STATE_CONT })
+		controle = 1'b1;
+	else
+		controle = 1'b0;
+
 	casex({ram_req,we,mode,state})
 		{2'b1X, MODE_NORMAL, STATE_START}: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE} <= CMD_ACTIVE;
-		{2'b11, MODE_NORMAL, STATE_CONT }: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE, SDRAM_DQ} <= {CMD_WRITE, data};
+		// {2'b11, MODE_NORMAL, STATE_CONT }: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE, SDRAM_DQ} <= {CMD_WRITE, data};
+		{2'b11, MODE_NORMAL, STATE_CONT }: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE} <= {CMD_WRITE};
 		{2'b10, MODE_NORMAL, STATE_CONT }: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE} <= CMD_READ;
 		{2'b0X, MODE_NORMAL, STATE_START}: {SDRAM_nRAS, SDRAM_nCAS, SDRAM_nWE} <= CMD_AUTO_REFRESH;
 

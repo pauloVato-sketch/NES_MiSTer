@@ -1,0 +1,71 @@
+2024-05-22 14:50:11.338906 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.338992 (9730) main____ INFO    Jasper version info
+2024-05-22 14:50:11.338999 (9730) main____ INFO      tool      : Jasper 2023.09
+2024-05-22 14:50:11.339004 (9730) main____ INFO      version   : 2023.09p002 64 bits
+2024-05-22 14:50:11.339009 (9730) main____ INFO      build date: 2023.11.21 13:10:30 UTC
+2024-05-22 14:50:11.339013 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.339016 (9730) main____ INFO    Runtime info:
+2024-05-22 14:50:11.339020 (9730) main____ INFO      platform  : Linux 6.5.0-35-generic x86_64
+2024-05-22 14:50:11.339026 (9730) main____ INFO      hostname  : victorhug-340XAA-350XAA-550XAA
+2024-05-22 14:50:11.339031 (9730) main____ INFO      pid       : 9730
+2024-05-22 14:50:11.339035 (9730) main____ INFO      arguments : '-style' 'windows' '-allow_unsupported_OS' '-superlint'
+2024-05-22 14:50:11.339042 (9730) main____ INFO      locale    : UTF-8
+2024-05-22 14:50:11.339046 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.339049 (9730) main____ INFO    System resource limits info:
+2024-05-22 14:50:11.339054 (9730) main____ INFO      virtual memory: unlimited
+2024-05-22 14:50:11.339057 (9730) main____ INFO      cpu time      : unlimited
+2024-05-22 14:50:11.339064 (9730) main____ INFO      processes     : 31091
+2024-05-22 14:50:11.339072 (9730) main____ INFO      stack size    : 8388608 B
+2024-05-22 14:50:11.339077 (9730) main____ INFO      core file size: 0 B
+2024-05-22 14:50:11.339081 (9730) main____ INFO      open files    : 1024
+2024-05-22 14:50:11.339085 (9730) main____ INFO      file size     : unlimited
+2024-05-22 14:50:11.339088 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.339092 (9730) main____ INFO    Memory statistics:
+2024-05-22 14:50:11.339096 (9730) main____ INFO      total physical memory  : 8036068 kB
+2024-05-22 14:50:11.339100 (9730) main____ INFO      free physical memory   : 1385048 kB
+2024-05-22 14:50:11.339104 (9730) main____ INFO      committed address space: 6267968 kB
+2024-05-22 14:50:11.339107 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.339698 (9730) main____ INFO    Important environment variables:
+2024-05-22 14:50:11.339709 (9730) main____ INFO      CDS_LIC_FILE       : '5280@200.131.3.245'
+2024-05-22 14:50:11.339714 (9730) main____ INFO      DISPLAY            : ':0'
+2024-05-22 14:50:11.339719 (9730) main____ INFO      JASPER_INSTALL_DIR : '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002'
+2024-05-22 14:50:11.339724 (9730) main____ INFO      JASPER_KERNEL_CHECK: '1'
+2024-05-22 14:50:11.339728 (9730) main____ INFO      JASPER_OS_CHECK    : '0'
+2024-05-22 14:50:11.339732 (9730) main____ INFO      LANG               : 'en_US.UTF-8'
+2024-05-22 14:50:11.339737 (9730) main____ INFO      LC_ADDRESS         : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339741 (9730) main____ INFO      LC_CTYPE           : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339745 (9730) main____ INFO      LC_IDENTIFICATION  : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339750 (9730) main____ INFO      LC_MEASUREMENT     : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339754 (9730) main____ INFO      LC_MONETARY        : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339758 (9730) main____ INFO      LC_NAME            : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339762 (9730) main____ INFO      LC_NUMERIC         : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339767 (9730) main____ INFO      LC_PAPER           : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339771 (9730) main____ INFO      LC_TELEPHONE       : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339775 (9730) main____ INFO      LC_TIME            : 'pt_BR.UTF-8'
+2024-05-22 14:50:11.339779 (9730) main____ INFO    ----------------------------------------
+2024-05-22 14:50:11.340313 (9730) lic_core INFO    Initializing license system ...
+2024-05-22 14:50:11.341354 (9730) lic_core INFO    ... license system initialized.
+2024-05-22 14:50:11.342621 (9730) lic__man INFO    Claim 'main' for <ui>.
+2024-05-22 14:50:11.342652 (9730) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2024-05-22 14:50:11.737525 (9730) lic_core INFO    ... (1) checkout succeeded
+2024-05-22 14:50:11.737581 (9730) lic__man INFO    Claim 'superlint' for <ui>.
+2024-05-22 14:50:11.737596 (9730) lic_core INFO    (2) checking out 'jasper_afl' ...
+2024-05-22 14:50:12.072388 (9730) lic_core INFO    ... (2) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
+2024-05-22 14:50:12.072427 (9730) lic_core INFO    (3) checking out 'jasper_dao' ...
+2024-05-22 14:50:12.441522 (9730) lic_core INFO    ... (3) checkout succeeded
+2024-05-22 14:50:12.441907 (9730) main____ INFO    Tool inactivity delay is 480000 ms.
+2024-05-22 14:50:13.043487 (9730) lic__man INFO    Claim 'superlint' for <ui>.
+2024-05-22 14:50:13.220260 (9730) lic__man INFO    Unclaim 'superlint' for <ui>.
+2024-05-22 14:50:13.220363 (9730) lic__man INFO    Claim 'superlint' for <ui>.
+2024-05-22 14:50:13.223784 (9730) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
+2024-05-22 14:50:13.225898 (9730) session_ INFO    Analysis session with session id 'session_0' started (pid: 9742)
+2024-05-22 14:50:13.945465 (9730) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:59488)
+2024-05-22 14:50:23.370469 (9730) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
+2024-05-22 14:50:23.375029 (9730) lic__man INFO    Unclaim everything for 'session_0'.
+2024-05-22 14:58:31.248058 (9730) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
+2024-05-22 14:58:31.248303 (9730) lic__man INFO    Unclaim everything for 'session_0'.
+2024-05-22 15:00:29.143575 (9730) main____ INFO    About to exit: requested from GUI
+2024-05-22 15:00:29.594479 (9730) session_ INFO    Analysis session 'session_0' disconnected.
+2024-05-22 15:00:29.600059 (9730) lic_core INFO    (1) checkin jasper_interactive
+2024-05-22 15:00:29.640913 (9730) lic_core INFO    (3) checkin jasper_dao
+2024-05-22 15:00:29.680399 (9730) main____ INFO    Exiting with status 0.
