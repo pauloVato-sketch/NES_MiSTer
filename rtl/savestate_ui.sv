@@ -1,4 +1,4 @@
-module savestate_ui #(parameter INFO_TIMEOUT_BITS)
+module savestate_ui #(parameter INFO_TIMEOUT_BITS=16)
 (
 	input            clk,    
    input     [10:0] ps2_key,     

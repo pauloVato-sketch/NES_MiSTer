@@ -482,7 +482,7 @@ module NoiseChan (
 	end
 endmodule
 
-module DmcChan #(parameter [9:0] SSREG_INDEX_DMC1, parameter [9:0] SSREG_INDEX_DMC2)  (
+module DmcChan #(parameter [9:0] SSREG_INDEX_DMC1=10'b0, parameter [9:0] SSREG_INDEX_DMC2=10'b0)  (
 	input  logic        MMC5,
 	input  logic        clk,
 	input  logic        aclk1,
@@ -518,8 +518,10 @@ module DmcChan #(parameter [9:0] SSREG_INDEX_DMC1, parameter [9:0] SSREG_INDEX_D
 	wire [63:0] SS_DMC1_BACK;	
 	wire [63:0] SS_DMC2;
 	wire [63:0] SS_DMC2_BACK;
-	eReg_SavestateV #(SSREG_INDEX_DMC1, SSREG_DEFAULT_APU_DMC1) iREG_SAVESTATE_APU_DMC1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_DMC1_BACK, SS_DMC1);  
-	eReg_SavestateV #(SSREG_INDEX_DMC2, SSREG_DEFAULT_APU_DMC2) iREG_SAVESTATE_APU_DMC2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_DMC2_BACK, SS_DMC2);  
+	// eReg_SavestateV #(SSREG_INDEX_DMC1, SSREG_DEFAULT_APU_DMC1) iREG_SAVESTATE_APU_DMC1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_DMC1_BACK, SS_DMC1);  
+	// eReg_SavestateV #(SSREG_INDEX_DMC2, SSREG_DEFAULT_APU_DMC2) iREG_SAVESTATE_APU_DMC2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_DMC2_BACK, SS_DMC2);  
+	eReg_SavestateV #(SSREG_INDEX_DMC1, 64'h0000000000000000) iREG_SAVESTATE_APU_DMC1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_DMC1_BACK, SS_DMC1);  
+	eReg_SavestateV #(SSREG_INDEX_DMC2, 64'h0000000000000000) iREG_SAVESTATE_APU_DMC2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_DMC2_BACK, SS_DMC2);  
 
 	logic irq_enable;
 	logic loop;                 // Looping enabled
@@ -718,7 +720,7 @@ module DmcChan #(parameter [9:0] SSREG_INDEX_DMC1, parameter [9:0] SSREG_INDEX_D
 	
 endmodule
 
-module FrameCtr #(parameter [9:0] SSREG_INDEX_FCT) (
+module FrameCtr #(parameter [9:0] SSREG_INDEX_FCT=10'b0) (
 	input  logic clk,
 	input  logic aclk1,
 	input  logic aclk2,
@@ -747,7 +749,8 @@ module FrameCtr #(parameter [9:0] SSREG_INDEX_FCT) (
 	// Savestates
 	wire [63:0] SS_FCT;
 	wire [63:0] SS_FCT_BACK;	
-	eReg_SavestateV #(SSREG_INDEX_FCT, SSREG_DEFAULT_APU_FCT) iREG_SAVESTATE_APU_FCT (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_FCT_BACK, SS_FCT);  
+	// eReg_SavestateV #(SSREG_INDEX_FCT, SSREG_DEFAULT_APU_FCT) iREG_SAVESTATE_APU_FCT (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_FCT_BACK, SS_FCT);  
+	eReg_SavestateV #(SSREG_INDEX_FCT, 64'h0000000000007FFF) iREG_SAVESTATE_APU_FCT (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_FCT_BACK, SS_FCT);  
 
 	// NTSC -- Confirmed
 	// Binary Frame Value         Decimal  Cycle
@@ -865,7 +868,7 @@ module FrameCtr #(parameter [9:0] SSREG_INDEX_FCT) (
 
 endmodule
 
-module APU #(parameter [9:0] SSREG_INDEX_TOP, parameter [9:0] SSREG_INDEX_DMC1, parameter [9:0] SSREG_INDEX_DMC2, parameter [9:0] SSREG_INDEX_FCT)
+module APU #(parameter [9:0] SSREG_INDEX_TOP=10'b0, parameter [9:0] SSREG_INDEX_DMC1=10'b0, parameter [9:0] SSREG_INDEX_DMC2=10'b0, parameter [9:0] SSREG_INDEX_FCT=10'b0)
 (
 	input  logic        MMC5,
 	input  logic        clk,
@@ -905,7 +908,8 @@ module APU #(parameter [9:0] SSREG_INDEX_TOP, parameter [9:0] SSREG_INDEX_DMC1, 
 	
 	wire [63:0] SS_APU;
 	wire [63:0] SS_APU_BACK;
-	eReg_SavestateV #(SSREG_INDEX_TOP, SSREG_DEFAULT_APU_TOP) iREG_SAVESTATE_APU_TOP (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_APU_BACK, SS_APU);  
+	// eReg_SavestateV #(SSREG_INDEX_TOP, SSREG_DEFAULT_APU_TOP) iREG_SAVESTATE_APU_TOP (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_APU_BACK, SS_APU);  
+	eReg_SavestateV #(SSREG_INDEX_TOP, 64'h0000000000000000) iREG_SAVESTATE_APU_TOP (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_APU_BACK, SS_APU);  
 
 
 	logic [7:0] len_counter_lut[32];

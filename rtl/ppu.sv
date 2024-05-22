@@ -4,7 +4,7 @@
 // altera message_off 10935
 // altera message_off 10027
 
-import regs_savestates::*;
+// import regs_savestates::*;
 
 // Module handles updating the loopy scroll register
 module LoopyGen (
@@ -30,7 +30,8 @@ module LoopyGen (
 
 wire [63:0] SS_LOOPY;
 wire [63:0] SS_LOOPY_BACK;
-eReg_SavestateV #(SSREG_INDEX_LOOPY, SSREG_DEFAULT_LOOPY) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_LOOPY_BACK, SS_LOOPY);  
+// eReg_SavestateV #(SSREG_INDEX_LOOPY, SSREG_DEFAULT_LOOPY) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_LOOPY_BACK, SS_LOOPY);  
+eReg_SavestateV #(10'd11, 64'h0000000000000000) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_LOOPY_BACK, SS_LOOPY);  
 
 // Controls how much to increment on each write
 reg ppu_incr; // 0 = 1, 1 = 32
@@ -197,10 +198,10 @@ reg even_frame_toggle = 0; // 1 indicates even frame.
 assign evenframe = even_frame_toggle;
 
 // Dendy is 291 to 310
-wire [8:0] vblank_start_sl;
-wire [8:0] vblank_end_sl;
+reg [8:0] vblank_start_sl;
+reg [8:0] vblank_end_sl;
 wire [8:0] last_sl;
-wire skip_en;
+reg skip_en;
 reg [3:0] rendering_sr;
 
 always_comb begin
@@ -250,7 +251,12 @@ generate
 	if (USE_SAVESTATE) begin
 		wire [63:0] SS_CLKGEN_BACK;
 		wire [63:0] SS_CLKGEN_OUT;
-		eReg_SavestateV #(SSREG_INDEX_CLOCKGEN, SSREG_DEFAULT_CLOCKGEN) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SS_CLKGEN_OUT, SS_CLKGEN_BACK, SS_CLKGEN);  
+		// eReg_SavestateV #(SSREG_INDEX_CLOCKGEN, SSREG_DEFAULT_CLOCKGEN) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SS_CLKGEN_OUT, SS_CLKGEN_BACK, SS_CLKGEN);  
+		eReg_SavestateV #(10'd6, 64'h0000000000000152) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SS_CLKGEN_OUT, SS_CLKGEN_BACK, SS_CLKGEN);  
+
+
+
+
 		assign SaveStateBus_Dout = SS_CLKGEN_OUT;
 
 		assign SS_CLKGEN_BACK[  8:0] = cycle;
@@ -439,12 +445,13 @@ module OAMEval(
 	input         Savestate_OAMRdEn,    
 	input         Savestate_OAMWrEn,    
 	input  [7:0]  Savestate_OAMWriteData,
-	output [7:0]  Savestate_OAMReadData
+	output reg [7:0]  Savestate_OAMReadData
 );
 
 wire [63:0] SS_OAMEVAL;
 wire [63:0] SS_OAMEVAL_BACK;
-eReg_SavestateV #(SSREG_INDEX_OAMEVAL, SSREG_DEFAULT_OAMEVAL) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_OAMEVAL_BACK, SS_OAMEVAL);  
+// eReg_SavestateV #(SSREG_INDEX_OAMEVAL, SSREG_DEFAULT_OAMEVAL) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_OAMEVAL_BACK, SS_OAMEVAL);  
+eReg_SavestateV #(10'd12, 64'h00000000000001FF) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_OAMEVAL_BACK, SS_OAMEVAL);  
 
 
 // https://wiki.nesdev.com/w/index.php/PPU_sprite_evaluation
@@ -870,7 +877,7 @@ wire [3:0] y_f = temp_y[3:0] ^ {flip_y, flip_y, flip_y, flip_y};
 assign load = {load_pix1, load_pix2, load_x, load_attr};
 assign load_in = {pix1_latch, pix2_latch, load_temp, load_temp[1:0], load_temp[5]};
 
-wire [7:0] load_temp;
+reg [7:0] load_temp;
 always_comb begin
 	case (cycle)
 		0: load_temp = temp_y;
@@ -1015,10 +1022,16 @@ assign SaveStateBus_Dout  = SaveStateBus_wired_or[ 0] | SaveStateBus_wired_or[ 1
 
 wire [63:0] SS_PAL [3:0];
 wire [63:0] SS_PAL_BACK [3:0];
-eReg_SavestateV #(SSREG_INDEX_PAL0, SSREG_DEFAULT_PAL0) iREG_SAVESTATE_PAL0 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_PAL_BACK[0], SS_PAL[0]);  
-eReg_SavestateV #(SSREG_INDEX_PAL1, SSREG_DEFAULT_PAL1) iREG_SAVESTATE_PAL1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_PAL_BACK[1], SS_PAL[1]);  
-eReg_SavestateV #(SSREG_INDEX_PAL2, SSREG_DEFAULT_PAL2) iREG_SAVESTATE_PAL2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[2], SS_PAL_BACK[2], SS_PAL[2]);  
-eReg_SavestateV #(SSREG_INDEX_PAL3, SSREG_DEFAULT_PAL3) iREG_SAVESTATE_PAL3 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[3], SS_PAL_BACK[3], SS_PAL[3]);  
+// eReg_SavestateV #(SSREG_INDEX_PAL0, SSREG_DEFAULT_PAL0) iREG_SAVESTATE_PAL0 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_PAL_BACK[0], SS_PAL[0]);  
+// eReg_SavestateV #(SSREG_INDEX_PAL1, SSREG_DEFAULT_PAL1) iREG_SAVESTATE_PAL1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_PAL_BACK[1], SS_PAL[1]);  
+// eReg_SavestateV #(SSREG_INDEX_PAL2, SSREG_DEFAULT_PAL2) iREG_SAVESTATE_PAL2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[2], SS_PAL_BACK[2], SS_PAL[2]);  
+// eReg_SavestateV #(SSREG_INDEX_PAL3, SSREG_DEFAULT_PAL3) iREG_SAVESTATE_PAL3 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[3], SS_PAL_BACK[3], SS_PAL[3]);  
+
+eReg_SavestateV #(10'd7, 64'h0008000900080000) iREG_SAVESTATE_PAL0 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_PAL_BACK[0], SS_PAL[0]);  
+eReg_SavestateV #(10'd8,  64'h203A040100100201) iREG_SAVESTATE_PAL1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_PAL_BACK[1], SS_PAL[1]);  
+eReg_SavestateV #(10'd9, 64'h2C00003404080200) iREG_SAVESTATE_PAL2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[2], SS_PAL_BACK[2], SS_PAL[2]);  
+eReg_SavestateV #(10'd10, 64'h080214032C240D01) iREG_SAVESTATE_PAL3 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[3], SS_PAL_BACK[3], SS_PAL[3]);  
+
 
 reg [5:0] palette [32];
 // = '{
@@ -1076,9 +1089,9 @@ module PPU(
 	input         write,            // write
 	output reg    nmi,              // one while inside vblank
 	output        vram_r,           // read from vram active
-	output        vram_r_ex,        // use extra sprite address
+	output reg    vram_r_ex,        // use extra sprite address
 	output        vram_w,           // write to vram active
-	output [13:0] vram_a,           // vram address
+	output reg [13:0] vram_a,           // vram address
 	output [13:0] vram_a_ex,        // vram address for extra sprites
 	input   [7:0] vram_din,         // vram input
 	output  [7:0] vram_dout,
@@ -1114,8 +1127,8 @@ wire [63:0] SS_PPU;
 wire [63:0] SS_PPU_BACK;
 wire [63:0] SS_PPU_DECAY;
 wire [63:0] SS_PPU_DECAY_BACK;
-eReg_SavestateV #(SSREG_INDEX_PPU_1, SSREG_DEFAULT_PPU_1) iREG_SAVESTATE_PPU       (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_PPU_BACK,       SS_PPU);  
-eReg_SavestateV #(SSREG_INDEX_PPU_2, SSREG_DEFAULT_PPU_2) iREG_SAVESTATE_PPU_DECAY (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_PPU_DECAY_BACK, SS_PPU_DECAY);  
+eReg_SavestateV #(10'd5, 64'h0000000000000000) iREG_SAVESTATE_PPU_DECAY (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_PPU_DECAY_BACK, SS_PPU_DECAY);  
+eReg_SavestateV #(10'd4, 64'h0000000000000000) iREG_SAVESTATE_PPU       (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_PPU_BACK,       SS_PPU);  
 
 // These are stored in control register 0
 reg obj_patt; // Object pattern table

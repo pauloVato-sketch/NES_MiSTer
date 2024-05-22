@@ -601,6 +601,16 @@ end
 // 5  IN    P1D0        RX-
 // 6  IN    P2D0        TX+
 
+
+reg USER_OUT_TEMP_0;
+reg USER_OUT_TEMP_1;
+reg USER_OUT_TEMP_2;
+reg USER_OUT_TEMP_3;
+
+assign USER_OUT[0] = USER_OUT_TEMP_0;
+assign USER_OUT[1] = USER_OUT_TEMP_1;
+assign USER_OUT[2] = USER_OUT_TEMP_2;
+assign USER_OUT[3] = USER_OUT_TEMP_3;
 assign USER_OUT[4] = 1'b1;
 assign USER_OUT[5] = 1'b1;
 assign USER_OUT[6] = 1'b1;
@@ -610,19 +620,21 @@ reg [4:0] joypad1_data, joypad2_data;
 wire joy0_d0 = snac_p2 ? ~USER_IN[6] : joypad_bits[0];
 wire joy1_d0 = snac_p2 ? ~USER_IN[6] : joypad_bits2[0];
 
+
+
 always_comb begin
 	if (raw_serial) begin
-		USER_OUT[0]  = joypad_out[0];
-		USER_OUT[1]  = ~joy_swap ? ~joypad_clock[1] : ~joypad_clock[0];
-		USER_OUT[2]  = snac_3d_glasses ? joypad_out[1] : 1'b1;
-		USER_OUT[3]  = ~joy_swap ? ~joypad_clock[0] : ~joypad_clock[1];
+		USER_OUT_TEMP_0  = joypad_out[0];
+		USER_OUT_TEMP_1  = ~joy_swap ? ~joypad_clock[1] : ~joypad_clock[0];
+		USER_OUT_TEMP_2  = snac_3d_glasses ? joypad_out[1] : 1'b1;
+		USER_OUT_TEMP_3  = ~joy_swap ? ~joypad_clock[0] : ~joypad_clock[1];
 		joypad1_data = {2'b0, mic, 1'b0, ~joy_swap ? joy0_d0 : ~USER_IN[5]};
 		joypad2_data = {serial_d4, snac_3d_glasses ? 1'b1 : ~USER_IN[2], 2'b00, ~joy_swap ? ~USER_IN[5] : joy1_d0};
 	end else begin
-		USER_OUT[0]  = 1'b1;
-		USER_OUT[1]  = 1'b1;
-		USER_OUT[2]  = 1'b1;
-		USER_OUT[3]  = 1'b1;
+		USER_OUT_TEMP_0  = 1'b1;
+		USER_OUT_TEMP_1  = 1'b1;
+		USER_OUT_TEMP_2  = 1'b1;
+		USER_OUT_TEMP_3  = 1'b1;
 
 		joypad1_data = {2'b0, mic, paddle_en & paddle_btn, joypad_bits[0]};
 		joypad2_data = joypad_bits2[0];
@@ -1300,7 +1312,8 @@ wire [15:0] sdram_ss_out;
 
 wire [63:0] SS_Ext;
 wire [63:0] SS_Ext_BACK;
-eReg_SavestateV #(SSREG_INDEX_EXT, SSREG_DEFAULT_EXT) iREG_SAVESTATE_Ext (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_Ext_BACK, SS_Ext);
+// eReg_SavestateV #(SSREG_INDEX_EXT, SSREG_DEFAULT_EXT) iREG_SAVESTATE_Ext (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_Ext_BACK, SS_Ext);
+eReg_SavestateV #(10'd28, 64'h0000000000000000) iREG_SAVESTATE_Ext (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_Ext_BACK, SS_Ext);
 
 assign SS_Ext_BACK[15: 0] = sdram_ss_out;
 assign SS_Ext_BACK[63:16] = 48'b0; // free to be used
