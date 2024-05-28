@@ -578,7 +578,7 @@ wire [19:0] wave_pitch = $unsigned(temp3[11:4]) * wave_frequency;
 // Volume math
 wire [11:0] mul_out = wave_latch * (vol_pwm_lat[5] ? 6'd32 : vol_pwm_lat);
 
-wire [15:0] level_out;
+reg [15:0] level_out;
 assign audio_out = level_out[11:0];
 
 always_comb begin

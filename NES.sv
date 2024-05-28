@@ -214,7 +214,7 @@ end
 // 0123456789ABCDEFGHIJKLMNOPQRSTUV 0123456789ABCDEFGHIJKLMNOPQRSTUV
 // XXXXXXXX XX     X XXXXXXXX XXXXX XXXXXXXXXXXXXXXXXXXXXX
 
-`include "build_id.v"
+//`include "build_id.v"
 parameter CONF_STR = {
 	"NES;SS3E000000:200000,UART31250,MIDI;",
 	"FS,NESFDSNSF;",
@@ -287,7 +287,7 @@ parameter CONF_STR = {
 	"Restore state 3,",
 	"Save to state 4,",
 	"Restore state 4;",
-	"V,v",`BUILD_DATE
+	"V,v"//,`BUILD_DATE
 };
 
 wire [23:0] joyA,joyB,joyC,joyD;
