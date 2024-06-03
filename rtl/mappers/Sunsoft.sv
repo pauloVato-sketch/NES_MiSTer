@@ -29,17 +29,13 @@ module Mapper69(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-
-assign prg_aout_b   = enable ? prg_aout : 22'hZ;
-assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
-assign prg_allow_b  = enable ? prg_allow : 1'hZ;
-assign chr_aout_b   = enable ? chr_aout : 22'hZ;
-assign chr_allow_b  = enable ? chr_allow : 1'hZ;
-assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
-assign vram_ce_b    = enable ? vram_ce : 1'hZ;
-assign irq_b        = enable ? irq : 1'hZ;
-assign flags_out_b  = enable ? flags_out : 16'hZ;
-assign audio_b      = enable ? audio : 16'hZ;
+localparam SAVESTATE_MODULES    = 2;
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+wire [63:0] SaveStateBus_Dout_active;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK;
 
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;
@@ -58,6 +54,19 @@ reg [15:0] irq_counter;
 reg [3:0] addr;
 reg ram_enable, ram_select;
 wire [16:0] new_irq_counter = irq_counter - {15'b0, irq_countdown};
+
+assign prg_aout_b   = enable ? prg_aout : 22'hZ;
+assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
+assign prg_allow_b  = enable ? prg_allow : 1'hZ;
+assign chr_aout_b   = enable ? chr_aout : 22'hZ;
+assign chr_allow_b  = enable ? chr_allow : 1'hZ;
+assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
+assign vram_ce_b    = enable ? vram_ce : 1'hZ;
+assign irq_b        = enable ? irq : 1'hZ;
+assign flags_out_b  = enable ? flags_out : 16'hZ;
+assign audio_b      = enable ? audio : 16'hZ;
+
+
 
 always @(posedge clk)
 if (~enable) begin
@@ -182,11 +191,8 @@ assign vram_ce = chr_ain[13];
 assign audio = audio_in;
 
 // savestate
-localparam SAVESTATE_MODULES    = 2;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK;	
-wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
+
+assign SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
 	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
 eReg_SavestateV #(SSREG_INDEX_MAP2, 64'h0000000000000000) iREG_SAVESTATE_MAP2 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_MAP2_BACK, SS_MAP2);  
@@ -213,7 +219,7 @@ module SS5b_mixed (
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-
+reg [15:0] exp_out;
 SS5b_audio snd_5b (
 	.clk(clk),
 	.ce(ce),
@@ -236,7 +242,7 @@ SS5b_audio snd_5b (
 // The expansion audio is much louder than APU audio, so we reduce it to 68% prior to
 // mixing.
 
-wire [15:0] exp_out;
+
 wire [15:0] exp_adj = (|exp_out[15:14] ? 16'hFFFF : {exp_out[13:0], exp_out[1:0]});
 wire [16:0] audio_mix = audio_in + (exp_adj + exp_adj[15:1]);
 
@@ -261,7 +267,15 @@ module SS5b_audio (
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
+parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
+parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
+parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
 reg [3:0] reg_select;
 
 // Register bank
@@ -394,7 +408,7 @@ end else if (ce) begin
 
 end
 
-wire output_a, output_b, output_c;
+reg output_a, output_b, output_c;
 
 always_comb begin
 	case ({tone_dis_a, noise_dis_a})
@@ -479,7 +493,6 @@ eReg_SavestateV #(SSREG_INDEX_SNDMAP3, 64'h0000000000000000) iREG_SAVESTATE_MAP3
 eReg_SavestateV #(SSREG_INDEX_SNDMAP4, 64'h0000000000000000) iREG_SAVESTATE_MAP4 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[3], SS_MAP4_BACK, SS_MAP4);  
 
 assign SaveStateBus_Dout = enable ? SaveStateBus_Dout_active : 64'h0000000000000000;
-
 endmodule
 
 // Mapper 190, Magic Kid GooGoo
@@ -515,21 +528,15 @@ module Mapper67 (
 	output      [63:0]  SaveStateBus_Dout
 );
 
-assign prg_aout_b   = enable ? prg_aout : 22'hZ;
-assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
-assign prg_allow_b  = enable ? prg_allow : 1'hZ;
-assign chr_aout_b   = enable ? chr_aout : 22'hZ;
-assign chr_allow_b  = enable ? chr_allow : 1'hZ;
-assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
-assign vram_ce_b    = enable ? vram_ce : 1'hZ;
-assign irq_b        = enable ? irq : 1'hZ;
-assign flags_out_b  = enable ? flags_out : 16'hZ;
-assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;
 
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;
 wire chr_allow;
-wire vram_a10;
+reg vram_a10;
 wire vram_ce;
 reg irq;
 reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
@@ -542,6 +549,19 @@ reg irq_enable;
 reg irq_low;
 reg [15:0] irq_counter;
 wire mapper190 = (flags[7:0] == 190);
+
+assign prg_aout_b   = enable ? prg_aout : 22'hZ;
+assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
+assign prg_allow_b  = enable ? prg_allow : 1'hZ;
+assign chr_aout_b   = enable ? chr_aout : 22'hZ;
+assign chr_allow_b  = enable ? chr_allow : 1'hZ;
+assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
+assign vram_ce_b    = enable ? vram_ce : 1'hZ;
+assign irq_b        = enable ? irq : 1'hZ;
+assign flags_out_b  = enable ? flags_out : 16'hZ;
+assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
+
+
 
 always @(posedge clk)
 if (~enable) begin
@@ -654,8 +674,8 @@ assign chr_allow = flags[15];
 assign vram_ce = chr_ain[13];
 
 // savestate
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
+//wire [63:0] SS_MAP1;
+//wire [63:0] SS_MAP1_BACK;	
 wire [63:0] SaveStateBus_Dout_active;	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout_active, SS_MAP1_BACK, SS_MAP1);  
 
@@ -695,6 +715,21 @@ module Mapper68(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
+wire [21:0] prg_aout, chr_aout;
+wire prg_allow;
+reg ram_enable;
+wire chr_allow;
+reg vram_a10;
+wire vram_ce;
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [63:0] SS_MAP1;
+reg [6:0] chr_bank_0, chr_bank_1, chr_bank_2, chr_bank_3;
+reg [6:0] nametable_0, nametable_1;
+reg [3:0] prg_bank;
+reg use_chr_rom;
+reg [1:0] mirroring;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -706,20 +741,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? 1'b0 : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
-
-wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire ram_enable;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
-
-reg [6:0] chr_bank_0, chr_bank_1, chr_bank_2, chr_bank_3;
-reg [6:0] nametable_0, nametable_1;
-reg [3:0] prg_bank;
-reg use_chr_rom;
-reg [1:0] mirroring;
 
 always @(posedge clk)
 if (~enable) begin
@@ -758,6 +779,7 @@ end else if (ce) begin
 	end
 end
 
+wire [63:0] SS_MAP1_BACK;	
 assign SS_MAP1_BACK[ 6: 0] = chr_bank_0;
 assign SS_MAP1_BACK[13: 7] = chr_bank_1;
 assign SS_MAP1_BACK[20:14] = chr_bank_2;
@@ -801,9 +823,9 @@ assign chr_aout = (chr_ain[13] == 0) ? {4'b10_00, chrout, chr_ain[10:0]} : {5'b1
 assign vram_ce = chr_ain[13] && !use_chr_rom;
 
 // savestate
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
-wire [63:0] SaveStateBus_Dout_active;	
+/*wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	*/	
+wire [63:0] SaveStateBus_Dout_active;
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout_active, SS_MAP1_BACK, SS_MAP1);  
 
 assign SaveStateBus_Dout = enable ? SaveStateBus_Dout_active : 64'h0000000000000000;

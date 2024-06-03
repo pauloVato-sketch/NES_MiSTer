@@ -33,6 +33,19 @@ module MMC2(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
+wire [63:0] SaveStateBus_Dout_active;	
+
+wire [21:0] prg_aout, chr_aout;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -45,13 +58,6 @@ assign irq_b        = enable ? 1'b0 : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 // PRG ROM bank select ($A000-$AFFF)
 // 7  bit  0
@@ -188,9 +194,7 @@ assign prg_allow = prg_ain[15] && !prg_write;
 assign chr_allow = flags[15];
 
 // savestate
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
-wire [63:0] SaveStateBus_Dout_active;	
+
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout_active, SS_MAP1_BACK, SS_MAP1);  
 
 assign SaveStateBus_Dout = enable ? SaveStateBus_Dout_active : 64'h0000000000000000;
@@ -230,6 +234,20 @@ module MMC4(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
+// savestate
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
+wire [63:0] SaveStateBus_Dout_active;	
+
+wire [21:0] prg_aout, chr_aout;
+wire [7:0] prg_dout = 0;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -242,13 +260,6 @@ assign irq_b        = enable ? 1'b0 : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout = 0;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 // PRG ROM bank select ($A000-$AFFF)
 // 7  bit  0
@@ -386,10 +397,6 @@ assign prg_allow = prg_ain[15] && !prg_write || prg_is_ram;
 wire [21:0] prg_ram = {9'b11_1100_000, prg_ain[12:0]};
 assign prg_aout = prg_is_ram ? prg_ram : prg_aout_tmp;
 
-// savestate
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
-wire [63:0] SaveStateBus_Dout_active;	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout_active, SS_MAP1_BACK, SS_MAP1);  
 
 assign SaveStateBus_Dout = enable ? SaveStateBus_Dout_active : 64'h0000000000000000;

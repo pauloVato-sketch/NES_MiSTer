@@ -33,6 +33,28 @@ module Rambo1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
+	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+
+// savestate
+localparam SAVESTATE_MODULES    = 2;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK;	
+
+wire [21:0] prg_aout, chr_aout;
+wire [7:0] prg_dout = 0;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+reg irq;
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -44,15 +66,6 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-
-wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout = 0;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 reg [3:0] bank_select;             // Register to write to next
 reg prg_rom_bank_mode;             // Mode for PRG banking
@@ -272,11 +285,7 @@ assign vram_a10 = mapper158 ? chrsel[7] :  // Mapper 158 controls mirroring by s
 		mirroring ? chr_ain[11] : chr_ain[10];
 assign vram_ce = chr_ain[13];
 
-// savestate
-localparam SAVESTATE_MODULES    = 2;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK;	
+
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
 	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
@@ -321,6 +330,28 @@ module MMC3 (
 	output      [63:0]  SaveStateBus_Dout
 );
 
+	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+
+// savestate
+localparam SAVESTATE_MODULES    = 3;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK;	
+
+wire [21:0] prg_aout, chr_aout;
+wire [7:0] prg_dout = 0;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+wire irq;
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -332,14 +363,7 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout = 0;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+
 
 reg [2:0] bank_select;             // Register to write to next
 reg prg_rom_bank_mode;             // Mode for PRG banking
@@ -356,9 +380,11 @@ reg [7:0] prg_bank_0, prg_bank_1, prg_bank_2;  // Selected PRG banks
 reg last_a12;
 wire prg_is_ram;
 reg [6:0] irq_reg;
+wire mapper48 =  (flags[7:0] == 48);    // Taito's TC0690
 assign irq = mapper48 ? irq_reg[3] & irq_enable : irq_reg[0];
 reg [7:0] m268_reg [5:0];
 
+wire acclaim = ((flags[7:0] == 4) && (flags[24:21] == 3)); // Acclaim mapper
 // The alternative behavior has slightly different IRQ counter semantics.
 wire mmc3_alt_behavior = acclaim;
 
@@ -368,7 +394,7 @@ wire mapper47 =  (flags[7:0] == 47);		// Mapper 47 is a multicart that has 128k 
 wire mapper37 =  (flags[7:0] == 37);    // European Triple Cart (Super Mario, Tetris, Nintendo World Cup)
 wire DxROM =     (flags[7:0] == 206);
 wire mapper112 = (flags[7:0] == 112);   // Ntdec
-wire mapper48 =  (flags[7:0] == 48);    // Taito's TC0690
+
 wire mapper33 =  (flags[7:0] == 33);    // Taito's TC0190 (TC0690-like. No IRQ. Different Mirroring bit)
 wire mapper95 =  (flags[7:0] == 95);    // NAMCOT-3425
 wire mapper88 =  (flags[7:0] == 88);    // NAMCOT-3433
@@ -385,7 +411,6 @@ wire mapper195 = (flags[7:0] == 195);   // Has 4KB CHR RAM
 wire mapper196 = (flags[7:0] == 196);   // PRG A0 line switcheroo
 wire mapper189 = (flags[7:0] == 189);
 wire MMC6 = ((flags[7:0] == 4) && (flags[24:21] == 1)); // mapper 4, submapper 1 = MMC6
-wire acclaim = ((flags[7:0] == 4) && (flags[24:21] == 3)); // Acclaim mapper
 wire mapper268 = ({flags[20:17],flags[7:0]} == 268); // Coolboy/Mindkids; Note: if mapper 268-256=12 was in this driver, it would need to check upper mapper bits
 wire mapper268_5k = (flags[24:21] == 1);
 wire oversized = mapper268;
@@ -793,11 +818,7 @@ assign vram_a10 = TxSROM ? chrsel[7] :              // TxSROM do not support mir
 					(mirroring ? chr_ain[10] : chr_ain[11]);
 assign vram_ce = chr_ain[13] && !four_screen_mirroring;
 
-// savestate
-localparam SAVESTATE_MODULES    = 3;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK;	
+
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2];
 	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
@@ -837,6 +858,15 @@ module Mapper165(
 	input        paused
 );
 
+wire [21:0] prg_aout, chr_aout;
+wire [7:0] prg_dout = 0;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+reg irq;
+reg [15:0] flags_out = 0;
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -848,14 +878,7 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout = 0;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg irq;
-reg [15:0] flags_out = 0;
+
 
 reg [2:0] bank_select;             // Register to write to next
 reg prg_rom_bank_mode;             // Mode for PRG banking
@@ -1019,6 +1042,15 @@ module Mapper413 (
 	output [2:0] prg_aoute    // Extended prg address out bits
 );
 
+wire [21:0] prg_aout, chr_aout;
+wire [7:0] prg_dout = 0;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+wire irq;
+reg [15:0] flags_out = 0;
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -1030,14 +1062,7 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout = 0;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire irq;
-reg [15:0] flags_out = 0;
+
 
 reg irq_enable, irq_reload;        // IRQ enabled, and IRQ reload requested
 reg [7:0] irq_latch, counter;      // IRQ latch value and current counter

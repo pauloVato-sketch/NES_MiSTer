@@ -17,6 +17,11 @@ module multiplier (
   output      [63:0]  SaveStateBus_Dout
 );
 
+parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
+
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
+
   reg [15:0] shift_a;
   reg [15:0] product;
   reg [8:0] bindex;
@@ -46,8 +51,6 @@ assign SS_MAP1_BACK[31:16] = product;
 assign SS_MAP1_BACK[40:32] = bindex;
 assign SS_MAP1_BACK[63:41] = 23'b0; // free to be used
 
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
 eReg_SavestateV #(SSREG_INDEX_L2MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_MAP1_BACK, SS_MAP1);  
 
 endmodule
@@ -87,6 +90,30 @@ module JYCompany(
 	output      [63:0]  SaveStateBus_Dout
 );
 
+	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+
+// savestate
+localparam SAVESTATE_MODULES    = 7;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4, SS_MAP5, SS_MAP6;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK, SS_MAP5_BACK, SS_MAP6_BACK;	
+
+wire [21:0] prg_aout;
+reg [21:0] chr_aout;
+wire prg_allow;
+wire chr_allow;
+reg vram_a10;
+reg [7:0] chr_dout, prg_dout;
+wire vram_ce;
+reg prg_bus_write;
+wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, 1'b0};
+wire irq;
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -97,17 +124,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
-
-wire [21:0] prg_aout;
-reg [21:0] chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-reg [7:0] chr_dout, prg_dout;
-wire vram_ce;
-wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, 1'b0};
-wire irq;
-reg prg_bus_write;
 
 wire mapper90 = (flags[7:0] == 90);
 wire mapper211 = (flags[7:0] == 211);  // Should just be 209 with correct behavior below
@@ -137,9 +153,9 @@ reg [7:0] accumtest;
 
 reg old_a12;
 reg irq_enable;
-wire irq_source;
-assign irq = irq_pending && irq_enable;
+reg irq_source;
 reg irq_pending;
+assign irq = irq_pending && irq_enable;
 reg irq_en;
 reg irq_dis;
 reg [7:0] irq_prescalar;
@@ -272,6 +288,9 @@ multiplier mp(
   .SaveStateBus_Dout(SaveStateBus_wired_or[6])
   );
 
+reg [1:0] chr_latch;
+// latch is set to 0 when the PPU reads from $0FD8-$0FDF/$1FD8-$1FDF and to 1 when the PPU reads from $0FE8-$0FEF/$1FE8-$1FEF.
+
 assign SS_MAP1_BACK[15: 0] = chr_bank[0];
 assign SS_MAP1_BACK[31:16] = chr_bank[1];
 assign SS_MAP1_BACK[47:32] = chr_bank[2];
@@ -336,7 +355,7 @@ always @* begin
 end
 
 // Compute PRG address to read from.
-wire [1:0] prg_reg;
+reg [1:0] prg_reg;
 always @* begin
 	casez({prg_6xxx, bank_mode[1:0]})
 		3'b000: prg_reg = {2'b11};                       // $8000-$FFFF
@@ -347,7 +366,7 @@ always @* begin
 end
 wire [7:0] bank_val = (!bank_mode[2] && prg_reg == 2'b11) ? 8'hFF : prg_bank[prg_reg];
 wire [6:0] bank_order = bank_mode[1:0] == 2'b11 ? {bank_val[0], bank_val[1], bank_val[2], bank_val[3], bank_val[4], bank_val[5], bank_val[6]} : bank_val[6:0];
-wire [5:0] prg_sel;
+reg [5:0] prg_sel;
 always @* begin
 	casez({prg_6xxx, bank_mode[1:0]})
 		3'b000: prg_sel = {bank_order[3:0], prg_ain[14:13]}; //
@@ -360,8 +379,7 @@ end
 assign prg_aout = prg_ram && ram_support ? {9'b11_1100_000, prg_ain[12:0]} : {1'b0, outer_bank[2:1], prg_sel, prg_ain[12:0]};
 assign prg_allow = (prg_ain >= 16'h6000) && (prg_ram ? ram_support : !prg_write);
 
-reg [1:0] chr_latch;
-// latch is set to 0 when the PPU reads from $0FD8-$0FDF/$1FD8-$1FDF and to 1 when the PPU reads from $0FE8-$0FEF/$1FE8-$1FEF.
+
 always @(posedge clk)
 if (~enable) begin
 	chr_latch <= 2'b00;
@@ -370,7 +388,7 @@ end else if (SaveStateBus_load) begin
 end else if (~paused && chr_read) begin
 	chr_latch[chr_ain_o[12]] <= outer_bank[7] && (((chr_ain_o & 14'h2ff8) == 14'h0fd8) ? 1'd0 : ((chr_ain_o & 14'h2ff8) == 14'h0fe8) ? 1'd1 : chr_latch[chr_ain_o[12]]);
 end
-wire [2:0] chr_reg;
+reg [2:0] chr_reg;
 always @* begin
 	casez(bank_mode[4:3])
 		2'b00: chr_reg = {3'b000};                                   // $0000-$1FFF
@@ -380,7 +398,10 @@ always @* begin
 	endcase
 end
 wire [12:0] chr_val = chr_bank[chr_reg][12:0];
-wire [12:0] chr_sel;
+reg [12:0] chr_sel;
+wire xtend = (mirroring[3] || bank_mode[5]) && xmirr || fxmirr;
+wire romtables = chr_ain[13] && xtend && bank_mode[5] && (bank_mode[6] || (ppu_conf[7] ^ name_bank[chr_ain[11:10]][7]));
+
 always @* begin
 	casez({romtables, bank_mode[4:3]})
 		3'b000: chr_sel = {chr_val[9:0],  chr_ain[12:10]};    //
@@ -395,8 +416,7 @@ assign chr_aout = {2'b10, outer_bank[3], !outer_bank[5] ? outer_bank[0] : chr_se
 assign chr_allow = flags[15] && ppu_conf[6];
 
 // The a10 VRAM address line. (Used for mirroring)
-wire xtend = (mirroring[3] || bank_mode[5]) && xmirr || fxmirr;
-wire romtables = chr_ain[13] && xtend && bank_mode[5] && (bank_mode[6] || (ppu_conf[7] ^ name_bank[chr_ain[11:10]][7]));
+
 always @* begin
 	casez({xtend, mirroring[1:0]})
 		3'b1??: vram_a10 = name_bank[chr_ain[11:10]][0];
@@ -408,11 +428,6 @@ always @* begin
 end
 assign vram_ce = chr_ain[13] && (!chr_read || !xtend || !romtables);
 
-// savestate
-localparam SAVESTATE_MODULES    = 7;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4, SS_MAP5, SS_MAP6;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK, SS_MAP5_BACK, SS_MAP6_BACK;	
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2] | SaveStateBus_wired_or[3] | SaveStateBus_wired_or[4] | SaveStateBus_wired_or[5] | SaveStateBus_wired_or[6];
 		
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  

@@ -43,8 +43,32 @@ module MMC5(
 	input         Savestate_MAPRAMRdEn,    
 	input         Savestate_MAPRAMWrEn,    
 	input  [7:0]  Savestate_MAPRAMWriteData,
-	output [7:0]  Savestate_MAPRAMReadData
+	output reg [7:0]  Savestate_MAPRAMReadData
 );
+
+	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+
+localparam SAVESTATE_MODULES    = 5;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4, SS_MAP5;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK, SS_MAP5_BACK;	
+
+wire [21:0] prg_aout;
+reg [21:0] chr_aout;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+reg [7:0] chr_dout, prg_dout;
+wire vram_ce;
+reg prg_bus_write, has_chr_dout;
+wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, has_chr_dout};
+wire irq;
+wire [15:0] audio = audio_in;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -58,17 +82,7 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? audio : 16'hZ;
 
-wire [21:0] prg_aout;
-reg [21:0] chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-reg [7:0] chr_dout, prg_dout;
-wire vram_ce;
-wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, has_chr_dout};
-wire irq;
-wire prg_bus_write, has_chr_dout;
-wire [15:0] audio = audio_in;
+
 
 reg [1:0] prg_mode, chr_mode;
 reg prg_protect_1, prg_protect_2;
@@ -133,11 +147,25 @@ reg [9:0] ram_addrA;
 reg       ram_wrenA;
 reg [7:0] ram_dataA;
 
+// Compute the new overriden nametable/attr address the split will read from instead
+// when the VSplit is active.
+// Cycle 0, 1 = nametable
+// Cycle 2, 3 = attribute
+// Named it loopy so I can copypaste from PPU code :)
+wire [9:0] loopy = {vscroll[7:3], ppu_tile_cnt[4:0]};
+
+wire [9:0] split_addr = (ppu_is_nt_addr) ? loopy :                             // name table
+											{4'b1111, loopy[9:7], loopy[4:2]}; // attribute table
+wire insplit = in_split_area && vsplit_enable && ~chr_ex;
+wire [9:0] exram_read_addr = extended_ram_mode[1] ? prg_ain[9:0] : insplit ? split_addr : chr_ain[9:0];
 wire [9:0] ram_addrB = Savestate_MAPRAMactive ? Savestate_MAPRAMAddr      : exram_read_addr;
 wire       ram_wrenB = Savestate_MAPRAMactive ? Savestate_MAPRAMWrEn      : 1'b0;
 wire [7:0] ram_dataB = Savestate_MAPRAMactive ? Savestate_MAPRAMWriteData : 8'b0;
 wire [7:0] last_read_ram;
-
+wire [1:0] mirrbits = (chr_ain[11:10] == 0) ? mirroring[1:0] :
+						(chr_ain[11:10] == 1) ? mirroring[3:2] :
+						(chr_ain[11:10] == 2) ? mirroring[5:4] :
+												mirroring[7:6];
 
 dpram #(.widthad_a(10)) expansion_ram
 (
@@ -477,27 +505,16 @@ assign irq = irq_pending && irq_enable;
 // %01 = NES internal NTB
 // %10 = use ExRAM as NT
 // %11 = Fill Mode
-wire [1:0] mirrbits = (chr_ain[11:10] == 0) ? mirroring[1:0] :
-						(chr_ain[11:10] == 1) ? mirroring[3:2] :
-						(chr_ain[11:10] == 2) ? mirroring[5:4] :
-												mirroring[7:6];
 
-// Compute the new overriden nametable/attr address the split will read from instead
-// when the VSplit is active.
-// Cycle 0, 1 = nametable
-// Cycle 2, 3 = attribute
-// Named it loopy so I can copypaste from PPU code :)
-wire [9:0] loopy = {vscroll[7:3], ppu_tile_cnt[4:0]};
 
-wire [9:0] split_addr = (ppu_is_nt_addr) ? loopy :                             // name table
-											{4'b1111, loopy[9:7], loopy[4:2]}; // attribute table
+
 // Selects 2 out of the attr bits read from exram.
 wire [1:0] split_attr = (!loopy[1] && !loopy[6]) ? last_read_ram[1:0] :
 						( loopy[1] && !loopy[6]) ? last_read_ram[3:2] :
 						(!loopy[1] &&  loopy[6]) ? last_read_ram[5:4] :
 													last_read_ram[7:6];
 // If splitting is active or not
-wire insplit = in_split_area && vsplit_enable && ~chr_ex;
+
 
 // Currently reading the attribute byte?
 wire exattr_read = (extended_ram_mode == 1) && ppu_is_at_addr && ppu_in_frame;
@@ -532,7 +549,7 @@ end
 // 1 - Use as extended attribute data OR an extra nametable
 // 2 - Use as ordinary RAM
 // 3 - Use as ordinary RAM, write protected
-wire [9:0] exram_read_addr = extended_ram_mode[1] ? prg_ain[9:0] : insplit ? split_addr : chr_ain[9:0];
+
 
 always @(posedge clk) begin
 	if (SaveStateBus_load) begin
@@ -677,10 +694,7 @@ always@(posedge clk) begin
 	end
 end
 
-localparam SAVESTATE_MODULES    = 5;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4, SS_MAP5;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK, SS_MAP5_BACK;	
+
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2] | SaveStateBus_wired_or[3] | SaveStateBus_wired_or[4];
 	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
@@ -713,9 +727,29 @@ module mmc5_mixed (
 	output      [63:0]  SaveStateBus_Dout
 );
 
+	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+
+		// additional modules for mapper sound modules
+	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
+	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
+	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+
+
+localparam SAVESTATE_MODULES    = 2;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
 // NOTE: The apu volume is 100% of MMC5 and the polarity is reversed.
-wire [16:0] audio_o = audio + audio_in;
 wire [15:0] audio;
+wire [16:0] audio_o = audio + audio_in;
+
 assign audio_out = audio_o[16:1];
 
 wire apu_cs = (addr_in[15:5]==11'b0101_0000_000) && (addr_in[3]==0);
@@ -773,10 +807,7 @@ defparam mmc5apu.SSREG_INDEX_DMC2 = SSREG_INDEX_SNDMAP3;
 defparam mmc5apu.SSREG_INDEX_FCT  = SSREG_INDEX_SNDMAP4;
 
 // savestates
-localparam SAVESTATE_MODULES    = 2;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
+
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
 	
 eReg_SavestateV #(SSREG_INDEX_SNDMAP5, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  

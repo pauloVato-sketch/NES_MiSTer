@@ -33,29 +33,18 @@ module N163(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-assign prg_aout_b   = enable ? prg_aout : 22'hZ;
-assign prg_dout_b   = enable ? prg_dout : 8'hZ;
-assign prg_allow_b  = enable ? prg_allow : 1'hZ;
-assign chr_aout_b   = enable ? chr_aout : 22'hZ;
-assign chr_allow_b  = enable ? chr_allow : 1'hZ;
-assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
-assign vram_ce_b    = enable ? vram_ce : 1'hZ;
-assign irq_b        = enable ? irq : 1'hZ;
-assign flags_out_b  = enable ? flags_out : 16'hZ;
-assign audio_b      = enable ? audio[15:0] : 16'hZ;
-
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 wire irq;
-wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, 1'b0};
+wire nesprg_oe;
 wire prg_bus_write = nesprg_oe;
+wire [15:0] flags_out = {12'h0, 1'b1, 1'b0, prg_bus_write, 1'b0};
 wire [7:0] prg_dout;
 wire [15:0] audio = audio_in;
 
-wire nesprg_oe;
 wire [7:0] neschrdout;
 wire neschr_oe;
 wire wram_oe;
@@ -68,6 +57,19 @@ wire exp6;
 reg [7:0] m2;
 wire m2_n = 1;//~ce;  //m2_n not used as clk.  Invert m2 (ce).
 wire [18:10] chr_aoutm;
+
+
+assign prg_aout_b   = enable ? prg_aout : 22'hZ;
+assign prg_dout_b   = enable ? prg_dout : 8'hZ;
+assign prg_allow_b  = enable ? prg_allow : 1'hZ;
+assign chr_aout_b   = enable ? chr_aout : 22'hZ;
+assign chr_allow_b  = enable ? chr_allow : 1'hZ;
+assign vram_a10_b   = enable ? vram_a10 : 1'hZ;
+assign vram_ce_b    = enable ? vram_ce : 1'hZ;
+assign irq_b        = enable ? irq : 1'hZ;
+assign flags_out_b  = enable ? flags_out : 16'hZ;
+assign audio_b      = enable ? audio[15:0] : 16'hZ;
+
 
 always @(posedge clk) begin
 	if (SaveStateBus_load) begin
@@ -162,8 +164,20 @@ module MAPN163(     //signal descriptions in powerpak.v
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
 assign exp6 = 0;
+
+// savestate
+localparam SAVESTATE_MODULES    = 3;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK;	
+wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2];
 
 reg [1:0] chr_en;
 reg [5:0] prg89,prgAB,prgCD;
@@ -351,12 +365,7 @@ assign nesprg_oe=wram_oe | prgram_oe | mapper_oe | config_rd;
 assign neschr_oe=0;
 assign neschrdout=0;
 
-// savestate
-localparam SAVESTATE_MODULES    = 3;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK;	
-wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2];
+
 	
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk20, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
 eReg_SavestateV #(SSREG_INDEX_MAP2, 64'h0000000000000000) iREG_SAVESTATE_MAP2 (clk20, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[1], SS_MAP2_BACK, SS_MAP2);  
@@ -392,6 +401,13 @@ module namco163_mixed (
 	input  [7:0]  Savestate_MAPRAMWriteData,
 	output [7:0]  Savestate_MAPRAMReadData
 );
+parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+// savestates
+localparam SAVESTATE_MODULES    = 2;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
+wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
 
 reg disabled;
 
@@ -436,12 +452,7 @@ wire [15:0] audio = {1'b0, saturated, 5'b0};
 wire [16:0] audio_mix = (!enable | disabled) ? {audio_in, 1'b0} : (submapper==5) ? (audio_in>>>2) + audio : (submapper==4) ? (audio_in>>>1) + audio : audio_in + audio;
 assign audio_out = audio_mix[16:1];
 
-// savestates
-localparam SAVESTATE_MODULES    = 2;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
-wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1];
+
 	
 eReg_SavestateV #(SSREG_INDEX_SNDMAP5, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
 
@@ -471,8 +482,18 @@ module namco163_sound(
 	input         Savestate_MAPRAMRdEn,    
 	input         Savestate_MAPRAMWrEn,    
 	input  [7:0]  Savestate_MAPRAMWriteData,
-	output [7:0]  Savestate_MAPRAMReadData
+	output reg [7:0]  Savestate_MAPRAMReadData
 );
+	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
+	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
+	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+
+	localparam SAVESTATE_MODULES    = 4;
+wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK;	
 
 reg carry;
 reg autoinc;
@@ -677,10 +698,7 @@ assign SS_MAP4_BACK[50:46] = sample_pos[6];
 assign SS_MAP4_BACK[55:51] = sample_pos[7];
 assign SS_MAP4_BACK[63:56] = 8'b0; // free to be used
 
-localparam SAVESTATE_MODULES    = 4;
-wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK;	
+
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2] | SaveStateBus_wired_or[3];
 	
 eReg_SavestateV #(SSREG_INDEX_SNDMAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk20, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  

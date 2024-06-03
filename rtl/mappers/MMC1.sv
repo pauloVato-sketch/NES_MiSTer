@@ -32,6 +32,23 @@ module MMC1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
+parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
+// savestate
+wire [63:0] SS_MAP1;
+wire [63:0] SS_MAP1_BACK;	
+wire [63:0] SaveStateBus_Dout_active;	
+
+wire [21:0] prg_aout, chr_aout;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+wire mapper171 = (flags[7:0] == 171); //Mapper 171 has hardwired mirroring
+reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+
+reg [4:0] shift;
+
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;
@@ -43,15 +60,7 @@ assign irq_b        = enable ? 1'b0 : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire mapper171 = (flags[7:0] == 171); //Mapper 171 has hardwired mirroring
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
-reg [4:0] shift;
 
 // CPPMM
 // |||||
@@ -197,10 +206,7 @@ wire [21:0] prg_ram = {7'b11_1100_0, prg_ram_a14_13, prg_ain[12:0]};
 assign prg_aout = prg_is_ram ? prg_ram : prg_aout_tmp;
 assign chr_allow = flags[15];
 
-// savestate
-wire [63:0] SS_MAP1;
-wire [63:0] SS_MAP1_BACK;	
-wire [63:0] SaveStateBus_Dout_active;	
+
 eReg_SavestateV #(SSREG_INDEX_MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout_active, SS_MAP1_BACK, SS_MAP1);  
 
 assign SaveStateBus_Dout = enable ? SaveStateBus_Dout_active : 64'h0000000000000000;
@@ -233,16 +239,18 @@ module NesEvent(
 	inout [15:0] flags_out_b  // flags {0, 0, 0, 0, has_savestate, prg_conflict, prg_bus_write, has_chr_dout}
 );
 
-assign prg_aout_b   = enable ? prg_aout : 22'hZ;
-assign chr_aout_b   = enable ? chr_aout : 22'hZ;
-assign irq_b        = enable ? irq : 1'hZ;
-
 wire [21:0] chr_aout;
 reg [21:0] prg_aout;
 wire [21:0] mmc1_chr_addr;
 wire [3:0] mmc1_chr = mmc1_chr_addr[16:13]; // Upper 4 CHR output control bits from MMC chip
 wire [21:0] mmc1_aout;                 // PRG output address from MMC chip
 wire irq;
+
+assign prg_aout_b   = enable ? prg_aout : 22'hZ;
+assign chr_aout_b   = enable ? chr_aout : 22'hZ;
+assign irq_b        = enable ? irq : 1'hZ;
+
+
 
 MMC1 mmc1_nesevent(
 	.clk        (clk),
