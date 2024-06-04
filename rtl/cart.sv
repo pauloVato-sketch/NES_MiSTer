@@ -75,7 +75,7 @@ module cart_top (
 	input  [7:0]  Savestate_MAPRAMWriteData,
 	output [7:0]  Savestate_MAPRAMReadData
 );
-
+reg [1023:0] me;
 tri0 prg_allow_b, vram_a10_b, vram_ce_b, chr_allow_b, irq_b;
 tri0 [21:0] prg_addr_b, chr_addr_b;
 tri0 [15:0] flags_out_b, audio_out_b;
@@ -2344,8 +2344,6 @@ vrc6_mixed snd_vrc6 (
 	.SaveStateBus_Dout (SaveStateBus_wired_or[11])
 );
 
-
-reg [1023:0] me;
 
 always @* begin
 	me = 1024'd0;

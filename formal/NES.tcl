@@ -25,7 +25,7 @@ analyze -sv -f files_mappers_sv.f
 
 
 
-# elaborate -top sys_top -bbox_m DSP48A1 -bbox_m dpram
+elaborate -top emu -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m video_freak -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m video_mixer
 
 
 # clock -infer
