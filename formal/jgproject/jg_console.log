@@ -75,3 +75,8 @@
 2024-06-11 08:03:12.136048 (9052) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
 2024-06-11 08:03:12.136712 (9052) lic__man INFO    Unclaim everything for 'session_0'.
 2024-06-11 08:03:23.681023 (9052) lic__man INFO    Unclaim everything for 'session_0'.
+2024-06-11 08:07:22.998470 (9052) main____ INFO    About to exit: requested from GUI
+2024-06-11 08:07:24.294162 (9052) session_ INFO    Analysis session 'session_0' disconnected.
+2024-06-11 08:07:24.476243 (9052) lic_core INFO    (1) checkin jasper_interactive
+2024-06-11 08:07:24.517319 (9052) lic_core INFO    (3) checkin jasper_dao
+2024-06-11 08:07:24.556543 (9052) main____ INFO    Exiting with status 0.
