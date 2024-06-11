@@ -192,6 +192,28 @@ module NES(
 // - Cart CE should happen on the second PPU tick in a CPU cycle always
 // - PPU read/write should happen on the last PPU tick in a CPU cycle (usually third)
 
+// Counters
+reg [4:0] div_cpu = 5'd1;
+reg [2:0] div_ppu = 3'd1;
+reg [1:0] div_sys = 2'd0;
+
+// Clock Dividers
+localparam div_cpu_n = 5'd12;
+localparam div_ppu_n = 3'd4;
+
+reg [1:0] ppu_tick = 0;
+reg [2:0] cpu_tick_count;
+
+// Signals
+wire cart_pre  = (ppu_tick == (cpu_tick_count[2] ? 1 : 0));
+wire ppu_read  = (ppu_tick == (cpu_tick_count[2] ? 2 : 1));
+wire ppu_write = (ppu_tick == (cpu_tick_count[2] ? 1 : 0));
+
+// CE's
+wire cpu_ce  = (div_cpu == div_cpu_n);
+wire ppu_ce  = (div_ppu == div_ppu_n);
+wire cart_ce = (cart_pre & ppu_ce); // First PPU cycle where cpu data is visible.
+
 assign nes_div = div_sys;
 assign apu_ce = cpu_ce;
 
@@ -202,24 +224,6 @@ wire [7:0] cpu_dout;
 // master cycles and low for 6 master cycles. It is considered active when low or "even".
 reg odd_or_even = 1; // 1 == odd, 0 == even
 
-// Clock Dividers
-localparam div_cpu_n = 5'd12;
-localparam div_ppu_n = 3'd4;
-
-// Counters
-reg [4:0] div_cpu = 5'd1;
-reg [2:0] div_ppu = 3'd1;
-reg [1:0] div_sys = 2'd0;
-
-// CE's
-wire cpu_ce  = (div_cpu == div_cpu_n);
-wire ppu_ce  = (div_ppu == div_ppu_n);
-wire cart_ce = (cart_pre & ppu_ce); // First PPU cycle where cpu data is visible.
-
-// Signals
-wire cart_pre  = (ppu_tick == (cpu_tick_count[2] ? 1 : 0));
-wire ppu_read  = (ppu_tick == (cpu_tick_count[2] ? 2 : 1));
-wire ppu_write = (ppu_tick == (cpu_tick_count[2] ? 1 : 0));
 
 wire phi2 = (div_cpu > 4 && div_cpu < div_cpu_n);
 
@@ -233,15 +237,14 @@ reg freeze_clocks = 0;
 reg [4:0] faux_pixel_cnt;
 
 wire use_fake_h = freeze_clocks && faux_pixel_cnt < 6;
-reg [1:0] ppu_tick = 0;
 
 reg [1:0] last_sys_type;
-reg [2:0] cpu_tick_count;
 
 wire skip_ppu_cycle = (cpu_tick_count == 4) && (ppu_tick == 0);
 
 reg hold_reset = 0;
 reg bootvector_flag;
+wire reset_ss;
 wire cpu_reset = reset_ss | hold_reset;
 wire reset = cpu_reset | bootvector_flag;
 wire reset_noSS = reset_nes | hold_reset | bootvector_flag;
@@ -263,6 +266,13 @@ wire       evenframe_paused;
 
 assign corepaused = corepause_active;
 assign refresh    = corepause_active_delay && ppu_ce_pause;
+wire loading_savestate;
+wire [63:0] SS_TOP;
+wire [63:0] SS_TOP_BACK;
+wire pause_cpu;
+wire cpu_Instrnew;
+wire [8:0] ppu_cycle;
+wire [8:0] scanline_ppu;
 
 always @(posedge clk) begin
 	if (reset_nes) hold_reset <= 1;
@@ -385,11 +395,9 @@ ClockGen clockgen_pause(
 
 wire [15:0] cpu_addr;
 wire cpu_rnw;
-wire pause_cpu;
 wire nmi;
 wire mapper_irq;
 wire apu_irq;
-wire cpu_Instrnew;
 
 // IRQ only changes once per CPU ce and with our current
 // limited CPU model, NMI is only latched on the falling edge
@@ -502,9 +510,12 @@ defparam apu.SSREG_INDEX_FCT  = 10'd19;
 // defparam apu.SSREG_INDEX_DMC2 = SSREG_INDEX_APU_DMC2;
 // defparam apu.SSREG_INDEX_FCT  = SSREG_INDEX_APU_FCT;
 
-assign sample = sample_a;
 reg [15:0] sample_a;
+assign sample = sample_a;
+wire [1:0] audio_en = {int_audio, ext_audio};
+wire [15:0] sample_ext;
 
+wire [15:0] sample_inverted = 16'hFFFF - sample_apu;
 always @* begin
 	case (audio_en)
 		0: sample_a = 16'd0;
@@ -513,9 +524,6 @@ always @* begin
 		3: sample_a = sample_ext;
 	endcase
 end
-
-wire [15:0] sample_inverted = 16'hFFFF - sample_apu;
-wire [1:0] audio_en = {int_audio, ext_audio};
 wire [15:0] audio_mappers = (audio_en == 2'd1) ? 16'd0 : sample_inverted;
 
 
@@ -549,8 +557,7 @@ wire chr_read, chr_write, chr_read_ex;       // If PPU reads/writes from VRAM
 wire [13:0] chr_addr, chr_addr_ex;           // Address PPU accesses in VRAM
 wire [7:0] chr_from_ppu;        // Data from PPU to VRAM
 wire [7:0] chr_to_ppu;
-wire [8:0] ppu_cycle;
-wire [8:0] scanline_ppu;
+
 assign cycle = use_fake_h ? 9'd340 : (corepause_active) ? cycle_paused : ppu_cycle;
 assign scanline = (corepause_active) ? scanline_paused : scanline_ppu;
 
@@ -601,17 +608,16 @@ PPU ppu(
 /**********************************************************/
 
 wire [15:0] prg_addr = addr;
+wire prg_allow, prg_bus_write, prg_conflict, vram_a10, vram_ce, chr_allow;
 wire [7:0] prg_din = dbus & (prg_conflict ? cpumem_din : 8'hFF);
 
 wire prg_read  = mr_int && cart_pre && !apu_cs && !ppu_cs;
 wire prg_write = mw_int && cart_pre;
 
-wire prg_allow, prg_bus_write, prg_conflict, vram_a10, vram_ce, chr_allow;
 wire [24:0] prg_linaddr;
 wire [21:0] chr_linaddr;
 wire [7:0] prg_dout_mapper, chr_from_ppu_mapper;
 wire has_chr_from_ppu_mapper;
-wire [15:0] sample_ext;
 
 assign save_written = (mapper_flags[7:0] == 8'h14) ? (prg_linaddr[21:18] == 4'b1111 && prg_write) : (prg_addr[15:13] == 3'b011 && prg_write) | bram_write;
 
@@ -725,9 +731,8 @@ always @(posedge clk) begin
 	end
 end
 
-assign from_data_bus = genie_ovr ? genie_data : raw_data_bus;
-
 reg [7:0] raw_data_bus;
+assign from_data_bus = genie_ovr ? genie_data : raw_data_bus;
 
 always @* begin
 	if (reset)
@@ -773,21 +778,17 @@ wire [2:0]  Savestate_RAMType;
 localparam SAVESTATE_MODULES    = 5;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
 
-wire reset_ss;
 wire reset_delay;
 wire savestate_savestate;
 wire savestate_loadstate;
 wire [31:0] savestate_address;
 wire savestate_busy;  
-
-wire [63:0] SS_TOP;
-wire [63:0] SS_TOP_BACK;	
+	
 // eReg_SavestateV #(SSREG_INDEX_TOP, SSREG_DEFAULT_TOP) iREG_SAVESTATE_TOP (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[4], SS_TOP_BACK, SS_TOP);  
 eReg_SavestateV #(10'd24, 64'h0000000000000000) iREG_SAVESTATE_TOP (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[4], SS_TOP_BACK, SS_TOP);  
 
 wire [63:0] SaveStateBus_Dout  = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2] | SaveStateBus_wired_or[3] | SaveStateBus_wired_or[4] | SaveStateExt_Dout;
  
-wire loading_savestate;
 wire saving_savestate;
 wire sleep_savestates;
 wire sleep_rewind;

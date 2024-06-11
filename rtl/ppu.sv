@@ -230,10 +230,9 @@ assign at_last_cycle_group = (cycle[8:3] == 42);
 
 // For NTSC only, the *last* cycle of odd frames is skipped.
 // In Visual 2C02, the counter starts at zero and flips at scanline 256.
-assign short_frame = end_of_line & skip_pixel;
-
 wire skip_pixel = is_pre_render && ~even_frame_toggle && rendering_sr[3] && skip_en;
 assign end_of_line = at_last_cycle_group && (cycle[3:0] == (skip_pixel ? 3 : 4));
+assign short_frame = end_of_line & skip_pixel;
 
 // Confimed with Visual 2C02
 // All vblank clocked registers should have changed and be readable by cycle 1 of 241/261
@@ -390,17 +389,6 @@ Sprite sprite1( clk, ce, enable, load, load_out2,  load_out1,  bits1);
 Sprite sprite0( clk, ce, enable, load, load_out1,  load_out0,  bits0);
 
 // Determine which sprite is visible on this pixel.
-assign bits = bits_orig;
-wire [4:0] bits_orig =
-	bits0[1:0]  != 0 ? bits0 :
-	bits1[1:0]  != 0 ? bits1 :
-	bits2[1:0]  != 0 ? bits2 :
-	bits3[1:0]  != 0 ? bits3 :
-	bits4[1:0]  != 0 ? bits4 :
-	bits5[1:0]  != 0 ? bits5 :
-	bits6[1:0]  != 0 ? bits6 :
-	bits7[1:0]  != 0 || ~extra_sprites ? bits7 :
-	bits_ex;
 
 wire [4:0] bits_ex =
 	bits8[1:0]  != 0 ? bits8 :
@@ -412,6 +400,18 @@ wire [4:0] bits_ex =
 	bits14[1:0] != 0 ? bits14 :
 	bits15;
 
+wire [4:0] bits_orig =
+	bits0[1:0]  != 0 ? bits0 :
+	bits1[1:0]  != 0 ? bits1 :
+	bits2[1:0]  != 0 ? bits2 :
+	bits3[1:0]  != 0 ? bits3 :
+	bits4[1:0]  != 0 ? bits4 :
+	bits5[1:0]  != 0 ? bits5 :
+	bits6[1:0]  != 0 ? bits6 :
+	bits7[1:0]  != 0 || ~extra_sprites ? bits7 :
+	bits_ex;
+
+assign bits = bits_orig;
 assign is_sprite0 = bits0[1:0] != 0;
 
 endmodule  // SpriteSet
@@ -448,6 +448,20 @@ module OAMEval(
 	output reg [7:0]  Savestate_OAMReadData
 );
 
+reg [7:0] oam_temp[64];    // OAM Temporary buffer, normally 32 bytes, 64 for extra sprites
+reg [7:0] oam[256];        // OAM RAM, 256 bytes
+reg [7:0] oam_addr;        // OAM Address Register 2003
+reg [2:0] oam_temp_slot;   // Pointer to oam_temp;
+reg [7:0] oam_data;        // OAM Data Register 2004
+reg oam_temp_wren;         // Write enable for OAM temp, disabled if full
+
+// Extra Registers
+reg [5:0] oam_addr_ex;     // OAM pointer for use with extra sprites
+reg [3:0] oam_temp_slot_ex;
+reg [1:0] m_ex;				// unused?
+reg [7:0] oam_data_ex;     // unused?
+reg [2:0] spr_counter;     // Count sprites
+
 wire [63:0] SS_OAMEVAL;
 wire [63:0] SS_OAMEVAL_BACK;
 // eReg_SavestateV #(SSREG_INDEX_OAMEVAL, SSREG_DEFAULT_OAMEVAL) iREG_SAVESTATE (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_OAMEVAL_BACK, SS_OAMEVAL);  
@@ -468,19 +482,7 @@ enum {
 	STATE_REFRESH
 } oam_state = STATE_IDLE;
 
-reg [7:0] oam_temp[64];    // OAM Temporary buffer, normally 32 bytes, 64 for extra sprites
-reg [7:0] oam[256];        // OAM RAM, 256 bytes
-reg [7:0] oam_addr;        // OAM Address Register 2003
-reg [2:0] oam_temp_slot;   // Pointer to oam_temp;
-reg [7:0] oam_data;        // OAM Data Register 2004
-reg oam_temp_wren;         // Write enable for OAM temp, disabled if full
 
-// Extra Registers
-reg [5:0] oam_addr_ex;     // OAM pointer for use with extra sprites
-reg [3:0] oam_temp_slot_ex;
-reg [1:0] m_ex;				// unused?
-reg [7:0] oam_data_ex;     // unused?
-reg [2:0] spr_counter;     // Count sprites
 
 wire visible = (scanline < 240);
 wire rendering = (scanline == 9'd511 || visible) && rendering_enabled;
@@ -875,9 +877,9 @@ wire [7:0] vram_f =
 
 wire [3:0] y_f = temp_y[3:0] ^ {flip_y, flip_y, flip_y, flip_y};
 assign load = {load_pix1, load_pix2, load_x, load_attr};
+reg [7:0] load_temp;
 assign load_in = {pix1_latch, pix2_latch, load_temp, load_temp[1:0], load_temp[5]};
 
-reg [7:0] load_temp;
 always_comb begin
 	case (cycle)
 		0: load_temp = temp_y;

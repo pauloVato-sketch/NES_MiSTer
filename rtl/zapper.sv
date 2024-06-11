@@ -17,6 +17,10 @@ module zapper (
 	output       trigger
 );
 
+reg [8:0] light_cnt; // timer for 10-25 scanlines worth of "light" activity.
+wire light_state = light_cnt > 0;
+int trigger_cnt;
+wire trigger_state = (trigger_cnt > 'd2_100_000);
 assign light = ~light_state;
 assign trigger = trigger_state;
 
@@ -28,19 +32,14 @@ assign trigger = trigger_state;
 wire signed [8:0] mouse_x = {ps2_mouse[4], ps2_mouse[15:8]};
 wire signed [8:0] mouse_y = {ps2_mouse[5], ps2_mouse[23:16]};
 wire mouse_msg = ps2_mouse[24];
-wire light_state = light_cnt > 0;
 
+reg signed [9:0] pos_x, pos_y;
 wire signed [9:0] x_diff = pos_x + mouse_x;
 wire signed [9:0] y_diff = pos_y - mouse_y;
 
-reg [8:0] light_cnt; // timer for 10-25 scanlines worth of "light" activity.
-reg signed [9:0] pos_x, pos_y;
-wire trigger_state = (trigger_cnt > 'd2_100_000);
 reg old_msg;
 reg [8:0] old_scanline;
 reg pressed;
-
-int trigger_cnt;
 
 wire hit_x = ((pos_x >= cycle - 1'b1 && pos_x <= cycle + 1'b1) && scanline == pos_y);
 wire hit_y = ((pos_y >= scanline - 1'b1 && pos_y <= scanline + 1'b1) && cycle == pos_x);

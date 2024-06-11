@@ -12,11 +12,11 @@ module CODES(
 	input  reset,      // This should only be triggered when a new rom is loaded or before new codes load, not warm reset
 	input  enable,
 	output available,
-	input  [ADDR_WIDTH - 1:0] addr_in,
-	input  [DATA_WIDTH - 1:0] data_in,
+	input  [15:0] addr_in,//input  [ADDR_WIDTH - 1:0] addr_in,
+	input  [7:0] data_in,//input  [DATA_WIDTH - 1:0] data_in,
 	input  [128:0] code,
 	output reg genie_ovr,
-	output reg [DATA_WIDTH - 1:0] genie_data
+	output reg [7:0] genie_data//output reg [DATA_WIDTH - 1:0] genie_data
 );
 
 parameter ADDR_WIDTH   = 16; // Not more than 32

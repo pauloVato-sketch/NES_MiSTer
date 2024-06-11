@@ -158,12 +158,29 @@ module emu
 	input         OSD_STATUS
 );
 
+wire clock_locked;
+wire clk85;
+wire clk;
+
+wire [15:0] sample;
 assign ADC_BUS  = 'Z;
 
 assign AUDIO_S   = 0;
 assign AUDIO_L   = sample[15:0];
 assign AUDIO_R   = AUDIO_L;
 assign AUDIO_MIX = 0;
+
+// Figure out file types
+reg type_bios, type_fds, type_gg, type_nsf, type_nes, type_palette, is_bios, downloading;
+wire loader_busy, loader_done, loader_fail;
+reg [24:0] rom_sz;
+reg led_blink;
+wire [63:0] status;
+typedef enum bit [1:0] { S_IDLE, S_COPY } mystate;
+mystate bk_state = S_IDLE;
+reg bk_pending;
+wire forced_scandoubler;
+wire [2:0] scale = status[3:1];
 
 assign LED_USER  = downloading | (loader_fail & led_blink) | (bk_state != S_IDLE) | (bk_pending & ~status[50]);
 assign LED_DISK  = 0;
@@ -295,8 +312,10 @@ wire [23:0] joyA_unmod;
 wire [10:0] ps2_key;
 wire [1:0] buttons;
 
-wire [63:0] status;
+reg  [63:0] mapper_flags;
+wire piano = (mapper_flags[30]);
 
+wire raw_serial = |status[52:51];
 wire arm_reset = status[0];
 wire pal_video = |status[24:23];
 wire hide_overscan = status[4] && ~pal_video;
@@ -305,10 +324,13 @@ wire joy_swap = status[9] ^ (raw_serial || piano); // Controller on port 2 for M
 wire fds_auto_eject = ~status[16];
 wire ext_audio = ~status[30];
 wire int_audio = ~status[31];
-
-// Figure out file types
-reg type_bios, type_fds, type_gg, type_nsf, type_nes, type_palette, is_bios, downloading;
-reg [24:0] rom_sz;
+reg loader_reset;
+reg [7:0] download_reset_cnt;
+wire download_reset = download_reset_cnt != 0;
+wire        ioctl_downloading;
+reg         ioctl_download;
+wire  [7:0] filetype;
+wire [24:0] ioctl_addr;
 
 always_ff @(posedge clk) begin
 	reg old_downld;
@@ -342,12 +364,12 @@ always_ff @(posedge clk) begin
 	if(old_downld && ~downloading & (type_fds|type_nsf|type_nes)) rom_sz <= ioctl_addr - 1'd1;
 end
 
+reg osd_btn = 0;
 assign BUTTONS[0] = osd_btn;
 
 // Pop OSD menu if no rom has been loaded automatically
 wire rom_loaded;
 
-reg osd_btn = 0;
 always @(posedge clk) begin : osd_block
 	integer timeout = 0;
 
@@ -375,16 +397,13 @@ wire        img_mounted;
 wire        img_readonly;
 wire [63:0] img_size;
 
-wire  [7:0] filetype;
-wire        ioctl_downloading;
-reg         ioctl_download;
-wire [24:0] ioctl_addr;
+
 reg         ioctl_wait;
 
 wire [24:0] ps2_mouse;
 wire [15:0] joy_analog0, joy_analog1;
 wire  [7:0] pdl[4];
-wire        forced_scandoubler;
+reg save_wait;
 
 wire [21:0] gamma_bus;
 
@@ -450,10 +469,6 @@ assign joyA = joyA_unmod[23] ? 23'b0 : joyA_unmod;
 
 wire       info_req = diskside_info || ss_info_req;
 wire [7:0] info     = ss_info_req ? ss_info : {1'b0,diskside} + 3'd1;
-
-wire clock_locked;
-wire clk85;
-wire clk;
 
 pll pll
 (
@@ -522,8 +537,6 @@ end
 
 
 // reset after download
-reg [7:0] download_reset_cnt;
-wire download_reset = download_reset_cnt != 0;
 always @(posedge clk) begin
 	if(downloading) download_reset_cnt <= 8'hFF;
 	else if(!loader_busy && download_reset_cnt) download_reset_cnt <= download_reset_cnt - 1'd1;
@@ -535,7 +548,6 @@ always @(posedge clk) if(downloading) init_reset_n <= 1;
 
 wire  [8:0] cycle;
 wire  [8:0] scanline;
-wire [15:0] sample;
 wire  [5:0] color;
 wire  [2:0] joypad_out;
 wire  [1:0] joypad_clock;
@@ -544,6 +556,16 @@ reg   [7:0] joypad_d3, joypad_d4;
 reg   [1:0] last_joypad_clock;
 
 wire [11:0] powerpad = joyA[22:11] | joyB[22:11] | joyC[22:11] | joyD[22:11];
+
+localparam [7:0] paddle_off = 32; //middle point for Chase HQ
+reg [7:0] paddle = 0;
+
+wire [7:0] paddle_adj = paddle_off + ((paddle < 40) ? 8'd40 : (paddle > 216) ? 8'd216 : paddle);
+wire [7:0] paddle_nes = ~{paddle_adj[0],paddle_adj[1],paddle_adj[2],paddle_adj[3],paddle_adj[4],paddle_adj[5],paddle_adj[6],paddle_adj[7]};
+wire       paddle_en  = (status[34:33] == 2);
+wire       paddle_atr = paddle_en & status[32];
+wire       paddle_btn = paddle_atr ? (joyA[4] | joyB[4] | joyC[4] | joyD[4]) : (joyA[10] | joyB[10] | joyC[10] | joyD[10]);
+
 
 wire [3:0] famtr;
 assign famtr[0] = (~joypad_out[2] & powerpad[3]) | (~joypad_out[1] & powerpad[7]) | (~joypad_out[0] & powerpad[11]);
@@ -561,14 +583,12 @@ wire fds_btn = joyA[8] | joyB[8];
 
 reg [1:0] nes_ce;
 
-wire raw_serial = |status[52:51];
-
 // Extend SNAC zapper high signal to be closer to original NES
 wire extend_serial_d4 = status[52:51] == 2'b10;
 wire snac_3d_glasses = &status[52:51];
 
-wire serial_d4 = extend_serial_d4 ? |serial_d4_sr : ~USER_IN[4];
 reg [7:0] serial_d4_sr;
+wire serial_d4 = extend_serial_d4 ? |serial_d4_sr : ~USER_IN[4];
 reg snac_p2 = 0;
 
 always @(posedge clk) begin
@@ -619,7 +639,13 @@ reg [4:0] joypad1_data, joypad2_data;
 
 wire joy0_d0 = snac_p2 ? ~USER_IN[6] : joypad_bits[0];
 wire joy1_d0 = snac_p2 ? ~USER_IN[6] : joypad_bits2[0];
-
+reg [7:0] mic_cnt;
+wire mic = (mic_cnt < 8'd215) && mic_button;
+wire lightgun_en = ~status[34] & |status[33:32];
+wire trigger;
+wire light;
+wire fkeyb = status[53];
+wire [3:0] key_out;
 
 
 always_comb begin
@@ -648,12 +674,9 @@ always_comb begin
 	end
 end
 
-wire mic = (mic_cnt < 8'd215) && mic_button;
-reg [7:0] mic_cnt;
+
 always @(posedge clk) mic_cnt <= (mic_cnt == 8'd250) ? 8'd0 : mic_cnt + 1'b1;
 
-wire fkeyb = status[53];
-wire [3:0] key_out;
 keyboard fkey(
 	.clk(clk),
 	.reset(reset_nes || !fkeyb),
@@ -676,8 +699,6 @@ miraclepiano miracle(
 	.rxd(UART_RXD)
 );
 
-wire lightgun_en = ~status[34] & |status[33:32];
-
 zapper zap (
 	.clk(clk),
 	.reset(reset_nes | ~lightgun_en),
@@ -694,7 +715,6 @@ zapper zap (
 	.trigger(trigger)
 );
 
-reg [7:0] paddle = 0;
 always @(posedge clk) begin
 	reg [7:0] old_pdl[4];
 	reg [1:0] num = 0;
@@ -707,13 +727,6 @@ always @(posedge clk) begin
 	paddle <= pdl[num];
 end
 
-localparam [7:0] paddle_off = 32; //middle point for Chase HQ
-
-wire [7:0] paddle_adj = paddle_off + ((paddle < 40) ? 8'd40 : (paddle > 216) ? 8'd216 : paddle);
-wire [7:0] paddle_nes = ~{paddle_adj[0],paddle_adj[1],paddle_adj[2],paddle_adj[3],paddle_adj[4],paddle_adj[5],paddle_adj[6],paddle_adj[7]};
-wire       paddle_en  = (status[34:33] == 2);
-wire       paddle_atr = paddle_en & status[32];
-wire       paddle_btn = paddle_atr ? (joyA[4] | joyB[4] | joyC[4] | joyD[4]) : (joyA[10] | joyB[10] | joyC[10] | joyD[10]);
 
 always @(posedge clk) begin
 	if (reset_nes) begin
@@ -743,21 +756,27 @@ always @(posedge clk) begin
 end
 
 // Loader
+wire [7:0] bios_data;
+wire [63:0] loader_flags;
+wire [7:0] nsf_data;
+wire fds = (mapper_flags[7:0] == 8'h14);
+wire nsf = (loader_flags[7:0] == 8'h1F);
 wire [7:0] file_input;
 wire [7:0] loader_input = (loader_busy && !downloading) ? !nsf ? bios_data : nsf_data : file_input;
 wire       loader_clk;
 wire [24:0] loader_addr;
 wire [7:0] loader_write_data;
-reg loader_reset;
 wire loader_write;
-wire [63:0] loader_flags;
-reg  [63:0] mapper_flags;
-wire fds = (mapper_flags[7:0] == 8'h14);
-wire nsf = (loader_flags[7:0] == 8'h1F);
-wire piano = (mapper_flags[30]);
 wire [3:0] prg_nvram = mapper_flags[34:31];
-wire loader_busy, loader_done, loader_fail;
 wire [9:0] prg_mask, chr_mask;
+
+wire bk_load    = status[6];
+wire bk_save    = status[7] | (bk_pending & OSD_STATUS && ~status[50]);
+reg  bk_loading = 0;
+reg  bk_loading_req = 0;
+reg  bk_request = 0;
+reg  fds_busy;
+
 
 GameLoader loader
 (
@@ -782,7 +801,6 @@ GameLoader loader
 
 always @(posedge clk) if (loader_done) mapper_flags <= loader_flags;
 
-reg led_blink;
 always @(posedge clk) begin : blink_block
 	int cnt = 0;
 	cnt <= cnt + 1;
@@ -811,8 +829,6 @@ wire [7:0] bram_din;
 wire [7:0] bram_dout;
 wire bram_write;
 wire bram_en;
-wire trigger;
-wire light;
 
 wire [1:0] diskside;
 reg       diskside_info;
@@ -942,12 +958,15 @@ wire  [7:0] cpu_dout, cpu_din, ppu_dout, ppu_din;
 
 wire [2:0] emphasis;
 
-wire [7:0] bios_data;
 wire bios_download = downloading & type_bios;
 wire bios_write = (loader_write && bios_download && ~bios_loaded);
 
 reg bios_loaded = 0; // Only load bios once
 reg last_bios_download = 0;
+
+wire save_busy;
+reg save_rd, save_wr;
+reg [17:0] save_addr;
 
 always @(posedge clk) begin
 	last_bios_download <= bios_download;
@@ -965,7 +984,6 @@ spram #(.addr_width(13)) fds_bios
 	.q(bios_data)
 );
 
-wire [7:0] nsf_data;
 spram #(12, 8, "rtl/loopy_NSF.mif") nsfplayrom
 (
 	.clock(clk),
@@ -1002,8 +1020,9 @@ wire [24:0] ch2_addr = sleep_savestate ? Savestate_SDRAMAddr      : {7'b0001111,
 wire        ch2_wr   = sleep_savestate ? Savestate_SDRAMWrEn      : save_wr;
 wire  [7:0] ch2_din  = sleep_savestate ? Savestate_SDRAMWriteData : sd_buff_dout;
 wire        ch2_rd   = sleep_savestate ? Savestate_SDRAMRdEn      : save_rd;
-
+wire [7:0] save_dout;
 assign Savestate_SDRAMReadData = save_dout;
+wire bk_busy = (bk_state == S_COPY);
 
 sdram sdram
 (
@@ -1042,10 +1061,9 @@ sdram sdram
 	.ss_out     (sdram_ss_out)
 );
 
-wire [7:0] save_dout;
+wire [7:0] eeprom_dout;
 assign sd_buff_din = bram_en ? eeprom_dout : save_dout;
 
-wire [7:0] eeprom_dout;
 dpram #(" ", 11) eeprom
 (
 	.clock_a(clk85),
@@ -1061,10 +1079,6 @@ dpram #(" ", 11) eeprom
 	.q_b(eeprom_dout)
 );
 
-wire save_busy;
-reg save_rd, save_wr;
-reg save_wait;
-reg [17:0] save_addr;
 
 always @(posedge clk) begin
 
@@ -1089,7 +1103,6 @@ always @(posedge clk) begin
 	if(~bk_busy | save_busy | bram_en) {save_rd, save_wr} <= 0;
 end
 
-reg bk_pending;
 wire save_written;
 always @(posedge clk) begin
 	if ((mapper_flags[25] || fds) && ~OSD_STATUS && save_written)
@@ -1135,7 +1148,7 @@ always @(posedge clk) begin
 end
 
 ///////////////////////////////////////////////////
-wire [2:0] scale = status[3:1];
+
 wire [2:0] sl = scale ? scale - 1'd1 : 3'd0;
 assign VGA_SL = sl[1:0];
 
@@ -1228,18 +1241,7 @@ always @(posedge clk) begin
 	if(~bk_ena && loader_write_triggered) max_diskside <= loader_addr_mem[17:16];
 end
 
-wire bk_load    = status[6];
-wire bk_save    = status[7] | (bk_pending & OSD_STATUS && ~status[50]);
-reg  bk_loading = 0;
-reg  bk_loading_req = 0;
-reg  bk_request = 0;
-wire bk_busy = (bk_state == S_COPY);
-reg  fds_busy;
-
 wire [8:0] save_sz = fds ? rom_sz[17:9] : bram_en ? 9'd3 : (prg_nvram == 4'd7) ? 9'd15 : 9'd63;
-
-typedef enum bit [1:0] { S_IDLE, S_COPY } mystate;
-mystate bk_state = S_IDLE;
 
 always @(posedge clk) begin : save_block
 	reg old_load = 0, old_save = 0, old_ack;
@@ -1402,11 +1404,17 @@ reg [7:0] prgsize;
 reg [3:0] ctr;
 reg [7:0] ines[0:15]; // 16 bytes of iNES header
 reg [24:0] bytes_left;
+reg [3:0] clearclk; //Wait for SDRAM
+reg copybios;
+reg cleardone;
 
 wire [7:0] prgrom = ines[4];	// Number of 16384 byte program ROM pages
 wire [7:0] chrrom = ines[5];	// Number of 8192 byte character ROM pages (0 indicates CHR RAM)
 wire [3:0] chrram = ines[11][3:0]; // NES 2.0 CHR-RAM size shift count (64 << count)
+wire is_nes20 = (ines[7][3:2] == 2'b10);
 wire has_chr_ram = ~is_nes20 ? (chrrom == 0) : |chrram;
+typedef enum bit [3:0] { S_LOADHEADER, S_LOADPRG, S_LOADCHR, S_LOADEXTRA, S_LOADFDS, S_ERROR, S_CLEARRAM, S_COPYBIOS, S_LOADNSFH, S_LOADNSFD, S_COPYPLAY, S_DONE } mystate;
+mystate state;
 
 assign mem_data = (state == S_CLEARRAM || (~copybios && state == S_COPYBIOS)) ? 8'h00 : indata;
 assign mem_write = (((bytes_left != 0) && (state == S_LOADPRG || state == S_LOADCHR || state == S_LOADEXTRA)
@@ -1414,7 +1422,7 @@ assign mem_write = (((bytes_left != 0) && (state == S_LOADPRG || state == S_LOAD
 	|| ((bytes_left != 0) && ((state == S_CLEARRAM) || (state == S_COPYBIOS) || (state == S_COPYPLAY)) && clearclk == 4'h2);
 
 // detect iNES2.0 compliant header
-wire is_nes20 = (ines[7][3:2] == 2'b10);
+
 wire is_nes20_prg = (is_nes20 && (ines[9][3:0] == 4'hF));
 wire is_nes20_chr = (is_nes20 && (ines[9][7:4] == 4'hF));
 
@@ -1488,12 +1496,6 @@ assign mapper_flags[13:11] = chr_size;
 assign mapper_flags[10:8]  = prg_size;
 assign mapper_flags[7:0]   = mapper;
 
-reg [3:0] clearclk; //Wait for SDRAM
-reg copybios;
-reg cleardone;
-
-typedef enum bit [3:0] { S_LOADHEADER, S_LOADPRG, S_LOADCHR, S_LOADEXTRA, S_LOADFDS, S_ERROR, S_CLEARRAM, S_COPYBIOS, S_LOADNSFH, S_LOADNSFD, S_COPYPLAY, S_DONE } mystate;
-mystate state;
 
 wire type_bios = filetype[0];
 wire type_nes = filetype[1];

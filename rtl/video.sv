@@ -31,7 +31,17 @@ module video
 	output [7:0] B
 );
 
+localparam HBL_START = 256;
+localparam HBL_END   = 340;
+localparam VBL_START = 240;
+localparam VBL_END   = 511;
 reg pix_ce, pix_ce_n;
+reg  hblank, vblank;
+reg  [9:0] h, v;
+reg  [1:0] free_sync = 0;
+wire [9:0] hc = (&free_sync | reset) ? h : count_h;
+wire [9:0] vc = (&free_sync | reset) ? v : count_v;
+wire is_padding = (hc > 255);
 wire [5:0] color_ef = reticle[0] ? (reticle[1] ? 6'h21 : 6'h15) : is_padding ? 6'd63 : color;
 
 always @(negedge clk) begin
@@ -134,12 +144,6 @@ always @(posedge clk) begin
 	end
 end
 
-
-reg  hblank, vblank;
-reg  [9:0] h, v;
-reg  [1:0] free_sync = 0;
-wire [9:0] hc = (&free_sync | reset) ? h : count_h;
-wire [9:0] vc = (&free_sync | reset) ? v : count_v;
 wire [9:0] vsync_start = (pal_video ? 10'd270 : 10'd243);
 
 always @(posedge clk) begin
@@ -197,12 +201,6 @@ always @(posedge clk) begin
 	end
 end
 
-localparam HBL_START = 256;
-localparam HBL_END   = 340;
-localparam VBL_START = 240;
-localparam VBL_END   = 511;
-
-wire is_padding = (hc > 255);
 
 reg dark_r, dark_g, dark_b;
 

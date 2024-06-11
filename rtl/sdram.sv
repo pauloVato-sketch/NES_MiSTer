@@ -101,6 +101,15 @@ wire [2:0] rd,wr;
 assign rd = {ch2_rd, ch1_rd, ch0_rd};
 assign wr = {ch2_wr, ch1_wr, ch0_wr};
 
+// initialization 
+reg [1:0] mode;
+reg [4:0] reset=5'h1f;
+
+localparam MODE_NORMAL = 2'b00;
+localparam MODE_RESET  = 2'b01;
+localparam MODE_LDM    = 2'b10;
+localparam MODE_PRE    = 2'b11;
+
 // access manager
 always @(posedge clk) begin
 	reg old_ref;
@@ -168,14 +177,6 @@ always @(posedge clk) begin
 	end
 end
 
-localparam MODE_NORMAL = 2'b00;
-localparam MODE_RESET  = 2'b01;
-localparam MODE_LDM    = 2'b10;
-localparam MODE_PRE    = 2'b11;
-
-// initialization 
-reg [1:0] mode;
-reg [4:0] reset=5'h1f;
 always @(posedge clk) begin
 	reg init_old=0;
 	init_old <= init;
