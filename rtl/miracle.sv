@@ -238,7 +238,7 @@ assign rxds = rxd_sync[1];
 
 localparam [16-1:0] HALF_PERIOD=16'd343; // 21.477MHz/31250Hz = 687.27
 // SERPER
-reg  [ 16-1:0] serper = HALF_PERIOD;
+wire  [ 16-1:0] serper = HALF_PERIOD;
 
 // SERDAT
 reg  [ 16-1:0] serdat = 16'h0000;

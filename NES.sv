@@ -773,7 +773,7 @@ wire [9:0] prg_mask, chr_mask;
 wire bk_load    = status[6];
 wire bk_save    = status[7] | (bk_pending & OSD_STATUS && ~status[50]);
 reg  bk_loading = 0;
-reg  bk_loading_req = 0;
+wire  bk_loading_req = 0;
 reg  bk_request = 0;
 reg  fds_busy;
 
@@ -1343,7 +1343,7 @@ wire statusUpdate;
 
 //Ignore F1-F4 when famicom keyboard is enabled
 wire skip_ps2 = (ps2_key[7:0] == 'h04) || (ps2_key[7:0] == 'h05) || (ps2_key[7:0] == 'h06) || (ps2_key[7:0] == 'h0C);
-wire [10:0] ps2_key_adjust = skip_ps2 && fkeyb ? 'h0 : ps2_key[10:0];
+wire [10:0] ps2_key_adjust = skip_ps2 && fkeyb ? 11'h0 : ps2_key[10:0];
 
 savestate_ui savestate_ui
 (

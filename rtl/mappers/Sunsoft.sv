@@ -30,8 +30,8 @@ module Mapper69(
 	output      [63:0]  SaveStateBus_Dout
 );
 localparam SAVESTATE_MODULES    = 2;
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 wire [63:0] SaveStateBus_Dout_active;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
 wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
@@ -43,7 +43,7 @@ wire chr_allow;
 reg vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 wire [15:0] audio;
 
 reg [7:0] chr_bank[0:7];
@@ -157,7 +157,7 @@ assign SS_MAP2_BACK[   45] = ram_select;
 assign SS_MAP2_BACK[   46] = irq;
 assign SS_MAP2_BACK[63:47] = 17'b0; // free to be used
 
-always begin
+always @* begin
 	casez(mirroring[1:0])
 		2'b00: vram_a10 = {chr_ain[10]};    // vertical
 		2'b01: vram_a10 = {chr_ain[11]};    // horizontal
@@ -168,7 +168,7 @@ end
 reg [4:0] prgout;
 reg [7:0] chrout;
 
-always begin
+always @* begin
 	casez(prg_ain[15:13])
 		3'b011: prgout = prg_bank[0];
 		3'b100: prgout = prg_bank[1];
@@ -267,7 +267,7 @@ module SS5b_audio (
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
@@ -275,7 +275,7 @@ parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
 parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
 parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 reg [3:0] reg_select;
 
 // Register bank
@@ -322,6 +322,8 @@ wire [12:0] noise_next = noise_cnt + 1'b1;
 
 reg [16:0] noise_lfsr = 17'h1;
 reg [5:0] envelope_a, envelope_b, envelope_c;
+wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
+wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK;	
 
 always_ff @(posedge clk)
 if (~enable) begin
@@ -433,11 +435,6 @@ always_comb begin
 	endcase
 end
 
-assign audio_out =
-	{output_a ? ss5b_amp_lut[envelope_a] : 8'h0, 5'b0} +
-	{output_b ? ss5b_amp_lut[envelope_b] : 8'h0, 5'b0} +
-	{output_c ? ss5b_amp_lut[envelope_c] : 8'h0, 5'b0} ;
-
 // Logarithmic amplification table in 1.5db steps
 wire [7:0] ss5b_amp_lut[0:31] = '{
 	8'd0,  8'd0,  8'd1,  8'd1,  8'd1,   8'd1,   8'd2,   8'd2,
@@ -445,6 +442,12 @@ wire [7:0] ss5b_amp_lut[0:31] = '{
 	8'd13, 8'd15, 8'd18, 8'd22, 8'd26,  8'd31,  8'd37,  8'd44,
 	8'd53, 8'd63, 8'd74, 8'd89, 8'd105, 8'd125, 8'd149, 8'd177
 };
+
+assign audio_out =
+	{output_a ? ss5b_amp_lut[envelope_a] : 8'h0, 5'b0} +
+	{output_b ? ss5b_amp_lut[envelope_b] : 8'h0, 5'b0} +
+	{output_c ? ss5b_amp_lut[envelope_c] : 8'h0, 5'b0} ;
+
 
 // savestate
 assign SS_MAP1_BACK[ 7: 0] = internal[0 ]; 
@@ -483,8 +486,6 @@ assign SS_MAP4_BACK[63:45] = 19'b0; // free to be used
 
 localparam SAVESTATE_MODULES    = 4;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
-wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
-wire [63:0] SS_MAP1_BACK, SS_MAP2_BACK, SS_MAP3_BACK, SS_MAP4_BACK;	
 wire [63:0] SaveStateBus_Dout_active = SaveStateBus_wired_or[0] | SaveStateBus_wired_or[1] | SaveStateBus_wired_or[2] | SaveStateBus_wired_or[3];
 	
 eReg_SavestateV #(SSREG_INDEX_SNDMAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_wired_or[0], SS_MAP1_BACK, SS_MAP1);  
@@ -528,7 +529,7 @@ module Mapper67 (
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;
@@ -539,7 +540,7 @@ wire chr_allow;
 reg vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 reg [7:0] prg_bank_0;
 reg [7:0] chr_bank_0, chr_bank_1, chr_bank_2, chr_bank_3;
@@ -635,7 +636,7 @@ assign SS_MAP1_BACK[   60] = irq_low;
 assign SS_MAP1_BACK[   61] = irq;
 assign SS_MAP1_BACK[63:62] = 2'b0; // free to be used
 
-always begin
+always @* begin
 	casez({mirroring})
 		2'b00   :   vram_a10 = {chr_ain[10]};    // vertical
 		2'b01   :   vram_a10 = {chr_ain[11]};    // horizontal
@@ -644,7 +645,7 @@ always begin
 end
 
 reg [7:0] prgsel;
-always begin
+always @* begin
 	case(prg_ain[14])
 	1'b0: prgsel = prg_bank_0;                // $8000 is swapable
 	1'b1: prgsel = mapper190 ? 8'h00 : 8'hFF; // $C000 is hardwired to first/last bank
@@ -652,7 +653,7 @@ always begin
 end
 
 reg [7:0] chrsel;
-always begin
+always @* begin
 	casez(chr_ain[12:11])
 		0: chrsel = chr_bank_0;
 		1: chrsel = chr_bank_1;
@@ -715,7 +716,7 @@ module Mapper68(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;
@@ -723,7 +724,7 @@ reg ram_enable;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 wire [63:0] SS_MAP1;
 reg [6:0] chr_bank_0, chr_bank_1, chr_bank_2, chr_bank_3;
 reg [6:0] nametable_0, nametable_1;
@@ -799,7 +800,7 @@ assign prg_aout = prg_is_ram ? prg_ram : {4'b00_00, prgout, prg_ain[13:0]};
 assign prg_allow = (prg_ain[15] && !prg_write) || (prg_is_ram && ram_enable);
 
 reg [6:0] chrout;
-always begin
+always @* begin
 	casez(chr_ain[12:11])
 		0: chrout = chr_bank_0;
 		1: chrout = chr_bank_1;
@@ -808,7 +809,7 @@ always begin
 	endcase
 end
 
-always begin
+always @* begin
 	casez(mirroring[1:0])
 		2'b00: vram_a10 = {chr_ain[10]};    // vertical
 		2'b01: vram_a10 = {chr_ain[11]};    // horizontal

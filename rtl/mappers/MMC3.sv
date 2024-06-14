@@ -33,12 +33,12 @@ module Rambo1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	//parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	//parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	//parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
 
 // savestate
 localparam SAVESTATE_MODULES    = 2;
@@ -53,7 +53,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -330,12 +330,12 @@ module MMC3 (
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	//parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	//parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	//parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -350,7 +350,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 wire irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -865,7 +865,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -1049,7 +1049,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 wire irq;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;

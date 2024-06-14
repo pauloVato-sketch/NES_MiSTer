@@ -32,12 +32,12 @@ module VRC1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
 	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -49,7 +49,7 @@ wire prg_allow;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -61,13 +61,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? 1'b0 : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
-
-/*wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};*/
 
 reg [3:0] prg_bank0, prg_bank1, prg_bank2;
 reg [4:0] chr_bank0, chr_bank1;
@@ -107,7 +100,7 @@ assign SS_MAP1_BACK[21:17] = chr_bank1;
 assign SS_MAP1_BACK[23:22] = mirroring;
 assign SS_MAP1_BACK[63:24] = 40'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez(mirroring[1:0])
 		2'b00   :   vram_a10 = {chr_ain[10]};    // vertical
@@ -179,22 +172,22 @@ module VRC3(
 );
 
 // mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
 	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 	
 	// additional modules for mappers in hierachy level 2
-	parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
+	//parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
 
 	// additional modules for mapper sound modules
-	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+	/*parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
 	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
 	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -207,7 +200,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -219,15 +212,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
-
-/*wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};*/
-
 
 reg [2:0] prg_bank;
 reg [4:0] irq_enable;
@@ -341,7 +325,7 @@ module VRC24(
 	output      [63:0]  SaveStateBus_Dout
 );
 // mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
@@ -356,7 +340,7 @@ module VRC24(
 	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
 	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 // savestate
 localparam SAVESTATE_MODULES    = 3;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -370,7 +354,7 @@ wire chr_allow;
 reg vram_a10;
 wire vram_ce;
 wire irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -382,15 +366,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? {1'b0, audio_in[15:1]} : 16'hZ;
-
-/*wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};*/
-
 
 reg [4:0] prg_bank0, prg_bank1;
 reg [8:0] chr_bank0, chr_bank1, chr_bank2, chr_bank3, chr_bank4, chr_bank5, chr_bank6, chr_bank7;
@@ -479,7 +454,7 @@ assign SS_MAP2_BACK[19:18] = mirroring;
 assign SS_MAP2_BACK[   20] = prg_invert;
 assign SS_MAP2_BACK[63:21] = 43'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez(mirroring[1:0])
 		2'b00   :   vram_a10 = {chr_ain[10]};    // vertical
@@ -591,7 +566,7 @@ wire vram_a10;
 wire vram_ce;
 wire irq;
 wire [15:0] audio = audio_in;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -603,16 +578,6 @@ assign vram_ce_b    = enable ? vram_ce : 1'hZ;
 assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? audio : 16'hZ;
-
-/*wire [21:0] prg_aout, chr_aout;
-wire [7:0] prg_dout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire irq;
-wire [15:0] audio = audio_in;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};*/
 
 wire nesprg_oe;
 wire [7:0] neschrdout;
@@ -695,7 +660,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 wire irq;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 wire [15:0] audio = audio_in;
 reg ramw;
 
@@ -710,14 +675,6 @@ assign irq_b        = enable ? irq : 1'hZ;
 assign flags_out_b  = enable ? flags_out : 16'hZ;
 assign audio_b      = enable ? audio : 16'hZ;
 
-/*wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire irq;
-reg [15:0] flags_out = 0;
-wire [15:0] audio = audio_in;*/
 reg [1:0] mirror;
 reg [17:10] chrbank;
 reg [18:13] prgbankin;
@@ -854,7 +811,7 @@ module MAPVRC6(     //signal descriptions in powerpak.v
 
 );
 // mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
@@ -869,7 +826,7 @@ module MAPVRC6(     //signal descriptions in powerpak.v
 	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
 	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 	// savestate
 	localparam SAVESTATE_MODULES    = 3;
 	wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -1035,7 +992,7 @@ module vrcIRQ(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
+//parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
 eReg_SavestateV #(SSREG_INDEX_L2MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk20, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_MAP1_BACK, SS_MAP1);  
@@ -1282,8 +1239,8 @@ module vrc6sound(
 	output      [63:0]  SaveStateBus_Dout
 );
 // additional modules for mapper sound modules
-	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
+	//parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+	//parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 localparam SAVESTATE_MODULES    = 2;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
 wire [63:0] SS_MAP1, SS_MAP2;
@@ -1472,12 +1429,12 @@ module VRC5(
 	output reg [7:0]  Savestate_MAPRAMReadData
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
 parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 
 localparam SAVESTATE_MODULES    = 3;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -1626,7 +1583,7 @@ assign SS_MAP1_BACK[56:50] = JIS_row;
 assign SS_MAP1_BACK[63:57] = 7'b0; // free to be used
 assign SS_MAP2_BACK[63: 0] = 64'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez(mirroring[1])
 		1'b0   :   vram_a10 = {chr_ain[10]};    // vertical

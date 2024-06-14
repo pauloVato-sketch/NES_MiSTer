@@ -17,7 +17,7 @@ module multiplier (
   output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
+//parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -90,12 +90,12 @@ module JYCompany(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	//parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
+	//parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
+	//parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
 
 // savestate
 localparam SAVESTATE_MODULES    = 7;

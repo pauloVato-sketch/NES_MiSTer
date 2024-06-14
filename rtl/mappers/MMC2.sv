@@ -33,7 +33,7 @@ module MMC2(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -45,7 +45,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -234,7 +234,7 @@ module MMC4(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -247,7 +247,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;

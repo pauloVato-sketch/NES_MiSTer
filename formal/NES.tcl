@@ -9,6 +9,7 @@ config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
 
 # analyze -register -vhdl -f files_vhd.f
 # analyze -sort -vhdl -f files_vhd.f
+
 analyze -vhdl ../rtl/statemanager.vhd
 analyze -vhdl ../rtl/bus_savestates.vhd
 analyze -vhdl ../rtl/savestates.vhd
@@ -16,7 +17,7 @@ analyze -vhdl ../rtl/t65/T65_Pack.vhd
 analyze -vhdl ../rtl/t65/T65_MCode.vhd
 analyze -vhdl ../rtl/t65/T65_ALU.vhd
 analyze -vhdl ../rtl/t65/T65.vhd
-
+analyze -sv ../rtl/regs_savestates.sv
 
 
 analyze -sv -f files_sv.f

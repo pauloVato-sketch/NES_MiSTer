@@ -32,7 +32,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -84,7 +84,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -160,7 +160,7 @@ wire prg_allow;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -202,7 +202,7 @@ assign SS_MAP1_BACK[ 6: 5] = chrbank;
 assign SS_MAP1_BACK[    7] = nametable;
 assign SS_MAP1_BACK[63: 8] = 56'b0; // free to be used
 
-always begin
+always @(flags[16], flags[14], nametable, chr_ain[10], chr_ain[11]) begin
 	// mirroring mode
 	casez({flags[16], flags[14]})
 		3'b00   :   vram_a10 = chr_ain[11];    // horizontal
@@ -265,7 +265,7 @@ module Mapper66(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -394,7 +394,7 @@ module Mapper34(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -405,7 +405,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -503,7 +503,7 @@ module Mapper71(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -515,7 +515,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -555,7 +555,7 @@ assign SS_MAP1_BACK[    4] = ciram_select;
 assign SS_MAP1_BACK[63: 5] = 59'b0; // free to be used
 
 reg [3:0] prgout;
-always begin
+always @* begin
 	casez({prg_ain[14], mapper232})
 		2'b0?: prgout = prg_bank;
 		2'b10: prgout = 4'b1111;
@@ -612,14 +612,14 @@ module Mapper77(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -659,7 +659,7 @@ assign SS_MAP1_BACK[ 3: 0] = prgbank;
 assign SS_MAP1_BACK[ 7: 4] = chrbank;
 assign SS_MAP1_BACK[63: 8] = 56'b0; // free to be used
 
-always begin
+always @* begin
 	vram_a10 = {chr_ain[10]};    // four screen (consecutive)
 end
 
@@ -710,7 +710,7 @@ module Mapper78(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -720,7 +720,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -774,7 +774,7 @@ assign vram_ce = chr_ain[13];
 
 // The a10 VRAM address line. (Used for mirroring)
 reg vram_a10_t;
-always begin
+always @* begin
 	case({onescreen, mirroring})
 		2'b00: vram_a10_t = chr_ain[11];   // One screen, horizontal
 		2'b01: vram_a10_t = chr_ain[10];   // One screen, vertical
@@ -825,7 +825,7 @@ module Mapper79(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -932,7 +932,7 @@ module Mapper89(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -943,7 +943,7 @@ wire prg_allow;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -996,7 +996,7 @@ assign SS_MAP1_BACK[10: 7] = chrsel1;
 assign SS_MAP1_BACK[   11] = mirror;
 assign SS_MAP1_BACK[63:12] = 52'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez({mapper89,flags[14]})
 		2'b00   :   vram_a10 = {chr_ain[11]};    // horizontal
@@ -1064,7 +1064,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1135,7 +1135,7 @@ module Mapper28(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -1261,7 +1261,7 @@ assign SS_MAP1_BACK[22:19] = security;
 assign SS_MAP1_BACK[24:23] = a53chr;
 assign SS_MAP1_BACK[63:25] = 39'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez(mode[1:0])
 		2'b0? : vram_a10 = {mode[0]};        // 1 screen lower

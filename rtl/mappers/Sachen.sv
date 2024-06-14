@@ -32,7 +32,7 @@ module Sachen8259(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
 wire [63:0] SaveStateBus_Dout_active;	
@@ -214,7 +214,7 @@ module SachenJV001(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
 wire [63:0] SaveStateBus_Dout_active;	

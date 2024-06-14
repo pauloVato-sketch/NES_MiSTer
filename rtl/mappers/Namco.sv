@@ -164,12 +164,12 @@ module MAPN163(     //signal descriptions in powerpak.v
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
 	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
+	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 assign exp6 = 0;
 
 // savestate
@@ -401,7 +401,7 @@ module namco163_mixed (
 	input  [7:0]  Savestate_MAPRAMWriteData,
 	output [7:0]  Savestate_MAPRAMReadData
 );
-parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+//parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
 // savestates
 localparam SAVESTATE_MODULES    = 2;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -484,11 +484,11 @@ module namco163_sound(
 	input  [7:0]  Savestate_MAPRAMWriteData,
 	output reg [7:0]  Savestate_MAPRAMReadData
 );
-	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
+	/*parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
 	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
 	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
 	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;
+	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 
 	localparam SAVESTATE_MODULES    = 4;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];

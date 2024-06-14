@@ -30,7 +30,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -77,7 +77,7 @@ always @(posedge clk) begin
 end
 
 reg [6:0] prg_bank;
-always begin
+always @* begin
 	casez({prg_rom_bank_mode, prg_ain[14]})
 		// Bank mode 0 ( 32K ) / CPU $8000-$BFFF: Bank B / CPU $C000-$FFFF: Bank (B OR 1)
 		3'b00_0: prg_bank = {prg_rom_bank, prg_ain[13]};
@@ -139,8 +139,8 @@ module Mapper16(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -294,7 +294,7 @@ assign SS_MAP2_BACK[   46] = eeprom_scl;
 assign SS_MAP2_BACK[   47] = eeprom_sda;
 assign SS_MAP2_BACK[63:48] = 16'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring
 	casez(mirroring[1:0])
 		2'b00:   vram_a10 = {chr_ain[10]};    // vertical
@@ -304,7 +304,7 @@ always begin
 end
 
 reg [4:0] prgsel;
-always begin
+always @* begin
 	case(prg_ain[15:14])
 		2'b10: 	 prgsel = {outer_prg_bank, inner_prg_bank};  // $8000 is swapable
 		2'b11: 	 prgsel = {outer_prg_bank, 4'hF};            // $C000 is hardwired to last inner bank
@@ -313,7 +313,7 @@ always begin
 end
 
 reg [7:0] chrsel;
-always begin
+always @* begin
 	casez(chr_ain[12:10])
 		0: chrsel = chr_bank_0;
 		1: chrsel = chr_bank_1;
@@ -415,9 +415,9 @@ module Mapper18(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -432,7 +432,7 @@ reg vram_a10;
 reg irq;
 wire [7:0] prg_dout;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
@@ -584,7 +584,7 @@ assign SS_MAP2_BACK[63:62] = mirroring;
 assign SS_MAP3_BACK[ 1: 0] = ram_enable;
 assign SS_MAP3_BACK[63: 2] = 62'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring
 	casez(mirroring[1:0])
 		2'b00: vram_a10 = {chr_ain[11]};    // horizontal
@@ -594,7 +594,7 @@ always begin
 end
 
 reg [7:0] prgsel;
-always begin
+always @* begin
 	case(prg_ain[14:13])
 		2'b00: prgsel = prg_bank_0;      // $8000 is swapable
 		2'b01: prgsel = prg_bank_1;      // $A000 is swapable
@@ -604,7 +604,7 @@ always begin
 end
 
 reg [7:0] chrsel;
-always begin
+always @* begin
 	casez(chr_ain[12:10])
 	0: chrsel = chr_bank_0;
 	1: chrsel = chr_bank_1;
@@ -671,8 +671,8 @@ module Mapper32(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 2;
@@ -685,7 +685,7 @@ wire prg_allow;
 wire chr_allow;
 reg vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -764,7 +764,7 @@ assign SS_MAP2_BACK[   10] = prgmode;
 assign SS_MAP2_BACK[   11] = mirror;
 assign SS_MAP2_BACK[63:12] = 52'b0; // free to be used
 
-always begin
+always @* begin
 	// mirroring mode
 	casez({submapper1, mirror})
 		2'b00   :   vram_a10 = {chr_ain[10]};    // vertical
@@ -845,7 +845,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -952,8 +952,8 @@ module Mapper65(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 2;
@@ -967,7 +967,7 @@ wire chr_allow;
 reg vram_a10;
 wire vram_ce;
 reg irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1078,12 +1078,12 @@ assign SS_MAP2_BACK[   58] = irq_ack;
 assign SS_MAP2_BACK[   59] = mirroring;
 assign SS_MAP2_BACK[63:60] = 4'b0; // free to be used
 
-always begin
+always @* begin
 	vram_a10 = mirroring ? chr_ain[11] : chr_ain[10];    // horizontal:vertical
 end
 
 reg [7:0] prgsel;
-always begin
+always @* begin
 	case(prg_ain[14:13])
 		2'b00: prgsel = prg_bank_0;      // $8000 is swapable
 		2'b01: prgsel = prg_bank_1;      // $A000 is swapable
@@ -1093,7 +1093,7 @@ always begin
 end
 
 reg [7:0] chrsel;
-always begin
+always @* begin
 	casez(chr_ain[12:10])
 		0: chrsel = chr_bank_0;
 		1: chrsel = chr_bank_1;
@@ -1154,7 +1154,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1228,7 +1228,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1281,8 +1281,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
-
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1352,7 +1351,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1472,7 +1471,7 @@ end else if (ce) begin
 	end
 end
 
-always begin
+always @* begin
 	case(prg_ain[14:13])
 		2'b00:  prgsel = prg_bank0;
 		2'b01:  prgsel = prg_bank1;
@@ -1534,7 +1533,7 @@ module Mapper72(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -1545,7 +1544,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 reg [3:0] prg_bank;
 reg [3:0] chr_bank;
@@ -1642,7 +1641,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? 8'hFF : 8'hZ;
@@ -1725,7 +1724,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = 0;
+wire [15:0] flags_out = 0;
 
 reg [7:0] prg_bank;
 
@@ -1937,9 +1936,9 @@ module Mapper156(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -1952,7 +1951,7 @@ wire prg_allow;
 wire chr_allow;
 wire vram_a10;
 wire vram_ce;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 
 wire [7:0] prg_dout = 0;
 
@@ -2455,7 +2454,7 @@ always @(posedge clk) begin
 end
 
 reg [9:0] prg_bank;
-always begin
+always @* begin
 	casez({prg_ain[15:12], exp_audioe[2]})
 		5'b00???: prg_bank = 10'h0;//{10'b11_1110_0000};
 		5'b0100?: prg_bank = 10'h0;//{10'b11_1110_0000};
@@ -2551,7 +2550,7 @@ wire [4:0] freq = nois ? n_freq : samp ? s_freq : ms_freq;
 wire use_freq = nois | samp | m5samp;
 
 reg [4:0] voi_tab_idx;
-always begin
+always @* begin
 	casez({n163_max,exp_audioe,ppu_line}) //6,5
 		12'b???????_000??: voi_tab_idx = 5'd0;  //Info;
 		12'b???????_001??: voi_tab_idx = {4'd0,ppu_line[1]}; //Apu;
@@ -2655,7 +2654,7 @@ reg [17:0] find_bits;
 		10'h000, 10'h000, 10'h000, 10'h000
 	};
 
-always begin
+always @* begin
 	casez(period_use[11:2])
 		10'b1???_????_??: find_bits = {4'd8,4'd0,period_use[10:1]};
 		10'b01??_????_??: find_bits = {4'd7,4'd1,period_use[9:0]};
@@ -2681,7 +2680,7 @@ always @(posedge clk) begin
 	end
 end
 
-always begin
+always @* begin
 	prg_bus_write = 1'b1;
 	if (prg_ain == 16'h5205) begin
 		prg_dout = multiply_result[7:0];
@@ -2799,7 +2798,7 @@ module Mapper111(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -2811,7 +2810,7 @@ wire prg_allow, chr_allow;
 wire vram_ce, vram_a10;
 wire [15:0] audio = audio_in;
 wire irq;
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
 assign prg_dout_b   = enable ? prg_dout : 8'hZ;
 assign prg_allow_b  = enable ? prg_allow : 1'hZ;

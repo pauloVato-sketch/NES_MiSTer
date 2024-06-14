@@ -32,7 +32,7 @@ module MMC1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -45,8 +45,7 @@ wire chr_allow;
 wire vram_a10;
 wire vram_ce;
 wire mapper171 = (flags[7:0] == 171); //Mapper 171 has hardwired mirroring
-reg [15:0] flags_out = {12'h0, 1'b1, 3'b0};
-
+wire [15:0] flags_out = {12'h0, 1'b1, 3'b0};
 reg [4:0] shift;
 
 assign prg_aout_b   = enable ? prg_aout : 22'hZ;
@@ -308,7 +307,7 @@ end
 // In the official tournament, 'C' was closed, and the others were open, so the counter had to reach $2800000.
 assign irq = (counter[29:25] == 5'b10100);
 
-always begin
+always @* begin
 	if (!prg_ain[15]) begin
 		// WRAM is always routed as usual.
 		prg_aout = mmc1_aout;

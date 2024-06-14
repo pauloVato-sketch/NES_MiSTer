@@ -32,6 +32,18 @@ module MapperFDS(
 	input       fds_auto_eject_en
 );
 
+wire [21:0] prg_aout, chr_aout;
+wire prg_allow;
+wire chr_allow;
+wire vram_a10;
+wire vram_ce;
+wire [7:0] prg_dout;
+wire prg_bus_write;
+wire [15:0] flags_out = {14'd0, prg_bus_write, 1'b0};
+wire irq;
+reg [1:0] diskside;
+wire [15:0] audio = audio_in;
+
 assign prg_aout_b      = enable ? prg_aout : 22'hZ;
 assign prg_dout_b      = enable ? prg_dout : 8'hZ;
 assign prg_allow_b     = enable ? prg_allow : 1'hZ;
@@ -44,17 +56,6 @@ assign flags_out_b     = enable ? flags_out : 16'hZ;
 assign audio_b         = enable ? audio[15:0] : 16'hZ;
 assign diskside_b      = enable ? diskside : 2'hZ;
 
-wire [21:0] prg_aout, chr_aout;
-wire prg_allow;
-wire chr_allow;
-wire vram_a10;
-wire vram_ce;
-wire [7:0] prg_dout;
-wire [15:0] flags_out = {14'd0, prg_bus_write, 1'b0};
-wire prg_bus_write;
-wire irq;
-
-wire [15:0] audio = audio_in;
 
 reg fds_prg_bus_write;
 wire fds_audio_prg_bus_write = (prg_ain >= 16'h4040 && prg_ain < 16'h4080) | (prg_ain >= 16'h4090 && prg_ain <= 16'h4097);
@@ -87,7 +88,6 @@ reg block_end;
 
 wire disk_eject;
 reg disk_eject_auto, disk_eject_wait;
-reg [1:0] diskside;
 reg [15:0] diskpos;
 reg [17:0] sideoffset;
 wire [17:0] romoffset;
@@ -95,6 +95,7 @@ reg [4:0] read_4032_cnt;
 reg [22:0] cpu_clk_cnt;
 reg old_eject_btn;
 
+wire diskend=(diskpos==65499);
 reg read_disk_d, write_disk_d;
 wire read_disk = (prg_read & prg_ain == 16'h4031);
 wire write_disk = (prg_write & prg_ain == 16'h4024 & write_en & byte_transfer & got_start_byte_d & motor_on & ~diskreset & ~block_end);
@@ -339,7 +340,6 @@ end
 // diskside_manual to be manage from OSD user input allow to add diskswap capabilities.
 // (automatic fds_eject should be preferably stopped before changing diskside_manual)
 
-wire diskend=(diskpos==65499);
 always@* case(diskside) //16+65500*diskside
 	0:sideoffset=18'h00010;
 	1:sideoffset=18'h0ffec;
@@ -590,6 +590,18 @@ always_comb begin
 		default: level_out = mul_out;
 	endcase
 
+	case (mod_table[mod_accum[17:13]])
+		3'h0: mod_incr = 0;
+		3'h1: mod_incr = 7'sd1;
+		3'h2: mod_incr = 7'sd2;
+		3'h3: mod_incr = 7'sd4;
+		3'h4: mod_incr = -7'sd4;
+		3'h5: mod_incr = -7'sd4;
+		3'h6: mod_incr = -7'sd2;
+		3'h7: mod_incr = -7'sd1;
+		default: mod_incr = 0;
+	endcase
+
 	if (addr_in >= 'h4040 && addr_in < 'h4080) begin
 		if (wave_wren)
 			data_out = wave_table[addr_in[5:0]];
@@ -608,18 +620,6 @@ always_comb begin
 			default: data_out = 8'b0100_0000;
 		endcase
 	end
-
-	case (mod_table[mod_accum[17:13]])
-		3'h0: mod_incr = 0;
-		3'h1: mod_incr = 7'sd1;
-		3'h2: mod_incr = 7'sd2;
-		3'h3: mod_incr = 7'sd4;
-		3'h4: mod_incr = -7'sd4;
-		3'h5: mod_incr = -7'sd4;
-		3'h6: mod_incr = -7'sd2;
-		3'h7: mod_incr = -7'sd1;
-		default: mod_incr = 0;
-	endcase
 end
 
 always_ff @(posedge clk) begin
