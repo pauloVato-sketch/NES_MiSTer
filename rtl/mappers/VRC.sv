@@ -32,12 +32,6 @@ module VRC1(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 
 // savestate
 wire [63:0] SS_MAP1;
@@ -172,22 +166,6 @@ module VRC3(
 );
 
 // mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
-	
-	// additional modules for mappers in hierachy level 2
-	//parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
-
-	// additional modules for mapper sound modules
-	/*parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
-	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
-	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -324,23 +302,7 @@ module VRC24(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-// mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
-	
-	// additional modules for mappers in hierachy level 2
-	parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
 
-	// additional modules for mapper sound modules
-	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
-	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
-	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 // savestate
 localparam SAVESTATE_MODULES    = 3;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -603,11 +565,11 @@ end
 
 MAPVRC6 vrc6
 (
-	m2[7], m2_n, clk, enable, prg_write, nesprg_oe, 0,
-	1, prg_ain, chr_ain, prg_din, 8'b0, prg_dout,
+	m2[7], m2_n, clk, enable, prg_write, nesprg_oe, 1'b0,
+	1'b1, prg_ain, chr_ain, prg_din, 8'b0, prg_dout,
 	neschrdout, neschr_oe, chr_allow, chrram_oe, wram_oe, wram_we, prgram_we,
 	prgram_oe, chr_aout[18:10], ramprgaout, irq, vram_ce,// exp6,
-	0, 7'b1111111, 6'b111111, flags[14], flags[16], flags[15],
+	1'b0, 7'b1111111, 6'b111111, flags[14], flags[16], flags[15],
 	ce, flags[1],
 	// savestates
 	SaveStateBus_Din, 
@@ -810,23 +772,7 @@ module MAPVRC6(     //signal descriptions in powerpak.v
 	output      [63:0]  SaveStateBus_Dout
 
 );
-// mapper savestates can be used by multiple mappers, only active mapper outputs. default values for mappers are defined local!
-	/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-	parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-	parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-	parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;
-	
-	// additional modules for mappers in hierachy level 2
-	parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
 
-	// additional modules for mapper sound modules
-	parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-	parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
-	parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
-	parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-	parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 	// savestate
 	localparam SAVESTATE_MODULES    = 3;
 	wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
@@ -992,7 +938,7 @@ module vrcIRQ(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-//parameter [9:0] SSREG_INDEX_L2MAP1   = 10'd40;
+
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
 eReg_SavestateV #(SSREG_INDEX_L2MAP1, 64'h0000000000000000) iREG_SAVESTATE_MAP1 (clk20, SaveStateBus_Din, SaveStateBus_Adr, SaveStateBus_wren, SaveStateBus_rst, SaveStateBus_Dout, SS_MAP1_BACK, SS_MAP1);  
@@ -1238,9 +1184,7 @@ module vrc6sound(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-// additional modules for mapper sound modules
-	//parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-	//parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
+
 localparam SAVESTATE_MODULES    = 2;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
 wire [63:0] SS_MAP1, SS_MAP2;
@@ -1428,13 +1372,6 @@ module VRC5(
 	input  [7:0]  Savestate_MAPRAMWriteData,
 	output reg [7:0]  Savestate_MAPRAMReadData
 );
-
-/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-parameter [9:0] SSREG_INDEX_MAP5     = 10'd36;
-parameter [9:0] SSREG_INDEX_MAP6     = 10'd37;*/
 
 localparam SAVESTATE_MODULES    = 3;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];

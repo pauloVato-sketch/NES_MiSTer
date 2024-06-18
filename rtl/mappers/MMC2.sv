@@ -33,7 +33,6 @@ module MMC2(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -234,7 +233,6 @@ module MMC4(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 // savestate
 wire [63:0] SS_MAP1;

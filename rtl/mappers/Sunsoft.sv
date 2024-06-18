@@ -30,8 +30,7 @@ module Mapper69(
 	output      [63:0]  SaveStateBus_Dout
 );
 localparam SAVESTATE_MODULES    = 2;
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
+
 wire [63:0] SaveStateBus_Dout_active;
 wire [63:0] SaveStateBus_wired_or[0:SAVESTATE_MODULES-1];
 wire [63:0] SS_MAP1, SS_MAP2, SS_MAP3, SS_MAP4;
@@ -267,15 +266,6 @@ module SS5b_audio (
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-/*parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
-parameter [9:0] SSREG_INDEX_MAP4     = 10'd35;
-parameter [9:0] SSREG_INDEX_SNDMAP1  = 10'd48;
-parameter [9:0] SSREG_INDEX_SNDMAP2  = 10'd49;
-parameter [9:0] SSREG_INDEX_SNDMAP3  = 10'd50;
-parameter [9:0] SSREG_INDEX_SNDMAP4  = 10'd51;
-parameter [9:0] SSREG_INDEX_SNDMAP5  = 10'd52;*/
 reg [3:0] reg_select;
 
 // Register bank
@@ -529,7 +519,6 @@ module Mapper67 (
 	output      [63:0]  SaveStateBus_Dout
 );
 
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;
@@ -716,7 +705,7 @@ module Mapper68(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
 
 wire [21:0] prg_aout, chr_aout;
 wire prg_allow;

@@ -5,10 +5,10 @@
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-06-14 15:21:50 -03
+# started   : 2024-06-18 08:09:37 -03
 # hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 8441
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:37277' '-style' 'windows' '-data' 'AAAA2nicVYyxCsJAEETfKfYWfoKVkCNqBIsUNumUEAVbEUwRCIloRLDRT/VPLsOFgM6wM7D7WAPEb+ccXsOXYsyWHXsSZcpRDVNWLFgTslGHsmXOUmOVVrtIhJf5dk1s+JXJPn8Nox7skYFmRsCZUq55cuJBxV15lWtuNORctE85iJ6I7q65biWF6Ma/bgHfKBow' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl'
+# pid       : 8590
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:42921' '-style' 'windows' '-data' 'AAAA2nicVYyxCsJAEETfKfYWfoKVkCNqBIsUNumUEAVbEUwRCIloRLDRT/VPLsOFgM6wM7D7WAPEb+ccXsOXYsyWHXsSZcpRDVNWLFgTslGHsmXOUmOVVrtIhJf5dk1s+JXJPn8Nox7skYFmRsCZUq55cuJBxV15lWtuNORctE85iJ6I7q65biWF6Ma/bgHfKBow' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -288,599 +288,8 @@ INFO (ISW003): Top module name is "emu".
 [WARN (VERI-1927)] ../rtl/apu.sv(1050): port 'allow_us' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/mappers/MMC1.sv(275): port 'chr_read' is not connected on this instance
 [WARN (VERI-1927)] ../rtl/mappers/MMC1.sv(275): port 'SaveStateBus_load' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/mappers/VRC.sv(755): port 'SaveStateBus_Din' is not connected on this instance
-[WARN (VERI-1927)] ../rtl/mappers/VRC.sv(755): port 'SaveStateBus_load' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/mappers/MMC5.sv(803): port 'cold_reset' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
-[WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
-[INFO (VERI-1018)] ../rtl/miracle.sv(199): compiling module 'midi_uart'
-[WARN (VERI-1220)] ../rtl/miracle.sv(241): using initial value of 'serper' since it is never assigned
-[INFO (VERI-1018)] ../rtl/miracle.sv(28): compiling module 'miraclepiano'
-[INFO (VERI-1018)] ../rtl/zapper.sv(4): compiling module 'zapper'
-[INFO (VERI-1018)] ../NES.sv(1378): compiling module 'GameLoader'
-[INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen'
-[INFO (VERI-1018)] ../rtl/nes.v(21): compiling module 'DmaController'
-[INFO (VERI-1018)] ../rtl/apu.sv(4): compiling module 'LenCounterUnit'
-[INFO (VERI-1018)] ../rtl/apu.sv(65): compiling module 'EnvelopeUnit'
-[INFO (VERI-1018)] ../rtl/apu.sv(117): compiling module 'SquareChan'
-[INFO (VERI-1018)] ../rtl/apu.sv(266): compiling module 'TriangleChan'
-[INFO (VERI-1018)] ../rtl/apu.sv(375): compiling module 'NoiseChan'
-[INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=17,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=18,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/apu.sv(1163): compiling module 'APUMixer'
-[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b010011)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=19,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
-[INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b010000,SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010,SSREG_INDEX_FCT=10'b010011)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VERI-8028)] ../rtl/apu.sv(1031): missing/open ports on instance Squ2 of module SquareChan
-[WARN (VDB-1013)] ../rtl/apu.sv(1050): input port 'allow_us' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen:(USE_SAVESTATE=1)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=6,def="0000000000000000000000000000000000000000000000000000000101010010")(arch)'
-[INFO (VERI-1018)] ../rtl/ppu.sv(10): compiling module 'LoopyGen'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=11,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/ppu.sv(907): compiling module 'BgPainter'
-[INFO (VERI-1018)] ../rtl/ppu.sv(419): compiling module 'OAMEval'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=12,def="0000000000000000000000000000000000000000000000000000000111111111")(arch)'
-[INFO (VERI-1018)] ../rtl/ppu.sv(779): compiling module 'SpriteAddressGen'
-[INFO (VERI-1018)] ../rtl/ppu.sv(834): compiling module 'SpriteAddressGenEx'
-[INFO (VERI-1018)] ../rtl/ppu.sv(314): compiling module 'Sprite'
-[INFO (VERI-1018)] ../rtl/ppu.sv(353): compiling module 'SpriteSet'
-[INFO (VERI-1018)] ../rtl/ppu.sv(986): compiling module 'PixelMuxer'
-[INFO (VERI-1018)] ../rtl/ppu.sv(1003): compiling module 'PaletteRam'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=7,def="0000000000001000000000000000100100000000000010000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=8,def="0010000000111010000001000000000100000000000100000000001000000001")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=9,def="0010110000000000000000000011010000000100000010000000001000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=10,def="0000100000000010000101000000001100101100001001000000110100000001")(arch)'
-[WARN (VDB-1002)] ../rtl/ppu.sv(1026): net 'SS_PAL_BACK[3][63]' does not have a driver
-[INFO (VERI-1018)] ../rtl/ppu.sv(1081): compiling module 'PPU'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=5,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=4,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(4): compiling module 'MMC0'
-[INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(4): compiling module 'MMC1'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=32,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1106): compiling module 'Mapper28'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(121): compiling module 'Mapper30'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(644): compiling module 'Mapper32'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=33,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(4): compiling module 'MMC2'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(299): compiling module 'MMC3'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=34,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(205): compiling module 'MMC4'
-[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=35,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=36,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(58): compiling module 'Mapper13'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(4): compiling module 'Mapper15'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(106): compiling module 'Mapper16'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(388): compiling module 'Mapper18'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(367): compiling module 'Mapper34'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1127): compiling module 'Mapper41'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(818): compiling module 'Mapper42'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(924): compiling module 'Mapper65'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(238): compiling module 'Mapper66'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(501): compiling module 'Mapper67'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(689): compiling module 'Mapper68'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(2): compiling module 'Mapper69'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(475): compiling module 'Mapper71'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1505): compiling module 'Mapper72'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(584): compiling module 'Mapper77'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(683): compiling module 'Mapper78'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(797): compiling module 'Mapper79'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2872): compiling module 'Mapper83'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(905): compiling module 'Mapper89'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1038): compiling module 'Mapper107'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2771): compiling module 'Mapper111'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(834): compiling module 'Mapper165'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1200): compiling module 'Mapper218'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2168): compiling module 'Mapper227'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1255): compiling module 'Mapper228'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1325): compiling module 'Mapper234'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1401): compiling module 'Mapper246'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(4): compiling module 'Rambo1'
-[INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(217): compiling module 'NesEvent'
-[WARN (VERI-1330)] ../rtl/mappers/MMC1.sv(258): actual bit length 32 differs from formal bit length 64 for port 'flags'
-[WARN (VERI-8028)] ../rtl/mappers/MMC1.sv(254): missing/open ports on instance mmc1_nesevent of module MMC1
-[WARN (VDB-1013)] ../rtl/mappers/MMC1.sv(275): input port 'chr_read' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(4): compiling module 'VRC1'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(143): compiling module 'VRC3'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(976): compiling module 'vrcIRQ'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=40,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(297): compiling module 'VRC24'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1389): compiling module 'VRC5'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(762): compiling module 'MAPVRC6'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(530): compiling module 'VRC6'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(606): actual bit length 32 differs from formal bit length 1 for port 'neschr_rd'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(607): actual bit length 32 differs from formal bit length 1 for port 'neschr_wr'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(610): actual bit length 32 differs from formal bit length 1 for port 'cfg_boot'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(633): compiling module 'VRC7'
-[WARN (VERI-8028)] ../rtl/mappers/VRC.sv(755): missing/open ports on instance vrc7irq of module vrcIRQ
-[WARN (VDB-1013)] ../rtl/mappers/VRC.sv(755): input port 'SaveStateBus_Din[63]' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(116): compiling module 'MAPN163'
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(3): compiling module 'N163'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(85): actual bit length 32 differs from formal bit length 1 for port 'neschr_rd'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(86): actual bit length 32 differs from formal bit length 1 for port 'neschr_wr'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(89): actual bit length 32 differs from formal bit length 1 for port 'cfg_boot'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1615): compiling module 'Mapper162'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1770): compiling module 'Nanjing'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1698): compiling module 'Mapper164'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1908): compiling module 'Mapper156'
-[INFO (VERI-8005)] ../rtl/mappers/misc.sv(1958): Unintentional sequential element inferred for prg_bank read before write using blocking assignment
-[INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(5): compiling module 'Sachen8259'
-[INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(40): Unintentional sequential element inferred for prg_bank read before write using blocking assignment
-[INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(41): Unintentional sequential element inferred for chr_bank_2 read before write using blocking assignment
-[INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(41): Unintentional sequential element inferred for chr_bank_o read before write using blocking assignment
-[INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(41): Unintentional sequential element inferred for chr_bank_p read before write using blocking assignment
-[INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(187): compiling module 'SachenJV001'
-[INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(339): compiling module 'SachenNROM'
-[INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(3): compiling module 'multiplier'
-[INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(59): compiling module 'JYCompany'
-[INFO (VERI-8005)] ../rtl/mappers/JYCompany.sv(144): Unintentional sequential element inferred for bank_mode read before write using blocking assignment
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(3084): compiling module 'Mapper91'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2081): compiling module 'Mapper225'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(1017): compiling module 'Mapper413'
-[INFO (VERI-1018)] ../rtl/mappers/FDS.sv(3): compiling module 'MapperFDS'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2278): compiling module 'NSF'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(254): compiling module 'SS5b_audio'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=48,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=49,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=50,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(205): compiling module 'SS5b_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(463): compiling module 'namco163_sound'
-[WARN (VDB-1002)] ../rtl/mappers/Namco.sv(496): net 'SS_MAP1_BACK[12]' does not have a driver
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(378): compiling module 'namco163_mixed'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=52,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010)'
-[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b0110011)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
-[INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b0110000,SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010,SSREG_INDEX_FCT=10'b0110011)'
-[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(710): compiling module 'mmc5_mixed'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(778): actual bit length 32 differs from formal bit length 1 for port 'MMC5'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(791): actual bit length 32 differs from formal bit length 1 for port 'DmaAck'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(793): actual bit length 32 differs from formal bit length 8 for port 'DmaData'
-[WARN (VERI-8028)] ../rtl/mappers/MMC5.sv(777): missing/open ports on instance mmc5apu of module APU
-[WARN (VDB-1013)] ../rtl/mappers/MMC5.sv(803): input port 'cold_reset' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/mappers/FDS.sv(519): compiling module 'fds_audio'
-[INFO (VERI-1018)] ../rtl/mappers/FDS.sv(448): compiling module 'fds_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1107): compiling module 'vrc7_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1222): compiling module 'vrc6sound'
-[WARN (VDB-1002)] ../rtl/mappers/VRC.sv(1247): net 'SS_MAP1_BACK[2]' does not have a driver
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1161): compiling module 'vrc6_mixed'
-[INFO (VERI-1018)] ../rtl/cart.sv(18): compiling module 'cart_top'
-[WARN (VERI-1330)] ../rtl/cart.sv(95): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(206): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(244): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(282): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(328): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(370): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(411): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(464): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(495): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(529): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(573): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(611): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(649): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(680): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(711): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(750): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(788): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(826): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(864): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(902): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(940): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(978): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1016): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1055): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1093): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1124): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1162): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1193): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1231): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1266): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1299): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1330): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1363): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1394): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1425): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1465): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1497): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1535): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1573): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1611): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1661): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1699): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1730): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1770): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1801): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1835): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1867): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1906): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1945): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(1983): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2017): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2060): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2092): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2125): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2162): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[WARN (VERI-1330)] ../rtl/cart.sv(2202): actual bit length 64 differs from formal bit length 32 for port 'flags'
-[INFO (VERI-1018)] ../rtl/cheatcodes.sv(10): compiling module 'CODES'
-[INFO (VHDL-1067)] ../rtl/savestates.vhd(7): processing 'savestates(arch)'
-[INFO (VHDL-9044)] ../rtl/savestates.vhd(50): creating type property for input port 'savestate_address'
-[INFO (VHDL-9046)] ../rtl/savestates.vhd(62): creating type property for signal 'savetype_counter'
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(99): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(101): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/savestates.vhd(101): creating type property for signal 'count'
-[INFO (VHDL-9046)] ../rtl/savestates.vhd(102): creating type property for signal 'maxcount'
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(104): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/savestates.vhd(104): creating type property for signal 'settle'
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(106): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(107): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(108): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/savestates.vhd(110): initial value for signal is ignored
-[INFO (VHDL-1067)] ../rtl/statemanager.vhd(5): processing 'statemanager(softmap_savestate_addr=58720256,softmap_rewind_addr=33554432)(arch)'
-[INFO (VHDL-9044)] ../rtl/statemanager.vhd(31): creating type property for input port 'savestate_number'
-[INFO (VHDL-9045)] ../rtl/statemanager.vhd(31): creating type property for output port 'request_address'
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(40): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(41): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(42): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(43): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(45): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(46): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(48): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/statemanager.vhd(48): creating type property for signal 'timer_rewind'
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(49): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/statemanager.vhd(49): creating type property for signal 'rewind_slow'
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(50): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/statemanager.vhd(50): creating type property for signal 'savestatecount'
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(51): initial value for signal is ignored
-[WARN (VHDL-1129)] ../rtl/statemanager.vhd(53): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/statemanager.vhd(53): creating type property for signal 'vsync_counter'
-[INFO (VERI-1018)] ../rtl/nes.v(72): compiling module 'NES'
-[WARN (VERI-8028)] ../rtl/nes.v(373): missing/open ports on instance clockgen_pause of module ClockGen
-[INFO (VHDL-1067)] ../rtl/t65/T65.vhd(136): processing 'T65(rtl)'
-[WARN (VHDL-1129)] ../rtl/t65/T65.vhd(180): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(199): creating type property for signal 'ALU_Op_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(200): creating type property for signal 'Write_Data_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=1,def="0000000000000000000000010010000000000000000000000000000000000001")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=2,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/t65/T65_MCode.vhd(58): processing 'T65_MCode(rtl)'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'ALU_Op'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Set_BusA_To'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Write_Data'
-[INFO (VHDL-1172)] ../rtl/t65/T65_MCode.vhd(1089): 'others' clause is never selected
-[INFO (VHDL-1067)] ../rtl/t65/T65_ALU.vhd(57): processing 'T65_ALU(rtl)'
-[INFO (VHDL-9044)] ../rtl/t65/T65_ALU.vhd(68): creating type property for input port 'Op'
-[WARN (VERI-1330)] ../rtl/nes.v(407): actual bit length 32 differs from formal bit length 2 for port 'Mode'
-[WARN (VERI-1330)] ../rtl/nes.v(408): actual bit length 32 differs from formal bit length 1 for port 'BCD_en'
-[WARN (VERI-1330)] ../rtl/nes.v(419): actual bit length 16 differs from formal bit length 24 for port 'A'
-[WARN (VERI-8028)] ../rtl/nes.v(475): missing/open ports on instance apu of module APU
-[WARN (VERI-1330)] ../rtl/nes.v(655): actual bit length 21 differs from formal bit length 10 for port 'prg_mask'
-[WARN (VERI-1330)] ../rtl/nes.v(656): actual bit length 20 differs from formal bit length 10 for port 'chr_mask'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=24,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VERI-1330)] ../rtl/nes.v(874): actual bit length 2 differs from formal bit length 32 for port 'savestate_number'
-[WARN (VDB-1002)] ../rtl/nes.v(598): net 'Savestate_OAMAddr[7]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(599): net 'Savestate_OAMRdEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(600): net 'Savestate_OAMWrEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(601): net 'Savestate_OAMWriteData[7]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(685): net 'Savestate_MAPRAMactive' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(686): net 'Savestate_MAPRAMAddr[12]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(687): net 'Savestate_MAPRAMRdEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(688): net 'Savestate_MAPRAMWrEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(689): net 'Savestate_MAPRAMWriteData[7]' does not have a driver
-[WARN (VDB-1013)] ../rtl/nes.v(390): input port 'SaveStateBus_Din[63]' is not connected on this instance
-[WARN (VDB-1013)] ../rtl/nes.v(406): input port 'Abort_n' is not connected on this instance
-[WARN (VDB-1013)] ../rtl/nes.v(503): input port 'allow_us' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/sdram.sv(22): compiling module 'sdram'
-[INFO (VERI-8005)] ../rtl/sdram.sv(97): Unintentional sequential element inferred for controle read before write using blocking assignment
-[INFO (VERI-1018)] ../rtl/video.sv(4): compiling module 'video'
-[INFO (VERI-1018)] ../rtl/ddram.sv(22): compiling module 'ddram'
-[INFO (VERI-1018)] ../rtl/savestate_ui.sv(1): compiling module 'savestate_ui:(INFO_TIMEOUT_BITS=25)'
-[INFO (VERI-1018)] ../NES.sv(6): compiling module 'emu'
-[WARN (VERI-1220)] ../NES.sv(776): using initial value of 'bk_loading_req' since it is never assigned
-[WARN (VERI-1330)] ../NES.sv(914): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
-[WARN (VERI-1330)] ../NES.sv(915): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
-[WARN (VERI-8028)] ../NES.sv(863): missing/open ports on instance nes of module NES
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VDB-1002)] ../NES.sv(211): net 'hide_overscan' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(682): net 'reset_nes' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(1059): net 'sdram_ss_in[15]' does not have a driver
-WARNING (WNL008): Module "dpram" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "EEPROM_24C0x" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "IIR_filter" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "eseopll" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "altddio_out" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "spram" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "video_freak" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "hps_io" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "pll" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "pll_cfg" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "video_mixer" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-INFO (INL208): Elaboration synthesis summary:
-  Number of synthesized netlists          171 (8 packages)
-  Single run mode                         On
-  Pipeline                                On (146 pipelined netlists)
-  Late hierarchical reference connection  On
-  Number of analyzed Verilog modules      116 (108 synthesized)
-  Number of analyzed VHDL entities        15 (23 synthesized)
-WARNING (WNL018): ../rtl/zapper.sv(98): multiplication operator mult_16u_8u (size 24) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/MMC5.sv(112): multiplication operator mult_8u_8u (size 16) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/misc.sv(2320): multiplication operator mult_8u_8u (size 16) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/Namco.sv(511): multiplication operator mult_4u_4u (size 8) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/FDS.sv(573): multiplication operator mult_7s_7s (size 14) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/FDS.sv(576): multiplication operator mult_8u_12u (size 20) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/FDS.sv(579): multiplication operator mult_6u_12u (size 18) automatically black boxed.
-    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL032): ../rtl/mappers/FDS.sv(587): division operator div_13u_2u (size 13) automatically black boxed.
-    Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
-WARNING (WNL032): ../rtl/mappers/FDS.sv(589): division operator div_13u_3u (size 13) automatically black boxed.
-    Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
-INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
-INFO (IMDS005): Number of multiple-driven bits in design: 5361. Use "get_design_info -list multiple_driven" for more information.
-emu
-%% 
-%% 
-%% # clock -infer
-%% # reset -none
-%% 
-%% # # Extract properties
-%% # check_superlint -extract
-%% 
-%% 
-[<embedded>] % include /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl
-%% 
-%% clear -all
-INFO (IPF121): Cleared environment completely for new design analysis.
-%% 
-%% # Load checks that will be verified
-%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
-%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
-%% config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
-WARNING (WSL056): Change in Message, Arguments for tag: RST_MX_SYAS have changed.
-    For message help, type "help -message WSL056".
-WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from next release FLP_NR_BLAS, LAT_NR_BLAS will be issued instead.
-%% 
-%% 
-%% # analyze -register -vhdl -f files_vhd.f
-%% # analyze -sort -vhdl -f files_vhd.f
-%% 
-%% analyze -vhdl ../rtl/statemanager.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(13): analyzing package 'textio'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(114): analyzing package body 'textio'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd' into library 'vl'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(22): analyzing package 'vl_types'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(101): analyzing package body 'vl_types'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd' into library 'synopsys'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd(39): analyzing package 'attributes'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(15): analyzing package 'std_logic_1164'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(178): analyzing package body 'std_logic_1164'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(57): analyzing package 'numeric_std'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(874): analyzing package body 'numeric_std'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(54): analyzing package 'numeric_bit'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(834): analyzing package body 'numeric_bit'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd(68): analyzing package 'vital_timing'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd' into library 'ieee'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd(54): analyzing package body 'vital_timing'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd(50): analyzing package 'vital_primitives'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd' into library 'ieee'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd(38): analyzing package body 'vital_primitives'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(25): analyzing package 'std_logic_arith'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(206): analyzing package body 'std_logic_arith'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(35): analyzing package 'std_logic_unsigned'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(94): analyzing package body 'std_logic_unsigned'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(35): analyzing package 'std_logic_signed'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(96): analyzing package body 'std_logic_signed'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(27): analyzing package 'std_logic_misc'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(110): analyzing package body 'std_logic_misc'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(26): analyzing package 'std_logic_textio'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(78): analyzing package body 'std_logic_textio'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd' into library 'arithmetic'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(22): analyzing package 'std_logic_arith'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(274): analyzing package body 'std_logic_arith'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd' into library 'qsim_logic'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(18): analyzing package 'qsim_logic'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(753): analyzing package body 'qsim_logic'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd' into library 'jasper_package'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd(8): analyzing package 'jasper_package'
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/statemanager.vhd'
-[INFO (VHDL-1012)] ../rtl/statemanager.vhd(5): analyzing entity 'statemanager'
-[INFO (VHDL-1010)] ../rtl/statemanager.vhd(33): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/bus_savestates.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/bus_savestates.vhd'
-[INFO (VHDL-1014)] ../rtl/bus_savestates.vhd(9): analyzing package 'pbus_savestates'
-[INFO (VHDL-1012)] ../rtl/bus_savestates.vhd(27): analyzing entity 'ereg_savestatev'
-[INFO (VHDL-1010)] ../rtl/bus_savestates.vhd(46): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/savestates.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/savestates.vhd'
-[INFO (VHDL-1012)] ../rtl/savestates.vhd(7): analyzing entity 'savestates'
-[INFO (VHDL-1010)] ../rtl/savestates.vhd(52): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/t65/T65_Pack.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_Pack.vhd'
-[INFO (VHDL-1014)] ../rtl/t65/T65_Pack.vhd(55): analyzing package 't65_pack'
-[INFO (VHDL-1013)] ../rtl/t65/T65_Pack.vhd(154): analyzing package body 't65_pack'
-%% analyze -vhdl ../rtl/t65/T65_MCode.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_MCode.vhd'
-[INFO (VHDL-1012)] ../rtl/t65/T65_MCode.vhd(58): analyzing entity 't65_mcode'
-[INFO (VHDL-1010)] ../rtl/t65/T65_MCode.vhd(95): analyzing architecture 'rtl'
-%% analyze -vhdl ../rtl/t65/T65_ALU.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_ALU.vhd'
-[INFO (VHDL-1012)] ../rtl/t65/T65_ALU.vhd(57): analyzing entity 't65_alu'
-[INFO (VHDL-1010)] ../rtl/t65/T65_ALU.vhd(70): analyzing architecture 'rtl'
-%% analyze -vhdl ../rtl/t65/T65.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65.vhd'
-[INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
-[INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
-%% analyze -sv ../rtl/regs_savestates.sv
-[-- (VERI-1482)] Analyzing Verilog file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/regs_savestates.sv'
-%% 
-%% 
-%% analyze -sv -f files_sv.f
-INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_sv.f".
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
-[WARN (VERI-2013)] ../rtl/sdram.sv(117): variable 'last_a' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../rtl/sdram.sv(181): variable 'init_old' must explicitly be declared as automatic or static
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/ddram.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/cheatcodes.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/miracle.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/keyboard.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/zapper.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/cart.sv'
-[INFO (VERI-2561)] ../rtl/cart.sv(427): undeclared symbol 'mmc5_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(430): undeclared symbol 'mmc5_data', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(880): undeclared symbol 'ss5b_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(1677): undeclared symbol 'vrc6_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(1715): undeclared symbol 'vrc7_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(1746): undeclared symbol 'n163_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(1749): undeclared symbol 'n163_data', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(2178): undeclared symbol 'fds_audio', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/cart.sv(2182): undeclared symbol 'fds_data', assumed default net type 'wire'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/video.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/ppu.sv'
-[INFO (VERI-2561)] ../rtl/ppu.sv(1267): undeclared symbol 'oam_bus', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/ppu.sv(1272): undeclared symbol 'sprite_overflow', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/ppu.sv(1273): undeclared symbol 'obj0_on_line', assumed default net type 'wire'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/apu.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/savestate_ui.sv'
-[WARN (VERI-2013)] ../rtl/savestate_ui.sv(40): variable 'alt' must explicitly be declared as automatic or static
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/nes.v'
-[INFO (VERI-2561)] ../rtl/nes.v(426): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(427): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(428): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(429): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(598): undeclared symbol 'Savestate_OAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(599): undeclared symbol 'Savestate_OAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(600): undeclared symbol 'Savestate_OAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(601): undeclared symbol 'Savestate_OAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(602): undeclared symbol 'Savestate_OAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(685): undeclared symbol 'Savestate_MAPRAMactive', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(686): undeclared symbol 'Savestate_MAPRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(687): undeclared symbol 'Savestate_MAPRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(688): undeclared symbol 'Savestate_MAPRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(689): undeclared symbol 'Savestate_MAPRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(690): undeclared symbol 'Savestate_MAPRAMReadData', assumed default net type 'wire'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/dsp.v'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/compat.v'
-[-- (VERI-1482)] Analyzing Verilog file '../NES.sv'
-[INFO (VERI-2561)] ../NES.sv(211): undeclared symbol 'hide_overscan', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'gg_avail', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'bios_loaded', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'bk_ena', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(432): undeclared symbol 'ss_slot', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(433): undeclared symbol 'statusUpdate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(434): undeclared symbol 'info_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(435): undeclared symbol 'info', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'loader_clk', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'file_input', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(480): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(481): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(682): undeclared symbol 'reset_nes', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(713): undeclared symbol 'reticle', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(873): undeclared symbol 'gg_code', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(885): undeclared symbol 'emphasis', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(899): undeclared symbol 'max_diskside', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(902): undeclared symbol 'cpu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(903): undeclared symbol 'cpu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(904): undeclared symbol 'cpu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(905): undeclared symbol 'cpu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(906): undeclared symbol 'cpu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(907): undeclared symbol 'ppu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(908): undeclared symbol 'ppu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(909): undeclared symbol 'ppu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(910): undeclared symbol 'ppu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(911): undeclared symbol 'ppu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(922): undeclared symbol 'save_written', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(927): undeclared symbol 'ss_save', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(928): undeclared symbol 'ss_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(932): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(933): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(934): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(935): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(938): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(939): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(940): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'savestate_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(945): undeclared symbol 'ss_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(946): undeclared symbol 'ss_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(947): undeclared symbol 'ss_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(948): undeclared symbol 'ss_rnw', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'ss_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'ss_be', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'ss_ack', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1059): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1061): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
-[WARN (VERI-2013)] ../NES.sv(374): variable 'timeout' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(507): variable 'pald' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(507): variable 'pald2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(508): variable 'state' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(720): variable 'num' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(805): variable 'cnt' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1247): variable 'old_load' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1247): variable 'old_save' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1248): variable 'old_downloading' must explicitly be declared as automatic or static
-%% analyze -sv -f files_mappers_sv.f
-INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_mappers_sv.f".
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/FDS.sv'
-[INFO (VERI-2561)] ../rtl/mappers/FDS.sv(470): undeclared symbol 'audio_exp', assumed default net type 'wire'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/generic.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/JYCompany.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/misc.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/MMC1.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/MMC2.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/MMC3.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/MMC5.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Namco.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Sachen.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Sunsoft.sv'
-[-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/VRC.sv'
-%% 
-%% 
-%% 
-%% 
-%% elaborate -top emu -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m video_freak -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m video_mixer
-INFO (ISW003): Top module name is "emu".
-[INFO (HIER-8002)] ../NES.sv(1370): Disabling old hierarchical reference handler
-[WARN (VERI-1927)] ../NES.sv(952): port 'state_loaded' remains unconnected for this instance
-[WARN (VERI-1927)] ../rtl/nes.v(390): port 'end_of_line' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/nes.v(390): port 'SaveStateBus_Din' is not connected on this instance
-[WARN (VERI-2435)] ../rtl/nes.v(432): port 'abort_n' is not connected on this instance
-[WARN (VERI-1927)] ../rtl/nes.v(432): port 'so_n' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/nes.v(503): port 'allow_us' is not connected on this instance
-[WARN (VERI-1214)] ../rtl/nes.v(568): assignment to input 'sys_type'
-[WARN (VERI-1927)] ../rtl/apu.sv(1050): port 'allow_us' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/mappers/MMC1.sv(275): port 'chr_read' is not connected on this instance
-[WARN (VERI-1927)] ../rtl/mappers/MMC1.sv(275): port 'SaveStateBus_load' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/mappers/VRC.sv(755): port 'SaveStateBus_Din' is not connected on this instance
-[WARN (VERI-1927)] ../rtl/mappers/VRC.sv(755): port 'SaveStateBus_load' remains unconnected for this instance
+[WARN (VERI-2435)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_Din' is not connected on this instance
+[WARN (VERI-1927)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_load' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/mappers/MMC5.sv(803): port 'cold_reset' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
 [WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
@@ -930,73 +339,67 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(4): compiling module 'MMC0'
 [INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(4): compiling module 'MMC1'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=32,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1106): compiling module 'Mapper28'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1103): compiling module 'Mapper28'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(121): compiling module 'Mapper30'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(644): compiling module 'Mapper32'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(640): compiling module 'Mapper32'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=33,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(4): compiling module 'MMC2'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(299): compiling module 'MMC3'
+[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(292): compiling module 'MMC3'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=34,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(205): compiling module 'MMC4'
+[INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(204): compiling module 'MMC4'
 [INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=35,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=36,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(58): compiling module 'Mapper13'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(4): compiling module 'Mapper15'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(106): compiling module 'Mapper16'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(388): compiling module 'Mapper18'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(386): compiling module 'Mapper18'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(367): compiling module 'Mapper34'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1127): compiling module 'Mapper41'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(818): compiling module 'Mapper42'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(924): compiling module 'Mapper65'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1119): compiling module 'Mapper41'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(812): compiling module 'Mapper42'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(918): compiling module 'Mapper65'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(238): compiling module 'Mapper66'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(501): compiling module 'Mapper67'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(689): compiling module 'Mapper68'
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(491): compiling module 'Mapper67'
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(678): compiling module 'Mapper68'
 [INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(2): compiling module 'Mapper69'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(475): compiling module 'Mapper71'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1505): compiling module 'Mapper72'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(584): compiling module 'Mapper77'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(683): compiling module 'Mapper78'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(797): compiling module 'Mapper79'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2872): compiling module 'Mapper83'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(905): compiling module 'Mapper89'
-[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1038): compiling module 'Mapper107'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2771): compiling module 'Mapper111'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(834): compiling module 'Mapper165'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1200): compiling module 'Mapper218'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2168): compiling module 'Mapper227'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1255): compiling module 'Mapper228'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1325): compiling module 'Mapper234'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1401): compiling module 'Mapper246'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1497): compiling module 'Mapper72'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(583): compiling module 'Mapper77'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(681): compiling module 'Mapper78'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(795): compiling module 'Mapper79'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2860): compiling module 'Mapper83'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(902): compiling module 'Mapper89'
+[INFO (VERI-1018)] ../rtl/mappers/generic.sv(1035): compiling module 'Mapper107'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2759): compiling module 'Mapper111'
+[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(820): compiling module 'Mapper165'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1192): compiling module 'Mapper218'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2156): compiling module 'Mapper227'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1247): compiling module 'Mapper228'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1317): compiling module 'Mapper234'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1393): compiling module 'Mapper246'
 [INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(4): compiling module 'Rambo1'
 [INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(217): compiling module 'NesEvent'
 [WARN (VERI-1330)] ../rtl/mappers/MMC1.sv(258): actual bit length 32 differs from formal bit length 64 for port 'flags'
 [WARN (VERI-8028)] ../rtl/mappers/MMC1.sv(254): missing/open ports on instance mmc1_nesevent of module MMC1
 [WARN (VDB-1013)] ../rtl/mappers/MMC1.sv(275): input port 'chr_read' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(4): compiling module 'VRC1'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(143): compiling module 'VRC3'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(976): compiling module 'vrcIRQ'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(137): compiling module 'VRC3'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(922): compiling module 'vrcIRQ'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=40,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(297): compiling module 'VRC24'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1389): compiling module 'VRC5'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(762): compiling module 'MAPVRC6'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(530): compiling module 'VRC6'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(606): actual bit length 32 differs from formal bit length 1 for port 'neschr_rd'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(607): actual bit length 32 differs from formal bit length 1 for port 'neschr_wr'
-[WARN (VERI-1330)] ../rtl/mappers/VRC.sv(610): actual bit length 32 differs from formal bit length 1 for port 'cfg_boot'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(633): compiling module 'VRC7'
-[WARN (VERI-8028)] ../rtl/mappers/VRC.sv(755): missing/open ports on instance vrc7irq of module vrcIRQ
-[WARN (VDB-1013)] ../rtl/mappers/VRC.sv(755): input port 'SaveStateBus_Din[63]' is not connected on this instance
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(275): compiling module 'VRC24'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1333): compiling module 'VRC5'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(724): compiling module 'MAPVRC6'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(492): compiling module 'VRC6'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(595): compiling module 'VRC7'
+[WARN (VERI-8028)] ../rtl/mappers/VRC.sv(717): missing/open ports on instance vrc7irq of module vrcIRQ
+[WARN (VDB-1013)] ../rtl/mappers/VRC.sv(717): input port 'SaveStateBus_Din[63]' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(116): compiling module 'MAPN163'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(3): compiling module 'N163'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(85): actual bit length 32 differs from formal bit length 1 for port 'neschr_rd'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(86): actual bit length 32 differs from formal bit length 1 for port 'neschr_wr'
-[WARN (VERI-1330)] ../rtl/mappers/Namco.sv(89): actual bit length 32 differs from formal bit length 1 for port 'cfg_boot'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1615): compiling module 'Mapper162'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1770): compiling module 'Nanjing'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1698): compiling module 'Mapper164'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1908): compiling module 'Mapper156'
-[INFO (VERI-8005)] ../rtl/mappers/misc.sv(1958): Unintentional sequential element inferred for prg_bank read before write using blocking assignment
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1606): compiling module 'Mapper162'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1761): compiling module 'Nanjing'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1689): compiling module 'Mapper164'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(1899): compiling module 'Mapper156'
+[INFO (VERI-8005)] ../rtl/mappers/misc.sv(1946): Unintentional sequential element inferred for prg_bank read before write using blocking assignment
 [INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(5): compiling module 'Sachen8259'
 [INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(40): Unintentional sequential element inferred for prg_bank read before write using blocking assignment
 [INFO (VERI-8005)] ../rtl/mappers/Sachen.sv(41): Unintentional sequential element inferred for chr_bank_2 read before write using blocking assignment
@@ -1008,37 +411,34 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(59): compiling module 'JYCompany'
 [INFO (VERI-8005)] ../rtl/mappers/JYCompany.sv(144): Unintentional sequential element inferred for bank_mode read before write using blocking assignment
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(3084): compiling module 'Mapper91'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2081): compiling module 'Mapper225'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(1017): compiling module 'Mapper413'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(3072): compiling module 'Mapper91'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2069): compiling module 'Mapper225'
+[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(1003): compiling module 'Mapper413'
 [INFO (VERI-1018)] ../rtl/mappers/FDS.sv(3): compiling module 'MapperFDS'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2278): compiling module 'NSF'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(254): compiling module 'SS5b_audio'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(2266): compiling module 'NSF'
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(253): compiling module 'SS5b_audio'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=48,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=49,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=50,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(205): compiling module 'SS5b_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(463): compiling module 'namco163_sound'
-[WARN (VDB-1002)] ../rtl/mappers/Namco.sv(496): net 'SS_MAP1_BACK[12]' does not have a driver
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(378): compiling module 'namco163_mixed'
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(204): compiling module 'SS5b_mixed'
+[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(458): compiling module 'namco163_sound'
+[WARN (VDB-1002)] ../rtl/mappers/Namco.sv(486): net 'SS_MAP1_BACK[12]' does not have a driver
+[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(373): compiling module 'namco163_mixed'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=52,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010)'
 [INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b0110000,SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010,SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(710): compiling module 'mmc5_mixed'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(778): actual bit length 32 differs from formal bit length 1 for port 'MMC5'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(791): actual bit length 32 differs from formal bit length 1 for port 'DmaAck'
-[WARN (VERI-1330)] ../rtl/mappers/MMC5.sv(793): actual bit length 32 differs from formal bit length 8 for port 'DmaData'
 [WARN (VERI-8028)] ../rtl/mappers/MMC5.sv(777): missing/open ports on instance mmc5apu of module APU
 [WARN (VDB-1013)] ../rtl/mappers/MMC5.sv(803): input port 'cold_reset' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/mappers/FDS.sv(519): compiling module 'fds_audio'
 [INFO (VERI-1018)] ../rtl/mappers/FDS.sv(448): compiling module 'fds_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1107): compiling module 'vrc7_mixed'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1222): compiling module 'vrc6sound'
-[WARN (VDB-1002)] ../rtl/mappers/VRC.sv(1247): net 'SS_MAP1_BACK[2]' does not have a driver
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1161): compiling module 'vrc6_mixed'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1053): compiling module 'vrc7_mixed'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1168): compiling module 'vrc6sound'
+[WARN (VDB-1002)] ../rtl/mappers/VRC.sv(1191): net 'SS_MAP1_BACK[2]' does not have a driver
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1107): compiling module 'vrc6_mixed'
 [INFO (VERI-1018)] ../rtl/cart.sv(18): compiling module 'cart_top'
 [WARN (VERI-1330)] ../rtl/cart.sv(95): actual bit length 64 differs from formal bit length 32 for port 'flags'
 [WARN (VERI-1330)] ../rtl/cart.sv(206): actual bit length 64 differs from formal bit length 32 for port 'flags'
@@ -1202,9 +602,9 @@ WARNING (WNL018): ../rtl/zapper.sv(98): multiplication operator mult_16u_8u (siz
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
 WARNING (WNL018): ../rtl/mappers/MMC5.sv(112): multiplication operator mult_8u_8u (size 16) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/misc.sv(2320): multiplication operator mult_8u_8u (size 16) automatically black boxed.
+WARNING (WNL018): ../rtl/mappers/misc.sv(2308): multiplication operator mult_8u_8u (size 16) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
-WARNING (WNL018): ../rtl/mappers/Namco.sv(511): multiplication operator mult_4u_4u (size 8) automatically black boxed.
+WARNING (WNL018): ../rtl/mappers/Namco.sv(501): multiplication operator mult_4u_4u (size 8) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
 WARNING (WNL018): ../rtl/mappers/FDS.sv(573): multiplication operator mult_7s_7s (size 14) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
@@ -1228,8 +628,3 @@ emu
 %% # check_superlint -extract
 %% 
 %% 
-INFO (IPL005): Received request to exit from the console.
-INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.507 GB.
-INFO (IPL015): The Tcl-thread exited with status 0.
-INFO (IPL016): Exiting the analysis session with status 0.

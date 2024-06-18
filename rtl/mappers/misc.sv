@@ -139,8 +139,6 @@ module Mapper16(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -415,9 +413,7 @@ module Mapper18(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
+
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -671,8 +667,6 @@ module Mapper32(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 2;
@@ -952,8 +946,6 @@ module Mapper65(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
 
 // savestate
 localparam SAVESTATE_MODULES    = 2;
@@ -1533,7 +1525,6 @@ module Mapper72(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
 
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	
@@ -1936,9 +1927,6 @@ module Mapper156(
 	output      [63:0]  SaveStateBus_Dout
 );
 
-	//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
-	//parameter [9:0] SSREG_INDEX_MAP2     = 10'd33;
-	//parameter [9:0] SSREG_INDEX_MAP3     = 10'd34;
 
 // savestate
 localparam SAVESTATE_MODULES    = 3;
@@ -2798,7 +2786,7 @@ module Mapper111(
 	input               SaveStateBus_load,
 	output      [63:0]  SaveStateBus_Dout
 );
-//parameter [9:0] SSREG_INDEX_MAP1     = 10'd32;
+
 // savestate
 wire [63:0] SS_MAP1;
 wire [63:0] SS_MAP1_BACK;	

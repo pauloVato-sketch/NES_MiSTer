@@ -775,7 +775,7 @@ assign SS_MAP1_BACK[    0] = odd_or_even;
 assign SS_MAP1_BACK[63: 1] = 63'b0; // free to be used
 
 APU mmc5apu(
-	.MMC5           (1),
+	.MMC5           (1'b1),
 	.clk            (clk),
 	.ce             (ce),
 	.PHI2           (phi2),
@@ -788,9 +788,9 @@ APU mmc5apu(
 	.audio_channels (5'b10011),
 	.Sample         (audio),
 	.DmaReq         (DmaReq),
-	.DmaAck         (1),
+	.DmaAck         (1'b1),
 	.DmaAddr        (DmaAddr),
-	.DmaData        (0),
+	.DmaData        (8'b0),
 	.odd_or_even    (odd_or_even),
 	.IRQ            (apu_irq),
 	// savestates
