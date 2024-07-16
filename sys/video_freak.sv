@@ -43,7 +43,6 @@ reg [11:0] arxo,aryo;
 reg [11:0] vsize;
 reg [11:0] hsize;
 
-always @(posedge CLK_VIDEO) begin
 	reg        old_de, old_vs,ovde;
 	reg [11:0] vtot,vcpt,vcrop,voff;
 	reg [11:0] hcpt;
@@ -51,6 +50,9 @@ always @(posedge CLK_VIDEO) begin
 	reg [23:0] ARXG,ARYG;
 	reg [11:0] arx,ary;
 	reg  [1:0] vcalc;
+
+always @(posedge CLK_VIDEO) begin
+	
 
 	if (CE_PIXEL) begin
 		old_de <= VGA_DE_IN;
@@ -135,6 +137,25 @@ video_scale_int scale
 	.ary_o(VIDEO_ARY)
 );
 
+/////property/////////////////////////////////
+//Check VGA_VS and VGA_DE_IN Synchronization:
+//Ensures that vcpt is reset on the rising edge of VGA_VS.
+C0: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
+
+//Check arxo and aryo adjustment:
+//Ensures that arxo and aryo are adjusted correctly based on the calculated values.
+C1: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] && aryo == ARYG[23:12]));
+
+//Check hcpt calculation in the presence of VGA_DE_IN:
+//Ensures that hcpt is only incremented when VGA_DE_IN is active.
+property hcpt_increment;
+  @(posedge CLK_VIDEO)
+  (VGA_DE_IN && CE_PIXEL)|-> (hcpt == $past(hcpt) + 1);
+endproperty
+
+assert property (hcpt_increment);
+
+
 endmodule
 
 
@@ -170,11 +191,12 @@ reg  [11:0] mul_arg1, mul_arg2;
 wire [23:0] mul_res;
 sys_umul #(12,12) mul(CLK_VIDEO,mul_start,mul_run, mul_arg1,mul_arg2,mul_res);
 
-always @(posedge CLK_VIDEO) begin
 	reg [11:0] oheight,htarget,wres,hinteger,wideres;
 	reg [12:0] arxf,aryf;
 	reg  [3:0] cnt;
 	reg        narrow;
+
+always @(posedge CLK_VIDEO) begin
 
 	div_start <= 0;
 	mul_start <= 0;
@@ -325,5 +347,50 @@ always @(posedge CLK_VIDEO) begin
 	arx_o <= arxf;
 	ary_o <= aryf;
 end
+
+//Check initialization of arxf and aryf:
+//Ensures that arxf and aryf are initialized correctly when SCALE is 0.
+property arxf_aryf_initialization;
+  @(posedge CLK_VIDEO)
+  (!SCALE || (!ary_i && arx_i)) |-> (arxf == arx_i && aryf == ary_i);
+endproperty
+
+assert property (arxf_aryf_initialization);
+
+//Check Division:
+//Ensures that div_start is asserted correctly and div_res is calculated as expected.
+
+property division_start;
+  @(posedge CLK_VIDEO)
+  (cnt == 0) |-> div_start && div_num == HDMI_HEIGHT && div_den == vsize;
+endproperty
+
+assert property (division_start);
+
+property division_result;
+  @(posedge CLK_VIDEO)
+  (cnt == 1) |-> (div_res == (HDMI_HEIGHT / vsize));
+endproperty
+
+assert property (division_result);
+
+//Check Multiplication:
+//Ensures that mul_start is asserted correctly and mul_res is calculated as expected.
+
+property multiplication_start;
+  @(posedge CLK_VIDEO)
+  (cnt == 3) |-> mul_start && mul_arg1 == vsize && mul_arg2 == div_res[11:0];
+endproperty
+
+assert property (multiplication_start);
+
+property multiplication_result;
+  @(posedge CLK_VIDEO)
+  (cnt == 4) |-> (mul_res == (vsize * div_res[11:0]));
+endproperty
+
+assert property (multiplication_result);
+
+
 
 endmodule

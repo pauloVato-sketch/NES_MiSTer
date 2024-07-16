@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 6.5.0-35-generic
+# platform  : Linux 6.5.0-41-generic
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-06-18 08:09:37 -03
+# started   : 2024-07-16 11:26:44 -03
 # hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 8590
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:42921' '-style' 'windows' '-data' 'AAAA2nicVYyxCsJAEETfKfYWfoKVkCNqBIsUNumUEAVbEUwRCIloRLDRT/VPLsOFgM6wM7D7WAPEb+ccXsOXYsyWHXsSZcpRDVNWLFgTslGHsmXOUmOVVrtIhJf5dk1s+JXJPn8Nox7skYFmRsCZUq55cuJBxV15lWtuNORctE85iJ6I7q65biWF6Ma/bgHfKBow' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl'
+# pid       : 7284
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:37667' '-style' 'windows' '-data' 'AAAA1HicVY69CsJQFIO/q7iKD9FJ8FJ/Cg4duripRQuuItVNvKWtCC76qL7JNVYKmnASCDkQA8QP7z0NunfJgCUrtiykKTs5BERMmBOSyEPRMmaqs1KrbKZGA/P6OrHhF2bz/HPotcW20tENGXHgLDpu7LlyoZIWoqOk5sRReUqmdp+19mVaUJPr54M3OcAYaQ==' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -45,27 +45,22 @@ For technical assistance visit http://support.cadence.com.
 
 Jasper Apps Analysis Session - /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0
 
-INFO: successfully checked out licenses "jasper_interactive" and "jasper_dao".
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
 INFO: reading configuration file "/home/victorhug/.config/cadence/jasper.conf".
-% check_superlint -init
-% include /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl
-%% 
-%% clear -all
+% 
+% clear -all
 INFO (IPF121): Cleared environment completely for new design analysis.
-%% 
-%% # Load checks that will be verified
-%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
-%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
-%% config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
-WARNING (WSL056): Change in Message, Arguments for tag: RST_MX_SYAS have changed.
-    For message help, type "help -message WSL056".
-WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from next release FLP_NR_BLAS, LAT_NR_BLAS will be issued instead.
-%% 
-%% 
-%% # analyze -register -vhdl -f files_vhd.f
-%% # analyze -sort -vhdl -f files_vhd.f
-%% 
-%% analyze -vhdl ../rtl/statemanager.vhd
+% 
+% # Load checks that will be verified
+% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+% 
+% 
+% # analyze -register -vhdl -f files_vhd.f
+% # analyze -sort -vhdl -f files_vhd.f
+% 
+% analyze -vhdl ../rtl/statemanager.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
 [INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
 [-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
@@ -119,37 +114,37 @@ WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from nex
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/statemanager.vhd'
 [INFO (VHDL-1012)] ../rtl/statemanager.vhd(5): analyzing entity 'statemanager'
 [INFO (VHDL-1010)] ../rtl/statemanager.vhd(33): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/bus_savestates.vhd
+% analyze -vhdl ../rtl/bus_savestates.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/bus_savestates.vhd'
 [INFO (VHDL-1014)] ../rtl/bus_savestates.vhd(9): analyzing package 'pbus_savestates'
 [INFO (VHDL-1012)] ../rtl/bus_savestates.vhd(27): analyzing entity 'ereg_savestatev'
 [INFO (VHDL-1010)] ../rtl/bus_savestates.vhd(46): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/savestates.vhd
+% analyze -vhdl ../rtl/savestates.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/savestates.vhd'
 [INFO (VHDL-1012)] ../rtl/savestates.vhd(7): analyzing entity 'savestates'
 [INFO (VHDL-1010)] ../rtl/savestates.vhd(52): analyzing architecture 'arch'
-%% analyze -vhdl ../rtl/t65/T65_Pack.vhd
+% analyze -vhdl ../rtl/t65/T65_Pack.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_Pack.vhd'
 [INFO (VHDL-1014)] ../rtl/t65/T65_Pack.vhd(55): analyzing package 't65_pack'
 [INFO (VHDL-1013)] ../rtl/t65/T65_Pack.vhd(154): analyzing package body 't65_pack'
-%% analyze -vhdl ../rtl/t65/T65_MCode.vhd
+% analyze -vhdl ../rtl/t65/T65_MCode.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_MCode.vhd'
 [INFO (VHDL-1012)] ../rtl/t65/T65_MCode.vhd(58): analyzing entity 't65_mcode'
 [INFO (VHDL-1010)] ../rtl/t65/T65_MCode.vhd(95): analyzing architecture 'rtl'
-%% analyze -vhdl ../rtl/t65/T65_ALU.vhd
+% analyze -vhdl ../rtl/t65/T65_ALU.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65_ALU.vhd'
 [INFO (VHDL-1012)] ../rtl/t65/T65_ALU.vhd(57): analyzing entity 't65_alu'
 [INFO (VHDL-1010)] ../rtl/t65/T65_ALU.vhd(70): analyzing architecture 'rtl'
-%% analyze -vhdl ../rtl/t65/T65.vhd
+% analyze -vhdl ../rtl/t65/T65.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65.vhd'
 [INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
 [INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
-%% analyze -sv ../rtl/regs_savestates.sv
+% analyze -sv ../rtl/regs_savestates.sv
 [-- (VERI-1482)] Analyzing Verilog file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/regs_savestates.sv'
-%% 
-%% 
-%% analyze -sv -f files_sv.f
+% 
+% 
+% analyze -sv -f files_sv.f
 INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
 [WARN (VERI-2013)] ../rtl/sdram.sv(117): variable 'last_a' must explicitly be declared as automatic or static
@@ -169,11 +164,23 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [INFO (VERI-2561)] ../rtl/cart.sv(1749): undeclared symbol 'n163_data', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/cart.sv(2178): undeclared symbol 'fds_audio', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/cart.sv(2182): undeclared symbol 'fds_data', assumed default net type 'wire'
+[WARN (VERI-1362)] ../rtl/cart.sv(2231): 'ss5b_audio' is already implicitly declared on line 880
+[WARN (VERI-1362)] ../rtl/cart.sv(2250): 'n163_audio' is already implicitly declared on line 1746
+[WARN (VERI-1362)] ../rtl/cart.sv(2251): 'n163_data' is already implicitly declared on line 1749
+[WARN (VERI-1362)] ../rtl/cart.sv(2279): 'mmc5_audio' is already implicitly declared on line 427
+[WARN (VERI-1362)] ../rtl/cart.sv(2280): 'mmc5_data' is already implicitly declared on line 430
+[WARN (VERI-1362)] ../rtl/cart.sv(2301): 'fds_audio' is already implicitly declared on line 2178
+[WARN (VERI-1362)] ../rtl/cart.sv(2302): 'fds_data' is already implicitly declared on line 2182
+[WARN (VERI-1362)] ../rtl/cart.sv(2315): 'vrc7_audio' is already implicitly declared on line 1715
+[WARN (VERI-1362)] ../rtl/cart.sv(2327): 'vrc6_audio' is already implicitly declared on line 1677
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/video.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/ppu.sv'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1267): undeclared symbol 'oam_bus', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1272): undeclared symbol 'sprite_overflow', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1273): undeclared symbol 'obj0_on_line', assumed default net type 'wire'
+[WARN (VERI-1362)] ../rtl/ppu.sv(1291): 'oam_bus' is already implicitly declared on line 1267
+[WARN (VERI-1362)] ../rtl/ppu.sv(1292): 'sprite_overflow' is already implicitly declared on line 1272
+[WARN (VERI-1362)] ../rtl/ppu.sv(1293): 'obj0_on_line' is already implicitly declared on line 1273
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/apu.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/savestate_ui.sv'
 [WARN (VERI-2013)] ../rtl/savestate_ui.sv(40): variable 'alt' must explicitly be declared as automatic or static
@@ -193,10 +200,26 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [INFO (VERI-2561)] ../rtl/nes.v(688): undeclared symbol 'Savestate_MAPRAMWrEn', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/nes.v(689): undeclared symbol 'Savestate_MAPRAMWriteData', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/nes.v(690): undeclared symbol 'Savestate_MAPRAMReadData', assumed default net type 'wire'
+[WARN (VERI-1362)] ../rtl/nes.v(767): 'SaveStateBus_Din' is already implicitly declared on line 426
+[WARN (VERI-1362)] ../rtl/nes.v(768): 'SaveStateBus_Adr' is already implicitly declared on line 427
+[WARN (VERI-1362)] ../rtl/nes.v(769): 'SaveStateBus_wren' is already implicitly declared on line 428
+[WARN (VERI-1362)] ../rtl/nes.v(769): 'SaveStateBus_rst' is already implicitly declared on line 429
+[WARN (VERI-1362)] ../rtl/nes.v(801): 'Savestate_OAMAddr' is already implicitly declared on line 598
+[WARN (VERI-1362)] ../rtl/nes.v(802): 'Savestate_OAMRdEn' is already implicitly declared on line 599
+[WARN (VERI-1362)] ../rtl/nes.v(803): 'Savestate_OAMWrEn' is already implicitly declared on line 600
+[WARN (VERI-1362)] ../rtl/nes.v(804): 'Savestate_OAMWriteData' is already implicitly declared on line 601
+[WARN (VERI-1362)] ../rtl/nes.v(805): 'Savestate_OAMReadData' is already implicitly declared on line 602
+[WARN (VERI-1362)] ../rtl/nes.v(807): 'Savestate_MAPRAMactive' is already implicitly declared on line 685
+[WARN (VERI-1362)] ../rtl/nes.v(808): 'Savestate_MAPRAMAddr' is already implicitly declared on line 686
+[WARN (VERI-1362)] ../rtl/nes.v(809): 'Savestate_MAPRAMRdEn' is already implicitly declared on line 687
+[WARN (VERI-1362)] ../rtl/nes.v(810): 'Savestate_MAPRAMWrEn' is already implicitly declared on line 688
+[WARN (VERI-1362)] ../rtl/nes.v(811): 'Savestate_MAPRAMWriteData' is already implicitly declared on line 689
+[WARN (VERI-1362)] ../rtl/nes.v(812): 'Savestate_MAPRAMReadData' is already implicitly declared on line 690
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/dsp.v'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/compat.v'
 [-- (VERI-1482)] Analyzing Verilog file '../NES.sv'
 [INFO (VERI-2561)] ../NES.sv(211): undeclared symbol 'hide_overscan', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(321): 'hide_overscan' is already implicitly declared on line 211
 [INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'gg_avail', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'bios_loaded', assumed default net type 'wire'
@@ -207,10 +230,19 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [INFO (VERI-2561)] ../NES.sv(435): undeclared symbol 'info', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'loader_clk', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'file_input', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(470): 'info_req' is already implicitly declared on line 434
+[WARN (VERI-1362)] ../NES.sv(471): 'info' is already implicitly declared on line 435
 [INFO (VERI-2561)] ../NES.sv(480): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(481): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(485): 'reconfig_to_pll' is already implicitly declared on line 480
+[WARN (VERI-1362)] ../NES.sv(486): 'reconfig_from_pll' is already implicitly declared on line 481
+[WARN (VERI-2271)] ../NES.sv(526): overflow of 32-bit signed integer 2201376898; using -2093590398 instead
+[WARN (VERI-2271)] ../NES.sv(526): overflow of 32-bit signed integer 2537933971; using -1757033325 instead
 [INFO (VERI-2561)] ../NES.sv(682): undeclared symbol 'reset_nes', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(713): undeclared symbol 'reticle', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(764): 'file_input' is already implicitly declared on line 442
+[WARN (VERI-1362)] ../NES.sv(766): 'loader_clk' is already implicitly declared on line 441
+[WARN (VERI-1362)] ../NES.sv(822): 'reset_nes' is already implicitly declared on line 682
 [INFO (VERI-2561)] ../NES.sv(873): undeclared symbol 'gg_code', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(885): undeclared symbol 'emphasis', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(899): undeclared symbol 'max_diskside', assumed default net type 'wire'
@@ -245,8 +277,51 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'ss_req', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'ss_be', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'ss_ack', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(954): 'cpu_addr' is already implicitly declared on line 902
+[WARN (VERI-1362)] ../NES.sv(955): 'ppu_addr' is already implicitly declared on line 907
+[WARN (VERI-1362)] ../NES.sv(956): 'cpu_read' is already implicitly declared on line 903
+[WARN (VERI-1362)] ../NES.sv(956): 'cpu_write' is already implicitly declared on line 904
+[WARN (VERI-1362)] ../NES.sv(956): 'ppu_read' is already implicitly declared on line 908
+[WARN (VERI-1362)] ../NES.sv(956): 'ppu_write' is already implicitly declared on line 909
+[WARN (VERI-1362)] ../NES.sv(957): 'cpu_dout' is already implicitly declared on line 905
+[WARN (VERI-1362)] ../NES.sv(957): 'cpu_din' is already implicitly declared on line 906
+[WARN (VERI-1362)] ../NES.sv(957): 'ppu_dout' is already implicitly declared on line 910
+[WARN (VERI-1362)] ../NES.sv(957): 'ppu_din' is already implicitly declared on line 911
+[WARN (VERI-1362)] ../NES.sv(959): 'emphasis' is already implicitly declared on line 885
+[WARN (VERI-1362)] ../NES.sv(964): 'bios_loaded' is already implicitly declared on line 431
 [INFO (VERI-2561)] ../NES.sv(1059): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
 [INFO (VERI-2561)] ../NES.sv(1061): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(1106): 'save_written' is already implicitly declared on line 922
+[WARN (VERI-1362)] ../NES.sv(1155): 'reticle' is already implicitly declared on line 713
+[WARN (VERI-1362)] ../NES.sv(1193): 'gg_code' is already implicitly declared on line 873
+[WARN (VERI-1362)] ../NES.sv(1194): 'gg_avail' is already implicitly declared on line 431
+[WARN (VERI-1362)] ../NES.sv(1232): 'bk_ena' is already implicitly declared on line 431
+[WARN (VERI-1362)] ../NES.sv(1234): 'max_diskside' is already implicitly declared on line 899
+[WARN (VERI-1362)] ../NES.sv(1294): 'ss_dout' is already implicitly declared on line 946
+[WARN (VERI-1362)] ../NES.sv(1294): 'ss_din' is already implicitly declared on line 945
+[WARN (VERI-1362)] ../NES.sv(1295): 'ss_addr' is already implicitly declared on line 947
+[WARN (VERI-1362)] ../NES.sv(1296): 'ss_be' is already implicitly declared on line 950
+[WARN (VERI-1362)] ../NES.sv(1297): 'ss_rnw' is already implicitly declared on line 948
+[WARN (VERI-1362)] ../NES.sv(1297): 'ss_req' is already implicitly declared on line 949
+[WARN (VERI-1362)] ../NES.sv(1297): 'ss_ack' is already implicitly declared on line 951
+[WARN (VERI-1362)] ../NES.sv(1299): 'Savestate_SDRAMAddr' is already implicitly declared on line 932
+[WARN (VERI-1362)] ../NES.sv(1300): 'Savestate_SDRAMRdEn' is already implicitly declared on line 933
+[WARN (VERI-1362)] ../NES.sv(1301): 'Savestate_SDRAMWrEn' is already implicitly declared on line 934
+[WARN (VERI-1362)] ../NES.sv(1302): 'Savestate_SDRAMWriteData' is already implicitly declared on line 935
+[WARN (VERI-1362)] ../NES.sv(1303): 'Savestate_SDRAMReadData' is already implicitly declared on line 936
+[WARN (VERI-1362)] ../NES.sv(1305): 'SaveStateBus_Din' is already implicitly declared on line 938
+[WARN (VERI-1362)] ../NES.sv(1306): 'SaveStateBus_Adr' is already implicitly declared on line 939
+[WARN (VERI-1362)] ../NES.sv(1307): 'SaveStateBus_wren' is already implicitly declared on line 940
+[WARN (VERI-1362)] ../NES.sv(1308): 'SaveStateBus_rst' is already implicitly declared on line 941
+[WARN (VERI-1362)] ../NES.sv(1309): 'SaveStateBus_Dout' is already implicitly declared on line 942
+[WARN (VERI-1362)] ../NES.sv(1310): 'savestate_load' is already implicitly declared on line 943
+[WARN (VERI-1362)] ../NES.sv(1312): 'sdram_ss_in' is already implicitly declared on line 1059
+[WARN (VERI-1362)] ../NES.sv(1313): 'sdram_ss_out' is already implicitly declared on line 1061
+[WARN (VERI-1362)] ../NES.sv(1338): 'ss_slot' is already implicitly declared on line 432
+[WARN (VERI-1362)] ../NES.sv(1340): 'ss_save' is already implicitly declared on line 927
+[WARN (VERI-1362)] ../NES.sv(1340): 'ss_load' is already implicitly declared on line 928
+[WARN (VERI-1362)] ../NES.sv(1341): 'mapper_has_savestate' is already implicitly declared on line 431
+[WARN (VERI-1362)] ../NES.sv(1342): 'statusUpdate' is already implicitly declared on line 433
 [WARN (VERI-2013)] ../NES.sv(374): variable 'timeout' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../NES.sv(507): variable 'pald' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../NES.sv(507): variable 'pald2' must explicitly be declared as automatic or static
@@ -256,10 +331,40 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [WARN (VERI-2013)] ../NES.sv(1247): variable 'old_load' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../NES.sv(1247): variable 'old_save' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../NES.sv(1248): variable 'old_downloading' must explicitly be declared as automatic or static
-%% analyze -sv -f files_mappers_sv.f
+[-- (VERI-1482)] Analyzing Verilog file '../sys/video_freak.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../sys/video_mixer.sv'
+[WARN (VERI-1875)] ../sys/video_mixer.sv(37): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/video_mixer.sv(38): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/video_mixer.sv(39): identifier 'DWIDTH' is used before its declaration
+[-- (VERI-1482)] Analyzing Verilog file '../sys/video_freezer.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../sys/scandoubler.v'
+[INFO (VERI-2561)] ../sys/scandoubler.v(113): undeclared symbol 'ce_x4o', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/scandoubler.v(114): undeclared symbol 'sd_line', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/scandoubler.v(122): 'ce_x4o' is already implicitly declared on line 113
+[WARN (VERI-1362)] ../sys/scandoubler.v(143): 'sd_line' is already implicitly declared on line 114
+[WARN (VERI-1875)] ../sys/scandoubler.v(34): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/scandoubler.v(35): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/scandoubler.v(36): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/scandoubler.v(44): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/scandoubler.v(45): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/scandoubler.v(46): identifier 'DWIDTH' is used before its declaration
+[-- (VERI-1482)] Analyzing Verilog file '../sys/math.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../sys/hq2x.sv'
+[INFO (VERI-2561)] ../sys/hq2x.sv(105): undeclared symbol 'offs', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/hq2x.sv(148): 'offs' is already implicitly declared on line 105
+[WARN (VERI-1875)] ../sys/hq2x.sv(18): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/hq2x.sv(27): identifier 'DWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/hq2x.sv(230): identifier 'AWIDTH' is used before its declaration
+[WARN (VERI-1875)] ../sys/hq2x.sv(234): identifier 'AWIDTH' is used before its declaration
+[-- (VERI-1482)] Analyzing Verilog file '../sys/gamma_corr.sv'
+[WARN (VERI-1875)] ../sys/gamma_corr.sv(25): identifier 'gamma' is used before its declaration
+[WARN (VERI-1875)] ../sys/gamma_corr.sv(25): identifier 'gamma_index' is used before its declaration
+[WARN (VERI-2013)] ../sys/gamma_corr.sv(34): variable 'ctr' must explicitly be declared as automatic or static
+% analyze -sv -f files_mappers_sv.f
 INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_mappers_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/FDS.sv'
 [INFO (VERI-2561)] ../rtl/mappers/FDS.sv(470): undeclared symbol 'audio_exp', assumed default net type 'wire'
+[WARN (VERI-1362)] ../rtl/mappers/FDS.sv(473): 'audio_exp' is already implicitly declared on line 470
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/generic.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/JYCompany.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/misc.sv'
@@ -271,14 +376,13 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Sachen.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Sunsoft.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/VRC.sv'
-%% 
-%% 
-%% 
-%% 
-%% elaborate -top emu -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m video_freak -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m video_mixer
+% 
+% 
+% elaborate -top emu -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg 
 INFO (ISW003): Top module name is "emu".
 [INFO (HIER-8002)] ../NES.sv(1370): Disabling old hierarchical reference handler
 [WARN (VERI-1927)] ../NES.sv(952): port 'state_loaded' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/video_freak.sv(180): port 'remainder' remains unconnected for this instance
 [WARN (VERI-1927)] ../rtl/nes.v(390): port 'end_of_line' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/nes.v(390): port 'SaveStateBus_Din' is not connected on this instance
 [WARN (VERI-2435)] ../rtl/nes.v(432): port 'abort_n' is not connected on this instance
@@ -291,65 +395,94 @@ INFO (ISW003): Top module name is "emu".
 [WARN (VERI-2435)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_Din' is not connected on this instance
 [WARN (VERI-1927)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_load' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/mappers/MMC5.sv(803): port 'cold_reset' is not connected on this instance
+[WARN (VERI-1927)] ../sys/video_freezer.sv(47): port 'sync_pt' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/video_freezer.sv(59): port 'valid' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/scandoubler.v(117): port 'mono' remains unconnected for this instance
+[INFO (VERI-1018)] ../sys/math.sv(46): compiling module 'sys_umul:(NB_MUL1=12,NB_MUL2=12)'
+[INFO (VERI-1018)] ../sys/math.sv(3): compiling module 'sys_udiv:(NB_NUM=24,NB_DIV=12)'
+[INFO (VERI-1018)] ../sys/video_freak.sv(156): compiling module 'video_scale_int'
+[WARN (VERI-8028)] ../sys/video_freak.sv(180): missing/open ports on instance div of module sys_udiv
+[INFO (VERI-8005)] ../sys/video_freak.sv(188): Unintentional sequential element inferred for hinteger read before write using blocking assignment
+[INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
 [INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
 [WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
 [INFO (VERI-1018)] ../rtl/miracle.sv(199): compiling module 'midi_uart'
 [INFO (VERI-1018)] ../rtl/miracle.sv(28): compiling module 'miraclepiano'
 [INFO (VERI-1018)] ../rtl/zapper.sv(4): compiling module 'zapper'
 [INFO (VERI-1018)] ../NES.sv(1378): compiling module 'GameLoader'
+[WARN (VERI-1060)] ../NES.sv(1401): 'initial' construct is ignored
 [INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
+[WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=1,def="0000000000000000000000010010000000000000000000000000000000000001")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=2,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/t65/T65_MCode.vhd(58): processing 'T65_MCode(rtl)'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'ALU_Op'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Set_BusA_To'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Write_Data'
+[INFO (VHDL-1172)] ../rtl/t65/T65_MCode.vhd(1089): 'others' clause is never selected
+[INFO (VHDL-1067)] ../rtl/t65/T65_ALU.vhd(57): processing 'T65_ALU(rtl)'
+[INFO (VHDL-9044)] ../rtl/t65/T65_ALU.vhd(68): creating type property for input port 'Op'
+[INFO (VHDL-1067)] ../rtl/t65/T65.vhd(136): processing 'T65(rtl)'
+[WARN (VHDL-1129)] ../rtl/t65/T65.vhd(180): initial value for signal is ignored
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(199): creating type property for signal 'ALU_Op_r'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(200): creating type property for signal 'Write_Data_r'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
 [INFO (VERI-1018)] ../rtl/nes.v(21): compiling module 'DmaController'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(4): compiling module 'LenCounterUnit'
 [INFO (VERI-1018)] ../rtl/apu.sv(65): compiling module 'EnvelopeUnit'
 [INFO (VERI-1018)] ../rtl/apu.sv(117): compiling module 'SquareChan'
 [INFO (VERI-1018)] ../rtl/apu.sv(266): compiling module 'TriangleChan'
 [INFO (VERI-1018)] ../rtl/apu.sv(375): compiling module 'NoiseChan'
-[INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=17,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=18,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010)'
 [INFO (VERI-1018)] ../rtl/apu.sv(1163): compiling module 'APUMixer'
-[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b010011)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=19,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
+[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b010011)'
 [INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b010000,SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010,SSREG_INDEX_FCT=10'b010011)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VERI-8028)] ../rtl/apu.sv(1031): missing/open ports on instance Squ2 of module SquareChan
 [WARN (VDB-1013)] ../rtl/apu.sv(1050): input port 'allow_us' is not connected on this instance
-[INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen:(USE_SAVESTATE=1)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=5,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=4,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=6,def="0000000000000000000000000000000000000000000000000000000101010010")(arch)'
-[INFO (VERI-1018)] ../rtl/ppu.sv(10): compiling module 'LoopyGen'
+[INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen:(USE_SAVESTATE=1)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=11,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/ppu.sv(10): compiling module 'LoopyGen'
 [INFO (VERI-1018)] ../rtl/ppu.sv(907): compiling module 'BgPainter'
-[INFO (VERI-1018)] ../rtl/ppu.sv(419): compiling module 'OAMEval'
+[WARN (VERI-1060)] ../rtl/ppu.sv(937): 'initial' construct is ignored
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=12,def="0000000000000000000000000000000000000000000000000000000111111111")(arch)'
+[INFO (VERI-1018)] ../rtl/ppu.sv(419): compiling module 'OAMEval'
 [INFO (VERI-1018)] ../rtl/ppu.sv(779): compiling module 'SpriteAddressGen'
 [INFO (VERI-1018)] ../rtl/ppu.sv(834): compiling module 'SpriteAddressGenEx'
 [INFO (VERI-1018)] ../rtl/ppu.sv(314): compiling module 'Sprite'
 [INFO (VERI-1018)] ../rtl/ppu.sv(353): compiling module 'SpriteSet'
 [INFO (VERI-1018)] ../rtl/ppu.sv(986): compiling module 'PixelMuxer'
-[INFO (VERI-1018)] ../rtl/ppu.sv(1003): compiling module 'PaletteRam'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=7,def="0000000000001000000000000000100100000000000010000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=8,def="0010000000111010000001000000000100000000000100000000001000000001")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=9,def="0010110000000000000000000011010000000100000010000000001000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=10,def="0000100000000010000101000000001100101100001001000000110100000001")(arch)'
+[INFO (VERI-1018)] ../rtl/ppu.sv(1003): compiling module 'PaletteRam'
 [WARN (VDB-1002)] ../rtl/ppu.sv(1026): net 'SS_PAL_BACK[3][63]' does not have a driver
 [INFO (VERI-1018)] ../rtl/ppu.sv(1081): compiling module 'PPU'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=5,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=4,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[WARN (VERI-1060)] ../rtl/ppu.sv(1157): 'initial' construct is ignored
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(4): compiling module 'MMC0'
-[INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(4): compiling module 'MMC1'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=32,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(4): compiling module 'MMC1'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(1103): compiling module 'Mapper28'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(121): compiling module 'Mapper30'
-[INFO (VERI-1018)] ../rtl/mappers/misc.sv(640): compiling module 'Mapper32'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=33,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/misc.sv(640): compiling module 'Mapper32'
 [INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(4): compiling module 'MMC2'
-[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(292): compiling module 'MMC3'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=34,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(292): compiling module 'MMC3'
 [INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(204): compiling module 'MMC4'
-[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=35,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=36,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(58): compiling module 'Mapper13'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(4): compiling module 'Mapper15'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(106): compiling module 'Mapper16'
@@ -384,8 +517,8 @@ INFO (ISW003): Top module name is "emu".
 [WARN (VDB-1013)] ../rtl/mappers/MMC1.sv(275): input port 'chr_read' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(4): compiling module 'VRC1'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(137): compiling module 'VRC3'
-[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(922): compiling module 'vrcIRQ'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=40,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/VRC.sv(922): compiling module 'vrcIRQ'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(275): compiling module 'VRC24'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1333): compiling module 'VRC5'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(724): compiling module 'MAPVRC6'
@@ -396,6 +529,7 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(116): compiling module 'MAPN163'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(3): compiling module 'N163'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1606): compiling module 'Mapper162'
+[WARN (VERI-1899)] ../rtl/mappers/misc.sv(1664): 'prg_bank' inside always_comb block does not represent combinational logic
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1761): compiling module 'Nanjing'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1689): compiling module 'Mapper164'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1899): compiling module 'Mapper156'
@@ -408,27 +542,35 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(187): compiling module 'SachenJV001'
 [INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(339): compiling module 'SachenNROM'
 [INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(3): compiling module 'multiplier'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(59): compiling module 'JYCompany'
 [INFO (VERI-8005)] ../rtl/mappers/JYCompany.sv(144): Unintentional sequential element inferred for bank_mode read before write using blocking assignment
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(3072): compiling module 'Mapper91'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(2069): compiling module 'Mapper225'
 [INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(1003): compiling module 'Mapper413'
 [INFO (VERI-1018)] ../rtl/mappers/FDS.sv(3): compiling module 'MapperFDS'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(2266): compiling module 'NSF'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(253): compiling module 'SS5b_audio'
+[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2678): 11-bit index expression '{midi_reg[5'b01001][2:0],midi_reg[5'b01000]}' is larger than the required 7 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2680): 11-bit index expression '{midi_reg[5'b01001][2:0],midi_reg[5'b01000]}' is larger than the required 7 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=48,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=49,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=50,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(253): compiling module 'SS5b_audio'
+[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(437): 6-bit index expression 'envelope_a' is larger than the required 5 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(438): 6-bit index expression 'envelope_b' is larger than the required 5 bits. This might lead to an out-of-bound access
+[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(439): 6-bit index expression 'envelope_c' is larger than the required 5 bits. This might lead to an out-of-bound access
 [INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(204): compiling module 'SS5b_mixed'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(458): compiling module 'namco163_sound'
 [WARN (VDB-1002)] ../rtl/mappers/Namco.sv(486): net 'SS_MAP1_BACK[12]' does not have a driver
-[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(373): compiling module 'namco163_mixed'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=52,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../rtl/mappers/Namco.sv(373): compiling module 'namco163_mixed'
 [INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010)'
-[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
+[INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b0110000,SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010,SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(710): compiling module 'mmc5_mixed'
 [WARN (VERI-8028)] ../rtl/mappers/MMC5.sv(777): missing/open ports on instance mmc5apu of module APU
@@ -497,6 +639,8 @@ INFO (ISW003): Top module name is "emu".
 [WARN (VERI-1330)] ../rtl/cart.sv(2162): actual bit length 64 differs from formal bit length 32 for port 'flags'
 [WARN (VERI-1330)] ../rtl/cart.sv(2202): actual bit length 64 differs from formal bit length 32 for port 'flags'
 [INFO (VERI-1018)] ../rtl/cheatcodes.sv(10): compiling module 'CODES'
+[WARN (VERI-9005)] ../rtl/cheatcodes.sv(57): 6-bit index expression 'index' is larger than the required 5 bits. This might lead to an out-of-bound access
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=24,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/savestates.vhd(7): processing 'savestates(arch)'
 [INFO (VHDL-9044)] ../rtl/savestates.vhd(50): creating type property for input port 'savestate_address'
 [INFO (VHDL-9046)] ../rtl/savestates.vhd(62): creating type property for signal 'savetype_counter'
@@ -530,30 +674,12 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VHDL-9046)] ../rtl/statemanager.vhd(53): creating type property for signal 'vsync_counter'
 [INFO (VERI-1018)] ../rtl/nes.v(72): compiling module 'NES'
 [WARN (VERI-8028)] ../rtl/nes.v(373): missing/open ports on instance clockgen_pause of module ClockGen
-[INFO (VHDL-1067)] ../rtl/t65/T65.vhd(136): processing 'T65(rtl)'
-[WARN (VHDL-1129)] ../rtl/t65/T65.vhd(180): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(199): creating type property for signal 'ALU_Op_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(200): creating type property for signal 'Write_Data_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=1,def="0000000000000000000000010010000000000000000000000000000000000001")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=2,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/t65/T65_MCode.vhd(58): processing 'T65_MCode(rtl)'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'ALU_Op'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Set_BusA_To'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Write_Data'
-[INFO (VHDL-1172)] ../rtl/t65/T65_MCode.vhd(1089): 'others' clause is never selected
-[INFO (VHDL-1067)] ../rtl/t65/T65_ALU.vhd(57): processing 'T65_ALU(rtl)'
-[INFO (VHDL-9044)] ../rtl/t65/T65_ALU.vhd(68): creating type property for input port 'Op'
 [WARN (VERI-1330)] ../rtl/nes.v(407): actual bit length 32 differs from formal bit length 2 for port 'Mode'
 [WARN (VERI-1330)] ../rtl/nes.v(408): actual bit length 32 differs from formal bit length 1 for port 'BCD_en'
 [WARN (VERI-1330)] ../rtl/nes.v(419): actual bit length 16 differs from formal bit length 24 for port 'A'
 [WARN (VERI-8028)] ../rtl/nes.v(475): missing/open ports on instance apu of module APU
 [WARN (VERI-1330)] ../rtl/nes.v(655): actual bit length 21 differs from formal bit length 10 for port 'prg_mask'
 [WARN (VERI-1330)] ../rtl/nes.v(656): actual bit length 20 differs from formal bit length 10 for port 'chr_mask'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=24,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VERI-1330)] ../rtl/nes.v(874): actual bit length 2 differs from formal bit length 32 for port 'savestate_number'
 [WARN (VDB-1002)] ../rtl/nes.v(598): net 'Savestate_OAMAddr[7]' does not have a driver
 [WARN (VDB-1002)] ../rtl/nes.v(599): net 'Savestate_OAMRdEn' does not have a driver
@@ -570,13 +696,38 @@ INFO (ISW003): Top module name is "emu".
 [INFO (VERI-1018)] ../rtl/sdram.sv(22): compiling module 'sdram'
 [INFO (VERI-8005)] ../rtl/sdram.sv(97): Unintentional sequential element inferred for controle read before write using blocking assignment
 [INFO (VERI-1018)] ../rtl/video.sv(4): compiling module 'video'
+[INFO (VERI-1018)] ../sys/video_freezer.sv(80): compiling module 'sync_lock:(WIDTH=33)'
+[INFO (VERI-1018)] ../sys/video_freezer.sv(80): compiling module 'sync_lock'
+[INFO (VERI-1018)] ../sys/video_freezer.sv(21): compiling module 'video_freezer'
+[WARN (VERI-8028)] ../sys/video_freezer.sv(39): missing/open ports on instance vs_lock of module sync_lock
+[WARN (VERI-8028)] ../sys/video_freezer.sv(50): missing/open ports on instance hs_lock of module sync_lock
+[INFO (VERI-1018)] ../sys/hq2x.sv(271): compiling module 'DiffCheck'
+[INFO (VERI-1018)] ../sys/hq2x.sv(298): compiling module 'Blend'
+[INFO (VERI-1018)] ../sys/hq2x.sv(250): compiling module 'hq2x_buf:(NUMWORDS=260,AWIDTH=8,DWIDTH=23)'
+[INFO (VERI-2571)] ../sys/hq2x.sv(260): extracting RAM for identifier 'ram'
+[WARN (VERI-9033)] ../sys/hq2x.sv(260): array ram (size 6240) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
+[INFO (VERI-1018)] ../sys/hq2x.sv(226): compiling module 'hq2x_in:(LENGTH=260,DWIDTH=23)'
+[INFO (VERI-1018)] ../sys/hq2x.sv(250): compiling module 'hq2x_buf:(NUMWORDS=520,AWIDTH=9,DWIDTH=95)'
+[INFO (VERI-2571)] ../sys/hq2x.sv(260): extracting RAM for identifier 'ram'
+[INFO (VERI-1018)] ../sys/hq2x.sv(13): compiling module 'Hq2x:(LENGTH=260)'
+[WARN (VERI-1060)] ../sys/hq2x.sv(60): 'initial' construct is ignored
+[WARN (VDB-1002)] ../sys/hq2x.sv(40): net 'hqTable[0][5]' does not have a driver
+[INFO (VERI-1018)] ../sys/scandoubler.v(22): compiling module 'scandoubler:(LENGTH=260)'
+[WARN (VERI-8028)] ../sys/scandoubler.v(103): missing/open ports on instance Hq2x of module Hq2x
+[WARN (VDB-1013)] ../sys/scandoubler.v(117): input port 'mono' is not connected on this instance
+[INFO (VERI-1018)] ../sys/gamma_corr.sv(1): compiling module 'gamma_corr'
+[INFO (VERI-2571)] ../sys/gamma_corr.sv(22): extracting RAM for identifier 'gamma_curve'
+[WARN (VERI-9033)] ../sys/gamma_corr.sv(22): array gamma_curve (size 6144) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
+[INFO (VERI-1018)] ../sys/video_mixer.sv(19): compiling module 'video_mixer:(LINE_LENGTH=260,GAMMA=1)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/ddram.sv(22): compiling module 'ddram'
 [INFO (VERI-1018)] ../rtl/savestate_ui.sv(1): compiling module 'savestate_ui:(INFO_TIMEOUT_BITS=25)'
 [INFO (VERI-1018)] ../NES.sv(6): compiling module 'emu'
+[WARN (VERI-1330)] ../NES.sv(213): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
+[WARN (VERI-1330)] ../NES.sv(215): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
 [WARN (VERI-1330)] ../NES.sv(914): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
 [WARN (VERI-1330)] ../NES.sv(915): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
 [WARN (VERI-8028)] ../NES.sv(863): missing/open ports on instance nes of module NES
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VDB-1002)] ../NES.sv(211): net 'hide_overscan' does not have a driver
 [WARN (VDB-1002)] ../NES.sv(682): net 'reset_nes' does not have a driver
 [WARN (VDB-1002)] ../NES.sv(1059): net 'sdram_ss_in[15]' does not have a driver
@@ -586,18 +737,20 @@ WARNING (WNL008): Module "IIR_filter" is blackboxed due to analyze/elaborate bbo
 WARNING (WNL008): Module "eseopll" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "altddio_out" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "spram" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "video_freak" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "hps_io" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "pll" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "pll_cfg" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
-WARNING (WNL008): Module "video_mixer" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 INFO (INL208): Elaboration synthesis summary:
-  Number of synthesized netlists          171 (8 packages)
+  Number of synthesized netlists          185 (8 packages)
   Single run mode                         On
-  Pipeline                                On (146 pipelined netlists)
+  Pipeline                                On (162 pipelined netlists)
   Late hierarchical reference connection  On
-  Number of analyzed Verilog modules      116 (108 synthesized)
-  Number of analyzed VHDL entities        15 (23 synthesized)
+  Number of analyzed Verilog modules      132 (122 synthesized)
+  Number of analyzed VHDL entities        15 (21 synthesized)
+WARNING (WNL032): ../sys/video_freak.sv(362): division operator div_12u_12u (size 12) automatically black boxed.
+    Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
+WARNING (WNL018): ../sys/video_freak.sv(376): multiplication operator mult_12u_12u (size 24) automatically black boxed.
+    Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
 WARNING (WNL018): ../rtl/zapper.sv(98): multiplication operator mult_16u_8u (size 24) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
 WARNING (WNL018): ../rtl/mappers/MMC5.sv(112): multiplication operator mult_8u_8u (size 16) automatically black boxed.
@@ -616,20 +769,504 @@ WARNING (WNL032): ../rtl/mappers/FDS.sv(587): division operator div_13u_2u (size
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
 WARNING (WNL032): ../rtl/mappers/FDS.sv(589): division operator div_13u_3u (size 13) automatically black boxed.
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
+WARNING (WOBS004): ../sys/video_freak.sv(141): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
+WARNING (WOBS004): ../sys/video_freak.sv(143): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
+WARNING (WOBS004): ../NES.sv(1707): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
 INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
 INFO (IMDS005): Number of multiple-driven bits in design: 5361. Use "get_design_info -list multiple_driven" for more information.
 emu
-%% 
-%% 
-%% # clock -infer
-%% # reset -none
-%% 
-%% # # Extract properties
-%% # check_superlint -extract
-%% 
-%% 
+[<embedded>] % 
+[<embedded>] % clock CLK_50M -factor 1 -phase 1
+[<embedded>] % clock pll.outclk_1 -factor 1 -phase 1
+[<embedded>] % clock pll.outclk_0 -factor 1 -phase 1
+[<embedded>] % clock hps_io.clk_sys -both_edges -factor 1 -phase 1
+[<embedded>] % #reset -none -non_resettable_regs 0;
+[<embedded>] % reset -none;
+INFO (IPM031): Clearing proof results of all properties.
+[<embedded>] % # # Extract properties
+[<embedded>] % # check_superlint -extract
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % prove -bg -all
+----------------------------------------
+| INFO (IPF035): Proving the following tasks:
+|     1:    <constraints>
+|     2:    <embedded>
+----------------------------------------
+Ncustom1: Custom engine code is hT3Ng7hPPfiYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSl+CwjiTMAQA
+Bcustom2: Custom engine code is hT3Nm7hPr1Vp3Di1Ra2USNIGL4JypRnLKLAdF6JAyuavO2JfGCiY9OZJhcAcOUnLx5xwNdhILGrAWX9s+z2WDkKwNR7tAfClBEjRFVQeq6DU54boFgEA
+AMcustom3: Custom engine code is hT3Ng7hP/feYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSmmqwm7g9AQA
+Mpcustom4: Custom engine code is hT3NZbhP9fmY2AbBQnsjfOxn6c+6e6yL+/e8fZFmaQrnlgEA
+background 0
+INFO (IPF036): Starting proof on task: "<constraints>", 20 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 7 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 6 iterations. Assigned values for 107 of 24056 design flops, 0 of 8 design latches, 15 of 27 internal elements.
+WARNING (WRS031): 2 of 24056 design flop(s) with asynchronous reset condition, but not reset. Run "get_reset_info -x_value -with_reset_pin" to get a list of such flops.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+INFO (ICK016): The clocks listed below were automatically declared as "-both_edges" by the tool as the fastest clock had already been declared as "-both_edges", or it is a slow clock that has activity on the negedge.
+    For message help, type "help -message ICK016".
+    CLK_50M pll.outclk_1 pll.outclk_0
+AMcustom5: Custom engine code is hT3N1rhP11/52HrFRS21ROp2LOjVTgPvT8L8BGXHgLhaIuqtT4nARFjUqrBL+7pLmaTOzBepZW/Jm8SSrHDybSQtoNiO3y43wk+dEoWlsZizu97Fih6O6lPVG/LpWP5SsUPwlGagLNa1FKEFvwVXyX7//8prySbvSxIHXr5er+z4RAEA
+Ncustom6: Custom engine code is hT3OXrhPByJp3TrFSTLhUmMH4KVtJgmTCnNDF46yMXOKY48m4LS5nE7yBzFjA7kDuwO/GhGUpEPiky3p3wmPn3dJZHxFMsafSoObRzSC+tn7sEY0WbTdZ/FV4hL3MYH/b1CIUvXSWR4wqEoVLsmMOD4xIPT4lI1LO6ZCO7PnnWQuLwetnvKlrXx6wCW/A+x+enqslg1YPobi4wEF/EvbzOvcTYdJvl2s4H2yZg2b2ofAVN5WvhWk1HoBAA
+ADcustom7: Custom engine code is hT3Nv7hPv1752HrFRa2kROx2f/ECJeZB2AZsLdlO8VwmIuqtT4nIDFXclhg+O+o+DMmQCekbheGk0kK28laA9gaOFDXsQp29J3X615HY1IPHJWd6FUFvCHjO+p1k652b5JJvZlShNpGlGSXAiQe/mEAj6tEBAA
+Tricustom8: Custom engine code is hT3Nu7hPt1752DvFRa0kNDiyIV97VyejwM9C/jCLJjdPvusZONHY42VYUy0Q1ZotnhcVtNc56tJ5wbxv6V2+XpdsaSlHck5vfnbYjdwj1OECy9U+7oSQ0SZE3g5ayD+Phuh4odCJTjeKa2k4elM9ldQfkAEA
+Gcustom9: Custom engine code is hT3NibhPDfeYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncipMGcUXqAadachREE9F2PwhBUZUNw5kHnd4JdXkamORRgEA
+C2custom10: Custom engine code is hT3NirhPjfWYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncgkrYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuG86XYVV00BAA
+AGcustom11: Custom engine code is hT3NirhP/fmYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInnckcwYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuHEZnZByh0BAA
+Bcustom12: Custom engine code is hT3NjrhPDfiYQADBZnYcglOvK9PfWxFtenjIyBqfrgr7if/jL/yPOuK1BAflEcW0DxNH2eDIoezN2gxlQFg81RZtiWXh7aiTAidvAQA
+Ncustom13: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
+Tricustom14: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.133s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 2, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.36 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.cpu._type_constraint_ALU_Op_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.cpu._type_constraint_Write_Data_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.cpu.alu._type_constraint_Op" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.savestates._type_constraint_savetype_counter" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.savestates._type_constraint_count" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.savestates._type_constraint_maxcount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.savestates._type_constraint_settle" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.statemanager._type_constraint_timer_rewind" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.statemanager._type_constraint_savestatecount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "nes.statemanager._type_constraint_vsync_counter" in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.41 s]
+0.0.N: Proof Simplification Iteration 3	[0.48 s]
+0.0.N: Proof Simplification Iteration 4	[0.56 s]
+0.0.N: Proof Simplification Iteration 5	[0.62 s]
+0.0.N: Proof Simplification Iteration 6	[0.69 s]
+0.0.N: Proof Simplification Iteration 7	[0.77 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 1.36 s
+0.0.N: Identified and disabled 13 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 4
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: Proofgrid shell started at 7396@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.N: Proofgrid shell started at 7395@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.Hp: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "nes.cpu._type_constraint_ALU_Op"	[0.00 s].
+0.0.N: Starting proof for property "nes.cpu.mcode._type_constraint_ALU_Op"	[0.00 s].
+0.0.Mpcustom4: Proofgrid shell started at 7425@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.N: Trace Attempt  1	[0.08 s]
+0.0.N: Trace Attempt  2	[0.16 s]
+0.0.N: Trace Attempt  3	[0.19 s]
+0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Trace Attempt  4	[0.22 s]
+0.0.Mpcustom4: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  5	[0.26 s]
+0.0.Ht: Proofgrid shell started at 7397@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Bm: Proofgrid shell started at 7410@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.Ht: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  1	[0.48 s]
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Bm: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  2	[0.62 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.01
+0.0.N: A proof was found: No trace exists. [0.69 s]
+INFO (IPF057): 0.0.N: The property "nes.cpu._type_constraint_ALU_Op" was proven in 0.69 s.
+0.0.N: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.N: The property "nes.cpu.mcode._type_constraint_ALU_Op" was proven in 0.69 s.
+0.0.N: Stopped processing property "nes.cpu._type_constraint_ALU_Op"	[0.70 s].
+0.0.N: Stopped processing property "nes.cpu.mcode._type_constraint_ALU_Op"	[0.70 s].
+0.0.N: Starting proof for property "nes.cpu._type_constraint_Set_BusA_To"	[0.00 s].
+0.0.N: Starting proof for property "nes.cpu.mcode._type_constraint_Set_BusA_To"	[0.00 s].
+0.0.Bm: Trace Attempt  1	[0.27 s]
+0.0.Bm: A trace with 1 cycles was found. [0.28 s]
+INFO (IPF055): 0.0.Bm: A counterexample (cex) with 1 cycles was found for the property "nes.savestates._type_constraint_savestate_address" in 0.31 s.
+INFO (IPF055): 0.0.Bm: A counterexample (cex) with 1 cycles was found for the property "nes.statemanager._type_constraint_request_address" in 0.31 s.
+0.0.N: Trace Attempt  1	[0.12 s]
+0.0.N: Trace Attempt  2	[0.20 s]
+0.0.N: Trace Attempt  3	[0.23 s]
+0.0.N: Trace Attempt  4	[0.23 s]
+0.0.N: Trace Attempt  5	[0.26 s]
+0.0.Bm: Trace Attempt  2	[0.49 s]
+0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0: ProofGrid usable level: 2
+0.0.B: Proofgrid shell started at 7432@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Trace Attempt  1	[0.52 s]
+0.0.Ht: Trace Attempt  1	[0.84 s]
+0.0.Ht: Trace Attempt  2	[0.84 s]
+0.0.Ht: Trace Attempt  3	[0.87 s]
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.B: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.Mpcustom4: Trace Attempt  1	[1.13 s]
+0.0.N: Trace Attempt  2	[0.63 s]
+0.0.AM: Proofgrid shell started at 7433@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.Ht: Trace Attempt  4	[0.98 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.01
+0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: A proof was found: No trace exists. [0.68 s]
+INFO (IPF057): 0.0.N: The property "nes.cpu._type_constraint_Set_BusA_To" was proven in 0.68 s.
+0.0.N: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.N: The property "nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 0.68 s.
+0.0.N: Stopped processing property "nes.cpu._type_constraint_Set_BusA_To"	[0.68 s].
+0.0.N: Stopped processing property "nes.cpu.mcode._type_constraint_Set_BusA_To"	[0.68 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "nes.cpu._type_constraint_Write_Data"	[0.00 s].
+0.0.N: Starting proof for property "nes.cpu.mcode._type_constraint_Write_Data"	[0.00 s].
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.AM: clocks: 2, declared: 2, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.AM: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [2.36 s]
+0.0.Hp: A proof was found: No trace exists. [2.10 s]
+INFO (IPF057): 0.0.Hp: The property "nes.cpu._type_constraint_Write_Data" was proven in 1.51 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "nes.cpu.mcode._type_constraint_Write_Data" was proven in 1.51 s.
+0.0.Hp: All properties determined. [2.11 s]
+0.0.N: Stopped processing property "nes.cpu._type_constraint_Write_Data"	[0.10 s].
+0.0.N: Stopped processing property "nes.cpu.mcode._type_constraint_Write_Data"	[0.10 s].
+0.0.Ht: Interrupted (multi)
+0.0.Ht: Interrupted. [1.11 s]
+0.0.Oh: Proofgrid shell started at 7430@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.Oh: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 2.43 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Exited with Success (@ 2.44 s)
+0.0.N: Interrupted. [0.16 s]
+0.0.N: Exited with Success (@ 2.50 s)
+0.0.AM: Interrupted. [0.21 s]
+0.0.Mpcustom4: Interrupted. [1.42 s]
+0.0.AM: Exited with Success (@ 2.54 s)
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 2.57 s)
+0.0.Oh: Interrupted. [0.07 s]
+0.0.B: Interrupted. [0.36 s]
+0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.B: Exited with Success (@ 2.58 s)
+0.0.Oh: Exited with Success (@ 2.58 s)
+0.0.L: Proofgrid shell started at 7431@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_1
+0.0.L: Requesting engine job to terminate
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.03 s]
+0.0.L: Exited with Success (@ 2.64 s)
+0.0.Bm: Interrupted. [1.20 s]
+0.0.Bm: Exited with Success (@ 2.65 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 33.13 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        1.04        2.09        0.00       66.83 %
+     Hp        1.03        2.09        0.00       67.01 %
+     Ht        1.72        1.05        0.00       37.99 %
+     Bm        1.72        0.91        0.00       34.72 %
+    Mpcustom4        1.30        1.25        0.00       48.86 %
+     Oh        2.42        0.00        0.00        0.00 %
+      L        2.35        0.00        0.00        0.00 %
+      B        1.82        0.15        0.00        7.76 %
+     AM        1.90        0.03        0.00        1.80 %
+    all        1.70        0.84        0.00       33.13 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+              15.30        7.58        0.00
+
+    Data read    : 142.50 kiB
+    Data written : 6.83 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<constraints>" for proof thread 0
+INFO (IPF036): Starting proof on task: "<embedded>", 35 properties to prove with 0 already proven/unreachable
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "<constraints>/nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "<constraints>/nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.094s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 4, declared: 3, looping: 0, posedge: 4, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.29 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.cpu._type_constraint_ALU_Op_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.cpu._type_constraint_Write_Data_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.cpu.alu._type_constraint_Op" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.savestates._type_constraint_savetype_counter" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.savestates._type_constraint_count" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.savestates._type_constraint_maxcount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.savestates._type_constraint_settle" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.statemanager._type_constraint_timer_rewind" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.statemanager._type_constraint_savestatecount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.statemanager._type_constraint_vsync_counter" in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.20 s]
+0.0.N: Proof Simplification Iteration 3	[0.28 s]
+0.0.N: Proof Simplification Iteration 4	[0.35 s]
+0.0.N: Proof Simplification Iteration 5	[0.43 s]
+0.0.N: Proof Simplification Iteration 6	[0.50 s]
+0.0.N: Proof Simplification Iteration 7	[0.57 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 1.06 s
+0.0.N: Identified and disabled 13 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 19
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: Proofgrid shell started at 7544@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proofgrid shell started at 7543@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.N: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "emu.video_freak.C0"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.03 s]
+0.0.N: Trace Attempt  2	[0.04 s]
+0.0.N: Trace Attempt  2	[0.23 s]
+0.0.N: A trace with 2 cycles was found. [0.51 s]
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak.C0" was covered in 2 cycles in 0.93 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak._assert_3" in 0.93 s by the incidental trace "emu.video_freak.C0".
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak._assert_3:precondition1" was covered in 2 cycles in 0.93 s by the incidental trace "emu.video_freak.C0".
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak.scale._assert_1:precondition1" was covered in 2 cycles in 0.93 s by the incidental trace "emu.video_freak.C0".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak.scale._assert_2" in 0.93 s by the incidental trace "emu.video_freak.C0".
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak.scale._assert_2:precondition1" was covered in 2 cycles in 0.93 s by the incidental trace "emu.video_freak.C0".
+0.0.N: Stopped processing property "emu.video_freak.C0"	[1.02 s].
+0.0.N: Starting proof for property "emu.video_freak.C1"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.04 s]
+0.0.N: Trace Attempt  2	[0.08 s]
+0.0.N: Trace Attempt  2	[0.46 s]
+0: ProofGrid usable level: 13
+0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Oh: Proofgrid shell started at 7575@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.Oh: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: A proof was found: No trace exists. [1.85 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu._type_constraint_ALU_Op" was proven in 1.34 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu.mcode._type_constraint_ALU_Op" was proven in 1.34 s.
+0.0.Hp: A proof was found: No trace exists. [1.85 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu._type_constraint_Set_BusA_To" was proven in 1.34 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 1.34 s.
+0.0.Hp: A proof was found: No trace exists. [1.85 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu._type_constraint_Write_Data" was proven in 1.34 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/nes.cpu.mcode._type_constraint_Write_Data" was proven in 1.34 s.
+0.0.Hp: Trace Attempt  1	[1.85 s]
+0.0.Hp: A trace with 1 cycles was found. [1.85 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.savestates._type_constraint_savestate_address" in 1.49 s.
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "<constraints>/nes.statemanager._type_constraint_request_address" in 1.49 s.
+0.0.N: A trace with 2 cycles was found. [0.84 s]
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak.C1" was covered in 2 cycles in 0.71 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak.scale._assert_1" in 0.71 s by the incidental trace "emu.video_freak.C1".
+0.0.N: Stopped processing property "emu.video_freak.C1"	[0.80 s].
+0.0.N: Starting proof for property "emu.video_freak.scale._assert_3"	[0.00 s].
+0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Trace Attempt  1	[0.15 s]
+0.0.N: Trace Attempt  2	[0.17 s]
+0.0.Ht: Proofgrid shell started at 7545@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.Bm: Proofgrid shell started at 7558@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.Ht: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  2	[0.30 s]
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Bm: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0: ProofGrid usable level: 7
+0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: A trace with 2 cycles was found. [0.71 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak.scale._assert_3" in 0.41 s.
+INFO (IPF047): 0.0.N: The cover property "emu.video_freak.scale._assert_3:precondition1" was covered in 2 cycles in 0.41 s by the incidental trace "emu.video_freak.scale._assert_3".
+0.0.N: Stopped processing property "emu.video_freak.scale._assert_3"	[0.51 s].
+0.0.N: Starting proof for property "emu.video_freak.scale._assert_4"	[0.00 s].
+0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.AM: Proofgrid shell started at 7581@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Trace Attempt  1	[0.07 s]
+0.0.N: Trace Attempt  2	[0.09 s]
+0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Mpcustom4: Proofgrid shell started at 7562@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.B: Proofgrid shell started at 7580@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.AM: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.L: Proofgrid shell started at 7579@victorhug-340XAA-350XAA-550XAA(local) jg_7284_victorhug-340XAA-350XAA-550XAA_2
+0.0.Bm: Trace Attempt  1	[0.44 s]
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Ht: Trace Attempt  1	[0.78 s]
+0.0.Ht: Trace Attempt  2	[0.78 s]
+0.0.B: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Ht: A trace with 2 cycles was found. [0.80 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak.scale._assert_4" in 0.83 s.
+INFO (IPF047): 0.0.Ht: The cover property "emu.video_freak.scale._assert_4:precondition1" was covered in 2 cycles in 0.83 s.
+INFO (IPF047): 0.0.Ht: The cover property "emu.loader.cov_rom_load" was covered in 2 cycles in 0.83 s.
+0.0.Mpcustom4: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  2	[0.36 s]
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.AM: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [3.12 s]
+0.0.Ht: A trace with 2 cycles was found. [0.82 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 2 cycles was found for the property "emu.video_freak.scale._assert_5" in 1.00 s.
+INFO (IPF047): 0.0.Ht: The cover property "emu.video_freak.scale._assert_5:precondition1" was covered in 2 cycles in 1.00 s.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.Ht: All properties determined. [0.85 s]
+0.0.L: Exited with Success (@ 3.12 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Exited with Success (@ 3.16 s)
+0.0.N: Stopped processing property "emu.video_freak.scale._assert_4"	[0.54 s].
+0.0.AM: Interrupted. [0.26 s]
+0.0.N: Interrupted. [0.45 s]
+0.0.AM: Exited with Success (@ 3.19 s)
+0.0.N: Exited with Success (@ 3.21 s)
+0.0.Bm: Trace Attempt  2	[0.74 s]
+0.0.Hp: Interrupted (multi)
+0.0.Hp: Interrupted. [3.21 s]
+0.0.Mpcustom4: Interrupted. [0.31 s]
+0.0.Mpcustom4: Exited with Success (@ 3.42 s)
+0.0.B: Interrupted. [0.39 s]
+0.0.Hp: Exited with Success (@ 3.42 s)
+0.0.Bm: Interrupted. [0.88 s]
+0.0.B: Exited with Success (@ 3.44 s)
+0.0.Oh: bwd trail(1): 1 0.956359s
+0.0.Bm: Exited with Success (@ 3.67 s)
+0.0.Oh: All properties either determined or skipped. [1.85 s]
+0.0.Oh: Exited with Success (@ 3.70 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 31.69 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.85        2.77        0.00       76.43 %
+     Hp        0.66        3.00        0.00       82.03 %
+     Ht        2.36        0.85        0.00       26.43 %
+     Bm        2.31        0.56        0.00       19.41 %
+    Mpcustom4        2.87        0.07        0.00        2.32 %
+     Oh        1.69        1.29        0.00       43.31 %
+      L        2.89        0.00        0.00        0.00 %
+      B        2.78        0.08        0.00        2.93 %
+     AM        2.60        0.20        0.00        7.31 %
+    all        2.11        0.98        0.00       31.69 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+              19.01        8.82        0.00
+
+    Data read    : 963.76 kiB
+    Data written : 10.82 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Total Tasks                        : 2
+           Total Properties                   : 55
+                 assumptions                  : 0
+                  - approved                  : 0
+                  - temporary                 : 0
+                 soft assumptions             : 0
+                 assertions                   : 46
+                  - proven                    : 16 (34.7826%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 30 (65.2174%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 9
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 9 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.476 GB.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+INFO (IPL018): The peak resident set memory use for this session was 0.941 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.

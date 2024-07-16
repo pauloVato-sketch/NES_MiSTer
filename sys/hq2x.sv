@@ -10,7 +10,7 @@
 
 // altera message_off 10030
 
-module Hq2x #(parameter LENGTH, parameter HALF_DEPTH)
+module Hq2x #(parameter LENGTH = 0, parameter HALF_DEPTH = 0)
 (
 	input             clk,
 
@@ -31,6 +31,11 @@ module Hq2x #(parameter LENGTH, parameter HALF_DEPTH)
 localparam AWIDTH = $clog2(LENGTH)-1;
 localparam DWIDTH = HALF_DEPTH ? 11 : 23;
 localparam DWIDTH1 = DWIDTH+1;
+
+reg [23:0] Prev0, Prev1, Prev2, Curr0, Curr1, Curr2, Next0, Next1, Next2;
+reg [23:0] A, B, D, F, G, H;
+reg  [7:0] pattern, nextpatt;
+reg  [1:0] cyc;
 
 (* romstyle = "MLAB" *) reg [5:0] hqTable[256];
 initial begin
@@ -55,11 +60,6 @@ initial begin
 end
 
 wire [5:0] hqrule = hqTable[nextpatt];
-
-reg [23:0] Prev0, Prev1, Prev2, Curr0, Curr1, Curr2, Next0, Next1, Next2;
-reg [23:0] A, B, D, F, G, H;
-reg  [7:0] pattern, nextpatt;
-reg  [1:0] cyc;
 
 reg  curbuf;
 reg  prevbuf = 0;
@@ -223,7 +223,7 @@ endmodule
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module hq2x_in #(parameter LENGTH, parameter DWIDTH)
+module hq2x_in #(parameter LENGTH = 0, parameter DWIDTH = 0)
 (
 	input            clk,
 
@@ -247,7 +247,7 @@ hq2x_buf #(.NUMWORDS(LENGTH), .AWIDTH(AWIDTH), .DWIDTH(DWIDTH)) buf1(clk,data,rd
 
 endmodule
 
-module hq2x_buf #(parameter NUMWORDS, parameter AWIDTH, parameter DWIDTH)
+module hq2x_buf #(parameter NUMWORDS = 0, parameter AWIDTH = 0, parameter DWIDTH = 0)
 (
 	input                 clock,
 	input      [DWIDTH:0] data,
@@ -306,7 +306,7 @@ module Blend
 	input  [23:0] D,
 	input  [23:0] F,
 	input  [23:0] H,
-	output [23:0] Result
+	output reg [23:0] Result
 );
 
 	localparam BLEND1 = 7'b110_10_00; // (A * 12 + B * 4        ) >> 4

@@ -2,8 +2,8 @@
 // result = num/div
 module sys_udiv
 #(
-	parameter NB_NUM, 
-	parameter NB_DIV
+	parameter NB_NUM = 0, 
+	parameter NB_DIV = 0
 )
 (
 	input  clk,
@@ -45,8 +45,8 @@ endmodule
 // result = mul1*mul2
 module sys_umul
 #(
-	parameter NB_MUL1, 
-	parameter NB_MUL2
+	parameter NB_MUL1 = 0, 
+	parameter NB_MUL2 = 0
 )
 (
 	input  clk,
@@ -84,9 +84,9 @@ endmodule
 // result = (mul1*mul2)/div
 module sys_umuldiv
 #(
-	parameter NB_MUL1, 
-	parameter NB_MUL2,
-	parameter NB_DIV
+	parameter NB_MUL1 = 0, 
+	parameter NB_MUL2 = 0,
+	parameter NB_DIV = 0
 )
 (
 	input  clk,

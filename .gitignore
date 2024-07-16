@@ -1,4 +1,5 @@
 db
+jgproject
 greybox_tmp
 incremental_db
 output_files
@@ -29,7 +30,6 @@ build_id.v
 c5_pin_model_dump.txt
 *.sopcinfo
 *.csv
-*.f
 *.cmp
 *.sip
 *.spd

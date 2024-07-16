@@ -19,7 +19,7 @@
 
 // TODO: Delay vsync one line
 
-module scandoubler #(parameter LENGTH, parameter HALF_DEPTH)
+module scandoubler #(parameter LENGTH = 0, parameter HALF_DEPTH = 0)
 (
 	// system interface
 	input             clk_vid,

@@ -1,0 +1,12 @@
+../rtl/mappers/FDS.sv
+../rtl/mappers/generic.sv
+../rtl/mappers/JYCompany.sv
+../rtl/mappers/misc.sv
+../rtl/mappers/MMC1.sv
+../rtl/mappers/MMC2.sv
+../rtl/mappers/MMC3.sv
+../rtl/mappers/MMC5.sv
+../rtl/mappers/Namco.sv
+../rtl/mappers/Sachen.sv
+../rtl/mappers/Sunsoft.sv
+../rtl/mappers/VRC.sv

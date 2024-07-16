@@ -1703,4 +1703,7 @@ always @(posedge clk) begin
 		endcase
 	end
 end
+
+cov_rom_load: cover property (@(posedge clk) (downloading && (type_fds || type_nes || type_nsf)) |->  (rom_loaded == 1));
+
 endmodule
