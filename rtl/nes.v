@@ -886,4 +886,27 @@ statemanager #(58720256, 33554432) statemanager (
 
 assign sleep_savestate = sleep_rewind | sleep_savestates;
 
+property ppu_din;
+	(@(posedge clk) 
+	(dma_aout_enable) |-> (dbus == dma_data_to_ram));
+endproperty
+
+assert property (ppu_din);
+
+property dma_cpu;
+	@(posedge clk)
+	disable iff(reset==1) 
+	((addr == 'h4014 && mw_int) && (cpu_ce == 1'b1) |=> (pause_cpu == 1));
+endproperty
+
+assert property (dma_cpu);
+
+/*property dma_start_delay;
+    @(posedge clk)
+	disable iff(reset==1) 
+    ((cpu_rnw == 1'b0) && (cpu_ce == 1'b1) |-> ##[1:2] (pause_cpu == 1'b1 && dma_aout_enable == 1'b0));
+endproperty
+
+assert property (dma_start_delay);*/
+
 endmodule

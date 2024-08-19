@@ -20,4 +20,11 @@
 ../sys/math.sv
 ../sys/hq2x.sv
 ../sys/gamma_corr.sv
-
+../sys/sys_top.v
+../sys/mcp23009.sv
+../sys/i2c.v
+../sys/shadowmask.sv
+../sys/osd.v
+../sys/scanlines.v
+../sys/yc_out.sv
+../sys/vga_out.sv

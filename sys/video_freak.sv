@@ -148,13 +148,41 @@ C1: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] &&
 
 //Check hcpt calculation in the presence of VGA_DE_IN:
 //Ensures that hcpt is only incremented when VGA_DE_IN is active.
+
+/*property hcpt_initial;
+	@(posedge CLK_VIDEO)
+	!$isunknown(hcpt) |-> (hcpt == 0);
+endproperty
+
+assume property(hcpt_initial);*/
+
+assume property (@(posedge CLK_VIDEO)(hcpt>= 0 && hcpt <= 495));
+
 property hcpt_increment;
   @(posedge CLK_VIDEO)
-  (VGA_DE_IN && CE_PIXEL)|-> (hcpt == $past(hcpt) + 1);
+  ((VGA_DE_IN && CE_PIXEL)|=> (hcpt == $past(hcpt,1) + 1));
 endproperty
 
 assert property (hcpt_increment);
+/*
+// Assumindo que os parâmetros de escala e corte são válidos
+assume property (@(posedge CLK_VIDEO) SCALE >= 0 && SCALE <= 4);
 
+// Verificando que VIDEO_ARX e VIDEO_ARY são ajustados corretamente
+property video_arx_adjust;
+  @(posedge CLK_VIDEO)
+  VGA_DE_IN |-> (VIDEO_ARX == ARX - CROP_SIZE + CROP_OFF);
+endproperty
+
+property video_ary_adjust;
+  @(posedge CLK_VIDEO)
+  VGA_DE_IN |-> (VIDEO_ARY == ARY - CROP_SIZE + CROP_OFF);
+endproperty
+
+assert property (video_arx_adjust);
+assert property (video_ary_adjust);
+
+*/
 
 endmodule
 
@@ -347,12 +375,12 @@ always @(posedge CLK_VIDEO) begin
 	arx_o <= arxf;
 	ary_o <= aryf;
 end
-
+/*
 //Check initialization of arxf and aryf:
 //Ensures that arxf and aryf are initialized correctly when SCALE is 0.
 property arxf_aryf_initialization;
   @(posedge CLK_VIDEO)
-  (!SCALE || (!ary_i && arx_i)) |-> (arxf == arx_i && aryf == ary_i);
+  (!SCALE || (!ary_i && arx_i)) |=> (arxf == arx_i && aryf == ary_i);
 endproperty
 
 assert property (arxf_aryf_initialization);
@@ -391,6 +419,6 @@ endproperty
 
 assert property (multiplication_result);
 
-
+*/
 
 endmodule

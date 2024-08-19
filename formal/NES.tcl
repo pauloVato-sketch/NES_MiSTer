@@ -24,14 +24,28 @@ analyze -sv -f files_sv.f
 analyze -sv -f files_mappers_sv.f
 
 
-elaborate -top emu -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg 
+elaborate -top sys_top -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m sysmem -bbox_m cyclonev_hps_interface_mpu_general_purpose -bbox_m cyclonev_hps_interface_peripheral_uart -bbox_m sysmem_lite -bbox_m cyclonev_hps_interface_interrupts -bbox_m ddr_svc -bbox_m ascal -bbox_m pll_hdmi_adj -bbox_m pll_cfg_hdmi -bbox_m pll_hdmi -bbox_m cyclonev_hps_interface_peripheral_i2c -bbox_m cyclonev_clkselect -bbox_m pll_audio -bbox_m audio_out -bbox_m cyclonev_hps_interface_peripheral_spi_master -bbox_m alsa
 
-clock CLK_50M -factor 1 -phase 1
-clock pll.outclk_1 -factor 1 -phase 1
-clock pll.outclk_0 -factor 1 -phase 1
-clock hps_io.clk_sys -both_edges -factor 1 -phase 1
+clock FPGA_CLK1_50 -factor 1 -phase 1
+clock FPGA_CLK2_50 -factor 1 -phase 1
+clock pll_hdmi.outclk_0 -factor 1 -phase 1
+clock emu.pll.outclk_0 -factor 1 -phase 1
+clock emu.pll.outclk_1 -factor 1 -phase 1
+clock sysmem.ram2_clk -factor 1 -phase 1
+clock hdmi_clk_sw.outclk -factor 1 -phase 1
+clock {emu.hps_io.HPS_BUS[36]} -factor 1 -phase 1
+clock emu.hps_io.clk_sys -both_edges -factor 1 -phase 1
+
+#reset -expression ~BTN_RESET;
+reset -expression emu.reset_nes;
+
+#clock CLK_50M -factor 1 -phase 1
+#clock pll.outclk_1 -factor 1 -phase 1
+#clock pll.outclk_0 -factor 1 -phase 1
+#clock hps_io.clk_sys -both_edges -factor 1 -phase 1
 #reset -none -non_resettable_regs 0;
-reset -none;
+#reset -expression ~RESET;
+#reset -none;
 # # Extract properties
 # check_superlint -extract
 
