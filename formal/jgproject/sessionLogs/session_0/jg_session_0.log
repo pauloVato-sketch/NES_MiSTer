@@ -5,10 +5,10 @@
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-07-31 21:57:09 -03
+# started   : 2024-08-30 07:52:40 -03
 # hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 16493
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:33909' '-style' 'windows' '-data' 'AAAA1HicVY69CsJQFIO/q7iKD9FJ8FJ/Cg4duripRQuuItVNvKWtCC76qL7JNVYKmnASCDkQA8QP7z0NunfJgCUrtiykKTs5BERMmBOSyEPRMmaqs1KrbKZGA/P6OrHhF2bz/HPotcW20tENGXHgLDpu7LlyoZIWoqOk5sRReUqmdp+19mVaUJPr54M3OcAYaQ==' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
+# pid       : 59715
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:46183' '-style' 'windows' '-data' 'AAAA1HicVY69CsJQFIO/q7iKD9FJ8FJ/Cg4duripRQuuItVNvKWtCC76qL7JNVYKmnASCDkQA8QP7z0NunfJgCUrtiykKTs5BERMmBOSyEPRMmaqs1KrbKZGA/P6OrHhF2bz/HPotcW20tENGXHgLDpu7LlyoZIWoqOk5sRReUqmdp+19mVaUJPr54M3OcAYaQ==' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -761,7 +761,7 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VERI-1927)] ../sys/sys_top.v(1166): port 'osd_status' remains unconnected for this instance
 [WARN (VERI-1214)] ../sys/sys_top.v(1775): assignment to input 'ADC_SDO'
 [WARN (VERI-1927)] ../NES.sv(952): port 'state_loaded' remains unconnected for this instance
-[WARN (VERI-1927)] ../sys/video_freak.sv(214): port 'remainder' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/video_freak.sv(189): port 'remainder' remains unconnected for this instance
 [WARN (VERI-1927)] ../rtl/nes.v(390): port 'end_of_line' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/nes.v(390): port 'SaveStateBus_Din' is not connected on this instance
 [WARN (VERI-2435)] ../rtl/nes.v(432): port 'abort_n' is not connected on this instance
@@ -800,9 +800,9 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VERI-1220)] ../sys/yc_out.sv(76): using initial value of 'vref' since it is never assigned
 [INFO (VERI-1018)] ../sys/vga_out.sv(2): compiling module 'vga_out'
 [INFO (VERI-1018)] ../sys/sys_top.v(1836): compiling module 'sync_fix'
-[INFO (VERI-1018)] ../sys/video_freak.sv(190): compiling module 'video_scale_int'
-[WARN (VERI-8028)] ../sys/video_freak.sv(214): missing/open ports on instance div of module sys_udiv
-[INFO (VERI-8005)] ../sys/video_freak.sv(222): Unintentional sequential element inferred for hinteger read before write using blocking assignment
+[INFO (VERI-1018)] ../sys/video_freak.sv(165): compiling module 'video_scale_int'
+[WARN (VERI-8028)] ../sys/video_freak.sv(189): missing/open ports on instance div of module sys_udiv
+[INFO (VERI-8005)] ../sys/video_freak.sv(197): Unintentional sequential element inferred for hinteger read before write using blocking assignment
 [INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
 [INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
 [WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
@@ -1247,14 +1247,512 @@ INFO (IRS006): Current reset condition is "emu.reset_nes".
 [<embedded>] % # check_superlint -extract
 [<embedded>] % 
 [<embedded>] % 
-[<embedded>] % schematic_viewer -draw -new_window
-schematic:0
-[<embedded>] % schematic_viewer -draw -new_window
-schematic:1
-[<embedded>] % schematic_viewer -draw -new_window
-schematic:2
+[<embedded>] % prove -bg -all
+----------------------------------------
+| INFO (IPF035): Proving the following tasks:
+|     1:    <constraints>
+|     2:    <embedded>
+----------------------------------------
+Ncustom1: Custom engine code is hT3Ng7hPPfiYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSl+CwjiTMAQA
+Bcustom2: Custom engine code is hT3Nm7hPr1Vp3Di1Ra2USNIGL4JypRnLKLAdF6JAyuavO2JfGCiY9OZJhcAcOUnLx5xwNdhILGrAWX9s+z2WDkKwNR7tAfClBEjRFVQeq6DU54boFgEA
+AMcustom3: Custom engine code is hT3Ng7hP/feYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSmmqwm7g9AQA
+Mpcustom4: Custom engine code is hT3NZbhP9fmY2AbBQnsjfOxn6c+6e6yL+/e8fZFmaQrnlgEA
+background 0
+INFO (IPF036): Starting proof on task: "<constraints>", 20 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 9 analyzed.
+INFO (IRS024): Reset iterations 10 to 19 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 18 iterations. Assigned values for 1553 of 29249 design flops, 0 of 8 design latches, 15 of 27 internal elements.
+WARNING (WRS031): 2 of 29249 design flop(s) with asynchronous reset condition, but not reset. Run "get_reset_info -x_value -with_reset_pin" to get a list of such flops.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+INFO (ICK016): The clocks listed below were automatically declared as "-both_edges" by the tool as the fastest clock had already been declared as "-both_edges", or it is a slow clock that has activity on the negedge.
+    For message help, type "help -message ICK016".
+    FPGA_CLK1_50 FPGA_CLK2_50 pll_hdmi.outclk_0 emu.pll.outclk_0 emu.pll.outclk_1 sysmem.ram2_clk hdmi_clk_sw.outclk emu.hps_io.HPS_BUS[36]
+AMcustom5: Custom engine code is hT3N1rhP11/52HrFRS21ROp2LOjVTgPvT8L8BGXHgLhaIuqtT4nARFjUqrBL+7pLmaTOzBepZW/Jm8SSrHDybSQtoNiO3y43wk+dEoWlsZizu97Fih6O6lPVG/LpWP5SsUPwlGagLNa1FKEFvwVXyX7//8prySbvSxIHXr5er+z4RAEA
+Ncustom6: Custom engine code is hT3OXrhPByJp3TrFSTLhUmMH4KVtJgmTCnNDF46yMXOKY48m4LS5nE7yBzFjA7kDuwO/GhGUpEPiky3p3wmPn3dJZHxFMsafSoObRzSC+tn7sEY0WbTdZ/FV4hL3MYH/b1CIUvXSWR4wqEoVLsmMOD4xIPT4lI1LO6ZCO7PnnWQuLwetnvKlrXx6wCW/A+x+enqslg1YPobi4wEF/EvbzOvcTYdJvl2s4H2yZg2b2ofAVN5WvhWk1HoBAA
+ADcustom7: Custom engine code is hT3Nv7hPv1752HrFRa2kROx2f/ECJeZB2AZsLdlO8VwmIuqtT4nIDFXclhg+O+o+DMmQCekbheGk0kK28laA9gaOFDXsQp29J3X615HY1IPHJWd6FUFvCHjO+p1k652b5JJvZlShNpGlGSXAiQe/mEAj6tEBAA
+Tricustom8: Custom engine code is hT3Nu7hPt1752DvFRa0kNDiyIV97VyejwM9C/jCLJjdPvusZONHY42VYUy0Q1ZotnhcVtNc56tJ5wbxv6V2+XpdsaSlHck5vfnbYjdwj1OECy9U+7oSQ0SZE3g5ayD+Phuh4odCJTjeKa2k4elM9ldQfkAEA
+Gcustom9: Custom engine code is hT3NibhPDfeYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncipMGcUXqAadachREE9F2PwhBUZUNw5kHnd4JdXkamORRgEA
+C2custom10: Custom engine code is hT3NirhPjfWYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncgkrYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuG86XYVV00BAA
+AGcustom11: Custom engine code is hT3NirhP/fmYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInnckcwYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuHEZnZByh0BAA
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+Bcustom12: Custom engine code is hT3NjrhPDfiYQADBZnYcglOvK9PfWxFtenjIyBqfrgr7if/jL/yPOuK1BAflEcW0DxNH2eDIoezN2gxlQFg81RZtiWXh7aiTAidvAQA
+INFO (IPF057): 0.0.PRE: The property "emu.nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
+Ncustom13: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
+Tricustom14: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "emu.nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.12s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 4, declared: 3, looping: 0, posedge: 4, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.30 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu._type_constraint_ALU_Op_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu._type_constraint_Write_Data_r" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu.alu._type_constraint_Op" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_savetype_counter" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_count" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_maxcount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_settle" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_timer_rewind" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_savestatecount" in 0.00 s.
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_vsync_counter" in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.62 s]
+0.0.N: Proof Simplification Iteration 3	[0.69 s]
+0.0.N: Proof Simplification Iteration 4	[0.77 s]
+0.0.N: Proof Simplification Iteration 5	[0.87 s]
+0.0.N: Proof Simplification Iteration 6	[0.95 s]
+0.0.N: Proof Simplification Iteration 7	[1.03 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 1.51 s
+0.0.N: Identified and disabled 13 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 4
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: Proofgrid shell started at 59778@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proofgrid shell started at 59777@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.N: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "emu.nes.cpu._type_constraint_ALU_Op"	[0.00 s].
+0.0.N: Starting proof for property "emu.nes.cpu.mcode._type_constraint_ALU_Op"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.10 s]
+0.0.N: Trace Attempt  2	[0.20 s]
+0.0.N: Trace Attempt  3	[0.23 s]
+0.0.N: Trace Attempt  4	[0.26 s]
+0.0.N: Trace Attempt  5	[0.29 s]
+0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Hp: A proof was found: No trace exists. [1.82 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_ALU_Op" was proven in 1.36 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_ALU_Op" was proven in 1.36 s.
+0.0.Hp: A proof was found: No trace exists. [1.82 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_Set_BusA_To" was proven in 1.36 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 1.36 s.
+0.0.Hp: A proof was found: No trace exists. [1.82 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_Write_Data" was proven in 1.37 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_Write_Data" was proven in 1.37 s.
+0.0.Hp: Trace Attempt  1	[1.82 s]
+0.0.N: Trace Attempt  1	[0.83 s]
+0.0.N: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [1.95 s]
+0.0.Hp: A trace with 1 cycles was found. [1.82 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_savestate_address" in 1.77 s.
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_request_address" in 1.77 s.
+0.0.N: Stopped processing property "emu.nes.cpu._type_constraint_ALU_Op"	[1.28 s].
+0.0.N: Stopped processing property "emu.nes.cpu.mcode._type_constraint_ALU_Op"	[1.28 s].
+0.0.Hp: All properties determined. [1.85 s]
+0.0.N: Interrupted. [0.90 s]
+0.0.Hp: Exited with Success (@ 2.01 s)
+0: ProofGrid usable level: 0
+0.0.AM: Proofgrid shell started at 59815@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.AM: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 2.04 s)
+0.0.Oh: Proofgrid shell started at 59808@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.Oh: Requesting engine job to terminate
+0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.AM: Interrupted. [0.07 s]
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.AM: Exited with Success (@ 2.20 s)
+0.0.Oh: Interrupted. [0.09 s]
+0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Bm: Proofgrid shell started at 59792@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.Bm: Requesting engine job to terminate
+0.0.Oh: Exited with Success (@ 2.23 s)
+0.0.L: Proofgrid shell started at 59812@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.L: Requesting engine job to terminate
+0.0.Ht: Proofgrid shell started at 59779@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.Ht: Requesting engine job to terminate
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.06 s]
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.05 s]
+0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.L: Exited with Success (@ 2.35 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 2.37 s)
+0.0.Ht: Interrupted. [0.06 s]
+0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: Exited with Success (@ 2.42 s)
+0.0.Mpcustom4: Proofgrid shell started at 59803@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.B: Proofgrid shell started at 59814@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
+0.0.B: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.06 s]
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.06 s]
+0.0.Mpcustom4: Exited with Success (@ 2.49 s)
+0.0.B: Exited with Success (@ 2.49 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 15.93 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.91        1.41        0.00       60.82 %
+     Hp        0.68        1.84        0.00       72.88 %
+     Ht        2.48        0.00        0.00        0.00 %
+     Bm        2.28        0.00        0.00        0.00 %
+    Mpcustom4        2.42        0.00        0.00        0.00 %
+     Oh        2.02        0.00        0.00        0.00 %
+      L        2.17        0.00        0.00        0.00 %
+      B        2.31        0.00        0.00        0.00 %
+     AM        1.90        0.00        0.00        0.00 %
+    all        1.91        0.36        0.00       15.93 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+              17.18        3.25        0.00
+
+    Data read    : 146.90 kiB
+    Data written : 2.03 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<constraints>" for proof thread 0
+INFO (IPF036): Starting proof on task: "<embedded>", 29 properties to prove with 0 already proven/unreachable
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "<constraints>/emu.nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "<constraints>/emu.nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.12s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 4, declared: 3, looping: 0, posedge: 4, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.15 s]
+0.0.N: Proof Simplification Iteration 3	[0.26 s]
+0.0.N: Proof Simplification Iteration 4	[0.36 s]
+0.0.N: Proof Simplification Iteration 5	[0.44 s]
+0.0.N: Proof Simplification Iteration 6	[0.52 s]
+0.0.N: Proof Simplification Iteration 7	[0.60 s]
+0.0.PRE: Proof Simplification completed in 1.12 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 22
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Proofgrid shell started at 59924@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Proofgrid shell started at 59925@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.Hp: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "sys_top.emu.video_freak.vcpt_cover"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.08 s]
+0.0.N: Trace Attempt  2	[0.10 s]
+0.0.N: Trace Attempt  2	[0.47 s]
+0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: Proofgrid shell started at 59926@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.N: A trace with 2 cycles was found. [0.71 s]
+INFO (IPF047): 0.0.N: The cover property "sys_top.emu.video_freak.vcpt_cover" was covered in 2 cycles in 0.88 s.
+INFO (IPF047): 0.0.N: The cover property "sys_top.emu.video_freak.hcpt_assert:precondition1" was covered in 2 cycles in 0.88 s by the incidental trace "sys_top.emu.video_freak.vcpt_cover".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_settle" in 0.88 s by the incidental trace "sys_top.emu.video_freak.vcpt_cover".
+0.0.N: Stopped processing property "sys_top.emu.video_freak.vcpt_cover"	[0.93 s].
+0.0.N: Starting proof for property "sys_top.emu.video_freak.screen_adjust_cover"	[0.00 s].
+0.0.Ht: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0: ProofGrid usable level: 19
+0.0.N: Trace Attempt  1	[0.15 s]
+0.0.N: Trace Attempt  2	[0.20 s]
+0.0.N: Trace Attempt  2	[0.64 s]
+0.0.Ht: Trace Attempt  1	[0.61 s]
+0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: A trace with 1 cycles was found. [0.61 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu._type_constraint_ALU_Op_r" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu._type_constraint_Write_Data_r" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_savetype_counter" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_count" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_maxcount" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_timer_rewind" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_savestatecount" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_vsync_counter" in 0.52 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu.alu._type_constraint_Op" in 0.52 s.
+0.0.Ht: A trace with 1 cycles was found. [0.64 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_savestate_address" in 0.69 s.
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_request_address" in 0.69 s.
+0.0.Ht: Trace Attempt  2	[0.70 s]
+0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: A trace with 2 cycles was found. [0.71 s]
+INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.video_freak.screen_adjust_cover" was covered in 2 cycles in 0.80 s.
+INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.loader.cov_rom_load" was covered in 2 cycles in 0.80 s.
+0.0.B: Proofgrid shell started at 59960@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.Ht: Trace Attempt  3	[0.80 s]
+0.0.Bm: Proofgrid shell started at 59939@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.Bm: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Ht: Trace Attempt  4	[0.98 s]
+0.0.N: Stopped processing property "sys_top.emu.video_freak.screen_adjust_cover"	[0.85 s].
+0.0.N: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: A trace with 4 cycles was found. [1.03 s]
+INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.nes.dma_assert:precondition1" was covered in 4 cycles in 1.11 s.
+0: ProofGrid usable level: 7
+0.0.B: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  1	[0.12 s]
+0.0.N: Trace Attempt  2	[0.15 s]
+0.0.Mpcustom4: Proofgrid shell started at 59949@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.Bm: Trace Attempt  1	[0.33 s]
+0.0.Ht: Trace Attempt  5	[1.28 s]
+0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.N: Trace Attempt  2	[0.34 s]
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Mpcustom4: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Oh: Proofgrid shell started at 59956@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.N: Trace Attempt  3	[0.47 s]
+0.0.N: Trace Attempt  4	[0.47 s]
+0.0.Bm: Trace Attempt  2	[0.60 s]
+0.0.B: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.B: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
+0.0.L: Proofgrid shell started at 59959@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Ht: Trace Attempt  6	[1.44 s]
+0.0.Ht: A trace with 6 cycles was found. [1.53 s]
+INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.nes.ppu_assert:precondition1" was covered in 6 cycles in 1.62 s.
+0.0.Hp: A proof was found: No trace exists. [2.56 s]
+INFO (IPF057): 0.0.Hp: The property "sys_top.emu.nes.ppu_assert" was proven in 2.40 s.
+0.0.Oh: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: A proof was found: No trace exists. [2.56 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_ALU_Op" was proven in 2.40 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_ALU_Op" was proven in 2.40 s.
+0.0.Hp: A proof was found: No trace exists. [2.56 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_Set_BusA_To" was proven in 2.40 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 2.41 s.
+0.0.Hp: A proof was found: No trace exists. [2.57 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_Write_Data" was proven in 2.41 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_Write_Data" was proven in 2.41 s.
+0.0.B: Trace Attempt  1	[0.19 s]
+0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.L: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
+0.0.Ht: Trace Attempt  7	[1.92 s]
+0.0.N: Trace Attempt  4	[0.94 s]
+0.0.AM: Proofgrid shell started at 59962@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
+0.0.B: Trace Attempt  2	[0.50 s]
+0.0.Mpcustom4: Trace Attempt  1	[0.66 s]
+0: ProofGrid usable level: 2
+0.0.L: Using trace diversification with seed 1 (0.05)
+0.0.L: Using LRU state removal heuristic
+0: Running jobs with 9 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0: Running jobs with 9 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
+0.0.Mpcustom4: Trace Attempt  2	[0.84 s]
+0.0.AM: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.L: Using states from traces to { (reset) }
+0.0.N: Per property time limit expired (1.00 s) [1.40 s]
+0.0.N: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.41 s].
+0.0.N: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.10 s]
+0.0.N: Trace Attempt  2	[0.12 s]
+0.0.AM: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.AM: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
+0.0.Bm: Trace Attempt  3	[1.75 s]
+INFO (IPF054): 0.0.L: A min_length bound of 2 was found for the property "sys_top.emu.video_freak.hcpt_assert:precondition1" in 0.58 s.
+0.0.AM: Trace Attempt  1	[0.13 s]
+0.0.AM: Trace Attempt  2	[0.15 s]
+0.0.N: Trace Attempt  2	[0.38 s]
+0.0.AM: Trace Attempt  3	[0.16 s]
+0.0.AM: Trace Attempt  4	[0.16 s]
+0.0.AM: Trace Attempt  5	[0.18 s]
+0.0.N: Trace Attempt  3	[0.62 s]
+0.0.N: Trace Attempt  4	[0.62 s]
+0.0.B: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.64 s].
+0.0.B: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
+0.0.Bm: Trace Attempt  4	[2.26 s]
+0.0.L: Trace Attempt  3	[1.53 s]
+0.0.AM: Trace Attempt  1	[0.69 s]
+0.0.AM: Trace Attempt  2	[0.69 s]
+0.0.AM: Trace Attempt  3	[0.69 s]
+0.0.AM: Trace Attempt  5	[0.69 s]
+0.0.AM: Validation of fixpoint was successful. Time = 0.00
+0.0.AM: A proof was found: No trace exists. [0.71 s]
+INFO (IPF057): 0.0.AM: The property "sys_top.emu.nes.dma_assert" was proven in 0.71 s.
+0.0.AM: Stopped processing property "sys_top.emu.nes.dma_assert"	[0.71 s].
+0.0.AM: Last scan. Per property time limit: 0s
+0.0.AM: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.20 s]
+0.0.B: Stopped processing property "sys_top.emu.nes.dma_assert"	[0.23 s].
+0.0.B: Last scan. Per property time limit: 0s
+0.0.B: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
+0.0.AM: Trace Attempt  1	[0.13 s]
+0.0.AM: Trace Attempt  2	[0.13 s]
+0.0.AM: Trace Attempt  3	[0.13 s]
+0.0.AM: Trace Attempt  4	[0.13 s]
+0.0.N: Stopped processing property "sys_top.emu.nes.dma_assert"	[1.10 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
+0.0.AM: Trace Attempt  5	[0.19 s]
+0.0.B: Trace Attempt  1	[0.18 s]
+0.0.AM: Trace Attempt  1	[0.35 s]
+0.0.AM: Trace Attempt  2	[0.36 s]
+0.0.AM: Trace Attempt  3	[0.36 s]
+0.0.AM: Trace Attempt  4	[0.37 s]
+0.0.B: Trace Attempt  2	[0.49 s]
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.AM: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Requesting engine job to terminate
+0.0.L: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [5.37 s]
+0.0.Hp: A proof was found: No trace exists. [4.86 s]
+INFO (IPF057): 0.0.Hp: The property "sys_top.emu.video_freak.hcpt_assert" was proven in 4.44 s.
+0.0.Hp: All properties determined. [4.86 s]
+0.0.AM: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[0.57 s].
+0.0.AM: Interrupted. [0.66 s]
+0.0.Ht: Interrupted (multi)
+0.0.Ht: Trace Attempt 15	[3.74 s]
+0.0.Ht: Interrupted. [4.05 s]
+0.0.AM: Exited with Success (@ 5.65 s)
+0: ProofGrid usable level: 0
+0.0.Oh: bwd trail(1): 1 1.01986s
+0.0.Hp: Exited with Success (@ 5.69 s)
+0.0.Oh: Interrupted. [2.68 s]
+0.0.N: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[0.84 s].
+0.0.Ht: Exited with Success (@ 5.88 s)
+0.0.Oh: Exited with Success (@ 5.88 s)
+0.0.N: Interrupted. [0.93 s]
+0.0.B: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.08 s].
+0.0.B: Interrupted. [1.11 s]
+0.0.N: Exited with Success (@ 5.97 s)
+0.0.B: Exited with Success (@ 6.03 s)
+0.0.Bm: Interrupted. [3.65 s]
+0.0.Bm: Exited with Success (@ 6.04 s)
+0.0.L: Interrupted. [2.90 s]
+0.0.L: Exited with Success (@ 6.10 s)
+0.0.Mpcustom4: Interrupted. [3.71 s]
+0.0.Mpcustom4: Exited with Success (@ 6.57 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 59.93 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.68        5.26        0.00       88.57 %
+     Hp        0.91        4.86        0.00       84.18 %
+     Ht        1.49        3.91        0.00       72.44 %
+     Bm        2.36        2.99        0.00       55.91 %
+    Mpcustom4        2.65        2.52        0.00       48.76 %
+     Oh        2.83        2.33        0.00       45.16 %
+      L        2.90        2.18        0.00       42.92 %
+      B        2.12        2.87        0.00       57.50 %
+     AM        3.22        1.74        0.00       35.11 %
+    all        2.13        3.19        0.00       59.93 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+              19.17       28.67        0.00
+
+    Data read    : 964.73 kiB
+    Data written : 12.85 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Total Tasks                        : 2
+           Total Properties                   : 49
+                 assumptions                  : 0
+                  - approved                  : 0
+                  - temporary                 : 0
+                 soft assumptions             : 0
+                 assertions                   : 43
+                  - proven                    : 19 (44.186%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 24 (55.814%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 6
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 6 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.579 GB.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+INFO (IPL018): The peak resident set memory use for this session was 0.800 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.

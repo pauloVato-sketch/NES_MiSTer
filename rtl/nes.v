@@ -891,7 +891,7 @@ property ppu_din;
 	(dma_aout_enable) |-> (dbus == dma_data_to_ram));
 endproperty
 
-assert property (ppu_din);
+ppu_assert: assert property (ppu_din);
 
 property dma_cpu;
 	@(posedge clk)
@@ -899,7 +899,7 @@ property dma_cpu;
 	((addr == 'h4014 && mw_int) && (cpu_ce == 1'b1) |=> (pause_cpu == 1));
 endproperty
 
-assert property (dma_cpu);
+dma_assert: assert property (dma_cpu);
 
 /*property dma_start_delay;
     @(posedge clk)

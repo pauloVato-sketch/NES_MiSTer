@@ -1,70 +1,72 @@
-2024-07-31 21:57:07.575874 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.575934 (16469) main____ INFO    Jasper version info
-2024-07-31 21:57:07.575944 (16469) main____ INFO      tool      : Jasper 2023.09
-2024-07-31 21:57:07.575954 (16469) main____ INFO      version   : 2023.09p002 64 bits
-2024-07-31 21:57:07.575961 (16469) main____ INFO      build date: 2023.11.21 13:10:30 UTC
-2024-07-31 21:57:07.575968 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.575974 (16469) main____ INFO    Runtime info:
-2024-07-31 21:57:07.575981 (16469) main____ INFO      platform  : Linux 6.5.0-44-generic x86_64
-2024-07-31 21:57:07.575990 (16469) main____ INFO      hostname  : victorhug-340XAA-350XAA-550XAA
-2024-07-31 21:57:07.576026 (16469) main____ INFO      pid       : 16469
-2024-07-31 21:57:07.576033 (16469) main____ INFO      arguments : '-style' 'windows' '-allow_unsupported_OS' 'NES.tcl'
-2024-07-31 21:57:07.576038 (16469) main____ INFO      locale    : UTF-8
-2024-07-31 21:57:07.576042 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.576046 (16469) main____ INFO    System resource limits info:
-2024-07-31 21:57:07.576051 (16469) main____ INFO      virtual memory: unlimited
-2024-07-31 21:57:07.576056 (16469) main____ INFO      cpu time      : unlimited
-2024-07-31 21:57:07.576064 (16469) main____ INFO      processes     : 31088
-2024-07-31 21:57:07.576073 (16469) main____ INFO      stack size    : 8388608 B
-2024-07-31 21:57:07.576078 (16469) main____ INFO      core file size: 0 B
-2024-07-31 21:57:07.576083 (16469) main____ INFO      open files    : 1048576
-2024-07-31 21:57:07.576087 (16469) main____ INFO      file size     : unlimited
-2024-07-31 21:57:07.576092 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.576096 (16469) main____ INFO    Memory statistics:
-2024-07-31 21:57:07.576100 (16469) main____ INFO      total physical memory  : 8036072 kB
-2024-07-31 21:57:07.576105 (16469) main____ INFO      free physical memory   : 2619276 kB
-2024-07-31 21:57:07.576109 (16469) main____ INFO      committed address space: 6342532 kB
-2024-07-31 21:57:07.576113 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.576849 (16469) main____ INFO    Important environment variables:
-2024-07-31 21:57:07.576863 (16469) main____ INFO      CDS_LIC_FILE       : '5280@200.131.3.245'
-2024-07-31 21:57:07.576869 (16469) main____ INFO      DISPLAY            : ':0'
-2024-07-31 21:57:07.576875 (16469) main____ INFO      JASPER_INSTALL_DIR : '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002'
-2024-07-31 21:57:07.576883 (16469) main____ INFO      JASPER_KERNEL_CHECK: '1'
-2024-07-31 21:57:07.576888 (16469) main____ INFO      JASPER_OS_CHECK    : '0'
-2024-07-31 21:57:07.576893 (16469) main____ INFO      LANG               : 'en_US.UTF-8'
-2024-07-31 21:57:07.576898 (16469) main____ INFO      LC_ADDRESS         : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576903 (16469) main____ INFO      LC_CTYPE           : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576908 (16469) main____ INFO      LC_IDENTIFICATION  : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576913 (16469) main____ INFO      LC_MEASUREMENT     : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576918 (16469) main____ INFO      LC_MONETARY        : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576923 (16469) main____ INFO      LC_NAME            : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576929 (16469) main____ INFO      LC_NUMERIC         : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576934 (16469) main____ INFO      LC_PAPER           : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576939 (16469) main____ INFO      LC_TELEPHONE       : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576944 (16469) main____ INFO      LC_TIME            : 'pt_BR.UTF-8'
-2024-07-31 21:57:07.576948 (16469) main____ INFO    ----------------------------------------
-2024-07-31 21:57:07.577586 (16469) lic_core INFO    Initializing license system ...
-2024-07-31 21:57:07.579050 (16469) lic_core INFO    ... license system initialized.
-2024-07-31 21:57:07.580775 (16469) lic__man INFO    Claim 'main' for <ui>.
-2024-07-31 21:57:07.580801 (16469) lic_core INFO    (1) checking out 'jasper_interactive' ...
-2024-07-31 21:57:07.872569 (16469) lic_core INFO    ... (1) checkout succeeded
-2024-07-31 21:57:07.872621 (16469) lic__man INFO    Claim 'fpv' for <ui>.
-2024-07-31 21:57:07.872636 (16469) lic_core INFO    (2) checking out 'jasper_fpv' ...
-2024-07-31 21:57:08.124426 (16469) lic_core INFO    ... (2) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
-2024-07-31 21:57:08.124459 (16469) lic_core INFO    (3) checking out 'jasper_fao' ...
-2024-07-31 21:57:08.416766 (16469) lic_core INFO    ... (3) checkout succeeded
-2024-07-31 21:57:08.417247 (16469) main____ INFO    Tool inactivity delay is 480000 ms.
-2024-07-31 21:57:09.076728 (16469) lic__man INFO    Claim 'fpv' for <ui>.
-2024-07-31 21:57:09.230358 (16469) lic__man INFO    Unclaim 'fpv' for <ui>.
-2024-07-31 21:57:09.230399 (16469) lic__man INFO    Claim 'fpv' for <ui>.
-2024-07-31 21:57:09.235793 (16469) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
-2024-07-31 21:57:09.238030 (16469) session_ INFO    Analysis session with session id 'session_0' started (pid: 16493)
-2024-07-31 21:57:10.016698 (16469) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:44322)
-2024-07-31 21:57:10.336508 (16469) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
-2024-07-31 21:57:10.338250 (16469) lic__man INFO    Unclaim everything for 'session_0'.
-2024-07-31 21:57:16.817791 (16469) lic__man INFO    Unclaim everything for 'session_0'.
-2024-07-31 22:02:30.879403 (16469) main____ INFO    About to exit: requested from GUI
-2024-07-31 22:02:31.844436 (16469) session_ INFO    Analysis session 'session_0' disconnected.
-2024-07-31 22:02:31.851488 (16469) lic_core INFO    (1) checkin jasper_interactive
-2024-07-31 22:02:31.883840 (16469) lic_core INFO    (3) checkin jasper_fao
-2024-07-31 22:02:31.919127 (16469) main____ INFO    Exiting with status 0.
+2024-08-30 07:52:38.774452 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.774506 (59690) main____ INFO    Jasper version info
+2024-08-30 07:52:38.774514 (59690) main____ INFO      tool      : Jasper 2023.09
+2024-08-30 07:52:38.774520 (59690) main____ INFO      version   : 2023.09p002 64 bits
+2024-08-30 07:52:38.774525 (59690) main____ INFO      build date: 2023.11.21 13:10:30 UTC
+2024-08-30 07:52:38.774530 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.774534 (59690) main____ INFO    Runtime info:
+2024-08-30 07:52:38.774538 (59690) main____ INFO      platform  : Linux 6.5.0-44-generic x86_64
+2024-08-30 07:52:38.774545 (59690) main____ INFO      hostname  : victorhug-340XAA-350XAA-550XAA
+2024-08-30 07:52:38.774550 (59690) main____ INFO      pid       : 59690
+2024-08-30 07:52:38.774555 (59690) main____ INFO      arguments : '-style' 'windows' '-allow_unsupported_OS' 'NES.tcl'
+2024-08-30 07:52:38.774560 (59690) main____ INFO      locale    : UTF-8
+2024-08-30 07:52:38.774564 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.774568 (59690) main____ INFO    System resource limits info:
+2024-08-30 07:52:38.774573 (59690) main____ INFO      virtual memory: unlimited
+2024-08-30 07:52:38.774577 (59690) main____ INFO      cpu time      : unlimited
+2024-08-30 07:52:38.774584 (59690) main____ INFO      processes     : 31073
+2024-08-30 07:52:38.774592 (59690) main____ INFO      stack size    : 8388608 B
+2024-08-30 07:52:38.774598 (59690) main____ INFO      core file size: 0 B
+2024-08-30 07:52:38.774602 (59690) main____ INFO      open files    : 1048576
+2024-08-30 07:52:38.774607 (59690) main____ INFO      file size     : unlimited
+2024-08-30 07:52:38.774611 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.774615 (59690) main____ INFO    Memory statistics:
+2024-08-30 07:52:38.774619 (59690) main____ INFO      total physical memory  : 8032184 kB
+2024-08-30 07:52:38.774624 (59690) main____ INFO      free physical memory   : 1834172 kB
+2024-08-30 07:52:38.774628 (59690) main____ INFO      committed address space: 8285448 kB
+2024-08-30 07:52:38.774632 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.775355 (59690) main____ INFO    Important environment variables:
+2024-08-30 07:52:38.775368 (59690) main____ INFO      CDS_LIC_FILE       : '5280@200.131.3.245'
+2024-08-30 07:52:38.775375 (59690) main____ INFO      DISPLAY            : ':1'
+2024-08-30 07:52:38.775380 (59690) main____ INFO      JASPER_INSTALL_DIR : '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002'
+2024-08-30 07:52:38.775388 (59690) main____ INFO      JASPER_KERNEL_CHECK: '1'
+2024-08-30 07:52:38.775393 (59690) main____ INFO      JASPER_OS_CHECK    : '0'
+2024-08-30 07:52:38.775398 (59690) main____ INFO      LANG               : 'en_US.UTF-8'
+2024-08-30 07:52:38.775403 (59690) main____ INFO      LC_ADDRESS         : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775408 (59690) main____ INFO      LC_CTYPE           : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775413 (59690) main____ INFO      LC_IDENTIFICATION  : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775418 (59690) main____ INFO      LC_MEASUREMENT     : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775423 (59690) main____ INFO      LC_MONETARY        : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775428 (59690) main____ INFO      LC_NAME            : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775433 (59690) main____ INFO      LC_NUMERIC         : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775438 (59690) main____ INFO      LC_PAPER           : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775443 (59690) main____ INFO      LC_TELEPHONE       : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775448 (59690) main____ INFO      LC_TIME            : 'pt_BR.UTF-8'
+2024-08-30 07:52:38.775453 (59690) main____ INFO    ----------------------------------------
+2024-08-30 07:52:38.776065 (59690) lic_core INFO    Initializing license system ...
+2024-08-30 07:52:38.777521 (59690) lic_core INFO    ... license system initialized.
+2024-08-30 07:52:38.778785 (59690) lic__man INFO    Claim 'main' for <ui>.
+2024-08-30 07:52:38.778808 (59690) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2024-08-30 07:52:39.070237 (59690) lic_core INFO    ... (1) checkout succeeded
+2024-08-30 07:52:39.070298 (59690) lic__man INFO    Claim 'fpv' for <ui>.
+2024-08-30 07:52:39.070315 (59690) lic_core INFO    (2) checking out 'jasper_fpv' ...
+2024-08-30 07:52:39.337008 (59690) lic_core INFO    ... (2) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
+2024-08-30 07:52:39.337055 (59690) lic_core INFO    (3) checking out 'jasper_fao' ...
+2024-08-30 07:52:39.646993 (59690) lic_core INFO    ... (3) checkout succeeded
+2024-08-30 07:52:39.647434 (59690) main____ INFO    Tool inactivity delay is 480000 ms.
+2024-08-30 07:52:40.386288 (59690) lic__man INFO    Claim 'fpv' for <ui>.
+2024-08-30 07:52:40.527760 (59690) lic__man INFO    Unclaim 'fpv' for <ui>.
+2024-08-30 07:52:40.527799 (59690) lic__man INFO    Claim 'fpv' for <ui>.
+2024-08-30 07:52:40.532255 (59690) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
+2024-08-30 07:52:40.534428 (59690) session_ INFO    Analysis session with session id 'session_0' started (pid: 59715)
+2024-08-30 07:52:41.721831 (59690) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:39308)
+2024-08-30 07:52:42.254820 (59690) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
+2024-08-30 07:52:42.256041 (59690) lic__man INFO    Unclaim everything for 'session_0'.
+2024-08-30 07:52:47.541926 (59690) lic__man INFO    Unclaim everything for 'session_0'.
+2024-08-30 07:52:50.881522 (59690) lic__man INFO    Claim 'fpv' for 'session_0'.
+2024-08-30 07:52:50.881561 (59690) lic__man INFO    Claim 'fpv' for 'session_0/prove-0'.
+2024-08-30 07:53:06.685603 (59690) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
+2024-08-30 08:03:28.954396 (59690) main____ INFO    About to exit: requested from GUI
+2024-08-30 08:03:29.665145 (59690) session_ INFO    Analysis session 'session_0' disconnected.
+2024-08-30 08:03:29.670741 (59690) lic_core INFO    (1) checkin jasper_interactive
+2024-08-30 08:03:39.677515 (59690) lic_core INFO    (3) checkin jasper_fao

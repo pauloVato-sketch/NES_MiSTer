@@ -140,49 +140,24 @@ video_scale_int scale
 /////property/////////////////////////////////
 //Check VGA_VS and VGA_DE_IN Synchronization:
 //Ensures that vcpt is reset on the rising edge of VGA_VS.
-C0: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
+vcpt_cover: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
 
 //Check arxo and aryo adjustment:
 //Ensures that arxo and aryo are adjusted correctly based on the calculated values.
-C1: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] && aryo == ARYG[23:12]));
+screen_adjust_cover: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] && aryo == ARYG[23:12]));
 
 //Check hcpt calculation in the presence of VGA_DE_IN:
 //Ensures that hcpt is only incremented when VGA_DE_IN is active.
 
-/*property hcpt_initial;
-	@(posedge CLK_VIDEO)
-	!$isunknown(hcpt) |-> (hcpt == 0);
-endproperty
-
-assume property(hcpt_initial);*/
-
-assume property (@(posedge CLK_VIDEO)(hcpt>= 0 && hcpt <= 495));
+assume property (@(posedge CLK_VIDEO)(hcpt>= 0 && hcpt <= 4094));
 
 property hcpt_increment;
   @(posedge CLK_VIDEO)
   ((VGA_DE_IN && CE_PIXEL)|=> (hcpt == $past(hcpt,1) + 1));
 endproperty
 
-assert property (hcpt_increment);
-/*
-// Assumindo que os parâmetros de escala e corte são válidos
-assume property (@(posedge CLK_VIDEO) SCALE >= 0 && SCALE <= 4);
+hcpt_assert: assert property (hcpt_increment);
 
-// Verificando que VIDEO_ARX e VIDEO_ARY são ajustados corretamente
-property video_arx_adjust;
-  @(posedge CLK_VIDEO)
-  VGA_DE_IN |-> (VIDEO_ARX == ARX - CROP_SIZE + CROP_OFF);
-endproperty
-
-property video_ary_adjust;
-  @(posedge CLK_VIDEO)
-  VGA_DE_IN |-> (VIDEO_ARY == ARY - CROP_SIZE + CROP_OFF);
-endproperty
-
-assert property (video_arx_adjust);
-assert property (video_ary_adjust);
-
-*/
 
 endmodule
 
