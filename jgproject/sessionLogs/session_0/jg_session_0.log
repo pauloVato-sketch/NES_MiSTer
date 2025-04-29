@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 6.5.0-35-generic
+# platform  : Linux 5.14.0-503.35.1.el9_5.x86_64
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-06-10 21:32:52 -03
-# hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 8811
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:45335' '-style' 'windows' '-data' 'AAAA2nicVYyxCsJAEETfKfYWfoKVkCNqBIsUNumUEAVbEUwRCIloRLDRT/VPLsOFgM6wM7D7WAPEb+ccXsOXYsyWHXsSZcpRDVNWLFgTslGHsmXOUmOVVrtIhJf5dk1s+JXJPn8Nox7skYFmRsCZUq55cuJBxV15lWtuNORctE85iJ6I7q65biWF6Ma/bgHfKBow' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/jgproject/.tmp/.initCmds.tcl'
+# started   : 2025-04-28 23:33:09 -03
+# hostname  : localhost.localdomain.(none)
+# pid       : 13897
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:37039' '-style' 'windows' '-data' 'AAABCHicjY/PCgFRGMV/l+w9gCdQrvFnSpqFjY0wMWUrGVYYMVI2PKo3uY6rKXbO6Tun73Ru3c8A0d05h0f5JqkyZsKcoTRmIYcRIW16BAzkgWhp0dFYqVXWVaP/V8vDPD9OZPiGmT1+HCpFsaiUNHUarNiJGVeWXDhwlh7FjBM5G1LlMYnaNbY+3fs3Taa6KdF/ctba33gB4EcfFQ==' '-proj' '/home/pauloldn/poland/proj/NES_MiSTer/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/proj/NES_MiSTer/jgproject/.tmp/.initCmds.tcl' 'formal/NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -43,12 +43,29 @@ Rights at 48 CFR 52.227-19, as applicable.
 
 For technical assistance visit http://support.cadence.com.
 
-Jasper Apps Analysis Session - /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/jgproject/sessionLogs/session_0
+Jasper Apps Analysis Session - /home/pauloldn/poland/proj/NES_MiSTer/jgproject/sessionLogs/session_0
 
-INFO: successfully checked out licenses "jasper_interactive" and "jasper_dao".
-INFO: reading configuration file "/home/victorhug/.config/cadence/jasper.conf".
-% check_superlint -init
-% include /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
+INFO: reading configuration file "/home/pauloldn/.config/cadence/jasper.conf".
+% 
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% 
+% # Load checks that will be verified
+% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+% 
+% 
+% # analyze -register -vhdl -f files_vhd.f
+% # analyze -sort -vhdl -f files_vhd.f
+% 
+% analyze -vhdl ../rtl/statemanager.vhd
+ERROR (ESW046): The file "../rtl/statemanager.vhd" does not exist.
+
+ERROR: problem encountered at line 13 in file formal/NES.tcl
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
 %% 
 %% clear -all
 INFO (IPF121): Cleared environment completely for new design analysis.
@@ -56,21 +73,123 @@ INFO (IPF121): Cleared environment completely for new design analysis.
 %% # Load checks that will be verified
 %% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
 %% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
-%% config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
-WARNING (WSL056): Change in Message, Arguments for tag: RST_MX_SYAS have changed.
-    For message help, type "help -message WSL056".
-WARNING (WRTL036): SEQ_NR_BLKA is deprecated. This will become obsolete from next release FLP_NR_BLAS, LAT_NR_BLAS will be issued instead.
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
 %% 
 %% 
 %% # analyze -register -vhdl -f files_vhd.f
 %% # analyze -sort -vhdl -f files_vhd.f
+%% 
 %% analyze -vhdl ../rtl/statemanager.vhd
-ERROR at line 12 in file /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR at line 13 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
 ERROR (ESW046): The file "../rtl/statemanager.vhd" does not exist.
+
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% 
+%% analyze -vhdl "../rtl/statemanager.vhd"
+ERROR at line 13 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "../rtl/statemanager.vhd" does not exist.
+
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% 
+%% analyze -vhdl "../rtl/statemanager.vhd"
+ERROR at line 13 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "../rtl/statemanager.vhd" does not exist.
+
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% 
+%% analyze -vhdl "../rtl/statemanager.vhd"
+ERROR at line 13 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "../rtl/statemanager.vhd" does not exist.
+
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% 
+%% analyze -vhdl ../../rtl/statemanager.vhd
+ERROR at line 13 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "../../rtl/statemanager.vhd" does not exist.
+
+
+% include /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl
+%% 
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Load checks that will be verified
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
+%% # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
+%% #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
+%% 
+%% 
+%% # analyze -register -vhdl -f files_vhd.f
+%% # analyze -sort -vhdl -f files_vhd.f
+%% puts "Current directory: [pwd]"
+Current directory: /home/pauloldn/poland/proj/NES_MiSTer
+%% set file_path "../rtl/statemanager.vhd"
+../rtl/statemanager.vhd
+%% if {[file exists $file_path]} {
+    puts "Found file at: $file_path"
+} else {
+    puts "ERROR: File $file_path not found!"
+    exit 1
+}
+ERROR: File ../rtl/statemanager.vhd not found!
+ERROR at line 14 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/NES.tcl, more info in Tcl-variable errorInfo
+ERROR (ECD014): Cannot exit: action canceled by the user.
 
 
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.359 GB.
+INFO (IPL018): The peak resident set memory use for this session was 0.348 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.

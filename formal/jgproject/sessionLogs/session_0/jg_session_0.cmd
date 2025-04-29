@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 6.5.0-44-generic
+# platform  : Linux 5.14.0-503.35.1.el9_5.x86_64
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-08-30 07:52:40 -03
-# hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 59715
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:46183' '-style' 'windows' '-data' 'AAAA1HicVY69CsJQFIO/q7iKD9FJ8FJ/Cg4duripRQuuItVNvKWtCC76qL7JNVYKmnASCDkQA8QP7z0NunfJgCUrtiykKTs5BERMmBOSyEPRMmaqs1KrbKZGA/P6OrHhF2bz/HPotcW20tENGXHgLDpu7LlyoZIWoqOk5sRReUqmdp+19mVaUJPr54M3OcAYaQ==' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
+# started   : 2025-04-28 23:36:56 -03
+# hostname  : localhost.localdomain.(none)
+# pid       : 14409
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:44209' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 clear -all
 
@@ -20,7 +20,14 @@ clear -all
 
 # analyze -register -vhdl -f files_vhd.f
 # analyze -sort -vhdl -f files_vhd.f
-
+puts "Current directory: [pwd]"
+set file_path "../rtl/statemanager.vhd"
+if {[file exists $file_path]} {
+    puts "Found file at: $file_path"
+} else {
+    puts "ERROR: File $file_path not found!"
+    exit 1
+}
 analyze -vhdl ../rtl/statemanager.vhd
 analyze -vhdl ../rtl/bus_savestates.vhd
 analyze -vhdl ../rtl/savestates.vhd
@@ -58,7 +65,4 @@ reset -expression emu.reset_nes;
 #reset -expression ~RESET;
 #reset -none;
 # # Extract properties
-# check_superlint -extract
-
-
-prove -bg -all
+check_superlint -extract

@@ -673,7 +673,15 @@ wire         vbuf_read;
 wire [127:0] vbuf_writedata;
 wire  [15:0] vbuf_byteenable;
 wire         vbuf_write;
-
+/* HDMI Variables:
+	DATA -> D[23:0] = Vary from 8 (YCbCr 4:2:2 with 2x pixel clock) to 24 bits  (RGB
+4:4:4 or YCbCr 4:4:4. 
+	HS: HSync
+	VS: VSync
+	DE: Enable
+	VBL: VBlank
+	BRD: ??
+*/
 wire  [23:0] hdmi_data;
 wire         hdmi_vs, hdmi_hs, hdmi_de, hdmi_vbl, hdmi_brd;
 wire         freeze;

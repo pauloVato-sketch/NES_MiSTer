@@ -9,7 +9,14 @@ clear -all
 
 # analyze -register -vhdl -f files_vhd.f
 # analyze -sort -vhdl -f files_vhd.f
-
+puts "Current directory: [pwd]"
+set file_path "../rtl/statemanager.vhd"
+if {[file exists $file_path]} {
+    puts "Found file at: $file_path"
+} else {
+    puts "ERROR: File $file_path not found!"
+    exit 1
+}
 analyze -vhdl ../rtl/statemanager.vhd
 analyze -vhdl ../rtl/bus_savestates.vhd
 analyze -vhdl ../rtl/savestates.vhd
@@ -47,6 +54,6 @@ reset -expression emu.reset_nes;
 #reset -expression ~RESET;
 #reset -none;
 # # Extract properties
-# check_superlint -extract
+check_superlint -extract
 
 

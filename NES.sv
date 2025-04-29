@@ -198,7 +198,10 @@ wire       vcrop_en = status[5];
 wire [3:0] vcopt    = status[38:35];
 reg        en216p;
 reg  [4:0] voff;
+
+ 
 always @(posedge CLK_VIDEO) begin
+	// Vertical crop 216p
 	en216p <= ((HDMI_WIDTH == 1920) && (HDMI_HEIGHT == 1080) && !forced_scandoubler && !scale);
 	voff <= (vcopt < 6) ? {vcopt,1'b0} : ({vcopt,1'b0} - 5'd24);
 end
@@ -208,6 +211,12 @@ video_freak video_freak
 (
 	.*,
 	.VGA_DE_IN(vga_de),
+	// Check if Aspect Ratio is NOT SET, if it IS NOT then:
+	// 	Check if hide_overscan option is set up, if it is then:
+	// 		X coordinate becomes 64, else 128.
+	//  if it is, send ar - 1 (? border ?).
+	// Repeat for Y coordinate with different values.
+	
 	.ARX((!ar) ? (hide_overscan ? 12'd64 : 12'd128) : (ar - 1'd1)),
 	.ARY((!ar) ? (hide_overscan ? 12'd49 : 12'd105) : 12'd0),
 	.CROP_SIZE((en216p & vcrop_en) ? 10'd216 : 10'd0),
@@ -1704,6 +1713,10 @@ always @(posedge clk) begin
 	end
 end
 
-cov_rom_load: cover property (@(posedge clk) (downloading && (type_fds || type_nes || type_nsf)) |->  (rom_loaded == 1));
-
+`ifdef SVA_ENABLE
+	`ifndef SYNTHESIS
+		// Cover behavior: loading of ROM. 
+		cov_rom_load: cover property (@(posedge clk) (downloading && (type_fds || type_nes || type_nsf)) |->  (rom_loaded == 1));
+	`endif
+`endif
 endmodule

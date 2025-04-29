@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 6.5.0-44-generic
+# platform  : Linux 5.14.0-503.35.1.el9_5.x86_64
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2024-08-30 07:52:40 -03
-# hostname  : victorhug-340XAA-350XAA-550XAA.(none)
-# pid       : 59715
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:46183' '-style' 'windows' '-data' 'AAAA1HicVY69CsJQFIO/q7iKD9FJ8FJ/Cg4duripRQuuItVNvKWtCC76qL7JNVYKmnASCDkQA8QP7z0NunfJgCUrtiykKTs5BERMmBOSyEPRMmaqs1KrbKZGA/P6OrHhF2bz/HPotcW20tENGXHgLDpu7LlyoZIWoqOk5sRReUqmdp+19mVaUJPr54M3OcAYaQ==' '-proj' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
+# started   : 2025-04-28 23:36:56 -03
+# hostname  : localhost.localdomain.(none)
+# pid       : 14409
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:44209' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -43,10 +43,10 @@ Rights at 48 CFR 52.227-19, as applicable.
 
 For technical assistance visit http://support.cadence.com.
 
-Jasper Apps Analysis Session - /home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/jgproject/sessionLogs/session_0
+Jasper Apps Analysis Session - /home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0
 
 INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
-INFO: reading configuration file "/home/victorhug/.config/cadence/jasper.conf".
+INFO: reading configuration file "/home/pauloldn/.config/cadence/jasper.conf".
 % 
 % clear -all
 INFO (IPF121): Cleared environment completely for new design analysis.
@@ -59,58 +59,68 @@ INFO (IPF121): Cleared environment completely for new design analysis.
 % 
 % # analyze -register -vhdl -f files_vhd.f
 % # analyze -sort -vhdl -f files_vhd.f
-% 
+% puts "Current directory: [pwd]"
+Current directory: /home/pauloldn/poland/proj/NES_MiSTer/formal
+% set file_path "../rtl/statemanager.vhd"
+../rtl/statemanager.vhd
+% if {[file exists $file_path]} {
+    puts "Found file at: $file_path"
+} else {
+    puts "ERROR: File $file_path not found!"
+    exit 1
+}
+Found file at: ../rtl/statemanager.vhd
 % analyze -vhdl ../rtl/statemanager.vhd
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(13): analyzing package 'textio'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(114): analyzing package body 'textio'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd' into library 'vl'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(22): analyzing package 'vl_types'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(101): analyzing package body 'vl_types'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd' into library 'synopsys'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd(39): analyzing package 'attributes'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(15): analyzing package 'std_logic_1164'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(178): analyzing package body 'std_logic_1164'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(57): analyzing package 'numeric_std'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(874): analyzing package body 'numeric_std'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(54): analyzing package 'numeric_bit'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(834): analyzing package body 'numeric_bit'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd(68): analyzing package 'vital_timing'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd' into library 'ieee'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd(54): analyzing package body 'vital_timing'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd(50): analyzing package 'vital_primitives'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd' into library 'ieee'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd(38): analyzing package body 'vital_primitives'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(25): analyzing package 'std_logic_arith'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(206): analyzing package body 'std_logic_arith'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(35): analyzing package 'std_logic_unsigned'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(94): analyzing package body 'std_logic_unsigned'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(35): analyzing package 'std_logic_signed'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(96): analyzing package body 'std_logic_signed'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(27): analyzing package 'std_logic_misc'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(110): analyzing package body 'std_logic_misc'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd' into library 'ieee'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(26): analyzing package 'std_logic_textio'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(78): analyzing package body 'std_logic_textio'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd' into library 'arithmetic'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(22): analyzing package 'std_logic_arith'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(274): analyzing package body 'std_logic_arith'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd' into library 'qsim_logic'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(18): analyzing package 'qsim_logic'
-[INFO (VHDL-1013)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(753): analyzing package body 'qsim_logic'
-[-- (VHDL-1481)] Analyzing VHDL file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd' into library 'jasper_package'
-[INFO (VHDL-1014)] /home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd(8): analyzing package 'jasper_package'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/standard.vhd(9): analyzing package 'standard'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd' into library 'std'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(13): analyzing package 'textio'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/std/textio.vhd(114): analyzing package body 'textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd' into library 'vl'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(22): analyzing package 'vl_types'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/vl/mixed_lang_vltype.vhd(101): analyzing package body 'vl_types'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd' into library 'synopsys'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/synopsys/syn_attr.vhd(39): analyzing package 'attributes'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(15): analyzing package 'std_logic_1164'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/std_1164.vhd(178): analyzing package body 'std_logic_1164'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(57): analyzing package 'numeric_std'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_std.vhd(874): analyzing package body 'numeric_std'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(54): analyzing package 'numeric_bit'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/numeric_bit.vhd(834): analyzing package body 'numeric_bit'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_p.vhd(68): analyzing package 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/timing_b.vhd(54): analyzing package body 'vital_timing'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_p.vhd(50): analyzing package 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd' into library 'ieee'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/prmtvs_b.vhd(38): analyzing package body 'vital_primitives'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(25): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_arit.vhd(206): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(35): analyzing package 'std_logic_unsigned'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_unsi.vhd(94): analyzing package body 'std_logic_unsigned'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(35): analyzing package 'std_logic_signed'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_sign.vhd(96): analyzing package body 'std_logic_signed'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(27): analyzing package 'std_logic_misc'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_misc.vhd(110): analyzing package body 'std_logic_misc'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd' into library 'ieee'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(26): analyzing package 'std_logic_textio'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/ieee/syn_textio.vhd(78): analyzing package body 'std_logic_textio'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd' into library 'arithmetic'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(22): analyzing package 'std_logic_arith'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/arithmetic/mgc_arit.vhd(274): analyzing package body 'std_logic_arith'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd' into library 'qsim_logic'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(18): analyzing package 'qsim_logic'
+[INFO (VHDL-1013)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/vhdl_1993/qsim_logic/mgc_qsim.vhd(753): analyzing package body 'qsim_logic'
+[-- (VHDL-1481)] Analyzing VHDL file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd' into library 'jasper_package'
+[INFO (VHDL-1014)] /home/pauloldn/cadence/installs/jasper_2023.09p002/lib/vhdl/packages/jasper_package/jasper_package.vhd(8): analyzing package 'jasper_package'
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/statemanager.vhd'
 [INFO (VHDL-1012)] ../rtl/statemanager.vhd(5): analyzing entity 'statemanager'
 [INFO (VHDL-1010)] ../rtl/statemanager.vhd(33): analyzing architecture 'arch'
@@ -140,12 +150,12 @@ INFO (IPF121): Cleared environment completely for new design analysis.
 [INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
 [INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
 % analyze -sv ../rtl/regs_savestates.sv
-[-- (VERI-1482)] Analyzing Verilog file '/home/victorhug/cadence/installs/Update_JASPER23.09.002_lnx86_1of1/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/regs_savestates.sv'
 % 
 % 
 % analyze -sv -f files_sv.f
-INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/formal/files_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
 [WARN (VERI-2013)] ../rtl/sdram.sv(117): variable 'last_a' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../rtl/sdram.sv(181): variable 'init_old' must explicitly be declared as automatic or static
@@ -185,152 +195,152 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/savestate_ui.sv'
 [WARN (VERI-2013)] ../rtl/savestate_ui.sv(40): variable 'alt' must explicitly be declared as automatic or static
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/nes.v'
-[INFO (VERI-2561)] ../rtl/nes.v(426): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(427): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(428): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(429): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(598): undeclared symbol 'Savestate_OAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(599): undeclared symbol 'Savestate_OAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(600): undeclared symbol 'Savestate_OAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(601): undeclared symbol 'Savestate_OAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(602): undeclared symbol 'Savestate_OAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(685): undeclared symbol 'Savestate_MAPRAMactive', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(686): undeclared symbol 'Savestate_MAPRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(687): undeclared symbol 'Savestate_MAPRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(688): undeclared symbol 'Savestate_MAPRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(689): undeclared symbol 'Savestate_MAPRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../rtl/nes.v(690): undeclared symbol 'Savestate_MAPRAMReadData', assumed default net type 'wire'
-[WARN (VERI-1362)] ../rtl/nes.v(767): 'SaveStateBus_Din' is already implicitly declared on line 426
-[WARN (VERI-1362)] ../rtl/nes.v(768): 'SaveStateBus_Adr' is already implicitly declared on line 427
-[WARN (VERI-1362)] ../rtl/nes.v(769): 'SaveStateBus_wren' is already implicitly declared on line 428
-[WARN (VERI-1362)] ../rtl/nes.v(769): 'SaveStateBus_rst' is already implicitly declared on line 429
-[WARN (VERI-1362)] ../rtl/nes.v(801): 'Savestate_OAMAddr' is already implicitly declared on line 598
-[WARN (VERI-1362)] ../rtl/nes.v(802): 'Savestate_OAMRdEn' is already implicitly declared on line 599
-[WARN (VERI-1362)] ../rtl/nes.v(803): 'Savestate_OAMWrEn' is already implicitly declared on line 600
-[WARN (VERI-1362)] ../rtl/nes.v(804): 'Savestate_OAMWriteData' is already implicitly declared on line 601
-[WARN (VERI-1362)] ../rtl/nes.v(805): 'Savestate_OAMReadData' is already implicitly declared on line 602
-[WARN (VERI-1362)] ../rtl/nes.v(807): 'Savestate_MAPRAMactive' is already implicitly declared on line 685
-[WARN (VERI-1362)] ../rtl/nes.v(808): 'Savestate_MAPRAMAddr' is already implicitly declared on line 686
-[WARN (VERI-1362)] ../rtl/nes.v(809): 'Savestate_MAPRAMRdEn' is already implicitly declared on line 687
-[WARN (VERI-1362)] ../rtl/nes.v(810): 'Savestate_MAPRAMWrEn' is already implicitly declared on line 688
-[WARN (VERI-1362)] ../rtl/nes.v(811): 'Savestate_MAPRAMWriteData' is already implicitly declared on line 689
-[WARN (VERI-1362)] ../rtl/nes.v(812): 'Savestate_MAPRAMReadData' is already implicitly declared on line 690
+[INFO (VERI-2561)] ../rtl/nes.v(437): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(438): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(439): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(440): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(609): undeclared symbol 'Savestate_OAMAddr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(610): undeclared symbol 'Savestate_OAMRdEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(611): undeclared symbol 'Savestate_OAMWrEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(612): undeclared symbol 'Savestate_OAMWriteData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(613): undeclared symbol 'Savestate_OAMReadData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(696): undeclared symbol 'Savestate_MAPRAMactive', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(697): undeclared symbol 'Savestate_MAPRAMAddr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(698): undeclared symbol 'Savestate_MAPRAMRdEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(699): undeclared symbol 'Savestate_MAPRAMWrEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(700): undeclared symbol 'Savestate_MAPRAMWriteData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../rtl/nes.v(701): undeclared symbol 'Savestate_MAPRAMReadData', assumed default net type 'wire'
+[WARN (VERI-1362)] ../rtl/nes.v(778): 'SaveStateBus_Din' is already implicitly declared on line 437
+[WARN (VERI-1362)] ../rtl/nes.v(779): 'SaveStateBus_Adr' is already implicitly declared on line 438
+[WARN (VERI-1362)] ../rtl/nes.v(780): 'SaveStateBus_wren' is already implicitly declared on line 439
+[WARN (VERI-1362)] ../rtl/nes.v(780): 'SaveStateBus_rst' is already implicitly declared on line 440
+[WARN (VERI-1362)] ../rtl/nes.v(812): 'Savestate_OAMAddr' is already implicitly declared on line 609
+[WARN (VERI-1362)] ../rtl/nes.v(813): 'Savestate_OAMRdEn' is already implicitly declared on line 610
+[WARN (VERI-1362)] ../rtl/nes.v(814): 'Savestate_OAMWrEn' is already implicitly declared on line 611
+[WARN (VERI-1362)] ../rtl/nes.v(815): 'Savestate_OAMWriteData' is already implicitly declared on line 612
+[WARN (VERI-1362)] ../rtl/nes.v(816): 'Savestate_OAMReadData' is already implicitly declared on line 613
+[WARN (VERI-1362)] ../rtl/nes.v(818): 'Savestate_MAPRAMactive' is already implicitly declared on line 696
+[WARN (VERI-1362)] ../rtl/nes.v(819): 'Savestate_MAPRAMAddr' is already implicitly declared on line 697
+[WARN (VERI-1362)] ../rtl/nes.v(820): 'Savestate_MAPRAMRdEn' is already implicitly declared on line 698
+[WARN (VERI-1362)] ../rtl/nes.v(821): 'Savestate_MAPRAMWrEn' is already implicitly declared on line 699
+[WARN (VERI-1362)] ../rtl/nes.v(822): 'Savestate_MAPRAMWriteData' is already implicitly declared on line 700
+[WARN (VERI-1362)] ../rtl/nes.v(823): 'Savestate_MAPRAMReadData' is already implicitly declared on line 701
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/dsp.v'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/compat.v'
 [-- (VERI-1482)] Analyzing Verilog file '../NES.sv'
-[INFO (VERI-2561)] ../NES.sv(211): undeclared symbol 'hide_overscan', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(321): 'hide_overscan' is already implicitly declared on line 211
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'gg_avail', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'bios_loaded', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(431): undeclared symbol 'bk_ena', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(432): undeclared symbol 'ss_slot', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(433): undeclared symbol 'statusUpdate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(434): undeclared symbol 'info_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(435): undeclared symbol 'info', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'loader_clk', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'file_input', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(470): 'info_req' is already implicitly declared on line 434
-[WARN (VERI-1362)] ../NES.sv(471): 'info' is already implicitly declared on line 435
-[INFO (VERI-2561)] ../NES.sv(480): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(481): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(485): 'reconfig_to_pll' is already implicitly declared on line 480
-[WARN (VERI-1362)] ../NES.sv(486): 'reconfig_from_pll' is already implicitly declared on line 481
-[WARN (VERI-2271)] ../NES.sv(526): overflow of 32-bit signed integer 2201376898; using -2093590398 instead
-[WARN (VERI-2271)] ../NES.sv(526): overflow of 32-bit signed integer 2537933971; using -1757033325 instead
-[INFO (VERI-2561)] ../NES.sv(682): undeclared symbol 'reset_nes', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(713): undeclared symbol 'reticle', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(764): 'file_input' is already implicitly declared on line 442
-[WARN (VERI-1362)] ../NES.sv(766): 'loader_clk' is already implicitly declared on line 441
-[WARN (VERI-1362)] ../NES.sv(822): 'reset_nes' is already implicitly declared on line 682
-[INFO (VERI-2561)] ../NES.sv(873): undeclared symbol 'gg_code', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(885): undeclared symbol 'emphasis', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(899): undeclared symbol 'max_diskside', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(902): undeclared symbol 'cpu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(903): undeclared symbol 'cpu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(904): undeclared symbol 'cpu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(905): undeclared symbol 'cpu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(906): undeclared symbol 'cpu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(907): undeclared symbol 'ppu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(908): undeclared symbol 'ppu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(909): undeclared symbol 'ppu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(910): undeclared symbol 'ppu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(911): undeclared symbol 'ppu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(922): undeclared symbol 'save_written', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(927): undeclared symbol 'ss_save', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(928): undeclared symbol 'ss_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(932): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(933): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(934): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(935): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(938): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(939): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(940): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'savestate_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(945): undeclared symbol 'ss_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(946): undeclared symbol 'ss_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(947): undeclared symbol 'ss_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(948): undeclared symbol 'ss_rnw', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'ss_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'ss_be', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'ss_ack', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(954): 'cpu_addr' is already implicitly declared on line 902
-[WARN (VERI-1362)] ../NES.sv(955): 'ppu_addr' is already implicitly declared on line 907
-[WARN (VERI-1362)] ../NES.sv(956): 'cpu_read' is already implicitly declared on line 903
-[WARN (VERI-1362)] ../NES.sv(956): 'cpu_write' is already implicitly declared on line 904
-[WARN (VERI-1362)] ../NES.sv(956): 'ppu_read' is already implicitly declared on line 908
-[WARN (VERI-1362)] ../NES.sv(956): 'ppu_write' is already implicitly declared on line 909
-[WARN (VERI-1362)] ../NES.sv(957): 'cpu_dout' is already implicitly declared on line 905
-[WARN (VERI-1362)] ../NES.sv(957): 'cpu_din' is already implicitly declared on line 906
-[WARN (VERI-1362)] ../NES.sv(957): 'ppu_dout' is already implicitly declared on line 910
-[WARN (VERI-1362)] ../NES.sv(957): 'ppu_din' is already implicitly declared on line 911
-[WARN (VERI-1362)] ../NES.sv(959): 'emphasis' is already implicitly declared on line 885
-[WARN (VERI-1362)] ../NES.sv(964): 'bios_loaded' is already implicitly declared on line 431
-[INFO (VERI-2561)] ../NES.sv(1059): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1061): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(1106): 'save_written' is already implicitly declared on line 922
-[WARN (VERI-1362)] ../NES.sv(1155): 'reticle' is already implicitly declared on line 713
-[WARN (VERI-1362)] ../NES.sv(1193): 'gg_code' is already implicitly declared on line 873
-[WARN (VERI-1362)] ../NES.sv(1194): 'gg_avail' is already implicitly declared on line 431
-[WARN (VERI-1362)] ../NES.sv(1232): 'bk_ena' is already implicitly declared on line 431
-[WARN (VERI-1362)] ../NES.sv(1234): 'max_diskside' is already implicitly declared on line 899
-[WARN (VERI-1362)] ../NES.sv(1294): 'ss_dout' is already implicitly declared on line 946
-[WARN (VERI-1362)] ../NES.sv(1294): 'ss_din' is already implicitly declared on line 945
-[WARN (VERI-1362)] ../NES.sv(1295): 'ss_addr' is already implicitly declared on line 947
-[WARN (VERI-1362)] ../NES.sv(1296): 'ss_be' is already implicitly declared on line 950
-[WARN (VERI-1362)] ../NES.sv(1297): 'ss_rnw' is already implicitly declared on line 948
-[WARN (VERI-1362)] ../NES.sv(1297): 'ss_req' is already implicitly declared on line 949
-[WARN (VERI-1362)] ../NES.sv(1297): 'ss_ack' is already implicitly declared on line 951
-[WARN (VERI-1362)] ../NES.sv(1299): 'Savestate_SDRAMAddr' is already implicitly declared on line 932
-[WARN (VERI-1362)] ../NES.sv(1300): 'Savestate_SDRAMRdEn' is already implicitly declared on line 933
-[WARN (VERI-1362)] ../NES.sv(1301): 'Savestate_SDRAMWrEn' is already implicitly declared on line 934
-[WARN (VERI-1362)] ../NES.sv(1302): 'Savestate_SDRAMWriteData' is already implicitly declared on line 935
-[WARN (VERI-1362)] ../NES.sv(1303): 'Savestate_SDRAMReadData' is already implicitly declared on line 936
-[WARN (VERI-1362)] ../NES.sv(1305): 'SaveStateBus_Din' is already implicitly declared on line 938
-[WARN (VERI-1362)] ../NES.sv(1306): 'SaveStateBus_Adr' is already implicitly declared on line 939
-[WARN (VERI-1362)] ../NES.sv(1307): 'SaveStateBus_wren' is already implicitly declared on line 940
-[WARN (VERI-1362)] ../NES.sv(1308): 'SaveStateBus_rst' is already implicitly declared on line 941
-[WARN (VERI-1362)] ../NES.sv(1309): 'SaveStateBus_Dout' is already implicitly declared on line 942
-[WARN (VERI-1362)] ../NES.sv(1310): 'savestate_load' is already implicitly declared on line 943
-[WARN (VERI-1362)] ../NES.sv(1312): 'sdram_ss_in' is already implicitly declared on line 1059
-[WARN (VERI-1362)] ../NES.sv(1313): 'sdram_ss_out' is already implicitly declared on line 1061
-[WARN (VERI-1362)] ../NES.sv(1338): 'ss_slot' is already implicitly declared on line 432
-[WARN (VERI-1362)] ../NES.sv(1340): 'ss_save' is already implicitly declared on line 927
-[WARN (VERI-1362)] ../NES.sv(1340): 'ss_load' is already implicitly declared on line 928
-[WARN (VERI-1362)] ../NES.sv(1341): 'mapper_has_savestate' is already implicitly declared on line 431
-[WARN (VERI-1362)] ../NES.sv(1342): 'statusUpdate' is already implicitly declared on line 433
-[WARN (VERI-2013)] ../NES.sv(374): variable 'timeout' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(507): variable 'pald' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(507): variable 'pald2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(508): variable 'state' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(720): variable 'num' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(805): variable 'cnt' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1247): variable 'old_load' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1247): variable 'old_save' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1248): variable 'old_downloading' must explicitly be declared as automatic or static
+[INFO (VERI-2561)] ../NES.sv(220): undeclared symbol 'hide_overscan', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(330): 'hide_overscan' is already implicitly declared on line 220
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'gg_avail', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bios_loaded', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bk_ena', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'ss_slot', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'statusUpdate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(443): undeclared symbol 'info_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(444): undeclared symbol 'info', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(450): undeclared symbol 'loader_clk', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(451): undeclared symbol 'file_input', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(479): 'info_req' is already implicitly declared on line 443
+[WARN (VERI-1362)] ../NES.sv(480): 'info' is already implicitly declared on line 444
+[INFO (VERI-2561)] ../NES.sv(489): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(490): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(494): 'reconfig_to_pll' is already implicitly declared on line 489
+[WARN (VERI-1362)] ../NES.sv(495): 'reconfig_from_pll' is already implicitly declared on line 490
+[WARN (VERI-2271)] ../NES.sv(535): overflow of 32-bit signed integer 2201376898; using -2093590398 instead
+[WARN (VERI-2271)] ../NES.sv(535): overflow of 32-bit signed integer 2537933971; using -1757033325 instead
+[INFO (VERI-2561)] ../NES.sv(691): undeclared symbol 'reset_nes', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(722): undeclared symbol 'reticle', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(773): 'file_input' is already implicitly declared on line 451
+[WARN (VERI-1362)] ../NES.sv(775): 'loader_clk' is already implicitly declared on line 450
+[WARN (VERI-1362)] ../NES.sv(831): 'reset_nes' is already implicitly declared on line 691
+[INFO (VERI-2561)] ../NES.sv(882): undeclared symbol 'gg_code', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(894): undeclared symbol 'emphasis', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(908): undeclared symbol 'max_diskside', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(911): undeclared symbol 'cpu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(912): undeclared symbol 'cpu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(913): undeclared symbol 'cpu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(914): undeclared symbol 'cpu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(915): undeclared symbol 'cpu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(916): undeclared symbol 'ppu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(917): undeclared symbol 'ppu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(918): undeclared symbol 'ppu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(919): undeclared symbol 'ppu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(920): undeclared symbol 'ppu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(931): undeclared symbol 'save_written', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'ss_save', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(937): undeclared symbol 'ss_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(944): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(945): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(947): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(948): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(952): undeclared symbol 'savestate_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(954): undeclared symbol 'ss_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(955): undeclared symbol 'ss_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(956): undeclared symbol 'ss_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(957): undeclared symbol 'ss_rnw', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(958): undeclared symbol 'ss_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(959): undeclared symbol 'ss_be', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(960): undeclared symbol 'ss_ack', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(963): 'cpu_addr' is already implicitly declared on line 911
+[WARN (VERI-1362)] ../NES.sv(964): 'ppu_addr' is already implicitly declared on line 916
+[WARN (VERI-1362)] ../NES.sv(965): 'cpu_read' is already implicitly declared on line 912
+[WARN (VERI-1362)] ../NES.sv(965): 'cpu_write' is already implicitly declared on line 913
+[WARN (VERI-1362)] ../NES.sv(965): 'ppu_read' is already implicitly declared on line 917
+[WARN (VERI-1362)] ../NES.sv(965): 'ppu_write' is already implicitly declared on line 918
+[WARN (VERI-1362)] ../NES.sv(966): 'cpu_dout' is already implicitly declared on line 914
+[WARN (VERI-1362)] ../NES.sv(966): 'cpu_din' is already implicitly declared on line 915
+[WARN (VERI-1362)] ../NES.sv(966): 'ppu_dout' is already implicitly declared on line 919
+[WARN (VERI-1362)] ../NES.sv(966): 'ppu_din' is already implicitly declared on line 920
+[WARN (VERI-1362)] ../NES.sv(968): 'emphasis' is already implicitly declared on line 894
+[WARN (VERI-1362)] ../NES.sv(973): 'bios_loaded' is already implicitly declared on line 440
+[INFO (VERI-2561)] ../NES.sv(1068): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(1070): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
+[WARN (VERI-1362)] ../NES.sv(1115): 'save_written' is already implicitly declared on line 931
+[WARN (VERI-1362)] ../NES.sv(1164): 'reticle' is already implicitly declared on line 722
+[WARN (VERI-1362)] ../NES.sv(1202): 'gg_code' is already implicitly declared on line 882
+[WARN (VERI-1362)] ../NES.sv(1203): 'gg_avail' is already implicitly declared on line 440
+[WARN (VERI-1362)] ../NES.sv(1241): 'bk_ena' is already implicitly declared on line 440
+[WARN (VERI-1362)] ../NES.sv(1243): 'max_diskside' is already implicitly declared on line 908
+[WARN (VERI-1362)] ../NES.sv(1303): 'ss_dout' is already implicitly declared on line 955
+[WARN (VERI-1362)] ../NES.sv(1303): 'ss_din' is already implicitly declared on line 954
+[WARN (VERI-1362)] ../NES.sv(1304): 'ss_addr' is already implicitly declared on line 956
+[WARN (VERI-1362)] ../NES.sv(1305): 'ss_be' is already implicitly declared on line 959
+[WARN (VERI-1362)] ../NES.sv(1306): 'ss_rnw' is already implicitly declared on line 957
+[WARN (VERI-1362)] ../NES.sv(1306): 'ss_req' is already implicitly declared on line 958
+[WARN (VERI-1362)] ../NES.sv(1306): 'ss_ack' is already implicitly declared on line 960
+[WARN (VERI-1362)] ../NES.sv(1308): 'Savestate_SDRAMAddr' is already implicitly declared on line 941
+[WARN (VERI-1362)] ../NES.sv(1309): 'Savestate_SDRAMRdEn' is already implicitly declared on line 942
+[WARN (VERI-1362)] ../NES.sv(1310): 'Savestate_SDRAMWrEn' is already implicitly declared on line 943
+[WARN (VERI-1362)] ../NES.sv(1311): 'Savestate_SDRAMWriteData' is already implicitly declared on line 944
+[WARN (VERI-1362)] ../NES.sv(1312): 'Savestate_SDRAMReadData' is already implicitly declared on line 945
+[WARN (VERI-1362)] ../NES.sv(1314): 'SaveStateBus_Din' is already implicitly declared on line 947
+[WARN (VERI-1362)] ../NES.sv(1315): 'SaveStateBus_Adr' is already implicitly declared on line 948
+[WARN (VERI-1362)] ../NES.sv(1316): 'SaveStateBus_wren' is already implicitly declared on line 949
+[WARN (VERI-1362)] ../NES.sv(1317): 'SaveStateBus_rst' is already implicitly declared on line 950
+[WARN (VERI-1362)] ../NES.sv(1318): 'SaveStateBus_Dout' is already implicitly declared on line 951
+[WARN (VERI-1362)] ../NES.sv(1319): 'savestate_load' is already implicitly declared on line 952
+[WARN (VERI-1362)] ../NES.sv(1321): 'sdram_ss_in' is already implicitly declared on line 1068
+[WARN (VERI-1362)] ../NES.sv(1322): 'sdram_ss_out' is already implicitly declared on line 1070
+[WARN (VERI-1362)] ../NES.sv(1347): 'ss_slot' is already implicitly declared on line 441
+[WARN (VERI-1362)] ../NES.sv(1349): 'ss_save' is already implicitly declared on line 936
+[WARN (VERI-1362)] ../NES.sv(1349): 'ss_load' is already implicitly declared on line 937
+[WARN (VERI-1362)] ../NES.sv(1350): 'mapper_has_savestate' is already implicitly declared on line 440
+[WARN (VERI-1362)] ../NES.sv(1351): 'statusUpdate' is already implicitly declared on line 442
+[WARN (VERI-2013)] ../NES.sv(383): variable 'timeout' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(516): variable 'pald' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(516): variable 'pald2' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(517): variable 'state' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(729): variable 'num' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(814): variable 'cnt' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_load' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_save' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1257): variable 'old_downloading' must explicitly be declared as automatic or static
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_freak.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_mixer.sv'
 [WARN (VERI-1875)] ../sys/video_mixer.sv(37): identifier 'DWIDTH' is used before its declaration
@@ -422,145 +432,145 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [WARN (VERI-1362)] ../sys/sys_top.v(673): 'vbuf_writedata' is already implicitly declared on line 615
 [WARN (VERI-1362)] ../sys/sys_top.v(674): 'vbuf_byteenable' is already implicitly declared on line 616
 [WARN (VERI-1362)] ../sys/sys_top.v(675): 'vbuf_write' is already implicitly declared on line 617
-[INFO (VERI-2561)] ../sys/sys_top.v(715): undeclared symbol 'clk_ihdmi', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(716): undeclared symbol 'ce_hpix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(717): undeclared symbol 'hr_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(718): undeclared symbol 'hg_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(719): undeclared symbol 'hb_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(720): undeclared symbol 'hhs_fix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(721): undeclared symbol 'hvs_fix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(722): undeclared symbol 'f1', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(723): undeclared symbol 'hde_emu', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(740): undeclared symbol 'lltune', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(741): undeclared symbol 'WIDTH', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(741): undeclared symbol 'HFP', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(741): undeclared symbol 'HBP', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(745): undeclared symbol 'hmin', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(746): undeclared symbol 'hmax', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(747): undeclared symbol 'HEIGHT', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(747): undeclared symbol 'VFP', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(747): undeclared symbol 'VBP', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(751): undeclared symbol 'vmin', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(752): undeclared symbol 'vmax', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(756): undeclared symbol 'LFB_EN', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(756): undeclared symbol 'LFB_FLT', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(757): undeclared symbol 'clk_sys', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(763): undeclared symbol 'pal_d', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(764): undeclared symbol 'pal_a', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(778): undeclared symbol 'FB_EN', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(779): undeclared symbol 'FB_WIDTH', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(780): undeclared symbol 'FB_HEIGHT', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(781): undeclared symbol 'FB_FMT', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(782): undeclared symbol 'FB_BASE', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(783): undeclared symbol 'FB_STRIDE', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(798): 'LFB_EN' is already implicitly declared on line 756
-[WARN (VERI-1362)] ../sys/sys_top.v(799): 'LFB_FLT' is already implicitly declared on line 756
-[WARN (VERI-1362)] ../sys/sys_top.v(810): 'FB_EN' is already implicitly declared on line 778
-[WARN (VERI-1362)] ../sys/sys_top.v(811): 'FB_FMT' is already implicitly declared on line 781
-[WARN (VERI-1362)] ../sys/sys_top.v(812): 'FB_WIDTH' is already implicitly declared on line 779
-[WARN (VERI-1362)] ../sys/sys_top.v(813): 'FB_HEIGHT' is already implicitly declared on line 780
-[WARN (VERI-1362)] ../sys/sys_top.v(814): 'FB_BASE' is already implicitly declared on line 782
-[WARN (VERI-1362)] ../sys/sys_top.v(815): 'FB_STRIDE' is already implicitly declared on line 783
-[INFO (VERI-2561)] ../sys/sys_top.v(847): undeclared symbol 'clk_vid', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(857): 'hmin' is already implicitly declared on line 745
-[WARN (VERI-1362)] ../sys/sys_top.v(858): 'hmax' is already implicitly declared on line 746
-[WARN (VERI-1362)] ../sys/sys_top.v(859): 'vmin' is already implicitly declared on line 751
-[WARN (VERI-1362)] ../sys/sys_top.v(860): 'vmax' is already implicitly declared on line 752
-[WARN (VERI-1362)] ../sys/sys_top.v(963): 'lltune' is already implicitly declared on line 740
-[INFO (VERI-2561)] ../sys/sys_top.v(972): undeclared symbol 'adj_waitrequest', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(973): undeclared symbol 'adj_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(974): undeclared symbol 'adj_address', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(975): undeclared symbol 'adj_data', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(976): undeclared symbol 'cfg_waitrequest', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(977): undeclared symbol 'cfg_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(978): undeclared symbol 'cfg_address', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(979): undeclared symbol 'cfg_data', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(985): 'pal_data' is already implicitly declared on line 659
-[WARN (VERI-1362)] ../sys/sys_top.v(986): 'pal_d' is already implicitly declared on line 763
-[WARN (VERI-1362)] ../sys/sys_top.v(987): 'pal_a' is already implicitly declared on line 764
-[WARN (VERI-1362)] ../sys/sys_top.v(988): 'pal_wr' is already implicitly declared on line 661
-[WARN (VERI-1362)] ../sys/sys_top.v(990): 'pal_addr' is already implicitly declared on line 657
-[WARN (VERI-1362)] ../sys/sys_top.v(991): 'pal_req' is already implicitly declared on line 660
-[INFO (VERI-2561)] ../sys/sys_top.v(1011): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1012): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1018): 'WIDTH' is already implicitly declared on line 741
-[WARN (VERI-1362)] ../sys/sys_top.v(1019): 'HFP' is already implicitly declared on line 741
-[WARN (VERI-1362)] ../sys/sys_top.v(1021): 'HBP' is already implicitly declared on line 741
-[WARN (VERI-1362)] ../sys/sys_top.v(1022): 'HEIGHT' is already implicitly declared on line 747
-[WARN (VERI-1362)] ../sys/sys_top.v(1023): 'VFP' is already implicitly declared on line 747
-[WARN (VERI-1362)] ../sys/sys_top.v(1025): 'VBP' is already implicitly declared on line 747
-[WARN (VERI-1362)] ../sys/sys_top.v(1028): 'reconfig_to_pll' is already implicitly declared on line 1011
-[WARN (VERI-1362)] ../sys/sys_top.v(1029): 'reconfig_from_pll' is already implicitly declared on line 1012
-[WARN (VERI-1362)] ../sys/sys_top.v(1030): 'cfg_waitrequest' is already implicitly declared on line 976
-[WARN (VERI-1362)] ../sys/sys_top.v(1030): 'adj_waitrequest' is already implicitly declared on line 972
-[WARN (VERI-1362)] ../sys/sys_top.v(1031): 'cfg_write' is already implicitly declared on line 977
-[WARN (VERI-1362)] ../sys/sys_top.v(1032): 'cfg_address' is already implicitly declared on line 978
-[WARN (VERI-1362)] ../sys/sys_top.v(1033): 'cfg_data' is already implicitly declared on line 979
-[WARN (VERI-1362)] ../sys/sys_top.v(1034): 'adj_write' is already implicitly declared on line 973
-[WARN (VERI-1362)] ../sys/sys_top.v(1035): 'adj_address' is already implicitly declared on line 974
-[WARN (VERI-1362)] ../sys/sys_top.v(1036): 'adj_data' is already implicitly declared on line 975
-[INFO (VERI-2561)] ../sys/sys_top.v(1352): undeclared symbol 'scanlines', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1353): undeclared symbol 'de_emu', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1353): undeclared symbol 'r_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1353): undeclared symbol 'g_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1353): undeclared symbol 'b_out', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1354): undeclared symbol 'hs_fix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1355): undeclared symbol 'vs_fix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1357): undeclared symbol 'ce_pix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1375): undeclared symbol 'osd_status', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1523): 'clk_audio' is already implicitly declared on line 598
-[INFO (VERI-2561)] ../sys/sys_top.v(1539): undeclared symbol 'audio_mix', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1551): undeclared symbol 'audio_s', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1552): undeclared symbol 'audio_l', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1553): undeclared symbol 'audio_r', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1556): undeclared symbol 'alsa_l', assumed default net type 'wire'
-[INFO (VERI-2561)] ../sys/sys_top.v(1557): undeclared symbol 'alsa_r', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1583): 'alsa_address' is already implicitly declared on line 650
-[WARN (VERI-1362)] ../sys/sys_top.v(1584): 'alsa_readdata' is already implicitly declared on line 652
-[WARN (VERI-1362)] ../sys/sys_top.v(1585): 'alsa_ready' is already implicitly declared on line 654
-[WARN (VERI-1362)] ../sys/sys_top.v(1586): 'alsa_req' is already implicitly declared on line 653
-[WARN (VERI-1362)] ../sys/sys_top.v(1589): 'alsa_l' is already implicitly declared on line 1556
-[WARN (VERI-1362)] ../sys/sys_top.v(1589): 'alsa_r' is already implicitly declared on line 1557
-[WARN (VERI-1362)] ../sys/sys_top.v(1632): 'clk_sys' is already implicitly declared on line 757
-[WARN (VERI-1362)] ../sys/sys_top.v(1633): 'audio_l' is already implicitly declared on line 1552
-[WARN (VERI-1362)] ../sys/sys_top.v(1633): 'audio_r' is already implicitly declared on line 1553
-[WARN (VERI-1362)] ../sys/sys_top.v(1634): 'audio_s' is already implicitly declared on line 1551
-[WARN (VERI-1362)] ../sys/sys_top.v(1635): 'audio_mix' is already implicitly declared on line 1539
-[WARN (VERI-1362)] ../sys/sys_top.v(1636): 'scanlines' is already implicitly declared on line 1352
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'r_out' is already implicitly declared on line 1353
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'g_out' is already implicitly declared on line 1353
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'b_out' is already implicitly declared on line 1353
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'hr_out' is already implicitly declared on line 717
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'hg_out' is already implicitly declared on line 718
-[WARN (VERI-1362)] ../sys/sys_top.v(1637): 'hb_out' is already implicitly declared on line 719
-[WARN (VERI-1362)] ../sys/sys_top.v(1638): 'vs_fix' is already implicitly declared on line 1355
-[WARN (VERI-1362)] ../sys/sys_top.v(1638): 'hs_fix' is already implicitly declared on line 1354
-[WARN (VERI-1362)] ../sys/sys_top.v(1638): 'de_emu' is already implicitly declared on line 1353
-[WARN (VERI-1362)] ../sys/sys_top.v(1638): 'f1' is already implicitly declared on line 722
-[WARN (VERI-1362)] ../sys/sys_top.v(1639): 'hvs_fix' is already implicitly declared on line 721
-[WARN (VERI-1362)] ../sys/sys_top.v(1639): 'hhs_fix' is already implicitly declared on line 720
-[WARN (VERI-1362)] ../sys/sys_top.v(1639): 'hde_emu' is already implicitly declared on line 723
-[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'clk_vid' is already implicitly declared on line 847
-[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'ce_pix' is already implicitly declared on line 1357
-[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'clk_ihdmi' is already implicitly declared on line 715
-[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'ce_hpix' is already implicitly declared on line 716
-[WARN (VERI-1362)] ../sys/sys_top.v(1643): 'ram_clk' is already implicitly declared on line 586
-[WARN (VERI-1362)] ../sys/sys_top.v(1644): 'ram_address' is already implicitly declared on line 587
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'ram_burstcount' is already implicitly declared on line 588
-[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'ram_waitrequest' is already implicitly declared on line 589
-[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'ram_readdata' is already implicitly declared on line 590
-[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'ram_readdatavalid' is already implicitly declared on line 591
-[WARN (VERI-1362)] ../sys/sys_top.v(1649): 'ram_read' is already implicitly declared on line 592
-[WARN (VERI-1362)] ../sys/sys_top.v(1650): 'ram_writedata' is already implicitly declared on line 593
-[WARN (VERI-1362)] ../sys/sys_top.v(1651): 'ram_byteenable' is already implicitly declared on line 594
-[WARN (VERI-1362)] ../sys/sys_top.v(1652): 'ram_write' is already implicitly declared on line 595
-[WARN (VERI-1362)] ../sys/sys_top.v(1673): 'uart_dtr' is already implicitly declared on line 536
-[WARN (VERI-1362)] ../sys/sys_top.v(1674): 'uart_dsr' is already implicitly declared on line 534
-[WARN (VERI-1362)] ../sys/sys_top.v(1675): 'uart_cts' is already implicitly declared on line 538
-[WARN (VERI-1362)] ../sys/sys_top.v(1676): 'uart_rts' is already implicitly declared on line 539
-[WARN (VERI-1362)] ../sys/sys_top.v(1677): 'uart_rxd' is already implicitly declared on line 540
-[WARN (VERI-1362)] ../sys/sys_top.v(1678): 'uart_txd' is already implicitly declared on line 541
-[WARN (VERI-1362)] ../sys/sys_top.v(1680): 'osd_status' is already implicitly declared on line 1375
+[INFO (VERI-2561)] ../sys/sys_top.v(723): undeclared symbol 'clk_ihdmi', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(724): undeclared symbol 'ce_hpix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(725): undeclared symbol 'hr_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(726): undeclared symbol 'hg_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(727): undeclared symbol 'hb_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(728): undeclared symbol 'hhs_fix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(729): undeclared symbol 'hvs_fix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(730): undeclared symbol 'f1', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(731): undeclared symbol 'hde_emu', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(748): undeclared symbol 'lltune', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(749): undeclared symbol 'WIDTH', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(749): undeclared symbol 'HFP', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(749): undeclared symbol 'HBP', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(753): undeclared symbol 'hmin', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(754): undeclared symbol 'hmax', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(755): undeclared symbol 'HEIGHT', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(755): undeclared symbol 'VFP', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(755): undeclared symbol 'VBP', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(759): undeclared symbol 'vmin', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(760): undeclared symbol 'vmax', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(764): undeclared symbol 'LFB_EN', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(764): undeclared symbol 'LFB_FLT', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(765): undeclared symbol 'clk_sys', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(771): undeclared symbol 'pal_d', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(772): undeclared symbol 'pal_a', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(786): undeclared symbol 'FB_EN', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(787): undeclared symbol 'FB_WIDTH', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(788): undeclared symbol 'FB_HEIGHT', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(789): undeclared symbol 'FB_FMT', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(790): undeclared symbol 'FB_BASE', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(791): undeclared symbol 'FB_STRIDE', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(806): 'LFB_EN' is already implicitly declared on line 764
+[WARN (VERI-1362)] ../sys/sys_top.v(807): 'LFB_FLT' is already implicitly declared on line 764
+[WARN (VERI-1362)] ../sys/sys_top.v(818): 'FB_EN' is already implicitly declared on line 786
+[WARN (VERI-1362)] ../sys/sys_top.v(819): 'FB_FMT' is already implicitly declared on line 789
+[WARN (VERI-1362)] ../sys/sys_top.v(820): 'FB_WIDTH' is already implicitly declared on line 787
+[WARN (VERI-1362)] ../sys/sys_top.v(821): 'FB_HEIGHT' is already implicitly declared on line 788
+[WARN (VERI-1362)] ../sys/sys_top.v(822): 'FB_BASE' is already implicitly declared on line 790
+[WARN (VERI-1362)] ../sys/sys_top.v(823): 'FB_STRIDE' is already implicitly declared on line 791
+[INFO (VERI-2561)] ../sys/sys_top.v(855): undeclared symbol 'clk_vid', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(865): 'hmin' is already implicitly declared on line 753
+[WARN (VERI-1362)] ../sys/sys_top.v(866): 'hmax' is already implicitly declared on line 754
+[WARN (VERI-1362)] ../sys/sys_top.v(867): 'vmin' is already implicitly declared on line 759
+[WARN (VERI-1362)] ../sys/sys_top.v(868): 'vmax' is already implicitly declared on line 760
+[WARN (VERI-1362)] ../sys/sys_top.v(971): 'lltune' is already implicitly declared on line 748
+[INFO (VERI-2561)] ../sys/sys_top.v(980): undeclared symbol 'adj_waitrequest', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(981): undeclared symbol 'adj_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(982): undeclared symbol 'adj_address', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(983): undeclared symbol 'adj_data', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(984): undeclared symbol 'cfg_waitrequest', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(985): undeclared symbol 'cfg_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(986): undeclared symbol 'cfg_address', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(987): undeclared symbol 'cfg_data', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(993): 'pal_data' is already implicitly declared on line 659
+[WARN (VERI-1362)] ../sys/sys_top.v(994): 'pal_d' is already implicitly declared on line 771
+[WARN (VERI-1362)] ../sys/sys_top.v(995): 'pal_a' is already implicitly declared on line 772
+[WARN (VERI-1362)] ../sys/sys_top.v(996): 'pal_wr' is already implicitly declared on line 661
+[WARN (VERI-1362)] ../sys/sys_top.v(998): 'pal_addr' is already implicitly declared on line 657
+[WARN (VERI-1362)] ../sys/sys_top.v(999): 'pal_req' is already implicitly declared on line 660
+[INFO (VERI-2561)] ../sys/sys_top.v(1019): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1020): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(1026): 'WIDTH' is already implicitly declared on line 749
+[WARN (VERI-1362)] ../sys/sys_top.v(1027): 'HFP' is already implicitly declared on line 749
+[WARN (VERI-1362)] ../sys/sys_top.v(1029): 'HBP' is already implicitly declared on line 749
+[WARN (VERI-1362)] ../sys/sys_top.v(1030): 'HEIGHT' is already implicitly declared on line 755
+[WARN (VERI-1362)] ../sys/sys_top.v(1031): 'VFP' is already implicitly declared on line 755
+[WARN (VERI-1362)] ../sys/sys_top.v(1033): 'VBP' is already implicitly declared on line 755
+[WARN (VERI-1362)] ../sys/sys_top.v(1036): 'reconfig_to_pll' is already implicitly declared on line 1019
+[WARN (VERI-1362)] ../sys/sys_top.v(1037): 'reconfig_from_pll' is already implicitly declared on line 1020
+[WARN (VERI-1362)] ../sys/sys_top.v(1038): 'cfg_waitrequest' is already implicitly declared on line 984
+[WARN (VERI-1362)] ../sys/sys_top.v(1038): 'adj_waitrequest' is already implicitly declared on line 980
+[WARN (VERI-1362)] ../sys/sys_top.v(1039): 'cfg_write' is already implicitly declared on line 985
+[WARN (VERI-1362)] ../sys/sys_top.v(1040): 'cfg_address' is already implicitly declared on line 986
+[WARN (VERI-1362)] ../sys/sys_top.v(1041): 'cfg_data' is already implicitly declared on line 987
+[WARN (VERI-1362)] ../sys/sys_top.v(1042): 'adj_write' is already implicitly declared on line 981
+[WARN (VERI-1362)] ../sys/sys_top.v(1043): 'adj_address' is already implicitly declared on line 982
+[WARN (VERI-1362)] ../sys/sys_top.v(1044): 'adj_data' is already implicitly declared on line 983
+[INFO (VERI-2561)] ../sys/sys_top.v(1360): undeclared symbol 'scanlines', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'de_emu', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'r_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'g_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'b_out', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1362): undeclared symbol 'hs_fix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1363): undeclared symbol 'vs_fix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1365): undeclared symbol 'ce_pix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1383): undeclared symbol 'osd_status', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(1531): 'clk_audio' is already implicitly declared on line 598
+[INFO (VERI-2561)] ../sys/sys_top.v(1547): undeclared symbol 'audio_mix', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1559): undeclared symbol 'audio_s', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1560): undeclared symbol 'audio_l', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1561): undeclared symbol 'audio_r', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1564): undeclared symbol 'alsa_l', assumed default net type 'wire'
+[INFO (VERI-2561)] ../sys/sys_top.v(1565): undeclared symbol 'alsa_r', assumed default net type 'wire'
+[WARN (VERI-1362)] ../sys/sys_top.v(1591): 'alsa_address' is already implicitly declared on line 650
+[WARN (VERI-1362)] ../sys/sys_top.v(1592): 'alsa_readdata' is already implicitly declared on line 652
+[WARN (VERI-1362)] ../sys/sys_top.v(1593): 'alsa_ready' is already implicitly declared on line 654
+[WARN (VERI-1362)] ../sys/sys_top.v(1594): 'alsa_req' is already implicitly declared on line 653
+[WARN (VERI-1362)] ../sys/sys_top.v(1597): 'alsa_l' is already implicitly declared on line 1564
+[WARN (VERI-1362)] ../sys/sys_top.v(1597): 'alsa_r' is already implicitly declared on line 1565
+[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'clk_sys' is already implicitly declared on line 765
+[WARN (VERI-1362)] ../sys/sys_top.v(1641): 'audio_l' is already implicitly declared on line 1560
+[WARN (VERI-1362)] ../sys/sys_top.v(1641): 'audio_r' is already implicitly declared on line 1561
+[WARN (VERI-1362)] ../sys/sys_top.v(1642): 'audio_s' is already implicitly declared on line 1559
+[WARN (VERI-1362)] ../sys/sys_top.v(1643): 'audio_mix' is already implicitly declared on line 1547
+[WARN (VERI-1362)] ../sys/sys_top.v(1644): 'scanlines' is already implicitly declared on line 1360
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'r_out' is already implicitly declared on line 1361
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'g_out' is already implicitly declared on line 1361
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'b_out' is already implicitly declared on line 1361
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hr_out' is already implicitly declared on line 725
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hg_out' is already implicitly declared on line 726
+[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hb_out' is already implicitly declared on line 727
+[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'vs_fix' is already implicitly declared on line 1363
+[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'hs_fix' is already implicitly declared on line 1362
+[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'de_emu' is already implicitly declared on line 1361
+[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'f1' is already implicitly declared on line 730
+[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hvs_fix' is already implicitly declared on line 729
+[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hhs_fix' is already implicitly declared on line 728
+[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hde_emu' is already implicitly declared on line 731
+[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'clk_vid' is already implicitly declared on line 855
+[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'ce_pix' is already implicitly declared on line 1365
+[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'clk_ihdmi' is already implicitly declared on line 723
+[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'ce_hpix' is already implicitly declared on line 724
+[WARN (VERI-1362)] ../sys/sys_top.v(1651): 'ram_clk' is already implicitly declared on line 586
+[WARN (VERI-1362)] ../sys/sys_top.v(1652): 'ram_address' is already implicitly declared on line 587
+[WARN (VERI-1362)] ../sys/sys_top.v(1653): 'ram_burstcount' is already implicitly declared on line 588
+[WARN (VERI-1362)] ../sys/sys_top.v(1654): 'ram_waitrequest' is already implicitly declared on line 589
+[WARN (VERI-1362)] ../sys/sys_top.v(1655): 'ram_readdata' is already implicitly declared on line 590
+[WARN (VERI-1362)] ../sys/sys_top.v(1656): 'ram_readdatavalid' is already implicitly declared on line 591
+[WARN (VERI-1362)] ../sys/sys_top.v(1657): 'ram_read' is already implicitly declared on line 592
+[WARN (VERI-1362)] ../sys/sys_top.v(1658): 'ram_writedata' is already implicitly declared on line 593
+[WARN (VERI-1362)] ../sys/sys_top.v(1659): 'ram_byteenable' is already implicitly declared on line 594
+[WARN (VERI-1362)] ../sys/sys_top.v(1660): 'ram_write' is already implicitly declared on line 595
+[WARN (VERI-1362)] ../sys/sys_top.v(1681): 'uart_dtr' is already implicitly declared on line 536
+[WARN (VERI-1362)] ../sys/sys_top.v(1682): 'uart_dsr' is already implicitly declared on line 534
+[WARN (VERI-1362)] ../sys/sys_top.v(1683): 'uart_cts' is already implicitly declared on line 538
+[WARN (VERI-1362)] ../sys/sys_top.v(1684): 'uart_rts' is already implicitly declared on line 539
+[WARN (VERI-1362)] ../sys/sys_top.v(1685): 'uart_rxd' is already implicitly declared on line 540
+[WARN (VERI-1362)] ../sys/sys_top.v(1686): 'uart_txd' is already implicitly declared on line 541
+[WARN (VERI-1362)] ../sys/sys_top.v(1688): 'osd_status' is already implicitly declared on line 1383
 [WARN (VERI-1875)] ../sys/sys_top.v(131): identifier 'mcp_en' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(131): identifier 'mcp_sdcd' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(132): identifier 'mcp_en' is used before its declaration
@@ -669,57 +679,57 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [WARN (VERI-1875)] ../sys/sys_top.v(544): identifier 'video_sync' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(558): identifier 'reset' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(559): identifier 'reset' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(682): identifier 'hdmi_clk_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(818): identifier 'fb_en' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(827): identifier 'fb_fmt' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(828): identifier 'fb_width' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(829): identifier 'fb_height' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(830): identifier 'fb_base' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(831): identifier 'fb_stride' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(875): identifier 'HDMI_PR' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(875): identifier 'HDMI_PR' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(944): identifier 'HDMI_PR' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(944): identifier 'HDMI_PR' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1054): identifier 'cfg_ready' is used before its declaration
-[WARN (VERI-2013)] ../sys/sys_top.v(1064): variable 'gotd' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1064): variable 'gotd2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1065): variable 'custd' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1065): variable 'custd2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1066): variable 'old_wait' must explicitly be declared as automatic or static
-[WARN (VERI-1875)] ../sys/sys_top.v(1094): identifier 'hdmi_scl_en' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1095): identifier 'hdmi_sda_en' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1185): identifier 'ce_pix' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'yc_en' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'vga_data_osd' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'vga_hs_osd' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'vga_vs_osd' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'vga_cs_osd' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'yc_o' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'yc_hs' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'yc_vs' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1222): identifier 'yc_cs' is used before its declaration
-[WARN (VERI-2013)] ../sys/sys_top.v(1487): variable 'line_cnt' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1488): variable 'sync_line' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../sys/sys_top.v(1489): variable 'hs_cnt' must explicitly be declared as automatic or static
-[WARN (VERI-1875)] ../sys/sys_top.v(1512): identifier 'spdif' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1517): identifier 'spdif' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1613): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1614): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1615): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1616): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1617): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1618): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1619): identifier 'user_out' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1621): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1622): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1623): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1624): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1625): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1626): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1627): identifier 'user_in' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1844): identifier 'pol' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1877): identifier 'csync_vs' is used before its declaration
-[WARN (VERI-1875)] ../sys/sys_top.v(1877): identifier 'csync_hs' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(690): identifier 'hdmi_clk_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(826): identifier 'fb_en' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(835): identifier 'fb_fmt' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(836): identifier 'fb_width' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(837): identifier 'fb_height' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(838): identifier 'fb_base' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(839): identifier 'fb_stride' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(883): identifier 'HDMI_PR' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(883): identifier 'HDMI_PR' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(952): identifier 'HDMI_PR' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(952): identifier 'HDMI_PR' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1062): identifier 'cfg_ready' is used before its declaration
+[WARN (VERI-2013)] ../sys/sys_top.v(1072): variable 'gotd' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1072): variable 'gotd2' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1073): variable 'custd' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1073): variable 'custd2' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1074): variable 'old_wait' must explicitly be declared as automatic or static
+[WARN (VERI-1875)] ../sys/sys_top.v(1102): identifier 'hdmi_scl_en' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1103): identifier 'hdmi_sda_en' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1193): identifier 'ce_pix' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'yc_en' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'vga_data_osd' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'vga_hs_osd' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'vga_vs_osd' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'vga_cs_osd' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'yc_o' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'yc_hs' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'yc_vs' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1230): identifier 'yc_cs' is used before its declaration
+[WARN (VERI-2013)] ../sys/sys_top.v(1495): variable 'line_cnt' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1496): variable 'sync_line' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../sys/sys_top.v(1497): variable 'hs_cnt' must explicitly be declared as automatic or static
+[WARN (VERI-1875)] ../sys/sys_top.v(1520): identifier 'spdif' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1525): identifier 'spdif' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1621): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1622): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1623): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1624): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1625): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1626): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1627): identifier 'user_out' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1629): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1630): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1631): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1632): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1633): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1634): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1635): identifier 'user_in' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1852): identifier 'pol' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1885): identifier 'csync_vs' is used before its declaration
+[WARN (VERI-1875)] ../sys/sys_top.v(1885): identifier 'csync_hs' is used before its declaration
 [-- (VERI-1482)] Analyzing Verilog file '../sys/mcp23009.sv'
 [WARN (VERI-2013)] ../sys/mcp23009.sv(44): variable 'idx' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../sys/mcp23009.sv(45): variable 'state' must explicitly be declared as automatic or static
@@ -737,7 +747,7 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 [-- (VERI-1482)] Analyzing Verilog file '../sys/yc_out.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/vga_out.sv'
 % analyze -sv -f files_mappers_sv.f
-INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_MiSTerCadence/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/formal/files_mappers_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/FDS.sv'
 [INFO (VERI-2561)] ../rtl/mappers/FDS.sv(470): undeclared symbol 'audio_exp', assumed default net type 'wire'
 [WARN (VERI-1362)] ../rtl/mappers/FDS.sv(473): 'audio_exp' is already implicitly declared on line 470
@@ -756,18 +766,18 @@ INFO (INL011): Processing "-f" file "/home/victorhug/Documents/TCC/Código/NES_M
 % 
 % elaborate -top sys_top -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m sysmem -bbox_m cyclonev_hps_interface_mpu_general_purpose -bbox_m cyclonev_hps_interface_peripheral_uart -bbox_m sysmem_lite -bbox_m cyclonev_hps_interface_interrupts -bbox_m ddr_svc -bbox_m ascal -bbox_m pll_hdmi_adj -bbox_m pll_cfg_hdmi -bbox_m pll_hdmi -bbox_m cyclonev_hps_interface_peripheral_i2c -bbox_m cyclonev_clkselect -bbox_m pll_audio -bbox_m audio_out -bbox_m cyclonev_hps_interface_peripheral_spi_master -bbox_m alsa
 INFO (ISW003): Top module name is "sys_top".
-[INFO (HIER-8002)] ../sys/sys_top.v(1832): Disabling old hierarchical reference handler
-[WARN (VERI-1927)] ../sys/sys_top.v(855): port 'remainder' remains unconnected for this instance
-[WARN (VERI-1927)] ../sys/sys_top.v(1166): port 'osd_status' remains unconnected for this instance
-[WARN (VERI-1214)] ../sys/sys_top.v(1775): assignment to input 'ADC_SDO'
-[WARN (VERI-1927)] ../NES.sv(952): port 'state_loaded' remains unconnected for this instance
-[WARN (VERI-1927)] ../sys/video_freak.sv(189): port 'remainder' remains unconnected for this instance
-[WARN (VERI-1927)] ../rtl/nes.v(390): port 'end_of_line' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/nes.v(390): port 'SaveStateBus_Din' is not connected on this instance
-[WARN (VERI-2435)] ../rtl/nes.v(432): port 'abort_n' is not connected on this instance
-[WARN (VERI-1927)] ../rtl/nes.v(432): port 'so_n' remains unconnected for this instance
-[WARN (VERI-2435)] ../rtl/nes.v(503): port 'allow_us' is not connected on this instance
-[WARN (VERI-1214)] ../rtl/nes.v(568): assignment to input 'sys_type'
+[INFO (HIER-8002)] ../sys/sys_top.v(1840): Disabling old hierarchical reference handler
+[WARN (VERI-1927)] ../sys/sys_top.v(863): port 'remainder' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/sys_top.v(1174): port 'osd_status' remains unconnected for this instance
+[WARN (VERI-1214)] ../sys/sys_top.v(1783): assignment to input 'ADC_SDO'
+[WARN (VERI-1927)] ../NES.sv(961): port 'state_loaded' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/video_freak.sv(238): port 'remainder' remains unconnected for this instance
+[WARN (VERI-1927)] ../rtl/nes.v(401): port 'end_of_line' remains unconnected for this instance
+[WARN (VERI-2435)] ../rtl/nes.v(401): port 'SaveStateBus_Din' is not connected on this instance
+[WARN (VERI-2435)] ../rtl/nes.v(443): port 'abort_n' is not connected on this instance
+[WARN (VERI-1927)] ../rtl/nes.v(443): port 'so_n' remains unconnected for this instance
+[WARN (VERI-2435)] ../rtl/nes.v(514): port 'allow_us' is not connected on this instance
+[WARN (VERI-1214)] ../rtl/nes.v(579): assignment to input 'sys_type'
 [WARN (VERI-1927)] ../rtl/apu.sv(1050): port 'allow_us' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/mappers/MMC1.sv(275): port 'chr_read' is not connected on this instance
 [WARN (VERI-1927)] ../rtl/mappers/MMC1.sv(275): port 'SaveStateBus_load' remains unconnected for this instance
@@ -794,23 +804,23 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VERI-9033)] ../sys/osd.v(36): array osd_buffer (size 32768) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
 [WARN (VERI-9005)] ../sys/osd.v(94): 13-bit index expression 'bcnt' is larger than the required 12 bits. This might lead to an out-of-bound access
 [WARN (VERI-9005)] ../sys/osd.v(251): 13-bit index expression '(rot[0] ? ({osd_hcnt2[6:3],osd_vcnt[7:0]} ^ {{4{(~rot[1])}},{8{rot[1]}}}) : {osd_vcnt[7:3],osd_hcnt[7:0]})' is larger than the required 12 bits. This might lead to an out-of-bound access
-[INFO (VERI-1018)] ../sys/sys_top.v(1868): compiling module 'csync'
+[INFO (VERI-1018)] ../sys/sys_top.v(1876): compiling module 'csync'
 [INFO (VERI-1018)] ../sys/scanlines.v(1): compiling module 'scanlines'
 [INFO (VERI-1018)] ../sys/yc_out.sv(28): compiling module 'yc_out'
 [WARN (VERI-1220)] ../sys/yc_out.sv(76): using initial value of 'vref' since it is never assigned
 [INFO (VERI-1018)] ../sys/vga_out.sv(2): compiling module 'vga_out'
-[INFO (VERI-1018)] ../sys/sys_top.v(1836): compiling module 'sync_fix'
-[INFO (VERI-1018)] ../sys/video_freak.sv(165): compiling module 'video_scale_int'
-[WARN (VERI-8028)] ../sys/video_freak.sv(189): missing/open ports on instance div of module sys_udiv
-[INFO (VERI-8005)] ../sys/video_freak.sv(197): Unintentional sequential element inferred for hinteger read before write using blocking assignment
+[INFO (VERI-1018)] ../sys/sys_top.v(1844): compiling module 'sync_fix'
+[INFO (VERI-1018)] ../sys/video_freak.sv(214): compiling module 'video_scale_int'
+[WARN (VERI-8028)] ../sys/video_freak.sv(238): missing/open ports on instance div of module sys_udiv
+[INFO (VERI-8005)] ../sys/video_freak.sv(246): Unintentional sequential element inferred for hinteger read before write using blocking assignment
 [INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
 [INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
 [WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
 [INFO (VERI-1018)] ../rtl/miracle.sv(199): compiling module 'midi_uart'
 [INFO (VERI-1018)] ../rtl/miracle.sv(28): compiling module 'miraclepiano'
 [INFO (VERI-1018)] ../rtl/zapper.sv(4): compiling module 'zapper'
-[INFO (VERI-1018)] ../NES.sv(1378): compiling module 'GameLoader'
-[WARN (VERI-1060)] ../NES.sv(1401): 'initial' construct is ignored
+[INFO (VERI-1018)] ../NES.sv(1387): compiling module 'GameLoader'
+[WARN (VERI-1060)] ../NES.sv(1410): 'initial' construct is ignored
 [INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
@@ -830,7 +840,7 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
 [INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
 [INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
-[INFO (VERI-1018)] ../rtl/nes.v(21): compiling module 'DmaController'
+[INFO (VERI-1018)] ../rtl/nes.v(32): compiling module 'DmaController'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(4): compiling module 'LenCounterUnit'
 [INFO (VERI-1018)] ../rtl/apu.sv(65): compiling module 'EnvelopeUnit'
@@ -1072,27 +1082,27 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VHDL-1129)] ../rtl/statemanager.vhd(51): initial value for signal is ignored
 [WARN (VHDL-1129)] ../rtl/statemanager.vhd(53): initial value for signal is ignored
 [INFO (VHDL-9046)] ../rtl/statemanager.vhd(53): creating type property for signal 'vsync_counter'
-[INFO (VERI-1018)] ../rtl/nes.v(72): compiling module 'NES'
-[WARN (VERI-8028)] ../rtl/nes.v(373): missing/open ports on instance clockgen_pause of module ClockGen
-[WARN (VERI-1330)] ../rtl/nes.v(407): actual bit length 32 differs from formal bit length 2 for port 'Mode'
-[WARN (VERI-1330)] ../rtl/nes.v(408): actual bit length 32 differs from formal bit length 1 for port 'BCD_en'
-[WARN (VERI-1330)] ../rtl/nes.v(419): actual bit length 16 differs from formal bit length 24 for port 'A'
-[WARN (VERI-8028)] ../rtl/nes.v(475): missing/open ports on instance apu of module APU
-[WARN (VERI-1330)] ../rtl/nes.v(655): actual bit length 21 differs from formal bit length 10 for port 'prg_mask'
-[WARN (VERI-1330)] ../rtl/nes.v(656): actual bit length 20 differs from formal bit length 10 for port 'chr_mask'
-[WARN (VERI-1330)] ../rtl/nes.v(874): actual bit length 2 differs from formal bit length 32 for port 'savestate_number'
-[WARN (VDB-1002)] ../rtl/nes.v(598): net 'Savestate_OAMAddr[7]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(599): net 'Savestate_OAMRdEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(600): net 'Savestate_OAMWrEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(601): net 'Savestate_OAMWriteData[7]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(685): net 'Savestate_MAPRAMactive' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(686): net 'Savestate_MAPRAMAddr[12]' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(687): net 'Savestate_MAPRAMRdEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(688): net 'Savestate_MAPRAMWrEn' does not have a driver
-[WARN (VDB-1002)] ../rtl/nes.v(689): net 'Savestate_MAPRAMWriteData[7]' does not have a driver
-[WARN (VDB-1013)] ../rtl/nes.v(390): input port 'SaveStateBus_Din[63]' is not connected on this instance
-[WARN (VDB-1013)] ../rtl/nes.v(406): input port 'Abort_n' is not connected on this instance
-[WARN (VDB-1013)] ../rtl/nes.v(503): input port 'allow_us' is not connected on this instance
+[INFO (VERI-1018)] ../rtl/nes.v(83): compiling module 'NES'
+[WARN (VERI-8028)] ../rtl/nes.v(384): missing/open ports on instance clockgen_pause of module ClockGen
+[WARN (VERI-1330)] ../rtl/nes.v(418): actual bit length 32 differs from formal bit length 2 for port 'Mode'
+[WARN (VERI-1330)] ../rtl/nes.v(419): actual bit length 32 differs from formal bit length 1 for port 'BCD_en'
+[WARN (VERI-1330)] ../rtl/nes.v(430): actual bit length 16 differs from formal bit length 24 for port 'A'
+[WARN (VERI-8028)] ../rtl/nes.v(486): missing/open ports on instance apu of module APU
+[WARN (VERI-1330)] ../rtl/nes.v(666): actual bit length 21 differs from formal bit length 10 for port 'prg_mask'
+[WARN (VERI-1330)] ../rtl/nes.v(667): actual bit length 20 differs from formal bit length 10 for port 'chr_mask'
+[WARN (VERI-1330)] ../rtl/nes.v(885): actual bit length 2 differs from formal bit length 32 for port 'savestate_number'
+[WARN (VDB-1002)] ../rtl/nes.v(609): net 'Savestate_OAMAddr[7]' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(610): net 'Savestate_OAMRdEn' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(611): net 'Savestate_OAMWrEn' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(612): net 'Savestate_OAMWriteData[7]' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(696): net 'Savestate_MAPRAMactive' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(697): net 'Savestate_MAPRAMAddr[12]' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(698): net 'Savestate_MAPRAMRdEn' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(699): net 'Savestate_MAPRAMWrEn' does not have a driver
+[WARN (VDB-1002)] ../rtl/nes.v(700): net 'Savestate_MAPRAMWriteData[7]' does not have a driver
+[WARN (VDB-1013)] ../rtl/nes.v(401): input port 'SaveStateBus_Din[63]' is not connected on this instance
+[WARN (VDB-1013)] ../rtl/nes.v(417): input port 'Abort_n' is not connected on this instance
+[WARN (VDB-1013)] ../rtl/nes.v(514): input port 'allow_us' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/sdram.sv(22): compiling module 'sdram'
 [INFO (VERI-8005)] ../rtl/sdram.sv(97): Unintentional sequential element inferred for controle read before write using blocking assignment
 [INFO (VERI-1018)] ../rtl/video.sv(4): compiling module 'video'
@@ -1123,20 +1133,20 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../rtl/ddram.sv(22): compiling module 'ddram'
 [INFO (VERI-1018)] ../rtl/savestate_ui.sv(1): compiling module 'savestate_ui:(INFO_TIMEOUT_BITS=25)'
 [INFO (VERI-1018)] ../NES.sv(6): compiling module 'emu'
-[WARN (VERI-1330)] ../NES.sv(213): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
-[WARN (VERI-1330)] ../NES.sv(215): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
-[WARN (VERI-1330)] ../NES.sv(914): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
-[WARN (VERI-1330)] ../NES.sv(915): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
-[WARN (VERI-8028)] ../NES.sv(863): missing/open ports on instance nes of module NES
-[WARN (VDB-1002)] ../NES.sv(211): net 'hide_overscan' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(682): net 'reset_nes' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(1059): net 'sdram_ss_in[15]' does not have a driver
+[WARN (VERI-1330)] ../NES.sv(222): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
+[WARN (VERI-1330)] ../NES.sv(224): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
+[WARN (VERI-1330)] ../NES.sv(923): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
+[WARN (VERI-1330)] ../NES.sv(924): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
+[WARN (VERI-8028)] ../NES.sv(872): missing/open ports on instance nes of module NES
+[WARN (VDB-1002)] ../NES.sv(220): net 'hide_overscan' does not have a driver
+[WARN (VDB-1002)] ../NES.sv(691): net 'reset_nes' does not have a driver
+[WARN (VDB-1002)] ../NES.sv(1068): net 'sdram_ss_in[15]' does not have a driver
 [INFO (VERI-1018)] ../sys/sys_top.v(22): compiling module 'sys_top'
 [WARN (VERI-1060)] ../sys/sys_top.v(194): 'initial' construct is ignored
 [WARN (VERI-1060)] ../sys/sys_top.v(316): 'initial' construct is ignored
-[WARN (VERI-1330)] ../sys/sys_top.v(854): actual bit length 12 differs from formal bit length 24 for port 'result'
-[WARN (VERI-8028)] ../sys/sys_top.v(845): missing/open ports on instance ar_muldiv of module sys_umuldiv
-[WARN (VERI-8028)] ../sys/sys_top.v(1148): missing/open ports on instance hdmi_osd of module osd
+[WARN (VERI-1330)] ../sys/sys_top.v(862): actual bit length 12 differs from formal bit length 24 for port 'result'
+[WARN (VERI-8028)] ../sys/sys_top.v(853): missing/open ports on instance ar_muldiv of module sys_umuldiv
+[WARN (VERI-8028)] ../sys/sys_top.v(1156): missing/open ports on instance hdmi_osd of module osd
 [WARN (VDB-1002)] ../sys/sys_top.v(311): net 'cfg_custom_t' does not have a driver
 [WARN (VDB-1002)] ../sys/sys_top.v(312): net 'cfg_custom_p1[5]' does not have a driver
 [WARN (VDB-1002)] ../sys/sys_top.v(313): net 'cfg_custom_p2[31]' does not have a driver
@@ -1144,22 +1154,22 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VDB-1002)] ../sys/sys_top.v(345): net 'arc1y[12]' does not have a driver
 [WARN (VDB-1002)] ../sys/sys_top.v(346): net 'arc2x[12]' does not have a driver
 [WARN (VDB-1002)] ../sys/sys_top.v(347): net 'arc2y[12]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(801): net 'LFB_WIDTH[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(802): net 'LFB_HEIGHT[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(803): net 'LFB_HMIN[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(804): net 'LFB_HMAX[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(805): net 'LFB_VMIN[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(806): net 'LFB_VMAX[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(807): net 'LFB_BASE[31]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(808): net 'LFB_STRIDE[13]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(741): net 'HFP[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(1020): net 'HS[12]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(741): net 'HBP[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(747): net 'VFP[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(1024): net 'VS[12]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(747): net 'VBP[11]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(1396): net 'ColorBurst_Range[16]' does not have a driver
-[WARN (VDB-1002)] ../sys/sys_top.v(1397): net 'PhaseInc[39]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(809): net 'LFB_WIDTH[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(810): net 'LFB_HEIGHT[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(811): net 'LFB_HMIN[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(812): net 'LFB_HMAX[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(813): net 'LFB_VMIN[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(814): net 'LFB_VMAX[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(815): net 'LFB_BASE[31]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(816): net 'LFB_STRIDE[13]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(749): net 'HFP[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(1028): net 'HS[12]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(749): net 'HBP[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(755): net 'VFP[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(1032): net 'VS[12]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(755): net 'VBP[11]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(1404): net 'ColorBurst_Range[16]' does not have a driver
+[WARN (VDB-1002)] ../sys/sys_top.v(1405): net 'PhaseInc[39]' does not have a driver
 WARNING (WNL008): Module "dpram" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "EEPROM_24C0x" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "IIR_filter" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
@@ -1213,10 +1223,7 @@ WARNING (WNL032): ../rtl/mappers/FDS.sv(587): division operator div_13u_2u (size
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
 WARNING (WNL032): ../rtl/mappers/FDS.sv(589): division operator div_13u_3u (size 13) automatically black boxed.
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
-WARNING (WOBS004): ../sys/video_freak.sv(143): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
-WARNING (WOBS004): ../sys/video_freak.sv(147): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
-WARNING (WOBS004): ../NES.sv(1707): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
-WARNING (WNL010): Input port "ADC_SDO" of module "sys_top" is also being driven at ../sys/sys_top.v(1712).
+WARNING (WNL010): Input port "ADC_SDO" of module "sys_top" is also being driven at ../sys/sys_top.v(1720).
 INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
 INFO (IMDS005): Number of multiple-driven bits in design: 5436. Use "get_design_info -list multiple_driven" for more information.
 sys_top
@@ -1244,515 +1251,13 @@ INFO (IRS006): Current reset condition is "emu.reset_nes".
 [<embedded>] % #reset -expression ~RESET;
 [<embedded>] % #reset -none;
 [<embedded>] % # # Extract properties
-[<embedded>] % # check_superlint -extract
-[<embedded>] % 
-[<embedded>] % 
-[<embedded>] % prove -bg -all
-----------------------------------------
-| INFO (IPF035): Proving the following tasks:
-|     1:    <constraints>
-|     2:    <embedded>
-----------------------------------------
-Ncustom1: Custom engine code is hT3Ng7hPPfiYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSl+CwjiTMAQA
-Bcustom2: Custom engine code is hT3Nm7hPr1Vp3Di1Ra2USNIGL4JypRnLKLAdF6JAyuavO2JfGCiY9OZJhcAcOUnLx5xwNdhILGrAWX9s+z2WDkKwNR7tAfClBEjRFVQeq6DU54boFgEA
-AMcustom3: Custom engine code is hT3Ng7hP/feYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSmmqwm7g9AQA
-Mpcustom4: Custom engine code is hT3NZbhP9fmY2AbBQnsjfOxn6c+6e6yL+/e8fZFmaQrnlgEA
-background 0
-INFO (IPF036): Starting proof on task: "<constraints>", 20 properties to prove with 0 already proven/unreachable
-INFO (IRS029): Starting reset analysis: phase 1 of 4.
-INFO (IRS030): Running reset analysis: phase 2 of 4.
-INFO (IRS031): Running reset analysis: phase 3 of 4.
-INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
-INFO (IRS024): Reset iterations 0 to 9 analyzed.
-INFO (IRS024): Reset iterations 10 to 19 analyzed.
-INFO (IRS018): Reset analysis simulation executed for 18 iterations. Assigned values for 1553 of 29249 design flops, 0 of 8 design latches, 15 of 27 internal elements.
-WARNING (WRS031): 2 of 29249 design flop(s) with asynchronous reset condition, but not reset. Run "get_reset_info -x_value -with_reset_pin" to get a list of such flops.
-INFO (IRS039): Reset analysis complete.
-INFO (IPF031): Settings used for proof thread 0:
-    orchestration                 = on (auto)
-    time_limit                    = 86400s
-    per_property_time_limit       = 1s * 10 ^ scan
-    engine_mode                   = auto
-    proofgrid_per_engine_max_jobs = 1
-    max engine jobs               = auto
-    proofgrid_mode                = local
-    proofgrid_restarts            = 10
-INFO (ICK016): The clocks listed below were automatically declared as "-both_edges" by the tool as the fastest clock had already been declared as "-both_edges", or it is a slow clock that has activity on the negedge.
-    For message help, type "help -message ICK016".
-    FPGA_CLK1_50 FPGA_CLK2_50 pll_hdmi.outclk_0 emu.pll.outclk_0 emu.pll.outclk_1 sysmem.ram2_clk hdmi_clk_sw.outclk emu.hps_io.HPS_BUS[36]
-AMcustom5: Custom engine code is hT3N1rhP11/52HrFRS21ROp2LOjVTgPvT8L8BGXHgLhaIuqtT4nARFjUqrBL+7pLmaTOzBepZW/Jm8SSrHDybSQtoNiO3y43wk+dEoWlsZizu97Fih6O6lPVG/LpWP5SsUPwlGagLNa1FKEFvwVXyX7//8prySbvSxIHXr5er+z4RAEA
-Ncustom6: Custom engine code is hT3OXrhPByJp3TrFSTLhUmMH4KVtJgmTCnNDF46yMXOKY48m4LS5nE7yBzFjA7kDuwO/GhGUpEPiky3p3wmPn3dJZHxFMsafSoObRzSC+tn7sEY0WbTdZ/FV4hL3MYH/b1CIUvXSWR4wqEoVLsmMOD4xIPT4lI1LO6ZCO7PnnWQuLwetnvKlrXx6wCW/A+x+enqslg1YPobi4wEF/EvbzOvcTYdJvl2s4H2yZg2b2ofAVN5WvhWk1HoBAA
-ADcustom7: Custom engine code is hT3Nv7hPv1752HrFRa2kROx2f/ECJeZB2AZsLdlO8VwmIuqtT4nIDFXclhg+O+o+DMmQCekbheGk0kK28laA9gaOFDXsQp29J3X615HY1IPHJWd6FUFvCHjO+p1k652b5JJvZlShNpGlGSXAiQe/mEAj6tEBAA
-Tricustom8: Custom engine code is hT3Nu7hPt1752DvFRa0kNDiyIV97VyejwM9C/jCLJjdPvusZONHY42VYUy0Q1ZotnhcVtNc56tJ5wbxv6V2+XpdsaSlHck5vfnbYjdwj1OECy9U+7oSQ0SZE3g5ayD+Phuh4odCJTjeKa2k4elM9ldQfkAEA
-Gcustom9: Custom engine code is hT3NibhPDfeYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncipMGcUXqAadachREE9F2PwhBUZUNw5kHnd4JdXkamORRgEA
-C2custom10: Custom engine code is hT3NirhPjfWYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncgkrYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuG86XYVV00BAA
-AGcustom11: Custom engine code is hT3NirhP/fmYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInnckcwYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuHEZnZByh0BAA
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-Bcustom12: Custom engine code is hT3NjrhPDfiYQADBZnYcglOvK9PfWxFtenjIyBqfrgr7if/jL/yPOuK1BAflEcW0DxNH2eDIoezN2gxlQFg81RZtiWXh7aiTAidvAQA
-INFO (IPF057): 0.0.PRE: The property "emu.nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
-Ncustom13: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
-Tricustom14: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.PRE: The property "emu.nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
-0: Found proofs for 2 properties in preprocessing
-0: Using multistage preprocessing
-0: Starting reduce
-0: Finished reduce in 0.12s
-0.0.PRE: Performing Proof Simplification...
-0.0.N: clocks: 4, declared: 3, looping: 0, posedge: 4, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Proof Simplification Iteration 1	[0.00 s]
-0.0.PRE: A trace with 1 cycles was found. [0.30 s]
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu._type_constraint_ALU_Op_r" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu._type_constraint_Write_Data_r" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.cpu.alu._type_constraint_Op" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_savetype_counter" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_count" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_maxcount" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_settle" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_timer_rewind" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_savestatecount" in 0.00 s.
-INFO (IPF055): 0.0.PRE: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_vsync_counter" in 0.00 s.
-0.0.N: Proof Simplification Iteration 2	[0.62 s]
-0.0.N: Proof Simplification Iteration 3	[0.69 s]
-0.0.N: Proof Simplification Iteration 4	[0.77 s]
-0.0.N: Proof Simplification Iteration 5	[0.87 s]
-0.0.N: Proof Simplification Iteration 6	[0.95 s]
-0.0.N: Proof Simplification Iteration 7	[1.03 s]
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
-    Use check_assumptions -show -dead_end to show this property in the property table.
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
-    Use check_assumptions -show to show this property in the property table.
-INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
-    Use check_assumptions -show -live to show this property in the property table.
-0.0.PRE: Proof Simplification completed in 1.51 s
-0.0.N: Identified and disabled 13 duplicated targets.
-0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
-0: =============================== ProofGrid start ===============================
-0: ProofGrid usable level: 4
-0: Initial ProofGrid level: 1
-0: ProofGrid is starting event handling
-0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Hp: Proofgrid shell started at 59778@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Hp: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Proofgrid shell started at 59777@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.N: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
-0.0.N: Starting proof for property "emu.nes.cpu._type_constraint_ALU_Op"	[0.00 s].
-0.0.N: Starting proof for property "emu.nes.cpu.mcode._type_constraint_ALU_Op"	[0.00 s].
-0.0.N: Trace Attempt  1	[0.10 s]
-0.0.N: Trace Attempt  2	[0.20 s]
-0.0.N: Trace Attempt  3	[0.23 s]
-0.0.N: Trace Attempt  4	[0.26 s]
-0.0.N: Trace Attempt  5	[0.29 s]
-0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Hp: A proof was found: No trace exists. [1.82 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_ALU_Op" was proven in 1.36 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_ALU_Op" was proven in 1.36 s.
-0.0.Hp: A proof was found: No trace exists. [1.82 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_Set_BusA_To" was proven in 1.36 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 1.36 s.
-0.0.Hp: A proof was found: No trace exists. [1.82 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu._type_constraint_Write_Data" was proven in 1.37 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "emu.nes.cpu.mcode._type_constraint_Write_Data" was proven in 1.37 s.
-0.0.Hp: Trace Attempt  1	[1.82 s]
-0.0.N: Trace Attempt  1	[0.83 s]
-0.0.N: Requesting engine job to stop
-0.0.Hp: Requesting engine job to terminate
-INFO (IPF144): 0: Initiating shutdown of proof [1.95 s]
-0.0.Hp: A trace with 1 cycles was found. [1.82 s]
-INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "emu.nes.savestates._type_constraint_savestate_address" in 1.77 s.
-INFO (IPF055): 0.0.Hp: A counterexample (cex) with 1 cycles was found for the property "emu.nes.statemanager._type_constraint_request_address" in 1.77 s.
-0.0.N: Stopped processing property "emu.nes.cpu._type_constraint_ALU_Op"	[1.28 s].
-0.0.N: Stopped processing property "emu.nes.cpu.mcode._type_constraint_ALU_Op"	[1.28 s].
-0.0.Hp: All properties determined. [1.85 s]
-0.0.N: Interrupted. [0.90 s]
-0.0.Hp: Exited with Success (@ 2.01 s)
-0: ProofGrid usable level: 0
-0.0.AM: Proofgrid shell started at 59815@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.AM: Requesting engine job to terminate
-0.0.N: Exited with Success (@ 2.04 s)
-0.0.Oh: Proofgrid shell started at 59808@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.Oh: Requesting engine job to terminate
-0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.AM: Preventing job from starting because proof is shutting down.
-0.0.AM: Requesting engine job to terminate
-0.0.AM: Interrupted. [0.07 s]
-0.0.Oh: Preventing job from starting because proof is shutting down.
-0.0.Oh: Requesting engine job to terminate
-0.0.AM: Exited with Success (@ 2.20 s)
-0.0.Oh: Interrupted. [0.09 s]
-0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Bm: Proofgrid shell started at 59792@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.Bm: Requesting engine job to terminate
-0.0.Oh: Exited with Success (@ 2.23 s)
-0.0.L: Proofgrid shell started at 59812@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.L: Requesting engine job to terminate
-0.0.Ht: Proofgrid shell started at 59779@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.Ht: Requesting engine job to terminate
-0.0.L: Preventing job from starting because proof is shutting down.
-0.0.L: Requesting engine job to terminate
-0.0.L: Interrupted. [0.06 s]
-0.0.Bm: Preventing job from starting because proof is shutting down.
-0.0.Bm: Requesting engine job to terminate
-0.0.Bm: Interrupted. [0.05 s]
-0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.L: Exited with Success (@ 2.35 s)
-0.0.Ht: Preventing job from starting because proof is shutting down.
-0.0.Ht: Requesting engine job to terminate
-0.0.Bm: Exited with Success (@ 2.37 s)
-0.0.Ht: Interrupted. [0.06 s]
-0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: Exited with Success (@ 2.42 s)
-0.0.Mpcustom4: Proofgrid shell started at 59803@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.Mpcustom4: Requesting engine job to terminate
-0.0.B: Proofgrid shell started at 59814@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_1
-0.0.B: Requesting engine job to terminate
-0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
-0.0.Mpcustom4: Requesting engine job to terminate
-0.0.Mpcustom4: Interrupted. [0.06 s]
-0.0.B: Preventing job from starting because proof is shutting down.
-0.0.B: Requesting engine job to terminate
-0.0.B: Interrupted. [0.06 s]
-0.0.Mpcustom4: Exited with Success (@ 2.49 s)
-0.0.B: Exited with Success (@ 2.49 s)
-0: --------------------------------------------------------------
-ProofGrid Summary (utilization 15.93 %)
---------------------------------------------------------------
-     engines started                               :     9
-     engine jobs started                           :     9
+[<embedded>] % check_superlint -extract
+ERROR (ESL035): Run "check_superlint -init" before using Superlint-related commands.
 
-    Average time in state (seconds)
-    ------------------------------------------------------
-    Engine  Pending     Running        Dead    Utilization
-    ------------------------------------------------------
-      N        0.91        1.41        0.00       60.82 %
-     Hp        0.68        1.84        0.00       72.88 %
-     Ht        2.48        0.00        0.00        0.00 %
-     Bm        2.28        0.00        0.00        0.00 %
-    Mpcustom4        2.42        0.00        0.00        0.00 %
-     Oh        2.02        0.00        0.00        0.00 %
-      L        2.17        0.00        0.00        0.00 %
-      B        2.31        0.00        0.00        0.00 %
-     AM        1.90        0.00        0.00        0.00 %
-    all        1.91        0.36        0.00       15.93 %
+ERROR: problem encountered at line 57 in file NES.tcl
 
-    Total time in state (seconds)
-    -----------------------------------------
-            Pending     Running        Dead  
-    -----------------------------------------
-              17.18        3.25        0.00
-
-    Data read    : 146.90 kiB
-    Data written : 2.03 kiB
-
-0: All pending notifications were processed.
-INFO (IPF059): Completed proof on task: "<constraints>" for proof thread 0
-INFO (IPF036): Starting proof on task: "<embedded>", 29 properties to prove with 0 already proven/unreachable
-INFO (IPF031): Settings used for proof thread 0:
-    orchestration                 = on (auto)
-    time_limit                    = 86400s
-    per_property_time_limit       = 1s * 10 ^ scan
-    engine_mode                   = auto
-    proofgrid_per_engine_max_jobs = 1
-    max engine jobs               = auto
-    proofgrid_mode                = local
-    proofgrid_restarts            = 10
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.PRE: The property "<constraints>/emu.nes.statemanager._type_constraint_savestate_number" was proven in 0.00 s.
-0.0.PRE: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.PRE: The property "<constraints>/emu.nes.statemanager._type_constraint_rewind_slow" was proven in 0.00 s.
-0: Found proofs for 2 properties in preprocessing
-0: Using multistage preprocessing
-0: Starting reduce
-0: Finished reduce in 0.12s
-0.0.PRE: Performing Proof Simplification...
-0.0.N: clocks: 4, declared: 3, looping: 0, posedge: 4, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Proof Simplification Iteration 1	[0.00 s]
-0.0.N: Proof Simplification Iteration 2	[0.15 s]
-0.0.N: Proof Simplification Iteration 3	[0.26 s]
-0.0.N: Proof Simplification Iteration 4	[0.36 s]
-0.0.N: Proof Simplification Iteration 5	[0.44 s]
-0.0.N: Proof Simplification Iteration 6	[0.52 s]
-0.0.N: Proof Simplification Iteration 7	[0.60 s]
-0.0.PRE: Proof Simplification completed in 1.12 s
-0.0.N: Identified and disabled 5 duplicated targets.
-0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
-0: =============================== ProofGrid start ===============================
-0: ProofGrid usable level: 22
-0: Initial ProofGrid level: 1
-0: ProofGrid is starting event handling
-0.0.N: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.N: Proofgrid shell started at 59924@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.Hp: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.N: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.Hp: Proofgrid shell started at 59925@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.Hp: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
-0.0.N: Starting proof for property "sys_top.emu.video_freak.vcpt_cover"	[0.00 s].
-0.0.N: Trace Attempt  1	[0.08 s]
-0.0.N: Trace Attempt  2	[0.10 s]
-0.0.N: Trace Attempt  2	[0.47 s]
-0.0.Ht: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: Proofgrid shell started at 59926@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.N: A trace with 2 cycles was found. [0.71 s]
-INFO (IPF047): 0.0.N: The cover property "sys_top.emu.video_freak.vcpt_cover" was covered in 2 cycles in 0.88 s.
-INFO (IPF047): 0.0.N: The cover property "sys_top.emu.video_freak.hcpt_assert:precondition1" was covered in 2 cycles in 0.88 s by the incidental trace "sys_top.emu.video_freak.vcpt_cover".
-INFO (IPF055): 0.0.N: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_settle" in 0.88 s by the incidental trace "sys_top.emu.video_freak.vcpt_cover".
-0.0.N: Stopped processing property "sys_top.emu.video_freak.vcpt_cover"	[0.93 s].
-0.0.N: Starting proof for property "sys_top.emu.video_freak.screen_adjust_cover"	[0.00 s].
-0.0.Ht: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0: ProofGrid usable level: 19
-0.0.N: Trace Attempt  1	[0.15 s]
-0.0.N: Trace Attempt  2	[0.20 s]
-0.0.N: Trace Attempt  2	[0.64 s]
-0.0.Ht: Trace Attempt  1	[0.61 s]
-0.0.B: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: A trace with 1 cycles was found. [0.61 s]
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu._type_constraint_ALU_Op_r" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu._type_constraint_Write_Data_r" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_savetype_counter" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_count" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_maxcount" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_timer_rewind" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_savestatecount" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_vsync_counter" in 0.52 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.cpu.alu._type_constraint_Op" in 0.52 s.
-0.0.Ht: A trace with 1 cycles was found. [0.64 s]
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.savestates._type_constraint_savestate_address" in 0.69 s.
-INFO (IPF055): 0.0.Ht: A counterexample (cex) with 1 cycles was found for the property "<constraints>/emu.nes.statemanager._type_constraint_request_address" in 0.69 s.
-0.0.Ht: Trace Attempt  2	[0.70 s]
-0.0.Bm: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: A trace with 2 cycles was found. [0.71 s]
-INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.video_freak.screen_adjust_cover" was covered in 2 cycles in 0.80 s.
-INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.loader.cov_rom_load" was covered in 2 cycles in 0.80 s.
-0.0.B: Proofgrid shell started at 59960@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.Ht: Trace Attempt  3	[0.80 s]
-0.0.Bm: Proofgrid shell started at 59939@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.Bm: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.Ht: Trace Attempt  4	[0.98 s]
-0.0.N: Stopped processing property "sys_top.emu.video_freak.screen_adjust_cover"	[0.85 s].
-0.0.N: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
-0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0: Running jobs with 5 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0.0.Mpcustom4: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: A trace with 4 cycles was found. [1.03 s]
-INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.nes.dma_assert:precondition1" was covered in 4 cycles in 1.11 s.
-0: ProofGrid usable level: 7
-0.0.B: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.N: Trace Attempt  1	[0.12 s]
-0.0.N: Trace Attempt  2	[0.15 s]
-0.0.Mpcustom4: Proofgrid shell started at 59949@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.Bm: Trace Attempt  1	[0.33 s]
-0.0.Ht: Trace Attempt  5	[1.28 s]
-0.0.Oh: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.N: Trace Attempt  2	[0.34 s]
-0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0: Running jobs with 6 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0.0.L: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Mpcustom4: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.Oh: Proofgrid shell started at 59956@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.N: Trace Attempt  3	[0.47 s]
-0.0.N: Trace Attempt  4	[0.47 s]
-0.0.Bm: Trace Attempt  2	[0.60 s]
-0.0.B: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
-0.0.B: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
-0.0.L: Proofgrid shell started at 59959@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0: Running jobs with 7 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0.0.Ht: Trace Attempt  6	[1.44 s]
-0.0.Ht: A trace with 6 cycles was found. [1.53 s]
-INFO (IPF047): 0.0.Ht: The cover property "sys_top.emu.nes.ppu_assert:precondition1" was covered in 6 cycles in 1.62 s.
-0.0.Hp: A proof was found: No trace exists. [2.56 s]
-INFO (IPF057): 0.0.Hp: The property "sys_top.emu.nes.ppu_assert" was proven in 2.40 s.
-0.0.Oh: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.Hp: A proof was found: No trace exists. [2.56 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_ALU_Op" was proven in 2.40 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_ALU_Op" was proven in 2.40 s.
-0.0.Hp: A proof was found: No trace exists. [2.56 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_Set_BusA_To" was proven in 2.40 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_Set_BusA_To" was proven in 2.41 s.
-0.0.Hp: A proof was found: No trace exists. [2.57 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu._type_constraint_Write_Data" was proven in 2.41 s.
-0.0.Hp: A proof was found: No trace exists. [0.00 s]
-INFO (IPF057): 0.0.Hp: The property "<constraints>/emu.nes.cpu.mcode._type_constraint_Write_Data" was proven in 2.41 s.
-0.0.B: Trace Attempt  1	[0.19 s]
-0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0: Running jobs with 8 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0.0.L: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.AM: victorhug-340XAA-350XAA-550XAA: "Ubuntu 22.04.4 LTS" is an unsupported operating system.
-0.0.Ht: Trace Attempt  7	[1.92 s]
-0.0.N: Trace Attempt  4	[0.94 s]
-0.0.AM: Proofgrid shell started at 59962@victorhug-340XAA-350XAA-550XAA(local) jg_59715_victorhug-340XAA-350XAA-550XAA_2
-0.0.B: Trace Attempt  2	[0.50 s]
-0.0.Mpcustom4: Trace Attempt  1	[0.66 s]
-0: ProofGrid usable level: 2
-0.0.L: Using trace diversification with seed 1 (0.05)
-0.0.L: Using LRU state removal heuristic
-0: Running jobs with 9 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0: Running jobs with 9 threads on "victorhug-340XAA-350XAA-550XAA" with 4 cores.
-0.0.Mpcustom4: Trace Attempt  2	[0.84 s]
-0.0.AM: clocks: 3, declared: 3, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
-0.0.L: Using states from traces to { (reset) }
-0.0.N: Per property time limit expired (1.00 s) [1.40 s]
-0.0.N: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.41 s].
-0.0.N: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
-0.0.N: Trace Attempt  1	[0.10 s]
-0.0.N: Trace Attempt  2	[0.12 s]
-0.0.AM: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
-0.0.AM: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
-0.0.Bm: Trace Attempt  3	[1.75 s]
-INFO (IPF054): 0.0.L: A min_length bound of 2 was found for the property "sys_top.emu.video_freak.hcpt_assert:precondition1" in 0.58 s.
-0.0.AM: Trace Attempt  1	[0.13 s]
-0.0.AM: Trace Attempt  2	[0.15 s]
-0.0.N: Trace Attempt  2	[0.38 s]
-0.0.AM: Trace Attempt  3	[0.16 s]
-0.0.AM: Trace Attempt  4	[0.16 s]
-0.0.AM: Trace Attempt  5	[0.18 s]
-0.0.N: Trace Attempt  3	[0.62 s]
-0.0.N: Trace Attempt  4	[0.62 s]
-0.0.B: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.64 s].
-0.0.B: Starting proof for property "sys_top.emu.nes.dma_assert"	[0.00 s].
-0.0.Bm: Trace Attempt  4	[2.26 s]
-0.0.L: Trace Attempt  3	[1.53 s]
-0.0.AM: Trace Attempt  1	[0.69 s]
-0.0.AM: Trace Attempt  2	[0.69 s]
-0.0.AM: Trace Attempt  3	[0.69 s]
-0.0.AM: Trace Attempt  5	[0.69 s]
-0.0.AM: Validation of fixpoint was successful. Time = 0.00
-0.0.AM: A proof was found: No trace exists. [0.71 s]
-INFO (IPF057): 0.0.AM: The property "sys_top.emu.nes.dma_assert" was proven in 0.71 s.
-0.0.AM: Stopped processing property "sys_top.emu.nes.dma_assert"	[0.71 s].
-0.0.AM: Last scan. Per property time limit: 0s
-0.0.AM: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
-0.0.B: Trace Attempt  1	[0.20 s]
-0.0.B: Stopped processing property "sys_top.emu.nes.dma_assert"	[0.23 s].
-0.0.B: Last scan. Per property time limit: 0s
-0.0.B: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
-0.0.AM: Trace Attempt  1	[0.13 s]
-0.0.AM: Trace Attempt  2	[0.13 s]
-0.0.AM: Trace Attempt  3	[0.13 s]
-0.0.AM: Trace Attempt  4	[0.13 s]
-0.0.N: Stopped processing property "sys_top.emu.nes.dma_assert"	[1.10 s].
-0.0.N: Last scan. Per property time limit: 0s
-0.0.N: Starting proof for property "sys_top.emu.video_freak.hcpt_assert"	[0.00 s].
-0.0.AM: Trace Attempt  5	[0.19 s]
-0.0.B: Trace Attempt  1	[0.18 s]
-0.0.AM: Trace Attempt  1	[0.35 s]
-0.0.AM: Trace Attempt  2	[0.36 s]
-0.0.AM: Trace Attempt  3	[0.36 s]
-0.0.AM: Trace Attempt  4	[0.37 s]
-0.0.B: Trace Attempt  2	[0.49 s]
-0.0.N: Requesting engine job to stop
-0.0.B: Requesting engine job to stop
-0.0.AM: Requesting engine job to stop
-0.0.Hp: Requesting engine job to terminate
-0.0.Ht: Requesting engine job to terminate
-0.0.Bm: Requesting engine job to terminate
-0.0.Mpcustom4: Requesting engine job to terminate
-0.0.Oh: Requesting engine job to terminate
-0.0.L: Requesting engine job to terminate
-INFO (IPF144): 0: Initiating shutdown of proof [5.37 s]
-0.0.Hp: A proof was found: No trace exists. [4.86 s]
-INFO (IPF057): 0.0.Hp: The property "sys_top.emu.video_freak.hcpt_assert" was proven in 4.44 s.
-0.0.Hp: All properties determined. [4.86 s]
-0.0.AM: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[0.57 s].
-0.0.AM: Interrupted. [0.66 s]
-0.0.Ht: Interrupted (multi)
-0.0.Ht: Trace Attempt 15	[3.74 s]
-0.0.Ht: Interrupted. [4.05 s]
-0.0.AM: Exited with Success (@ 5.65 s)
-0: ProofGrid usable level: 0
-0.0.Oh: bwd trail(1): 1 1.01986s
-0.0.Hp: Exited with Success (@ 5.69 s)
-0.0.Oh: Interrupted. [2.68 s]
-0.0.N: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[0.84 s].
-0.0.Ht: Exited with Success (@ 5.88 s)
-0.0.Oh: Exited with Success (@ 5.88 s)
-0.0.N: Interrupted. [0.93 s]
-0.0.B: Stopped processing property "sys_top.emu.video_freak.hcpt_assert"	[1.08 s].
-0.0.B: Interrupted. [1.11 s]
-0.0.N: Exited with Success (@ 5.97 s)
-0.0.B: Exited with Success (@ 6.03 s)
-0.0.Bm: Interrupted. [3.65 s]
-0.0.Bm: Exited with Success (@ 6.04 s)
-0.0.L: Interrupted. [2.90 s]
-0.0.L: Exited with Success (@ 6.10 s)
-0.0.Mpcustom4: Interrupted. [3.71 s]
-0.0.Mpcustom4: Exited with Success (@ 6.57 s)
-0: --------------------------------------------------------------
-ProofGrid Summary (utilization 59.93 %)
---------------------------------------------------------------
-     engines started                               :     9
-     engine jobs started                           :     9
-
-    Average time in state (seconds)
-    ------------------------------------------------------
-    Engine  Pending     Running        Dead    Utilization
-    ------------------------------------------------------
-      N        0.68        5.26        0.00       88.57 %
-     Hp        0.91        4.86        0.00       84.18 %
-     Ht        1.49        3.91        0.00       72.44 %
-     Bm        2.36        2.99        0.00       55.91 %
-    Mpcustom4        2.65        2.52        0.00       48.76 %
-     Oh        2.83        2.33        0.00       45.16 %
-      L        2.90        2.18        0.00       42.92 %
-      B        2.12        2.87        0.00       57.50 %
-     AM        3.22        1.74        0.00       35.11 %
-    all        2.13        3.19        0.00       59.93 %
-
-    Total time in state (seconds)
-    -----------------------------------------
-            Pending     Running        Dead  
-    -----------------------------------------
-              19.17       28.67        0.00
-
-    Data read    : 964.73 kiB
-    Data written : 12.85 kiB
-
-0: All pending notifications were processed.
-INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
-
-==============================================================
-SUMMARY
-==============================================================
-           Total Tasks                        : 2
-           Total Properties                   : 49
-                 assumptions                  : 0
-                  - approved                  : 0
-                  - temporary                 : 0
-                 soft assumptions             : 0
-                 assertions                   : 43
-                  - proven                    : 19 (44.186%)
-                  - bounded_proven (user)     : 0 (0%)
-                  - bounded_proven (auto)     : 0 (0%)
-                  - marked_proven             : 0 (0%)
-                  - cex                       : 24 (55.814%)
-                  - ar_cex                    : 0 (0%)
-                  - undetermined              : 0 (0%)
-                  - unknown                   : 0 (0%)
-                  - error                     : 0 (0%)
-                 covers                       : 6
-                  - unreachable               : 0 (0%)
-                  - bounded_unreachable (user): 0 (0%)
-                  - covered                   : 6 (100%)
-                  - ar_covered                : 0 (0%)
-                  - undetermined              : 0 (0%)
-                  - unknown                   : 0 (0%)
-                  - error                     : 0 (0%)
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO: Waiting for proof threads to stop...
-INFO: Proof threads stopped.
-INFO (IPL018): The peak resident set memory use for this session was 0.800 GB.
+INFO (IPL018): The peak resident set memory use for this session was 0.483 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.

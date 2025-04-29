@@ -13,10 +13,21 @@
 // 4) If DMC interrupts Sprite, then it runs on the even cycle, and the odd cycle will be idle (pause_cpu=1, aout_enable=0)
 // 5) When DMC triggers && interrupts CPU, there will be 2-3 cycles (pause_cpu=1, aout_enable=0) before DMC DMA starts.
 
-// https://wiki.nesdev.com/w/index.php/PPU_OAM
-// https://wiki.nesdev.com/w/index.php/APU_DMC
-// https://forums.nesdev.com/viewtopic.php?f=3&t=6100
-// https://forums.nesdev.com/viewtopic.php?f=3&t=14120
+// 26.03.2025: pauloVato-sketch
+// NES-dev changed domain to .org, wiki not a subdomain anymore.
+// OLD: wiki.nesdev.com/w/index.php/PPU_OAM
+// OLD: wiki.nesdev.com/w/index.php/APU_DMC
+
+// NEW: https://www.nesdev.org/wiki/PPU_OAM
+// NEW: https://www.nesdev.org/wiki/APU_DMC
+
+// 26.03.2025: pauloVato-sketch
+// NES-dev changed domain to .org, links deprecated.
+// OLD: forums.nesdev.com/viewtopic.php?f=3&t=6100
+// OLD: forums.nesdev.com/viewtopic.php?f=3&t=14120
+
+// NEW: https://forums.nesdev.org/viewtopic.php?t=6100
+// NEW: https://forums.nesdev.org/viewtopic.php?t=14120
 
 module DmaController(
 	input clk,
@@ -34,7 +45,7 @@ module DmaController(
 	output read,                   // 1 = read, 0 = write
 	output [7:0] data_to_ram,      // Value to write to RAM
 	output dmc_ack,                // ACK the DMC DMA
-	output pause_cpu               // CPU is pausede
+	output pause_cpu               // CPU is paused
 );
 
 reg dmc_state;
@@ -886,27 +897,30 @@ statemanager #(58720256, 33554432) statemanager (
 
 assign sleep_savestate = sleep_rewind | sleep_savestates;
 
-property ppu_din;
-	(@(posedge clk) 
-	(dma_aout_enable) |-> (dbus == dma_data_to_ram));
-endproperty
+`ifdef SVA_ENABLE
+	`ifndef SYNTHESIS
+		property ppu_din;
+			(@(posedge clk) 
+			(dma_aout_enable) |-> (dbus == dma_data_to_ram));
+		endproperty
 
-ppu_assert: assert property (ppu_din);
+		ppu_assert: assert property (ppu_din);
 
-property dma_cpu;
-	@(posedge clk)
-	disable iff(reset==1) 
-	((addr == 'h4014 && mw_int) && (cpu_ce == 1'b1) |=> (pause_cpu == 1));
-endproperty
+		property dma_cpu;
+			@(posedge clk)
+			disable iff(reset==1) 
+			((addr == 'h4014 && mw_int) && (cpu_ce == 1'b1) |=> (pause_cpu == 1));
+		endproperty
 
-dma_assert: assert property (dma_cpu);
+		dma_assert: assert property (dma_cpu);
 
-/*property dma_start_delay;
-    @(posedge clk)
-	disable iff(reset==1) 
-    ((cpu_rnw == 1'b0) && (cpu_ce == 1'b1) |-> ##[1:2] (pause_cpu == 1'b1 && dma_aout_enable == 1'b0));
-endproperty
+		/*property dma_start_delay;
+			 @(posedge clk)
+			disable iff(reset==1) 
+			 ((cpu_rnw == 1'b0) && (cpu_ce == 1'b1) |-> ##[1:2] (pause_cpu == 1'b1 && dma_aout_enable == 1'b0));
+		endproperty
 
-assert property (dma_start_delay);*/
-
+		assert property (dma_start_delay);*/
+	`endif
+`endif
 endmodule

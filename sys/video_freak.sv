@@ -20,22 +20,29 @@ module video_freak
 	input             VGA_VS,
 	input      [11:0] HDMI_WIDTH,
 	input      [11:0] HDMI_HEIGHT,
-	output            VGA_DE,
-	output reg [12:0] VIDEO_ARX,
-	output reg [12:0] VIDEO_ARY,
-
 	input             VGA_DE_IN,
+	
+	//Video aspect ratio for VGA. 
 	input      [11:0] ARX,
 	input      [11:0] ARY,
+	// 216 se crop ativado ou 0 caso contrário. 216p corrige problemas de tela
+	// de consoles antigos que usavam 240p. Scaling inteiro de 5x (216 x 5 = 1080p).
 	input      [11:0] CROP_SIZE,
 	input       [4:0] CROP_OFF, // -16...+15
-	input       [2:0] SCALE     //0 - normal, 1 - V-integer, 2 - HV-Integer-, 3 - HV-Integer+, 4 - HV-Integer
-);
+	input       [2:0] SCALE,     //0 - normal, 1 - V-integer, 2 - HV-Integer-, 3 - HV-Integer+, 4 - HV-Integer
+	output            VGA_DE,
+	
+	//Video aspect ratio for HDMI. Most retro systems have ratio 4:3.
+	output reg [12:0] VIDEO_ARX,
+	output reg [12:0] VIDEO_ARY
+	);
 
 reg         mul_start;
 wire        mul_run;
 reg  [11:0] mul_arg1, mul_arg2;
 wire [23:0] mul_res;
+
+// Multiply mul_arg1 and mul_arg2.
 sys_umul #(12,12) mul(CLK_VIDEO,mul_start,mul_run, mul_arg1,mul_arg2,mul_res);
 
 reg        vde;
@@ -51,22 +58,37 @@ reg [11:0] hsize;
 	reg [11:0] arx,ary;
 	reg  [1:0] vcalc;
 
+// Main logic video_freak for formal.
+// At every rise of the video clock
 always @(posedge CLK_VIDEO) begin
-	
 
+	// Check if pixel clock is high
 	if (CE_PIXEL) begin
+		// Saves the enable var for VGA, either true or false.
 		old_de <= VGA_DE_IN;
+		// Also saves the VSync var
 		old_vs <= VGA_VS;
+
+		// If VSync is active and it was NOT before, then go inside
+		// This is checking for a $rose action.
 		if (VGA_VS & ~old_vs) begin
+			// Count of vertical pixel is zeroed (because just became active, so need to start processing again)
 			vcpt  <= 0;
+			// Total gets what was in the count before (MAX value).
 			vtot  <= vcpt;
+			// Flag to trigger video calculations of scaling (mul, div etc)
 			vcalc <= 1;
+			// To decide if should crop: if crop_size bigger than the count, do not crop, else crop.
 			vcrop <= (CROP_SIZE >= vcpt) ? 12'd0 : CROP_SIZE;
 		end
-		
+		// If VGA enabled, add 1 to the horizontal count (column inside a line).
 		if (VGA_DE_IN) hcpt <= hcpt + 1'd1;
+
+		// If VGA not enabled but it was before ($fell) add one to the vertical count (line).
 		if (~VGA_DE_IN & old_de) begin
 			vcpt <= vcpt + 1'd1;
+			// If count is zero, 
+			// save the size of horizontal (ended the line, save max horizontal count and reset)
 			if(!vcpt) hsize <= hcpt;
 			hcpt <= 0;
 		end
@@ -137,27 +159,54 @@ video_scale_int scale
 	.ary_o(VIDEO_ARY)
 );
 
-/////property/////////////////////////////////
-//Check VGA_VS and VGA_DE_IN Synchronization:
-//Ensures that vcpt is reset on the rising edge of VGA_VS.
-vcpt_cover: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
+///////////////////////////////// PROPERTIES - FORMAL - SVA /////////////////////////////////
+`ifdef SVA_ENABLE
+	`ifndef SYNTHESIS
+		//Check VGA_VS and VGA_DE_IN Synchronization:
+		//Ensures that vcpt is reset on the rising edge of VGA_VS.
+		vcpt_cover: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
 
-//Check arxo and aryo adjustment:
-//Ensures that arxo and aryo are adjusted correctly based on the calculated values.
-screen_adjust_cover: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] && aryo == ARYG[23:12]));
+		//Check arxo and aryo adjustment:
+		//Ensures that arxo and aryo are adjusted correctly based on the calculated values.
+		screen_adjust_cover: cover property(@(posedge CLK_VIDEO) (vcalc == 3) |-> (arxo == ARXG[23:12] && aryo == ARYG[23:12]));
 
-//Check hcpt calculation in the presence of VGA_DE_IN:
-//Ensures that hcpt is only incremented when VGA_DE_IN is active.
 
-assume property (@(posedge CLK_VIDEO)(hcpt>= 0 && hcpt <= 4094));
+		assume property (@(posedge CLK_VIDEO)(hcpt>= 0 && hcpt <= 4094));
+		
+		//Check hcpt calculation in the presence of VGA_DE_IN:
+		//Ensures that hcpt is only incremented when VGA_DE_IN and pixel clock are active.
+		property hcpt_increment;
+		  @(posedge CLK_VIDEO)
+		  ((VGA_DE_IN && CE_PIXEL)|=> (hcpt == $past(hcpt,1) + 1));
+		endproperty
 
-property hcpt_increment;
-  @(posedge CLK_VIDEO)
-  ((VGA_DE_IN && CE_PIXEL)|=> (hcpt == $past(hcpt,1) + 1));
-endproperty
+		hcpt_assert: assert property (hcpt_increment);
 
-hcpt_assert: assert property (hcpt_increment);
+		// Check if vertical counter is properly reset when VSync
+		// rises.
+		property vcpt_rst_1;
+			@(posedge CLK_VIDEO)
+			($rose(VGA_VS) |-> (vcpt == 0));
+		endproperty
 
+		vcpt_reset_asrt1: assert property (vcpt_rst_1);
+
+		property vcpt_rst_2;
+			@(posedge CLK_VIDEO)
+			((vcpt == 0)|-> $rose(VGA_VS));
+		endproperty
+
+		vcpt_reset_asrt2: assert property (vcpt_rst_2);
+
+		// Crop check
+		property crop_boundary;
+			@(posedge CLK_VIDEO)
+			(vcalc && (CROP_SIZE < vtot)) |-> (vcrop == CROP_SIZE);
+		endproperty;
+
+		crop_boundary_asrt: assert property (crop_boundary);
+	`endif
+`endif
 
 endmodule
 
@@ -350,9 +399,10 @@ always @(posedge CLK_VIDEO) begin
 	arx_o <= arxf;
 	ary_o <= aryf;
 end
+
 /*
-//Check initialization of arxf and aryf:
-//Ensures that arxf and aryf are initialized correctly when SCALE is 0.
+// Check initialization of arxf and aryf:
+// Ensures that arxf and aryf are initialized correctly when SCALE is 0.
 property arxf_aryf_initialization;
   @(posedge CLK_VIDEO)
   (!SCALE || (!ary_i && arx_i)) |=> (arxf == arx_i && aryf == ary_i);
