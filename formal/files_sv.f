@@ -6,6 +6,7 @@
 ../rtl/zapper.sv
 ../rtl/cart.sv
 ../rtl/video.sv
+../rtl/video_enclosing.sv
 ../rtl/ppu.sv
 ../rtl/apu.sv
 ../rtl/savestate_ui.sv

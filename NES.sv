@@ -207,22 +207,6 @@ always @(posedge CLK_VIDEO) begin
 end
 
 wire vga_de;
-video_freak video_freak
-(
-	.*,
-	.VGA_DE_IN(vga_de),
-	// Check if Aspect Ratio is NOT SET, if it IS NOT then:
-	// 	Check if hide_overscan option is set up, if it is then:
-	// 		X coordinate becomes 64, else 128.
-	//  if it is, send ar - 1 (? border ?).
-	// Repeat for Y coordinate with different values.
-	
-	.ARX((!ar) ? (hide_overscan ? 12'd64 : 12'd128) : (ar - 1'd1)),
-	.ARY((!ar) ? (hide_overscan ? 12'd49 : 12'd105) : 12'd0),
-	.CROP_SIZE((en216p & vcrop_en) ? 10'd216 : 10'd0),
-	.CROP_OFF(voff),
-	.SCALE(status[40:39])
-);
 
 // If video mode (NTSC/PAL/DANDY) changes, force vmode update
 reg [1:0] video_status;
@@ -325,7 +309,7 @@ reg  [63:0] mapper_flags;
 wire piano = (mapper_flags[30]);
 
 wire raw_serial = |status[52:51];
-wire arm_reset = status[0];
+wire arm_reset = status[0];	
 wire pal_video = |status[24:23];
 wire hide_overscan = status[4] && ~pal_video;
 wire [3:0] palette2_osd = status[49:47];
@@ -1169,33 +1153,118 @@ wire [7:0] R,G,B;
 
 wire [1:0] nes_ce_video = corepaused ? videopause_ce : nes_ce;
 
-video video
-(
-	.*,
+// Basically, I need to check which wires are between the modules,
+// the way I did is only enclosing the inputs and outputs, but the
+// relationship was somewhat destroyed in the new implementation. Need to read
+// more of the code.
+/*
+* Pure inputs:
+* video module (all from emu):
+* clk
+* cnt
+* color
+* count_(h|v)
+* emphasis
+* hide_overscan
+* load_color
+* load_color_data
+* load_color_index
+* pal_video
+* palette
+* reset
+* reticle
+* 
+* video_mixer inputs:
+* CLK_VIDEO <- pll module (keep in video_enclosing).
+* R, G, B <- video module output (declare wires inside module to drive values)
+* HSync, VSync, HBlank, VBlank <- video module output
+* ce_pix <- video module output
+* gamma_bus <- hps/emu keep in video_enclosing.
+* hq2x, scandoubler <- emu.
+* HDMI_FREEZE <- emu.
+*
+* video_freak:
+* ARX, ARY <- emu.
+* CROP_SIZE <- emu.
+* ce_pix <- video_mixer.
+* CLK_VIDEO <- pll module.
+* crop_off <- emu.
+* HDMI_HEIGHT, HDMI_WIDTH <- emu.
+* scale <- emu.
+* VGA_DE_IN, VGA_VS <- video_mixer.
+*
+* Outputs that need to be returned to emu:
+* video_mixer: VGA_R,VGA_G,VGA_B, VGA_HS, VGA_VS, CE_PIXEL
+* video_freak: VGA_DE, VIDEO_ARX, VIDEO_ARY
+* */
+video_enclosing video_enclosing(
+	// Video ------------------------------------------ Start
 	.clk(clk),
 	.reset(reset_nes),
 	.cnt(nes_ce_video),
-	.hold_reset(hold_reset),
-	.count_v(scanline),
+	.color(color),
 	.count_h(cycle),
+	.count_v(scanline),
 	.hide_overscan(hide_overscan),
 	.palette(palette2_osd),
+	.emphasis(emphasis),
+	.reticle(~status[22] ? reticle : 2'b00),
+	.pal_video(pal_video),
 	.load_color(pal_write && ioctl_download),
 	.load_color_data(pal_color),
 	.load_color_index(pal_index),
-	.emphasis(emphasis),
-	.reticle(~status[22] ? reticle : 2'b00),
-	.pal_video(pal_video)
+	// Outputs:
+	.hold_reset(hold_reset),
+	// All fields above are included in the asterisk.
+	// VIdeo -------------------------------------------- End
+	// Mixer -------------------------------------------- Start
+	.CLK_VIDEO(CLK_VIDEO),
+	// .ce_pix(ce_pix),
+	.scandoubler(scale || forced_scandoubler),
+	.hq2x(scale==1),
+	.gamma_bus(gamma_bus),
+	.HDMI_FREEZE(HDMI_FREEZE),
+//	.R(R),
+//	.G(G),
+//	.B(B),
+//	.HSync(HSync),
+//	.VSync(VSync),
+//	.HBlank(HBlank),
+//	.VBlank(VBlank),
+	.freeze_sync(),
+	.CE_PIXEL(CE_PIXEL),
+	.VGA_R(VGA_R),
+	.VGA_G(VGA_G),
+	.VGA_B(VGA_B),
+	.VGA_VS(VGA_VS),
+	.VGA_HS(VGA_HS),
+	//.VGA_DE(vga_de),
+	// Mixer -------------------------------------------- End
+	// Freak -------------------------------------------- Start
+	// in CLK_VIDEO,
+	// in CE_PIXEL,
+	.HDMI_HEIGHT(HDMI_HEIGHT),
+	.HDMI_WIDTH(HDMI_WIDTH),
+	// .CE_PIXEL(CE_PIXEL),
+	// .VGA_VS(VGA_VS),
+	// .VGA_DE_IN(vga_de),
+		// Check if Aspect Ratio is NOT SET, if it IS NOT then:
+		// 	Check if hide_overscan option is set up, if it is then:
+		// 		X coordinate becomes 64, else 128.
+		//  if it is, send ar - 1 (? border ?).
+		// Repeat for Y coordinate with different values.
+	.ARX((!ar) ? (hide_overscan ? 12'd64 : 12'd128) : (ar - 1'd1)),
+	.ARY((!ar) ? (hide_overscan ? 12'd49 : 12'd105) : 12'd0),
+	.CROP_SIZE((en216p & vcrop_en) ? 10'd216 : 10'd0),
+	.CROP_OFF(voff),
+	.SCALE(status[40:39]),
+	.VGA_DE(VGA_DE),
+	.VIDEO_ARX(VIDEO_ARX),
+	.VIDEO_ARY(VIDEO_ARY)
+	// Freak --------------------------------------------- End
+
 );
 
-video_mixer #(260, 0, 1) video_mixer
-(
-	.*,
-	.freeze_sync(),
-	.VGA_DE(vga_de),
-	.hq2x(scale==1),
-	.scandoubler(scale || forced_scandoubler)
-);
 
 ////////////////////////////  CODES  ///////////////////////////////////
 

@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 633 940"
+     preserveAspectRatio="xMidYMid meet"
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xml:space="preserve">
+<title>|ROOT|</title>
+<desc>Nlview schematic (SVG)</desc>
+<clipPath id="clippingbbox">
+<rect x="0" y="0" width="633" height="940" />
+</clipPath>
+<g stroke="yellow"
+   stroke-width="1"
+   stroke-linecap="butt"
+   stroke-linejoin="miter"
+   stroke-miterlimit="4"
+   stroke-dasharray="none"
+   stroke-dashoffset="0"
+   fill="none"
+   font-family="Helvetica"
+   font-style="normal"
+   font-size="12"
+   writing-mode="lr-tb"
+   cursor="crosshair"
+   clip-path="url(#clippingbbox)">
+<path d="M0 0h632v941h-632z" stroke="none" fill="black" />
+<path d="M132 25h344l3 1l3 1l1 3l1 3v874l-1 3l-1 3l-3 1l-3 1h-344l-3 -1l-3 -1l-1 -3l-1 -3v-874l1 -3l1 -3l3 -1z" stroke="none" fill="#441133" />
+<g stroke="#00d1d1">
+<path d="M132 25h344" />
+<path d="M476,25 A7.83511,7.83511 1.61334 0,1 484,33" />
+<path d="M484 33v874" />
+<path d="M484,907 A7.83511,7.83511 1.61334 0,1 476,915" />
+<path d="M476 915h-344" />
+<path d="M132,915 A7.83511,7.83511 1.61334 0,1 124,907" />
+<path d="M124 907v-874" />
+<path d="M124,33 A7.83511,7.83511 1.61334 0,1 132,25" />
+<text x="304" y="23" fill="#8fffff" stroke-width="0" text-anchor="middle" dy="-1.6">video_enclosing</text>
+<text x="304" y="917" fill="#00d1d1" stroke-width="0" text-anchor="middle" dy="9.6">video_enclosing</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M494 365h-10" />
+<path d="M114 65h10" />
+<text x="122" y="63" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ARX[11:0]</text>
+<path d="M114 85h10" />
+<text x="122" y="83" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ARY[11:0]</text>
+<path d="M114 325h10" />
+<text x="122" y="323" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">B_IN_MIXER[7:0]</text>
+<path d="M494 665h-10" />
+<text x="486" y="663" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">B_OUT_VIDEO[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 105h10" />
+<text x="122" y="103" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CE_PIXEL_IN_FREAK</text>
+<path d="M494 385h-10" />
+<text x="486" y="383" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">CE_PIXEL_OUT_MIXER</text>
+<path d="M114 125h10" />
+<text x="122" y="123" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CLK_VIDEO</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 145h10" />
+<text x="122" y="143" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CROP_OFF[4:0]</text>
+<path d="M114 165h10" />
+<text x="122" y="163" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CROP_SIZE[11:0]</text>
+<path d="M114 365h10" />
+<text x="122" y="363" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">G_IN_MIXER[7:0]</text>
+<path d="M494 685h-10" />
+<text x="486" y="683" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">G_OUT_VIDEO[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 385h10" />
+<text x="122" y="383" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HBlank_IN_MIXER</text>
+<path d="M494 705h-10" />
+<text x="486" y="703" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">HBlank_OUT_VIDEO</text>
+<path d="M114 405h10" />
+<text x="122" y="403" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_FREEZE</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 185h10" />
+<text x="122" y="183" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_HEIGHT[11:0]</text>
+<path d="M114 205h10" />
+<text x="122" y="203" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_WIDTH[11:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 425h10" />
+<text x="122" y="423" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HSync_IN_MIXER</text>
+<path d="M494 725h-10" />
+<text x="486" y="723" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">HSync_OUT_VIDEO</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 445h10" />
+<text x="122" y="443" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">R_IN_MIXER[7:0]</text>
+<path d="M494 745h-10" />
+<text x="486" y="743" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">R_OUT_VIDEO[7:0]</text>
+<path d="M114 225h10" />
+<text x="122" y="223" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">SCALE[2:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 465h10" />
+<text x="122" y="463" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VBlank_IN_MIXER</text>
+<path d="M494 765h-10" />
+<text x="486" y="763" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VBlank_OUT_VIDEO</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M494 405h-10" />
+<text x="486" y="403" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_B_OUT_MIXER[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 245h10" />
+<text x="122" y="243" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VGA_DE_IN_FREAK</text>
+<path d="M494 145h-10" />
+<text x="486" y="143" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_DE_OUT_FREAK</text>
+<path d="M494 425h-10" />
+<text x="486" y="423" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_DE_OUT_MIXER</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M494 445h-10" />
+<text x="486" y="443" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_G_OUT_MIXER[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M494 465h-10" />
+<text x="486" y="463" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_HS_OUT_MIXER</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M494 485h-10" />
+<text x="486" y="483" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_R_OUT_MIXER[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 265h10" />
+<text x="122" y="263" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VGA_VS_IN_FREAK</text>
+<path d="M494 505h-10" />
+<text x="486" y="503" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_VS_OUT_MIXER</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M494 165h-10" />
+<text x="486" y="163" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VIDEO_ARX[12:0]</text>
+<path d="M494 185h-10" />
+<text x="486" y="183" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VIDEO_ARY[12:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 485h10" />
+<text x="122" y="483" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VSync_IN_MIXER</text>
+<path d="M494 785h-10" />
+<text x="486" y="783" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VSync_OUT_VIDEO</text>
+<path d="M114 505h10" />
+<text x="122" y="503" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ce_pix_IN_MIXER</text>
+<path d="M494 805h-10" />
+<text x="486" y="803" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">ce_pix_OUT_VIDEO</text>
+<path d="M114 625h10" />
+<text x="122" y="623" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">clk</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 645h10" />
+<text x="122" y="643" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">cnt[1:0]</text>
+<path d="M114 665h10" />
+<text x="122" y="663" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">color[5:0]</text>
+<path d="M114 685h10" />
+<text x="122" y="683" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">count_h[8:0]</text>
+<path d="M114 705h10" />
+<text x="122" y="703" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">count_v[8:0]</text>
+<path d="M114 725h10" />
+<text x="122" y="723" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">emphasis[2:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M494 585h-10" />
+<text x="486" y="583" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">freeze_sync</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 525h10" />
+<text x="122" y="523" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">gamma_bus[21:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 745h10" />
+<text x="122" y="743" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">hide_overscan</text>
+<path d="M494 825h-10" />
+<text x="486" y="823" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">hold_reset</text>
+<path d="M114 545h10" />
+<text x="122" y="543" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">hq2x</text>
+<path d="M114 765h10" />
+<text x="122" y="763" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">load_color</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 785h10" />
+<text x="122" y="783" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">..._color_data[23:0]</text>
+<path d="M114 805h10" />
+<text x="122" y="803" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">..._color_index[5:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 825h10" />
+<text x="122" y="823" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">pal_video</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 845h10" />
+<text x="122" y="843" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">palette[3:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 865h10" />
+<text x="122" y="863" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">reset</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M114 885h10" />
+<text x="122" y="883" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">reticle[1:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M114 565h10" />
+<text x="122" y="563" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">scandoubler</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M474 365h10" />
+<path d="M134 65h-10" />
+<path d="M134 85h-10" />
+<path d="M134 325h-10" />
+<path d="M474 665h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 105h-10" />
+<path d="M474 385h10" />
+<path d="M134 125h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 145h-10" />
+<path d="M134 165h-10" />
+<path d="M134 365h-10" />
+<path d="M474 685h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 385h-10" />
+<path d="M474 705h10" />
+<path d="M134 405h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 185h-10" />
+<path d="M134 205h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 425h-10" />
+<path d="M474 725h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 445h-10" />
+<path d="M474 745h10" />
+<path d="M134 225h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 465h-10" />
+<path d="M474 765h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M474 405h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 245h-10" />
+<path d="M474 145h10" />
+<path d="M474 425h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M474 445h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M474 465h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M474 485h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 265h-10" />
+<path d="M474 505h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M474 165h10" />
+<path d="M474 185h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 485h-10" />
+<path d="M474 785h10" />
+<path d="M134 505h-10" />
+<path d="M474 805h10" />
+<path d="M134 625h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 645h-10" />
+<path d="M134 665h-10" />
+<path d="M134 685h-10" />
+<path d="M134 705h-10" />
+<path d="M134 725h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M474 585h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 525h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 745h-10" />
+<path d="M474 825h10" />
+<path d="M134 545h-10" />
+<path d="M134 765h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 785h-10" />
+<path d="M134 805h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 825h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 845h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 865h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M134 885h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M134 565h-10" />
+<path d="M284 609h60v286h-60z" stroke="none" fill="#441133" />
+<path d="M284 609h60v286h-60z" />
+<text x="314" y="607" fill="#8fffff" stroke-width="0" text-anchor="middle" dy="-1.6">video</text>
+<text x="314" y="897" fill="#00d1d1" stroke-width="0" text-anchor="middle" dy="9.6">video</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 665h-10" />
+<text x="346" y="664" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">B[7:0]</text>
+<path d="M354 685h-10" />
+<text x="346" y="684" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">G[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 705h-10" />
+<text x="346" y="704" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">HBlank</text>
+<path d="M354 725h-10" />
+<text x="346" y="724" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">HSync</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 745h-10" />
+<text x="346" y="744" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">R[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 765h-10" />
+<text x="346" y="764" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VBlank</text>
+<path d="M354 785h-10" />
+<text x="346" y="784" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VSync</text>
+<path d="M354 805h-10" />
+<text x="346" y="804" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">ce_pix</text>
+<path d="M274 625h10" />
+<text x="282" y="624" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">clk</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 645h10" />
+<text x="282" y="644" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">cnt[1:0]</text>
+<path d="M274 665h10" />
+<text x="282" y="664" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">color[5:0]</text>
+<path d="M274 685h10" />
+<text x="282" y="684" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">count_h[8:0]</text>
+<path d="M274 705h10" />
+<text x="282" y="704" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">count_v[8:0]</text>
+<path d="M274 725h10" />
+<text x="282" y="724" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">emphasis[2:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 745h10" />
+<text x="282" y="744" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">hide_overscan</text>
+<path d="M354 825h-10" />
+<text x="346" y="824" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">hold_reset</text>
+<path d="M274 765h10" />
+<text x="282" y="764" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">load_color</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 785h10" />
+<text x="282" y="784" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">..._color_data[23:0]</text>
+<path d="M274 805h10" />
+<text x="282" y="804" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">..._color_index[5:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 825h10" />
+<text x="282" y="824" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">pal_video</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 845h10" />
+<text x="282" y="844" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">palette[3:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 865h10" />
+<text x="282" y="864" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">reset</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 885h10" />
+<text x="282" y="884" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">reticle[1:0]</text>
+<path d="M334 665h10" />
+<path d="M334 685h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 705h10" />
+<path d="M334 725h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 745h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 765h10" />
+<path d="M334 785h10" />
+<path d="M334 805h10" />
+<path d="M294 625h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 645h-10" />
+<path d="M294 665h-10" />
+<path d="M294 685h-10" />
+<path d="M294 705h-10" />
+<path d="M294 725h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 745h-10" />
+<path d="M334 825h10" />
+<path d="M294 765h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 785h-10" />
+<path d="M294 805h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 825h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 845h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 865h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 885h-10" />
+<path d="M284 49h60v226h-60z" stroke="none" fill="#441133" />
+</g>
+<g stroke="#00d1d1">
+<path d="M284 49h60v226h-60z" />
+<text x="314" y="47" fill="#8fffff" stroke-width="0" text-anchor="middle" dy="-1.6">video_freak</text>
+<text x="314" y="277" fill="#00d1d1" stroke-width="0" text-anchor="middle" dy="9.6">video_freak</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 65h10" />
+<text x="282" y="64" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ARX[11:0]</text>
+<path d="M274 85h10" />
+<text x="282" y="84" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ARY[11:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 105h10" />
+<text x="282" y="104" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CE_PIXEL</text>
+<path d="M274 125h10" />
+<text x="282" y="124" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CLK_VIDEO</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 145h10" />
+<text x="282" y="144" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CROP_OFF[4:0]</text>
+<path d="M274 165h10" />
+<text x="282" y="164" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CROP_SIZE[11:0]</text>
+<path d="M274 185h10" />
+<text x="282" y="184" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_HEIGHT[11:0]</text>
+<path d="M274 205h10" />
+<text x="282" y="204" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_WIDTH[11:0]</text>
+<path d="M274 225h10" />
+<text x="282" y="224" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">SCALE[2:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 145h-10" />
+<text x="346" y="144" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_DE</text>
+<path d="M274 245h10" />
+<text x="282" y="244" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VGA_DE_IN</text>
+<path d="M274 265h10" />
+<text x="282" y="264" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VGA_VS</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 165h-10" />
+<text x="346" y="164" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VIDEO_ARX[12:0]</text>
+<path d="M354 185h-10" />
+<text x="346" y="184" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VIDEO_ARY[12:0]</text>
+<path d="M294 65h-10" />
+<path d="M294 85h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 105h-10" />
+<path d="M294 125h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 145h-10" />
+<path d="M294 165h-10" />
+<path d="M294 185h-10" />
+<path d="M294 205h-10" />
+<path d="M294 225h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 145h10" />
+<path d="M294 245h-10" />
+<path d="M294 265h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 165h10" />
+<path d="M334 185h10" />
+<path d="M284 309h60v266h-60z" stroke="none" fill="#441133" />
+</g>
+<g stroke="#00d1d1">
+<path d="M284 309h60v266h-60z" />
+<text x="314" y="307" fill="#8fffff" stroke-width="0" text-anchor="middle" dy="-1.6">video_mixer</text>
+<text x="314" y="577" fill="#00d1d1" stroke-width="0" text-anchor="middle" dy="9.6">video_mixer</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 365h-10" />
+<path d="M274 325h10" />
+<text x="282" y="324" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">B[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 385h-10" />
+<text x="346" y="384" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">CE_PIXEL</text>
+<path d="M274 345h10" />
+<text x="282" y="344" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">CLK_VIDEO</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 365h10" />
+<text x="282" y="364" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">G[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 385h10" />
+<text x="282" y="384" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HBlank</text>
+<path d="M274 405h10" />
+<text x="282" y="404" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HDMI_FREEZE</text>
+<path d="M274 425h10" />
+<text x="282" y="424" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">HSync</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 445h10" />
+<text x="282" y="444" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">R[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 465h10" />
+<text x="282" y="464" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VBlank</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 405h-10" />
+<text x="346" y="404" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_B[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 425h-10" />
+<text x="346" y="424" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_DE</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 445h-10" />
+<text x="346" y="444" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_G[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 465h-10" />
+<text x="346" y="464" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_HS</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 485h-10" />
+<text x="346" y="484" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_R[7:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M354 505h-10" />
+<text x="346" y="504" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">VGA_VS</text>
+<path d="M274 485h10" />
+<text x="282" y="484" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">VSync</text>
+<path d="M274 505h10" />
+<text x="282" y="504" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">ce_pix</text>
+<path d="M354 525h-10" />
+<text x="346" y="524" fill="#00d1d1" stroke-width="0" font-size="10" dy="-1.33333">freeze_sync</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M274 525h10" />
+<text x="282" y="524" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">gamma_bus[21:0]</text>
+</g>
+<g stroke="#00d1d1">
+<path d="M274 545h10" />
+<text x="282" y="544" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">hq2x</text>
+<path d="M274 565h10" />
+<text x="282" y="564" fill="#00d1d1" stroke-width="0" font-size="10" text-anchor="end" dy="-1.33333">scandoubler</text>
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 365h10" />
+<path d="M294 325h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 385h10" />
+<path d="M294 345h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 365h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 385h-10" />
+<path d="M294 405h-10" />
+<path d="M294 425h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 445h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 465h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 405h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 425h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 445h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 465h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M334 485h10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M334 505h10" />
+<path d="M294 485h-10" />
+<path d="M294 505h-10" />
+<path d="M334 525h10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M294 525h-10" />
+</g>
+<g stroke="#00d1d1">
+<path d="M294 545h-10" />
+<path d="M294 565h-10" />
+</g>
+<g stroke="#00d1d1" stroke-width="3">
+<path d="M354 365h120" />
+</g>
+<g stroke="#00d1d1">
+<path d="M354 365h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 65h140" />
+<path d="M134 85h140" />
+<path d="M134 325h140" />
+<path d="M354 665h120" />
+</g>
+<g>
+<path d="M134 105h140" />
+<path d="M354 385h120" />
+<path d="M134 125h20v220h120" />
+<path d="M154 125h120" />
+<path d="M152 123h5v5h-5z" stroke="none" fill="yellow" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 145h140" />
+<path d="M134 165h140" />
+<path d="M134 365h140" />
+<path d="M354 685h120" />
+</g>
+<g>
+<path d="M134 385h140" />
+<path d="M354 705h120" />
+<path d="M134 405h140" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 185h140" />
+<path d="M134 205h140" />
+</g>
+<g>
+<path d="M134 425h140" />
+<path d="M354 725h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 445h140" />
+<path d="M354 745h120" />
+<path d="M134 225h140" />
+</g>
+<g>
+<path d="M134 465h140" />
+<path d="M354 765h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M354 405h120" />
+</g>
+<g>
+<path d="M134 245h140" />
+<path d="M354 145h120" />
+<path d="M354 425h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M354 445h120" />
+</g>
+<g>
+<path d="M354 465h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M354 485h120" />
+</g>
+<g>
+<path d="M134 265h140" />
+<path d="M354 505h120" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M354 165h120" />
+<path d="M354 185h120" />
+</g>
+<g>
+<path d="M134 485h140" />
+<path d="M354 785h120" />
+<path d="M134 505h140" />
+<path d="M354 805h120" />
+<path d="M134 625h140" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 645h140" />
+<path d="M134 665h140" />
+<path d="M134 685h140" />
+<path d="M134 705h140" />
+<path d="M134 725h140" />
+</g>
+<g>
+<path d="M354 525h79" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 525h140" />
+</g>
+<g>
+<path d="M134 745h140" />
+<path d="M354 825h120" />
+<path d="M134 545h140" />
+<path d="M134 765h140" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 785h140" />
+<path d="M134 805h140" />
+</g>
+<g>
+<path d="M134 825h140" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 845h140" />
+</g>
+<g>
+<path d="M134 865h140" />
+</g>
+<g stroke="#bfa100" stroke-width="3">
+<path d="M134 885h140" />
+</g>
+<g>
+<path d="M134 565h140" />
+<text x="179" y="62" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">ARX[11:0]</text>
+<text x="179" y="82" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">ARY[11:0]</text>
+<text x="201" y="322" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...MIXER[7:0]</text>
+<text x="428" y="662" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...VIDEO[7:0]</text>
+<text x="181" y="104" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...L_IN_FREAK</text>
+<text x="438" y="384" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...T_MIXER</text>
+<text x="187" y="344" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">CLK_VIDEO</text>
+<text x="179" y="142" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...:0]</text>
+<text x="170" y="162" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...]</text>
+<text x="190" y="362" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">G_IN_MIXER[7:0]</text>
+<text x="429" y="682" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...VIDEO[7:0]</text>
+<text x="188" y="384" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">HBlank_IN_MIXER</text>
+<text x="431" y="704" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...OUT_VIDEO</text>
+<text x="169" y="404" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._FREEZE</text>
+<text x="144" y="182" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">..</text>
+<text x="166" y="202" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...</text>
+<text x="190" y="424" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">HSync_IN_MIXER</text>
+<text x="428" y="724" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._OUT_VIDEO</text>
+<text x="191" y="442" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">R_IN_MIXER[7:0]</text>
+<text x="428" y="742" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...VIDEO[7:0]</text>
+<text x="187" y="222" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...E[2:0]</text>
+<text x="187" y="464" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">VBlank_IN_MIXER</text>
+<text x="431" y="764" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...OUT_VIDEO</text>
+<text x="444" y="402" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...[7:0]</text>
+<text x="186" y="244" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._FREAK</text>
+<text x="429" y="144" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._OUT_FREAK</text>
+<text x="434" y="424" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...UT_MIXER</text>
+<text x="444" y="442" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...[7:0]</text>
+<text x="434" y="464" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...UT_MIXER</text>
+<text x="444" y="482" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...[7:0]</text>
+<text x="214" y="266" fill="yellow" stroke-width="0" text-anchor="middle" dy="9.6">VGA_VS_IN_FREAK</text>
+<text x="434" y="504" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...UT_MIXER</text>
+<text x="460" y="162" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...]</text>
+<text x="414" y="188" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="9.6">VIDEO_ARY[12:0]</text>
+<text x="190" y="484" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">VSync_IN_MIXER</text>
+<text x="429" y="784" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._OUT_VIDEO</text>
+<text x="189" y="504" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">ce_pix_IN_MIXER</text>
+<text x="429" y="804" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">..._OUT_VIDEO</text>
+<text x="199" y="624" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">clk</text>
+<text x="186" y="642" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">cnt[1:0]</text>
+<text x="180" y="662" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">color[5:0]</text>
+<text x="172" y="682" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...t_h[8:0]</text>
+<text x="172" y="702" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...t_v[8:0]</text>
+<text x="167" y="722" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...s[2:0]</text>
+<text x="394" y="526" fill="yellow" stroke-width="0" text-anchor="middle" dy="9.6">freeze_sync</text>
+<text x="156" y="522" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...:0]</text>
+<text x="167" y="744" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">...erscan</text>
+<text x="441" y="824" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">hold_reset</text>
+<text x="194" y="544" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">hq2x</text>
+<text x="179" y="764" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">load_color</text>
+<text x="153" y="782" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...0]</text>
+<text x="153" y="802" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">...0]</text>
+<text x="181" y="824" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">pal_video</text>
+<text x="175" y="842" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">palette[3:0]</text>
+<text x="193" y="864" fill="yellow" stroke-width="0" text-anchor="middle" dy="-1.6">reset</text>
+<text x="177" y="882" fill="#bfa100" stroke-width="0" text-anchor="middle" dy="-1.6">reticle[1:0]</text>
+<text x="202" y="566" fill="yellow" stroke-width="0" text-anchor="middle" dy="9.6">scandoubler</text>
+</g>
+</g>
+</svg>

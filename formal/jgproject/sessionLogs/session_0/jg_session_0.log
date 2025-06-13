@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 5.14.0-503.35.1.el9_5.x86_64
+# platform  : Linux 5.14.0-503.40.1.el9_5.x86_64
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2025-04-28 23:36:56 -03
+# started   : 2025-06-11 15:51:07 -03
 # hostname  : localhost.localdomain.(none)
-# pid       : 14409
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:44209' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
+# pid       : 24756
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:34389' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/Altered-NES/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/Altered-NES/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -43,24 +43,26 @@ Rights at 48 CFR 52.227-19, as applicable.
 
 For technical assistance visit http://support.cadence.com.
 
-Jasper Apps Analysis Session - /home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0
+Jasper Apps Analysis Session - /home/pauloldn/poland/Altered-NES/formal/jgproject/sessionLogs/session_0
 
 INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
 INFO: reading configuration file "/home/pauloldn/.config/cadence/jasper.conf".
 % 
 % clear -all
 INFO (IPF121): Cleared environment completely for new design analysis.
-% 
+% # Jasper was complaining that the extraction was happening before the initialization
+% # and complained about initialization happening without clear -all, so I moved
+% # the initialization here and no more errors were shown.
+% check_superlint -init
 % # Load checks that will be verified
 % # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
 % # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
 % #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
 % 
-% 
 % # analyze -register -vhdl -f files_vhd.f
 % # analyze -sort -vhdl -f files_vhd.f
 % puts "Current directory: [pwd]"
-Current directory: /home/pauloldn/poland/proj/NES_MiSTer/formal
+Current directory: /home/pauloldn/poland/Altered-NES/formal
 % set file_path "../rtl/statemanager.vhd"
 ../rtl/statemanager.vhd
 % if {[file exists $file_path]} {
@@ -149,13 +151,13 @@ Found file at: ../rtl/statemanager.vhd
 [-- (VHDL-1481)] Analyzing VHDL file '../rtl/t65/T65.vhd'
 [INFO (VHDL-1012)] ../rtl/t65/T65.vhd(136): analyzing entity 't65'
 [INFO (VHDL-1010)] ../rtl/t65/T65.vhd(176): analyzing architecture 'rtl'
+% 
 % analyze -sv ../rtl/regs_savestates.sv
 [-- (VERI-1482)] Analyzing Verilog file '/home/pauloldn/cadence/installs/jasper_2023.09p002/lib/verilog/packages/std/std.sv' into library 'std'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/regs_savestates.sv'
-% 
-% 
-% analyze -sv -f files_sv.f
-INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/formal/files_sv.f".
+% # Adição do macro SVA_ENABLE para os arquivos .sv (que podem conter assertions).
+% analyze +define+SVA_ENABLE=true -sv -f files_sv.f
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/Altered-NES/formal/files_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
 [WARN (VERI-2013)] ../rtl/sdram.sv(117): variable 'last_a' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../rtl/sdram.sv(181): variable 'init_old' must explicitly be declared as automatic or static
@@ -174,23 +176,12 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../rtl/cart.sv(1749): undeclared symbol 'n163_data', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/cart.sv(2178): undeclared symbol 'fds_audio', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/cart.sv(2182): undeclared symbol 'fds_data', assumed default net type 'wire'
-[WARN (VERI-1362)] ../rtl/cart.sv(2231): 'ss5b_audio' is already implicitly declared on line 880
-[WARN (VERI-1362)] ../rtl/cart.sv(2250): 'n163_audio' is already implicitly declared on line 1746
-[WARN (VERI-1362)] ../rtl/cart.sv(2251): 'n163_data' is already implicitly declared on line 1749
-[WARN (VERI-1362)] ../rtl/cart.sv(2279): 'mmc5_audio' is already implicitly declared on line 427
-[WARN (VERI-1362)] ../rtl/cart.sv(2280): 'mmc5_data' is already implicitly declared on line 430
-[WARN (VERI-1362)] ../rtl/cart.sv(2301): 'fds_audio' is already implicitly declared on line 2178
-[WARN (VERI-1362)] ../rtl/cart.sv(2302): 'fds_data' is already implicitly declared on line 2182
-[WARN (VERI-1362)] ../rtl/cart.sv(2315): 'vrc7_audio' is already implicitly declared on line 1715
-[WARN (VERI-1362)] ../rtl/cart.sv(2327): 'vrc6_audio' is already implicitly declared on line 1677
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/video.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../rtl/video_enclosing.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/ppu.sv'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1267): undeclared symbol 'oam_bus', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1272): undeclared symbol 'sprite_overflow', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/ppu.sv(1273): undeclared symbol 'obj0_on_line', assumed default net type 'wire'
-[WARN (VERI-1362)] ../rtl/ppu.sv(1291): 'oam_bus' is already implicitly declared on line 1267
-[WARN (VERI-1362)] ../rtl/ppu.sv(1292): 'sprite_overflow' is already implicitly declared on line 1272
-[WARN (VERI-1362)] ../rtl/ppu.sv(1293): 'obj0_on_line' is already implicitly declared on line 1273
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/apu.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/savestate_ui.sv'
 [WARN (VERI-2013)] ../rtl/savestate_ui.sv(40): variable 'alt' must explicitly be declared as automatic or static
@@ -210,137 +201,68 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../rtl/nes.v(699): undeclared symbol 'Savestate_MAPRAMWrEn', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/nes.v(700): undeclared symbol 'Savestate_MAPRAMWriteData', assumed default net type 'wire'
 [INFO (VERI-2561)] ../rtl/nes.v(701): undeclared symbol 'Savestate_MAPRAMReadData', assumed default net type 'wire'
-[WARN (VERI-1362)] ../rtl/nes.v(778): 'SaveStateBus_Din' is already implicitly declared on line 437
-[WARN (VERI-1362)] ../rtl/nes.v(779): 'SaveStateBus_Adr' is already implicitly declared on line 438
-[WARN (VERI-1362)] ../rtl/nes.v(780): 'SaveStateBus_wren' is already implicitly declared on line 439
-[WARN (VERI-1362)] ../rtl/nes.v(780): 'SaveStateBus_rst' is already implicitly declared on line 440
-[WARN (VERI-1362)] ../rtl/nes.v(812): 'Savestate_OAMAddr' is already implicitly declared on line 609
-[WARN (VERI-1362)] ../rtl/nes.v(813): 'Savestate_OAMRdEn' is already implicitly declared on line 610
-[WARN (VERI-1362)] ../rtl/nes.v(814): 'Savestate_OAMWrEn' is already implicitly declared on line 611
-[WARN (VERI-1362)] ../rtl/nes.v(815): 'Savestate_OAMWriteData' is already implicitly declared on line 612
-[WARN (VERI-1362)] ../rtl/nes.v(816): 'Savestate_OAMReadData' is already implicitly declared on line 613
-[WARN (VERI-1362)] ../rtl/nes.v(818): 'Savestate_MAPRAMactive' is already implicitly declared on line 696
-[WARN (VERI-1362)] ../rtl/nes.v(819): 'Savestate_MAPRAMAddr' is already implicitly declared on line 697
-[WARN (VERI-1362)] ../rtl/nes.v(820): 'Savestate_MAPRAMRdEn' is already implicitly declared on line 698
-[WARN (VERI-1362)] ../rtl/nes.v(821): 'Savestate_MAPRAMWrEn' is already implicitly declared on line 699
-[WARN (VERI-1362)] ../rtl/nes.v(822): 'Savestate_MAPRAMWriteData' is already implicitly declared on line 700
-[WARN (VERI-1362)] ../rtl/nes.v(823): 'Savestate_MAPRAMReadData' is already implicitly declared on line 701
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/dsp.v'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/compat.v'
 [-- (VERI-1482)] Analyzing Verilog file '../NES.sv'
-[INFO (VERI-2561)] ../NES.sv(220): undeclared symbol 'hide_overscan', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(330): 'hide_overscan' is already implicitly declared on line 220
-[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'gg_avail', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bios_loaded', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bk_ena', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'ss_slot', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'statusUpdate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(443): undeclared symbol 'info_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(444): undeclared symbol 'info', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(450): undeclared symbol 'loader_clk', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(451): undeclared symbol 'file_input', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(479): 'info_req' is already implicitly declared on line 443
-[WARN (VERI-1362)] ../NES.sv(480): 'info' is already implicitly declared on line 444
-[INFO (VERI-2561)] ../NES.sv(489): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(490): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(494): 'reconfig_to_pll' is already implicitly declared on line 489
-[WARN (VERI-1362)] ../NES.sv(495): 'reconfig_from_pll' is already implicitly declared on line 490
-[WARN (VERI-2271)] ../NES.sv(535): overflow of 32-bit signed integer 2201376898; using -2093590398 instead
-[WARN (VERI-2271)] ../NES.sv(535): overflow of 32-bit signed integer 2537933971; using -1757033325 instead
-[INFO (VERI-2561)] ../NES.sv(691): undeclared symbol 'reset_nes', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(722): undeclared symbol 'reticle', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(773): 'file_input' is already implicitly declared on line 451
-[WARN (VERI-1362)] ../NES.sv(775): 'loader_clk' is already implicitly declared on line 450
-[WARN (VERI-1362)] ../NES.sv(831): 'reset_nes' is already implicitly declared on line 691
-[INFO (VERI-2561)] ../NES.sv(882): undeclared symbol 'gg_code', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(894): undeclared symbol 'emphasis', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(908): undeclared symbol 'max_diskside', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(911): undeclared symbol 'cpu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(912): undeclared symbol 'cpu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(913): undeclared symbol 'cpu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(914): undeclared symbol 'cpu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(915): undeclared symbol 'cpu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(916): undeclared symbol 'ppu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(917): undeclared symbol 'ppu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(918): undeclared symbol 'ppu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(919): undeclared symbol 'ppu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(920): undeclared symbol 'ppu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(931): undeclared symbol 'save_written', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'ss_save', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(937): undeclared symbol 'ss_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(944): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(945): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(947): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(948): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(952): undeclared symbol 'savestate_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(954): undeclared symbol 'ss_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(955): undeclared symbol 'ss_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(956): undeclared symbol 'ss_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(957): undeclared symbol 'ss_rnw', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(958): undeclared symbol 'ss_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(959): undeclared symbol 'ss_be', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(960): undeclared symbol 'ss_ack', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(963): 'cpu_addr' is already implicitly declared on line 911
-[WARN (VERI-1362)] ../NES.sv(964): 'ppu_addr' is already implicitly declared on line 916
-[WARN (VERI-1362)] ../NES.sv(965): 'cpu_read' is already implicitly declared on line 912
-[WARN (VERI-1362)] ../NES.sv(965): 'cpu_write' is already implicitly declared on line 913
-[WARN (VERI-1362)] ../NES.sv(965): 'ppu_read' is already implicitly declared on line 917
-[WARN (VERI-1362)] ../NES.sv(965): 'ppu_write' is already implicitly declared on line 918
-[WARN (VERI-1362)] ../NES.sv(966): 'cpu_dout' is already implicitly declared on line 914
-[WARN (VERI-1362)] ../NES.sv(966): 'cpu_din' is already implicitly declared on line 915
-[WARN (VERI-1362)] ../NES.sv(966): 'ppu_dout' is already implicitly declared on line 919
-[WARN (VERI-1362)] ../NES.sv(966): 'ppu_din' is already implicitly declared on line 920
-[WARN (VERI-1362)] ../NES.sv(968): 'emphasis' is already implicitly declared on line 894
-[WARN (VERI-1362)] ../NES.sv(973): 'bios_loaded' is already implicitly declared on line 440
-[INFO (VERI-2561)] ../NES.sv(1068): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1070): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
-[WARN (VERI-1362)] ../NES.sv(1115): 'save_written' is already implicitly declared on line 931
-[WARN (VERI-1362)] ../NES.sv(1164): 'reticle' is already implicitly declared on line 722
-[WARN (VERI-1362)] ../NES.sv(1202): 'gg_code' is already implicitly declared on line 882
-[WARN (VERI-1362)] ../NES.sv(1203): 'gg_avail' is already implicitly declared on line 440
-[WARN (VERI-1362)] ../NES.sv(1241): 'bk_ena' is already implicitly declared on line 440
-[WARN (VERI-1362)] ../NES.sv(1243): 'max_diskside' is already implicitly declared on line 908
-[WARN (VERI-1362)] ../NES.sv(1303): 'ss_dout' is already implicitly declared on line 955
-[WARN (VERI-1362)] ../NES.sv(1303): 'ss_din' is already implicitly declared on line 954
-[WARN (VERI-1362)] ../NES.sv(1304): 'ss_addr' is already implicitly declared on line 956
-[WARN (VERI-1362)] ../NES.sv(1305): 'ss_be' is already implicitly declared on line 959
-[WARN (VERI-1362)] ../NES.sv(1306): 'ss_rnw' is already implicitly declared on line 957
-[WARN (VERI-1362)] ../NES.sv(1306): 'ss_req' is already implicitly declared on line 958
-[WARN (VERI-1362)] ../NES.sv(1306): 'ss_ack' is already implicitly declared on line 960
-[WARN (VERI-1362)] ../NES.sv(1308): 'Savestate_SDRAMAddr' is already implicitly declared on line 941
-[WARN (VERI-1362)] ../NES.sv(1309): 'Savestate_SDRAMRdEn' is already implicitly declared on line 942
-[WARN (VERI-1362)] ../NES.sv(1310): 'Savestate_SDRAMWrEn' is already implicitly declared on line 943
-[WARN (VERI-1362)] ../NES.sv(1311): 'Savestate_SDRAMWriteData' is already implicitly declared on line 944
-[WARN (VERI-1362)] ../NES.sv(1312): 'Savestate_SDRAMReadData' is already implicitly declared on line 945
-[WARN (VERI-1362)] ../NES.sv(1314): 'SaveStateBus_Din' is already implicitly declared on line 947
-[WARN (VERI-1362)] ../NES.sv(1315): 'SaveStateBus_Adr' is already implicitly declared on line 948
-[WARN (VERI-1362)] ../NES.sv(1316): 'SaveStateBus_wren' is already implicitly declared on line 949
-[WARN (VERI-1362)] ../NES.sv(1317): 'SaveStateBus_rst' is already implicitly declared on line 950
-[WARN (VERI-1362)] ../NES.sv(1318): 'SaveStateBus_Dout' is already implicitly declared on line 951
-[WARN (VERI-1362)] ../NES.sv(1319): 'savestate_load' is already implicitly declared on line 952
-[WARN (VERI-1362)] ../NES.sv(1321): 'sdram_ss_in' is already implicitly declared on line 1068
-[WARN (VERI-1362)] ../NES.sv(1322): 'sdram_ss_out' is already implicitly declared on line 1070
-[WARN (VERI-1362)] ../NES.sv(1347): 'ss_slot' is already implicitly declared on line 441
-[WARN (VERI-1362)] ../NES.sv(1349): 'ss_save' is already implicitly declared on line 936
-[WARN (VERI-1362)] ../NES.sv(1349): 'ss_load' is already implicitly declared on line 937
-[WARN (VERI-1362)] ../NES.sv(1350): 'mapper_has_savestate' is already implicitly declared on line 440
-[WARN (VERI-1362)] ../NES.sv(1351): 'statusUpdate' is already implicitly declared on line 442
-[WARN (VERI-2013)] ../NES.sv(383): variable 'timeout' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(516): variable 'pald' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(516): variable 'pald2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(517): variable 'state' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(729): variable 'num' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(814): variable 'cnt' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_load' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_save' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1257): variable 'old_downloading' must explicitly be declared as automatic or static
+[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'gg_avail', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'bios_loaded', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'bk_ena', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(425): undeclared symbol 'ss_slot', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(426): undeclared symbol 'statusUpdate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(427): undeclared symbol 'info_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(428): undeclared symbol 'info', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(434): undeclared symbol 'loader_clk', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(435): undeclared symbol 'file_input', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(473): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(474): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(675): undeclared symbol 'reset_nes', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(706): undeclared symbol 'reticle', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(866): undeclared symbol 'gg_code', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(878): undeclared symbol 'emphasis', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(892): undeclared symbol 'max_diskside', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(895): undeclared symbol 'cpu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(896): undeclared symbol 'cpu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(897): undeclared symbol 'cpu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(898): undeclared symbol 'cpu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(899): undeclared symbol 'cpu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(900): undeclared symbol 'ppu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(901): undeclared symbol 'ppu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(902): undeclared symbol 'ppu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(903): undeclared symbol 'ppu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(904): undeclared symbol 'ppu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(915): undeclared symbol 'save_written', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(920): undeclared symbol 'ss_save', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(921): undeclared symbol 'ss_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(925): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(926): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(927): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(928): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(929): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(931): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(932): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(933): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(934): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(935): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'savestate_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(938): undeclared symbol 'ss_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(939): undeclared symbol 'ss_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(940): undeclared symbol 'ss_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'ss_rnw', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'ss_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'ss_be', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(944): undeclared symbol 'ss_ack', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(1052): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(1054): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
+[WARN (VERI-2013)] ../NES.sv(367): variable 'timeout' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(500): variable 'pald' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(500): variable 'pald2' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(501): variable 'state' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(713): variable 'num' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(798): variable 'cnt' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1324): variable 'old_load' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1324): variable 'old_save' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1325): variable 'old_downloading' must explicitly be declared as automatic or static
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_freak.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_mixer.sv'
 [WARN (VERI-1875)] ../sys/video_mixer.sv(37): identifier 'DWIDTH' is used before its declaration
@@ -350,8 +272,6 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [-- (VERI-1482)] Analyzing Verilog file '../sys/scandoubler.v'
 [INFO (VERI-2561)] ../sys/scandoubler.v(113): undeclared symbol 'ce_x4o', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/scandoubler.v(114): undeclared symbol 'sd_line', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/scandoubler.v(122): 'ce_x4o' is already implicitly declared on line 113
-[WARN (VERI-1362)] ../sys/scandoubler.v(143): 'sd_line' is already implicitly declared on line 114
 [WARN (VERI-1875)] ../sys/scandoubler.v(34): identifier 'DWIDTH' is used before its declaration
 [WARN (VERI-1875)] ../sys/scandoubler.v(35): identifier 'DWIDTH' is used before its declaration
 [WARN (VERI-1875)] ../sys/scandoubler.v(36): identifier 'DWIDTH' is used before its declaration
@@ -361,7 +281,6 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [-- (VERI-1482)] Analyzing Verilog file '../sys/math.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/hq2x.sv'
 [INFO (VERI-2561)] ../sys/hq2x.sv(105): undeclared symbol 'offs', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/hq2x.sv(148): 'offs' is already implicitly declared on line 105
 [WARN (VERI-1875)] ../sys/hq2x.sv(18): identifier 'DWIDTH' is used before its declaration
 [WARN (VERI-1875)] ../sys/hq2x.sv(27): identifier 'DWIDTH' is used before its declaration
 [WARN (VERI-1875)] ../sys/hq2x.sv(230): identifier 'AWIDTH' is used before its declaration
@@ -406,15 +325,6 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../sys/sys_top.v(618): undeclared symbol 'vbuf_readdata', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(619): undeclared symbol 'vbuf_readdatavalid', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(620): undeclared symbol 'vbuf_read', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(623): 'ram2_address' is already implicitly declared on line 599
-[WARN (VERI-1362)] ../sys/sys_top.v(624): 'ram2_burstcount' is already implicitly declared on line 600
-[WARN (VERI-1362)] ../sys/sys_top.v(625): 'ram2_byteenable' is already implicitly declared on line 606
-[WARN (VERI-1362)] ../sys/sys_top.v(626): 'ram2_waitrequest' is already implicitly declared on line 601
-[WARN (VERI-1362)] ../sys/sys_top.v(627): 'ram2_readdata' is already implicitly declared on line 602
-[WARN (VERI-1362)] ../sys/sys_top.v(628): 'ram2_writedata' is already implicitly declared on line 605
-[WARN (VERI-1362)] ../sys/sys_top.v(629): 'ram2_readdatavalid' is already implicitly declared on line 603
-[WARN (VERI-1362)] ../sys/sys_top.v(630): 'ram2_read' is already implicitly declared on line 604
-[WARN (VERI-1362)] ../sys/sys_top.v(631): 'ram2_write' is already implicitly declared on line 607
 [INFO (VERI-2561)] ../sys/sys_top.v(650): undeclared symbol 'alsa_address', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(652): undeclared symbol 'alsa_readdata', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(653): undeclared symbol 'alsa_req', assumed default net type 'wire'
@@ -423,15 +333,6 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../sys/sys_top.v(659): undeclared symbol 'pal_data', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(660): undeclared symbol 'pal_req', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(661): undeclared symbol 'pal_wr', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(667): 'vbuf_address' is already implicitly declared on line 612
-[WARN (VERI-1362)] ../sys/sys_top.v(668): 'vbuf_burstcount' is already implicitly declared on line 613
-[WARN (VERI-1362)] ../sys/sys_top.v(669): 'vbuf_waitrequest' is already implicitly declared on line 614
-[WARN (VERI-1362)] ../sys/sys_top.v(670): 'vbuf_readdata' is already implicitly declared on line 618
-[WARN (VERI-1362)] ../sys/sys_top.v(671): 'vbuf_readdatavalid' is already implicitly declared on line 619
-[WARN (VERI-1362)] ../sys/sys_top.v(672): 'vbuf_read' is already implicitly declared on line 620
-[WARN (VERI-1362)] ../sys/sys_top.v(673): 'vbuf_writedata' is already implicitly declared on line 615
-[WARN (VERI-1362)] ../sys/sys_top.v(674): 'vbuf_byteenable' is already implicitly declared on line 616
-[WARN (VERI-1362)] ../sys/sys_top.v(675): 'vbuf_write' is already implicitly declared on line 617
 [INFO (VERI-2561)] ../sys/sys_top.v(723): undeclared symbol 'clk_ihdmi', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(724): undeclared symbol 'ce_hpix', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(725): undeclared symbol 'hr_out', assumed default net type 'wire'
@@ -463,20 +364,7 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../sys/sys_top.v(789): undeclared symbol 'FB_FMT', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(790): undeclared symbol 'FB_BASE', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(791): undeclared symbol 'FB_STRIDE', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(806): 'LFB_EN' is already implicitly declared on line 764
-[WARN (VERI-1362)] ../sys/sys_top.v(807): 'LFB_FLT' is already implicitly declared on line 764
-[WARN (VERI-1362)] ../sys/sys_top.v(818): 'FB_EN' is already implicitly declared on line 786
-[WARN (VERI-1362)] ../sys/sys_top.v(819): 'FB_FMT' is already implicitly declared on line 789
-[WARN (VERI-1362)] ../sys/sys_top.v(820): 'FB_WIDTH' is already implicitly declared on line 787
-[WARN (VERI-1362)] ../sys/sys_top.v(821): 'FB_HEIGHT' is already implicitly declared on line 788
-[WARN (VERI-1362)] ../sys/sys_top.v(822): 'FB_BASE' is already implicitly declared on line 790
-[WARN (VERI-1362)] ../sys/sys_top.v(823): 'FB_STRIDE' is already implicitly declared on line 791
 [INFO (VERI-2561)] ../sys/sys_top.v(855): undeclared symbol 'clk_vid', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(865): 'hmin' is already implicitly declared on line 753
-[WARN (VERI-1362)] ../sys/sys_top.v(866): 'hmax' is already implicitly declared on line 754
-[WARN (VERI-1362)] ../sys/sys_top.v(867): 'vmin' is already implicitly declared on line 759
-[WARN (VERI-1362)] ../sys/sys_top.v(868): 'vmax' is already implicitly declared on line 760
-[WARN (VERI-1362)] ../sys/sys_top.v(971): 'lltune' is already implicitly declared on line 748
 [INFO (VERI-2561)] ../sys/sys_top.v(980): undeclared symbol 'adj_waitrequest', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(981): undeclared symbol 'adj_write', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(982): undeclared symbol 'adj_address', assumed default net type 'wire'
@@ -485,30 +373,8 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../sys/sys_top.v(985): undeclared symbol 'cfg_write', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(986): undeclared symbol 'cfg_address', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(987): undeclared symbol 'cfg_data', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(993): 'pal_data' is already implicitly declared on line 659
-[WARN (VERI-1362)] ../sys/sys_top.v(994): 'pal_d' is already implicitly declared on line 771
-[WARN (VERI-1362)] ../sys/sys_top.v(995): 'pal_a' is already implicitly declared on line 772
-[WARN (VERI-1362)] ../sys/sys_top.v(996): 'pal_wr' is already implicitly declared on line 661
-[WARN (VERI-1362)] ../sys/sys_top.v(998): 'pal_addr' is already implicitly declared on line 657
-[WARN (VERI-1362)] ../sys/sys_top.v(999): 'pal_req' is already implicitly declared on line 660
 [INFO (VERI-2561)] ../sys/sys_top.v(1019): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1020): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1026): 'WIDTH' is already implicitly declared on line 749
-[WARN (VERI-1362)] ../sys/sys_top.v(1027): 'HFP' is already implicitly declared on line 749
-[WARN (VERI-1362)] ../sys/sys_top.v(1029): 'HBP' is already implicitly declared on line 749
-[WARN (VERI-1362)] ../sys/sys_top.v(1030): 'HEIGHT' is already implicitly declared on line 755
-[WARN (VERI-1362)] ../sys/sys_top.v(1031): 'VFP' is already implicitly declared on line 755
-[WARN (VERI-1362)] ../sys/sys_top.v(1033): 'VBP' is already implicitly declared on line 755
-[WARN (VERI-1362)] ../sys/sys_top.v(1036): 'reconfig_to_pll' is already implicitly declared on line 1019
-[WARN (VERI-1362)] ../sys/sys_top.v(1037): 'reconfig_from_pll' is already implicitly declared on line 1020
-[WARN (VERI-1362)] ../sys/sys_top.v(1038): 'cfg_waitrequest' is already implicitly declared on line 984
-[WARN (VERI-1362)] ../sys/sys_top.v(1038): 'adj_waitrequest' is already implicitly declared on line 980
-[WARN (VERI-1362)] ../sys/sys_top.v(1039): 'cfg_write' is already implicitly declared on line 985
-[WARN (VERI-1362)] ../sys/sys_top.v(1040): 'cfg_address' is already implicitly declared on line 986
-[WARN (VERI-1362)] ../sys/sys_top.v(1041): 'cfg_data' is already implicitly declared on line 987
-[WARN (VERI-1362)] ../sys/sys_top.v(1042): 'adj_write' is already implicitly declared on line 981
-[WARN (VERI-1362)] ../sys/sys_top.v(1043): 'adj_address' is already implicitly declared on line 982
-[WARN (VERI-1362)] ../sys/sys_top.v(1044): 'adj_data' is already implicitly declared on line 983
 [INFO (VERI-2561)] ../sys/sys_top.v(1360): undeclared symbol 'scanlines', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'de_emu', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1361): undeclared symbol 'r_out', assumed default net type 'wire'
@@ -518,59 +384,12 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [INFO (VERI-2561)] ../sys/sys_top.v(1363): undeclared symbol 'vs_fix', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1365): undeclared symbol 'ce_pix', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1383): undeclared symbol 'osd_status', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1531): 'clk_audio' is already implicitly declared on line 598
 [INFO (VERI-2561)] ../sys/sys_top.v(1547): undeclared symbol 'audio_mix', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1559): undeclared symbol 'audio_s', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1560): undeclared symbol 'audio_l', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1561): undeclared symbol 'audio_r', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1564): undeclared symbol 'alsa_l', assumed default net type 'wire'
 [INFO (VERI-2561)] ../sys/sys_top.v(1565): undeclared symbol 'alsa_r', assumed default net type 'wire'
-[WARN (VERI-1362)] ../sys/sys_top.v(1591): 'alsa_address' is already implicitly declared on line 650
-[WARN (VERI-1362)] ../sys/sys_top.v(1592): 'alsa_readdata' is already implicitly declared on line 652
-[WARN (VERI-1362)] ../sys/sys_top.v(1593): 'alsa_ready' is already implicitly declared on line 654
-[WARN (VERI-1362)] ../sys/sys_top.v(1594): 'alsa_req' is already implicitly declared on line 653
-[WARN (VERI-1362)] ../sys/sys_top.v(1597): 'alsa_l' is already implicitly declared on line 1564
-[WARN (VERI-1362)] ../sys/sys_top.v(1597): 'alsa_r' is already implicitly declared on line 1565
-[WARN (VERI-1362)] ../sys/sys_top.v(1640): 'clk_sys' is already implicitly declared on line 765
-[WARN (VERI-1362)] ../sys/sys_top.v(1641): 'audio_l' is already implicitly declared on line 1560
-[WARN (VERI-1362)] ../sys/sys_top.v(1641): 'audio_r' is already implicitly declared on line 1561
-[WARN (VERI-1362)] ../sys/sys_top.v(1642): 'audio_s' is already implicitly declared on line 1559
-[WARN (VERI-1362)] ../sys/sys_top.v(1643): 'audio_mix' is already implicitly declared on line 1547
-[WARN (VERI-1362)] ../sys/sys_top.v(1644): 'scanlines' is already implicitly declared on line 1360
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'r_out' is already implicitly declared on line 1361
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'g_out' is already implicitly declared on line 1361
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'b_out' is already implicitly declared on line 1361
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hr_out' is already implicitly declared on line 725
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hg_out' is already implicitly declared on line 726
-[WARN (VERI-1362)] ../sys/sys_top.v(1645): 'hb_out' is already implicitly declared on line 727
-[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'vs_fix' is already implicitly declared on line 1363
-[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'hs_fix' is already implicitly declared on line 1362
-[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'de_emu' is already implicitly declared on line 1361
-[WARN (VERI-1362)] ../sys/sys_top.v(1646): 'f1' is already implicitly declared on line 730
-[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hvs_fix' is already implicitly declared on line 729
-[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hhs_fix' is already implicitly declared on line 728
-[WARN (VERI-1362)] ../sys/sys_top.v(1647): 'hde_emu' is already implicitly declared on line 731
-[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'clk_vid' is already implicitly declared on line 855
-[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'ce_pix' is already implicitly declared on line 1365
-[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'clk_ihdmi' is already implicitly declared on line 723
-[WARN (VERI-1362)] ../sys/sys_top.v(1648): 'ce_hpix' is already implicitly declared on line 724
-[WARN (VERI-1362)] ../sys/sys_top.v(1651): 'ram_clk' is already implicitly declared on line 586
-[WARN (VERI-1362)] ../sys/sys_top.v(1652): 'ram_address' is already implicitly declared on line 587
-[WARN (VERI-1362)] ../sys/sys_top.v(1653): 'ram_burstcount' is already implicitly declared on line 588
-[WARN (VERI-1362)] ../sys/sys_top.v(1654): 'ram_waitrequest' is already implicitly declared on line 589
-[WARN (VERI-1362)] ../sys/sys_top.v(1655): 'ram_readdata' is already implicitly declared on line 590
-[WARN (VERI-1362)] ../sys/sys_top.v(1656): 'ram_readdatavalid' is already implicitly declared on line 591
-[WARN (VERI-1362)] ../sys/sys_top.v(1657): 'ram_read' is already implicitly declared on line 592
-[WARN (VERI-1362)] ../sys/sys_top.v(1658): 'ram_writedata' is already implicitly declared on line 593
-[WARN (VERI-1362)] ../sys/sys_top.v(1659): 'ram_byteenable' is already implicitly declared on line 594
-[WARN (VERI-1362)] ../sys/sys_top.v(1660): 'ram_write' is already implicitly declared on line 595
-[WARN (VERI-1362)] ../sys/sys_top.v(1681): 'uart_dtr' is already implicitly declared on line 536
-[WARN (VERI-1362)] ../sys/sys_top.v(1682): 'uart_dsr' is already implicitly declared on line 534
-[WARN (VERI-1362)] ../sys/sys_top.v(1683): 'uart_cts' is already implicitly declared on line 538
-[WARN (VERI-1362)] ../sys/sys_top.v(1684): 'uart_rts' is already implicitly declared on line 539
-[WARN (VERI-1362)] ../sys/sys_top.v(1685): 'uart_rxd' is already implicitly declared on line 540
-[WARN (VERI-1362)] ../sys/sys_top.v(1686): 'uart_txd' is already implicitly declared on line 541
-[WARN (VERI-1362)] ../sys/sys_top.v(1688): 'osd_status' is already implicitly declared on line 1383
 [WARN (VERI-1875)] ../sys/sys_top.v(131): identifier 'mcp_en' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(131): identifier 'mcp_sdcd' is used before its declaration
 [WARN (VERI-1875)] ../sys/sys_top.v(132): identifier 'mcp_en' is used before its declaration
@@ -747,10 +566,9 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [-- (VERI-1482)] Analyzing Verilog file '../sys/yc_out.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/vga_out.sv'
 % analyze -sv -f files_mappers_sv.f
-INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/Altered-NES/formal/files_mappers_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/FDS.sv'
 [INFO (VERI-2561)] ../rtl/mappers/FDS.sv(470): undeclared symbol 'audio_exp', assumed default net type 'wire'
-[WARN (VERI-1362)] ../rtl/mappers/FDS.sv(473): 'audio_exp' is already implicitly declared on line 470
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/generic.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/JYCompany.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/misc.sv'
@@ -763,15 +581,16 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/forma
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/Sunsoft.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/mappers/VRC.sv'
 % 
-% 
+% # config_rtlds -report_macros
 % elaborate -top sys_top -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m sysmem -bbox_m cyclonev_hps_interface_mpu_general_purpose -bbox_m cyclonev_hps_interface_peripheral_uart -bbox_m sysmem_lite -bbox_m cyclonev_hps_interface_interrupts -bbox_m ddr_svc -bbox_m ascal -bbox_m pll_hdmi_adj -bbox_m pll_cfg_hdmi -bbox_m pll_hdmi -bbox_m cyclonev_hps_interface_peripheral_i2c -bbox_m cyclonev_clkselect -bbox_m pll_audio -bbox_m audio_out -bbox_m cyclonev_hps_interface_peripheral_spi_master -bbox_m alsa
 INFO (ISW003): Top module name is "sys_top".
 [INFO (HIER-8002)] ../sys/sys_top.v(1840): Disabling old hierarchical reference handler
 [WARN (VERI-1927)] ../sys/sys_top.v(863): port 'remainder' remains unconnected for this instance
 [WARN (VERI-1927)] ../sys/sys_top.v(1174): port 'osd_status' remains unconnected for this instance
 [WARN (VERI-1214)] ../sys/sys_top.v(1783): assignment to input 'ADC_SDO'
-[WARN (VERI-1927)] ../NES.sv(961): port 'state_loaded' remains unconnected for this instance
-[WARN (VERI-1927)] ../sys/video_freak.sv(238): port 'remainder' remains unconnected for this instance
+[WARN (VERI-1927)] ../NES.sv(945): port 'state_loaded' remains unconnected for this instance
+[WARN (VERI-2435)] ../NES.sv(1265): port 'ce_pix' is not connected on this instance
+[WARN (VERI-1927)] ../NES.sv(1265): port 'VIDEO_ARX' remains unconnected for this instance
 [WARN (VERI-1927)] ../rtl/nes.v(401): port 'end_of_line' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/nes.v(401): port 'SaveStateBus_Din' is not connected on this instance
 [WARN (VERI-2435)] ../rtl/nes.v(443): port 'abort_n' is not connected on this instance
@@ -784,12 +603,13 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VERI-2435)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_Din' is not connected on this instance
 [WARN (VERI-1927)] ../rtl/mappers/VRC.sv(717): port 'SaveStateBus_load' remains unconnected for this instance
 [WARN (VERI-2435)] ../rtl/mappers/MMC5.sv(803): port 'cold_reset' is not connected on this instance
+[WARN (VERI-1214)] ../rtl/video_enclosing.sv(122): assignment to input 'ce_pix'
+[WARN (VERI-1927)] ../rtl/video_enclosing.sv(160): port 'gamma_bus' remains unconnected for this instance
 [WARN (VERI-1927)] ../sys/video_freezer.sv(47): port 'sync_pt' remains unconnected for this instance
 [WARN (VERI-1927)] ../sys/video_freezer.sv(59): port 'valid' remains unconnected for this instance
 [WARN (VERI-1927)] ../sys/scandoubler.v(117): port 'mono' remains unconnected for this instance
+[WARN (VERI-1927)] ../sys/video_freak.sv(238): port 'remainder' remains unconnected for this instance
 [INFO (VERI-1018)] ../sys/i2c.v(2): compiling module 'i2c:(I2C_Freq=500000)'
-[WARN (VERI-1060)] ../sys/i2c.v(55): 'initial' construct is ignored
-[WARN (VERI-9005)] ../sys/i2c.v(98): 32-bit index expression '(SD_COUNTER[4:0] - 11)' is larger than the required 3 bits. This might lead to an out-of-bound access
 [INFO (VERI-1018)] ../sys/mcp23009.sv(5): compiling module 'mcp23009'
 [WARN (VERI-1330)] ../sys/mcp23009.sv(33): actual bit length 32 differs from formal bit length 1 for port 'I2C_WLEN'
 [WARN (VDB-1002)] ../sys/mcp23009.sv(25): net 'din[15]' does not have a driver
@@ -798,101 +618,73 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../sys/math.sv(85): compiling module 'sys_umuldiv:(NB_MUL1=12,NB_MUL2=12,NB_DIV=12)'
 [INFO (VERI-1018)] ../sys/shadowmask.sv(1): compiling module 'shadowmask'
 [INFO (VERI-2571)] ../sys/shadowmask.sv(27): extracting RAM for identifier 'mask_lut'
-[WARN (VERI-9033)] ../sys/shadowmask.sv(27): array mask_lut (size 2816) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
 [INFO (VERI-1018)] ../sys/osd.v(4): compiling module 'osd'
 [INFO (VERI-2571)] ../sys/osd.v(36): extracting RAM for identifier 'osd_buffer'
-[WARN (VERI-9033)] ../sys/osd.v(36): array osd_buffer (size 32768) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
-[WARN (VERI-9005)] ../sys/osd.v(94): 13-bit index expression 'bcnt' is larger than the required 12 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../sys/osd.v(251): 13-bit index expression '(rot[0] ? ({osd_hcnt2[6:3],osd_vcnt[7:0]} ^ {{4{(~rot[1])}},{8{rot[1]}}}) : {osd_vcnt[7:3],osd_hcnt[7:0]})' is larger than the required 12 bits. This might lead to an out-of-bound access
 [INFO (VERI-1018)] ../sys/sys_top.v(1876): compiling module 'csync'
 [INFO (VERI-1018)] ../sys/scanlines.v(1): compiling module 'scanlines'
 [INFO (VERI-1018)] ../sys/yc_out.sv(28): compiling module 'yc_out'
 [WARN (VERI-1220)] ../sys/yc_out.sv(76): using initial value of 'vref' since it is never assigned
 [INFO (VERI-1018)] ../sys/vga_out.sv(2): compiling module 'vga_out'
 [INFO (VERI-1018)] ../sys/sys_top.v(1844): compiling module 'sync_fix'
-[INFO (VERI-1018)] ../sys/video_freak.sv(214): compiling module 'video_scale_int'
-[WARN (VERI-8028)] ../sys/video_freak.sv(238): missing/open ports on instance div of module sys_udiv
-[INFO (VERI-8005)] ../sys/video_freak.sv(246): Unintentional sequential element inferred for hinteger read before write using blocking assignment
-[INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
 [INFO (VERI-1018)] ../rtl/keyboard.sv(4): compiling module 'keyboard'
 [WARN (VERI-1220)] ../rtl/keyboard.sv(53): using initial value of 'btn_lb' since it is never assigned
 [INFO (VERI-1018)] ../rtl/miracle.sv(199): compiling module 'midi_uart'
 [INFO (VERI-1018)] ../rtl/miracle.sv(28): compiling module 'miraclepiano'
 [INFO (VERI-1018)] ../rtl/zapper.sv(4): compiling module 'zapper'
-[INFO (VERI-1018)] ../NES.sv(1387): compiling module 'GameLoader'
-[WARN (VERI-1060)] ../NES.sv(1410): 'initial' construct is ignored
+[INFO (VERI-1018)] ../NES.sv(1455): compiling module 'GameLoader'
 [INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=1,def="0000000000000000000000010010000000000000000000000000000000000001")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=2,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/t65/T65_MCode.vhd(58): processing 'T65_MCode(rtl)'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'ALU_Op'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Set_BusA_To'
-[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Write_Data'
-[INFO (VHDL-1172)] ../rtl/t65/T65_MCode.vhd(1089): 'others' clause is never selected
-[INFO (VHDL-1067)] ../rtl/t65/T65_ALU.vhd(57): processing 'T65_ALU(rtl)'
-[INFO (VHDL-9044)] ../rtl/t65/T65_ALU.vhd(68): creating type property for input port 'Op'
-[INFO (VHDL-1067)] ../rtl/t65/T65.vhd(136): processing 'T65(rtl)'
-[WARN (VHDL-1129)] ../rtl/t65/T65.vhd(180): initial value for signal is ignored
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(199): creating type property for signal 'ALU_Op_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(200): creating type property for signal 'Write_Data_r'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
-[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
 [INFO (VERI-1018)] ../rtl/nes.v(32): compiling module 'DmaController'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(4): compiling module 'LenCounterUnit'
 [INFO (VERI-1018)] ../rtl/apu.sv(65): compiling module 'EnvelopeUnit'
 [INFO (VERI-1018)] ../rtl/apu.sv(117): compiling module 'SquareChan'
 [INFO (VERI-1018)] ../rtl/apu.sv(266): compiling module 'TriangleChan'
 [INFO (VERI-1018)] ../rtl/apu.sv(375): compiling module 'NoiseChan'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=17,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=18,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=17,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[WARN (VHDL-1129)] ../rtl/bus_savestates.vhd(48): initial value for signal is ignored
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=18,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(1163): compiling module 'APUMixer'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=19,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b010011)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=19,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b010000,SSREG_INDEX_DMC1=10'b010001,SSREG_INDEX_DMC2=10'b010010,SSREG_INDEX_FCT=10'b010011)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=16,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VERI-8028)] ../rtl/apu.sv(1031): missing/open ports on instance Squ2 of module SquareChan
 [WARN (VDB-1013)] ../rtl/apu.sv(1050): input port 'allow_us' is not connected on this instance
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=5,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=4,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=6,def="0000000000000000000000000000000000000000000000000000000101010010")(arch)'
 [INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen:(USE_SAVESTATE=1)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=11,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=6,def="0000000000000000000000000000000000000000000000000000000101010010")(arch)'
 [INFO (VERI-1018)] ../rtl/ppu.sv(10): compiling module 'LoopyGen'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=11,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/ppu.sv(907): compiling module 'BgPainter'
-[WARN (VERI-1060)] ../rtl/ppu.sv(937): 'initial' construct is ignored
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=12,def="0000000000000000000000000000000000000000000000000000000111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/ppu.sv(419): compiling module 'OAMEval'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=12,def="0000000000000000000000000000000000000000000000000000000111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/ppu.sv(779): compiling module 'SpriteAddressGen'
 [INFO (VERI-1018)] ../rtl/ppu.sv(834): compiling module 'SpriteAddressGenEx'
 [INFO (VERI-1018)] ../rtl/ppu.sv(314): compiling module 'Sprite'
 [INFO (VERI-1018)] ../rtl/ppu.sv(353): compiling module 'SpriteSet'
 [INFO (VERI-1018)] ../rtl/ppu.sv(986): compiling module 'PixelMuxer'
+[INFO (VERI-1018)] ../rtl/ppu.sv(1003): compiling module 'PaletteRam'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=7,def="0000000000001000000000000000100100000000000010000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=8,def="0010000000111010000001000000000100000000000100000000001000000001")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=9,def="0010110000000000000000000011010000000100000010000000001000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=10,def="0000100000000010000101000000001100101100001001000000110100000001")(arch)'
-[INFO (VERI-1018)] ../rtl/ppu.sv(1003): compiling module 'PaletteRam'
 [WARN (VDB-1002)] ../rtl/ppu.sv(1026): net 'SS_PAL_BACK[3][63]' does not have a driver
 [INFO (VERI-1018)] ../rtl/ppu.sv(1081): compiling module 'PPU'
-[WARN (VERI-1060)] ../rtl/ppu.sv(1157): 'initial' construct is ignored
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=5,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=4,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(4): compiling module 'MMC0'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=32,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC1.sv(4): compiling module 'MMC1'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=32,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(1103): compiling module 'Mapper28'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(121): compiling module 'Mapper30'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=33,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(640): compiling module 'Mapper32'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=33,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(4): compiling module 'MMC2'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=34,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(292): compiling module 'MMC3'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=34,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC2.sv(204): compiling module 'MMC4'
+[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=35,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=36,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(3): compiling module 'MMC5'
 [INFO (VERI-1018)] ../rtl/mappers/generic.sv(58): compiling module 'Mapper13'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(4): compiling module 'Mapper15'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(106): compiling module 'Mapper16'
@@ -927,8 +719,8 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VDB-1013)] ../rtl/mappers/MMC1.sv(275): input port 'chr_read' is not connected on this instance
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(4): compiling module 'VRC1'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(137): compiling module 'VRC3'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=40,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(922): compiling module 'vrcIRQ'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=40,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(275): compiling module 'VRC24'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(1333): compiling module 'VRC5'
 [INFO (VERI-1018)] ../rtl/mappers/VRC.sv(724): compiling module 'MAPVRC6'
@@ -939,7 +731,6 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(116): compiling module 'MAPN163'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(3): compiling module 'N163'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1606): compiling module 'Mapper162'
-[WARN (VERI-1899)] ../rtl/mappers/misc.sv(1664): 'prg_bank' inside always_comb block does not represent combinational logic
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1761): compiling module 'Nanjing'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1689): compiling module 'Mapper164'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(1899): compiling module 'Mapper156'
@@ -952,35 +743,27 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(187): compiling module 'SachenJV001'
 [INFO (VERI-1018)] ../rtl/mappers/Sachen.sv(339): compiling module 'SachenNROM'
 [INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(3): compiling module 'multiplier'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/JYCompany.sv(59): compiling module 'JYCompany'
 [INFO (VERI-8005)] ../rtl/mappers/JYCompany.sv(144): Unintentional sequential element inferred for bank_mode read before write using blocking assignment
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=37,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(3072): compiling module 'Mapper91'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(2069): compiling module 'Mapper225'
 [INFO (VERI-1018)] ../rtl/mappers/MMC3.sv(1003): compiling module 'Mapper413'
 [INFO (VERI-1018)] ../rtl/mappers/FDS.sv(3): compiling module 'MapperFDS'
 [INFO (VERI-1018)] ../rtl/mappers/misc.sv(2266): compiling module 'NSF'
-[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2678): 11-bit index expression '{midi_reg[5'b01001][2:0],midi_reg[5'b01000]}' is larger than the required 7 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2680): 11-bit index expression '{midi_reg[5'b01001][2:0],midi_reg[5'b01000]}' is larger than the required 7 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/misc.sv(2737): 5-bit index expression 'reg_ind' is larger than the required 4 bits. This might lead to an out-of-bound access
+[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(253): compiling module 'SS5b_audio'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=48,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=49,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=50,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(253): compiling module 'SS5b_audio'
-[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(437): 6-bit index expression 'envelope_a' is larger than the required 5 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(438): 6-bit index expression 'envelope_b' is larger than the required 5 bits. This might lead to an out-of-bound access
-[WARN (VERI-9005)] ../rtl/mappers/Sunsoft.sv(439): 6-bit index expression 'envelope_c' is larger than the required 5 bits. This might lead to an out-of-bound access
 [INFO (VERI-1018)] ../rtl/mappers/Sunsoft.sv(204): compiling module 'SS5b_mixed'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(458): compiling module 'namco163_sound'
 [WARN (VDB-1002)] ../rtl/mappers/Namco.sv(486): net 'SS_MAP1_BACK[12]' does not have a driver
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=52,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/mappers/Namco.sv(373): compiling module 'namco163_mixed'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=52,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(485): compiling module 'DmcChan:(SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(723): compiling module 'FrameCtr:(SSREG_INDEX_FCT=10'b0110011)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=51,def="0000000000000000000000000000000000000000000000000111111111111111")(arch)'
 [INFO (VERI-1018)] ../rtl/apu.sv(871): compiling module 'APU:(SSREG_INDEX_TOP=10'b0110000,SSREG_INDEX_DMC1=10'b0110001,SSREG_INDEX_DMC2=10'b0110010,SSREG_INDEX_FCT=10'b0110011)'
 [INFO (VERI-1018)] ../rtl/mappers/MMC5.sv(710): compiling module 'mmc5_mixed'
 [WARN (VERI-8028)] ../rtl/mappers/MMC5.sv(777): missing/open ports on instance mmc5apu of module APU
@@ -1049,8 +832,6 @@ INFO (ISW003): Top module name is "sys_top".
 [WARN (VERI-1330)] ../rtl/cart.sv(2162): actual bit length 64 differs from formal bit length 32 for port 'flags'
 [WARN (VERI-1330)] ../rtl/cart.sv(2202): actual bit length 64 differs from formal bit length 32 for port 'flags'
 [INFO (VERI-1018)] ../rtl/cheatcodes.sv(10): compiling module 'CODES'
-[WARN (VERI-9005)] ../rtl/cheatcodes.sv(57): 6-bit index expression 'index' is larger than the required 5 bits. This might lead to an out-of-bound access
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=24,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [INFO (VHDL-1067)] ../rtl/savestates.vhd(7): processing 'savestates(arch)'
 [INFO (VHDL-9044)] ../rtl/savestates.vhd(50): creating type property for input port 'savestate_address'
 [INFO (VHDL-9046)] ../rtl/savestates.vhd(62): creating type property for signal 'savetype_counter'
@@ -1084,12 +865,30 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VHDL-9046)] ../rtl/statemanager.vhd(53): creating type property for signal 'vsync_counter'
 [INFO (VERI-1018)] ../rtl/nes.v(83): compiling module 'NES'
 [WARN (VERI-8028)] ../rtl/nes.v(384): missing/open ports on instance clockgen_pause of module ClockGen
+[INFO (VHDL-1067)] ../rtl/t65/T65.vhd(136): processing 'T65(rtl)'
+[WARN (VHDL-1129)] ../rtl/t65/T65.vhd(180): initial value for signal is ignored
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(199): creating type property for signal 'ALU_Op_r'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(200): creating type property for signal 'Write_Data_r'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(225): creating type property for signal 'ALU_Op'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(226): creating type property for signal 'Set_BusA_To'
+[INFO (VHDL-9046)] ../rtl/t65/T65.vhd(228): creating type property for signal 'Write_Data'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=0,def="1110000001100100000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=1,def="0000000000000000000000010010000000000000000000000000000000000001")(arch)'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=2,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VHDL-1067)] ../rtl/t65/T65_MCode.vhd(58): processing 'T65_MCode(rtl)'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'ALU_Op'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Set_BusA_To'
+[INFO (VHDL-9045)] ../rtl/t65/T65_MCode.vhd(93): creating type property for output port 'Write_Data'
+[INFO (VHDL-1172)] ../rtl/t65/T65_MCode.vhd(1089): 'others' clause is never selected
+[INFO (VHDL-1067)] ../rtl/t65/T65_ALU.vhd(57): processing 'T65_ALU(rtl)'
+[INFO (VHDL-9044)] ../rtl/t65/T65_ALU.vhd(68): creating type property for input port 'Op'
 [WARN (VERI-1330)] ../rtl/nes.v(418): actual bit length 32 differs from formal bit length 2 for port 'Mode'
 [WARN (VERI-1330)] ../rtl/nes.v(419): actual bit length 32 differs from formal bit length 1 for port 'BCD_en'
 [WARN (VERI-1330)] ../rtl/nes.v(430): actual bit length 16 differs from formal bit length 24 for port 'A'
 [WARN (VERI-8028)] ../rtl/nes.v(486): missing/open ports on instance apu of module APU
 [WARN (VERI-1330)] ../rtl/nes.v(666): actual bit length 21 differs from formal bit length 10 for port 'prg_mask'
 [WARN (VERI-1330)] ../rtl/nes.v(667): actual bit length 20 differs from formal bit length 10 for port 'chr_mask'
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=24,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
 [WARN (VERI-1330)] ../rtl/nes.v(885): actual bit length 2 differs from formal bit length 32 for port 'savestate_number'
 [WARN (VDB-1002)] ../rtl/nes.v(609): net 'Savestate_OAMAddr[7]' does not have a driver
 [WARN (VDB-1002)] ../rtl/nes.v(610): net 'Savestate_OAMRdEn' does not have a driver
@@ -1115,35 +914,76 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../sys/hq2x.sv(298): compiling module 'Blend'
 [INFO (VERI-1018)] ../sys/hq2x.sv(250): compiling module 'hq2x_buf:(NUMWORDS=260,AWIDTH=8,DWIDTH=23)'
 [INFO (VERI-2571)] ../sys/hq2x.sv(260): extracting RAM for identifier 'ram'
-[WARN (VERI-9033)] ../sys/hq2x.sv(260): array ram (size 6240) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
 [INFO (VERI-1018)] ../sys/hq2x.sv(226): compiling module 'hq2x_in:(LENGTH=260,DWIDTH=23)'
 [INFO (VERI-1018)] ../sys/hq2x.sv(250): compiling module 'hq2x_buf:(NUMWORDS=520,AWIDTH=9,DWIDTH=95)'
 [INFO (VERI-2571)] ../sys/hq2x.sv(260): extracting RAM for identifier 'ram'
 [INFO (VERI-1018)] ../sys/hq2x.sv(13): compiling module 'Hq2x:(LENGTH=260)'
-[WARN (VERI-1060)] ../sys/hq2x.sv(60): 'initial' construct is ignored
 [WARN (VDB-1002)] ../sys/hq2x.sv(40): net 'hqTable[0][5]' does not have a driver
 [INFO (VERI-1018)] ../sys/scandoubler.v(22): compiling module 'scandoubler:(LENGTH=260)'
 [WARN (VERI-8028)] ../sys/scandoubler.v(103): missing/open ports on instance Hq2x of module Hq2x
 [WARN (VDB-1013)] ../sys/scandoubler.v(117): input port 'mono' is not connected on this instance
 [INFO (VERI-1018)] ../sys/gamma_corr.sv(1): compiling module 'gamma_corr'
 [INFO (VERI-2571)] ../sys/gamma_corr.sv(22): extracting RAM for identifier 'gamma_curve'
-[WARN (VERI-9033)] ../sys/gamma_corr.sv(22): array gamma_curve (size 6144) automatically BLACK-BOXED. Use the "elaborate -bbox_a" command to prevent automatic black-boxing.
 [INFO (VERI-1018)] ../sys/video_mixer.sv(19): compiling module 'video_mixer:(LINE_LENGTH=260,GAMMA=1)'
-[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[INFO (VERI-1018)] ../sys/video_freak.sv(214): compiling module 'video_scale_int'
+[WARN (VERI-8028)] ../sys/video_freak.sv(238): missing/open ports on instance div of module sys_udiv
+[INFO (VERI-8005)] ../sys/video_freak.sv(246): Unintentional sequential element inferred for hinteger read before write using blocking assignment
+[INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
+[INFO (VERI-1018)] ../rtl/video_enclosing.sv(1): compiling module 'video_enclosing'
+[WARN (VERI-8028)] ../rtl/video_enclosing.sv(136): missing/open ports on instance video_mixer of module video_mixer
 [INFO (VERI-1018)] ../rtl/ddram.sv(22): compiling module 'ddram'
 [INFO (VERI-1018)] ../rtl/savestate_ui.sv(1): compiling module 'savestate_ui:(INFO_TIMEOUT_BITS=25)'
 [INFO (VERI-1018)] ../NES.sv(6): compiling module 'emu'
-[WARN (VERI-1330)] ../NES.sv(222): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
-[WARN (VERI-1330)] ../NES.sv(224): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
-[WARN (VERI-1330)] ../NES.sv(923): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
-[WARN (VERI-1330)] ../NES.sv(924): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
-[WARN (VERI-8028)] ../NES.sv(872): missing/open ports on instance nes of module NES
-[WARN (VDB-1002)] ../NES.sv(220): net 'hide_overscan' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(691): net 'reset_nes' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(1068): net 'sdram_ss_in[15]' does not have a driver
+[WARN (VERI-1330)] ../NES.sv(907): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
+[WARN (VERI-1330)] ../NES.sv(908): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
+[WARN (VERI-8028)] ../NES.sv(856): missing/open ports on instance nes of module NES
+[WARN (VERI-1330)] ../NES.sv(1257): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
+[WARN (VERI-1330)] ../NES.sv(1259): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
+[WARN (VERI-8028)] ../NES.sv(1200): missing/open ports on instance video_enclosing of module video_enclosing
+[INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
+[WARN (VDB-1002)] ../NES.sv(675): net 'reset_nes' does not have a driver
+[WARN (VDB-1002)] ../NES.sv(1052): net 'sdram_ss_in[15]' does not have a driver
+[WARN (VDB-1013)] ../NES.sv(1265): input port 'ce_pix' is not connected on this instance
 [INFO (VERI-1018)] ../sys/sys_top.v(22): compiling module 'sys_top'
-[WARN (VERI-1060)] ../sys/sys_top.v(194): 'initial' construct is ignored
-[WARN (VERI-1060)] ../sys/sys_top.v(316): 'initial' construct is ignored
+[WARN (VERI-1166)] ../sys/sys_top.v(409): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(410): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(411): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(412): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(413): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(414): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(439): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(440): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(441): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(442): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(443): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(444): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(445): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(446): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(463): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(464): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(465): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(466): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(467): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(468): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(469): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(470): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(471): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(472): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(473): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(474): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(475): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(482): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(483): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(492): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(493): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(494): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(495): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(496): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(497): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(506): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(507): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(508): case condition never applies
+[WARN (VERI-1166)] ../sys/sys_top.v(509): case condition never applies
 [WARN (VERI-1330)] ../sys/sys_top.v(862): actual bit length 12 differs from formal bit length 24 for port 'result'
 [WARN (VERI-8028)] ../sys/sys_top.v(853): missing/open ports on instance ar_muldiv of module sys_umuldiv
 [WARN (VERI-8028)] ../sys/sys_top.v(1156): missing/open ports on instance hdmi_osd of module osd
@@ -1195,11 +1035,11 @@ WARNING (WNL008): Module "audio_out" is blackboxed due to analyze/elaborate bbox
 WARNING (WNL008): Module "cyclonev_hps_interface_peripheral_spi_master" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 WARNING (WNL008): Module "alsa" is blackboxed due to analyze/elaborate bbox_m or compilation configuration. All instances will be blackboxed.
 INFO (INL208): Elaboration synthesis summary:
-  Number of synthesized netlists          211 (8 packages)
+  Number of synthesized netlists          212 (8 packages)
   Single run mode                         On
-  Pipeline                                On (173 pipelined netlists)
+  Pipeline                                On (174 pipelined netlists)
   Late hierarchical reference connection  On
-  Number of analyzed Verilog modules      142 (133 synthesized)
+  Number of analyzed Verilog modules      143 (134 synthesized)
   Number of analyzed VHDL entities        15 (36 synthesized)
 WARNING (WNL018): ../sys/yc_out.sv(193): multiplication operator mult_21s_11s (size 32) automatically black boxed.
     Use the "elaborate -bbox_mul" command to prevent automatic black-boxing.
@@ -1223,6 +1063,10 @@ WARNING (WNL032): ../rtl/mappers/FDS.sv(587): division operator div_13u_2u (size
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
 WARNING (WNL032): ../rtl/mappers/FDS.sv(589): division operator div_13u_3u (size 13) automatically black boxed.
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
+WARNING (WOBS004): ../NES.sv(1787): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
+WARNING (WOBS004): ../sys/video_freak.sv(167): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
+WARNING (WOBS004): ../sys/video_freak.sv(171): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
+WARNING (WNL010): Input port "ce_pix" of module "video_enclosing" is also being driven at ../rtl/video_enclosing.sv(122).
 WARNING (WNL010): Input port "ADC_SDO" of module "sys_top" is also being driven at ../sys/sys_top.v(1720).
 INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
 INFO (IMDS005): Number of multiple-driven bits in design: 5436. Use "get_design_info -list multiple_driven" for more information.
@@ -1250,14 +1094,33 @@ INFO (IRS006): Current reset condition is "emu.reset_nes".
 [<embedded>] % #reset -none -non_resettable_regs 0;
 [<embedded>] % #reset -expression ~RESET;
 [<embedded>] % #reset -none;
+[<embedded>] % 
 [<embedded>] % # # Extract properties
 [<embedded>] % check_superlint -extract
-ERROR (ESL035): Run "check_superlint -init" before using Superlint-related commands.
-
-ERROR: problem encountered at line 57 in file NES.tcl
-
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 9 analyzed.
+INFO (IRS024): Reset iterations 10 to 19 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 18 iterations. Assigned values for 1551 of 29249 design flops, 0 of 8 design latches, 4153 of 4167 internal elements.
+WARNING (WRS031): 2 of 29249 design flop(s) with asynchronous reset condition, but not reset. Run "get_reset_info -x_value -with_reset_pin" to get a list of such flops.
+INFO (IRS039): Reset analysis complete.
+INFO (ISL009): Started detection of ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ checks
+INFO (ISL014): Started extracting properties for ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ checks
+INFO (ISL015): Extracted 7026 properties of ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ
+INFO (ISL009): Started detection of BUS_IS_CONT, BUS_IS_FLOT checks
+WARNING (WSL077): Some signals were filtered and not extracted as bus checks.
+    These signals exceed maximum multiple-driven number limit.
+    For message help, type "help -message WSL044".
+INFO (ISL014): Started extracting properties for BUS_IS_CONT, BUS_IS_FLOT checks
+INFO (ISL015): Extracted 29 properties of BUS_IS_CONT, BUS_IS_FLOT
+7055
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % schematic_viewer -draw -instance emu.video_enclosing
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.483 GB.
+INFO (IPL018): The peak resident set memory use for this session was 0.739 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.

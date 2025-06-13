@@ -161,7 +161,7 @@ video_scale_int scale
 
 ///////////////////////////////// PROPERTIES - FORMAL - SVA /////////////////////////////////
 `ifdef SVA_ENABLE
-	`ifndef SYNTHESIS
+	//`ifndef SYNTHESIS
 		//Check VGA_VS and VGA_DE_IN Synchronization:
 		//Ensures that vcpt is reset on the rising edge of VGA_VS.
 		vcpt_cover: cover property (@(posedge CLK_VIDEO) VGA_VS && !old_vs |-> (vcpt == 0));
@@ -205,7 +205,7 @@ video_scale_int scale
 		endproperty;
 
 		crop_boundary_asrt: assert property (crop_boundary);
-	`endif
+//	`endif
 `endif
 
 endmodule

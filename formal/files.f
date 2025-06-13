@@ -8,6 +8,7 @@ rtl/keyboard.sv
 rtl/zapper.sv
 rtl/cart.sv
 rtl/video.sv
+rtl/video_enclosing.sv
 rtl/ppu.sv
 rtl/apu.sv
 rtl/bus_savestates.vhd

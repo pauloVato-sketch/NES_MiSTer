@@ -1,11 +1,13 @@
 
 clear -all
-
+# Jasper was complaining that the extraction was happening before the initialization
+# and complained about initialization happening without clear -all, so I moved
+# the initialization here and no more errors were shown.
+check_superlint -init
 # Load checks that will be verified
 # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_VHDL.def
 # config_rtlds -rule -load /home/jef/cadence/installs/jasper_2023.09p002/etc/res/rtlds/rules/superlint_Verilog_SystemVerilog.def 
 #config_rtlds -rule -load Superlint_Deployment_Rulefile_Lint_2022_09_Customer.def
-
 
 # analyze -register -vhdl -f files_vhd.f
 # analyze -sort -vhdl -f files_vhd.f
@@ -24,13 +26,13 @@ analyze -vhdl ../rtl/t65/T65_Pack.vhd
 analyze -vhdl ../rtl/t65/T65_MCode.vhd
 analyze -vhdl ../rtl/t65/T65_ALU.vhd
 analyze -vhdl ../rtl/t65/T65.vhd
+
 analyze -sv ../rtl/regs_savestates.sv
-
-
-analyze -sv -f files_sv.f
+# Adição do macro SVA_ENABLE para os arquivos .sv (que podem conter assertions).
+analyze +define+SVA_ENABLE=true -sv -f files_sv.f
 analyze -sv -f files_mappers_sv.f
 
-
+# config_rtlds -report_macros
 elaborate -top sys_top -bbox_m DSP48A1 -bbox_m dpram -bbox_m EEPROM_24C0x -bbox_m IIR_filter -bbox_m eseopll -bbox_m altddio_out -bbox_m spram -bbox_m hps_io -bbox_m pll -bbox_m pll_cfg -bbox_m sysmem -bbox_m cyclonev_hps_interface_mpu_general_purpose -bbox_m cyclonev_hps_interface_peripheral_uart -bbox_m sysmem_lite -bbox_m cyclonev_hps_interface_interrupts -bbox_m ddr_svc -bbox_m ascal -bbox_m pll_hdmi_adj -bbox_m pll_cfg_hdmi -bbox_m pll_hdmi -bbox_m cyclonev_hps_interface_peripheral_i2c -bbox_m cyclonev_clkselect -bbox_m pll_audio -bbox_m audio_out -bbox_m cyclonev_hps_interface_peripheral_spi_master -bbox_m alsa
 
 clock FPGA_CLK1_50 -factor 1 -phase 1
@@ -53,6 +55,7 @@ reset -expression emu.reset_nes;
 #reset -none -non_resettable_regs 0;
 #reset -expression ~RESET;
 #reset -none;
+
 # # Extract properties
 check_superlint -extract
 

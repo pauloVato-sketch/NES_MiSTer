@@ -898,7 +898,7 @@ statemanager #(58720256, 33554432) statemanager (
 assign sleep_savestate = sleep_rewind | sleep_savestates;
 
 `ifdef SVA_ENABLE
-	`ifndef SYNTHESIS
+	//`ifndef SYNTHESIS
 		property ppu_din;
 			(@(posedge clk) 
 			(dma_aout_enable) |-> (dbus == dma_data_to_ram));
@@ -921,6 +921,6 @@ assign sleep_savestate = sleep_rewind | sleep_savestates;
 		endproperty
 
 		assert property (dma_start_delay);*/
-	`endif
+	//`endif
 `endif
 endmodule
