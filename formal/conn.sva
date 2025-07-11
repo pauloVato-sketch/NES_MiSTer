@@ -1,0 +1,446 @@
+module \Connectivity_dynamic_properties (
+    FPGA_CLK1_50
+    ,emu___CLK_VIDEO
+    ,emu___video_freak___CLK_VIDEO
+    ,emu___video_mixer___CLK_VIDEO
+    ,emu___CE_PIXEL
+    ,emu___video_freak___CE_PIXEL
+    ,emu___VGA_VS
+    ,emu___video_freak___VGA_VS
+    ,emu___HDMI_WIDTH
+    ,emu___video_freak___HDMI_WIDTH
+    ,emu___HDMI_HEIGHT
+    ,emu___video_freak___HDMI_HEIGHT
+    ,emu___HDMI_FREEZE
+    ,emu___video_mixer___HDMI_FREEZE
+    ,LED
+    ,emu___LED_USER
+    ,led_overtake
+    ,led_state
+    ,emu___LED_DISK
+    ,gp_out
+    ,SDCD_SPDIF
+    ,SDIO_CLK
+    ,SW
+    ,av_dis
+    ,emu___SD_SCK
+    ,mcp_en
+    ,SD_SPI_CLK
+    ,mcp_sdcd
+    ,SD_SPI_MOSI
+    ,emu___SD_MOSI
+    ,SD_SPI_CS
+    ,VGA_EN
+    ,cs1
+    ,emu___SD_CS
+    ,sog
+    ,SDRAM_CLK
+    ,emu___SDRAM_CLK
+    ,SDRAM_CKE
+    ,emu___SDRAM_CKE
+    ,SDRAM_A
+    ,emu___SDRAM_A
+    ,SDRAM_BA
+    ,emu___SDRAM_BA
+    ,SDRAM_DQML
+    ,emu___SDRAM_DQML
+    ,SDRAM_DQMH
+    ,emu___SDRAM_DQMH
+    ,SDRAM_nCS
+    ,emu___SDRAM_nCS
+    ,SDRAM_nCAS
+    ,emu___SDRAM_nCAS
+    ,SDRAM_nRAS
+    ,emu___SDRAM_nRAS
+    ,SDRAM_nWE
+    ,emu___SDRAM_nWE
+    ,emu___video___ce_pix
+    ,emu___video_mixer___ce_pix
+    ,emu___video___HSync
+    ,emu___video_mixer___HSync
+    ,emu___video___VSync
+    ,emu___video_mixer___VSync
+    ,emu___video___HBlank
+    ,emu___video_mixer___HBlank
+    ,emu___video___VBlank
+    ,emu___video_mixer___VBlank
+    ,emu___video___R
+    ,emu___video_mixer___R
+    ,emu___video___G
+    ,emu___video_mixer___G
+    ,emu___video___B
+    ,emu___video_mixer___B
+    ,FPGA_CLK2_50
+    ,emu___CLK_50M
+    ,SDIO_DAT
+    ,SD_CD
+    ,emu___SD_MISO
+    ,SD_SPI_MISO
+    ,emu___SD_CD
+    ,USER_IO
+    ,emu___USER_IN
+    ,emu___video_freak___VGA_DE_IN
+    ,emu___video_mixer___VGA_DE
+);
+
+input FPGA_CLK1_50 ;
+input emu___CLK_VIDEO ;
+input emu___video_freak___CLK_VIDEO ;
+input emu___video_mixer___CLK_VIDEO ;
+input emu___CE_PIXEL ;
+input emu___video_freak___CE_PIXEL ;
+input emu___VGA_VS ;
+input emu___video_freak___VGA_VS ;
+input [11:0] emu___HDMI_WIDTH ;
+input [11:0] emu___video_freak___HDMI_WIDTH ;
+input [11:0] emu___HDMI_HEIGHT ;
+input [11:0] emu___video_freak___HDMI_HEIGHT ;
+input emu___HDMI_FREEZE ;
+input emu___video_mixer___HDMI_FREEZE ;
+input [7:0] LED ;
+input emu___LED_USER ;
+input [7:0] led_overtake ;
+input [7:0] led_state ;
+input [1:0] emu___LED_DISK ;
+input [31:0] gp_out ;
+input SDCD_SPDIF ;
+input SDIO_CLK ;
+input [3:0] SW ;
+input av_dis ;
+input emu___SD_SCK ;
+input mcp_en ;
+input SD_SPI_CLK ;
+input mcp_sdcd ;
+input SD_SPI_MOSI ;
+input emu___SD_MOSI ;
+input SD_SPI_CS ;
+input VGA_EN ;
+input cs1 ;
+input emu___SD_CS ;
+input sog ;
+input SDRAM_CLK ;
+input emu___SDRAM_CLK ;
+input SDRAM_CKE ;
+input emu___SDRAM_CKE ;
+input [12:0] SDRAM_A ;
+input [12:0] emu___SDRAM_A ;
+input [1:0] SDRAM_BA ;
+input [1:0] emu___SDRAM_BA ;
+input SDRAM_DQML ;
+input emu___SDRAM_DQML ;
+input SDRAM_DQMH ;
+input emu___SDRAM_DQMH ;
+input SDRAM_nCS ;
+input emu___SDRAM_nCS ;
+input SDRAM_nCAS ;
+input emu___SDRAM_nCAS ;
+input SDRAM_nRAS ;
+input emu___SDRAM_nRAS ;
+input SDRAM_nWE ;
+input emu___SDRAM_nWE ;
+input emu___video___ce_pix ;
+input emu___video_mixer___ce_pix ;
+input emu___video___HSync ;
+input emu___video_mixer___HSync ;
+input emu___video___VSync ;
+input emu___video_mixer___VSync ;
+input emu___video___HBlank ;
+input emu___video_mixer___HBlank ;
+input emu___video___VBlank ;
+input emu___video_mixer___VBlank ;
+input [7:0] emu___video___R ;
+input [7:0] emu___video_mixer___R ;
+input [7:0] emu___video___G ;
+input [7:0] emu___video_mixer___G ;
+input [7:0] emu___video___B ;
+input [7:0] emu___video_mixer___B ;
+input FPGA_CLK2_50 ;
+input emu___CLK_50M ;
+input [3:0] SDIO_DAT ;
+input SD_CD ;
+input emu___SD_MISO ;
+input SD_SPI_MISO ;
+input emu___SD_CD ;
+input [6:0] USER_IO ;
+input [6:0] emu___USER_IN ;
+input emu___video_freak___VGA_DE_IN ;
+input emu___video_mixer___VGA_DE ;
+ 
+\assert__conn:c_0 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___CLK_VIDEO == emu___video_freak___CLK_VIDEO)
+);
+
+\assert__conn:c_1 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___CLK_VIDEO == emu___video_mixer___CLK_VIDEO)
+);
+
+\assert__conn:c_2 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___CE_PIXEL == emu___video_freak___CE_PIXEL)
+);
+
+\assert__conn:c_3 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___VGA_VS == emu___video_freak___VGA_VS)
+);
+
+\assert__conn:c_4 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___HDMI_WIDTH == emu___video_freak___HDMI_WIDTH)
+);
+
+\assert__conn:c_5 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___HDMI_HEIGHT == emu___video_freak___HDMI_HEIGHT)
+);
+
+\assert__conn:c_6 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___HDMI_FREEZE == emu___video_mixer___HDMI_FREEZE)
+);
+
+\assert__conn:c_7 : assert property (@(posedge FPGA_CLK1_50) 
+ (((~led_overtake[0])) != 1'b0 && ((led_overtake[0] & led_state[0])) == 1'b0) |-> (emu___LED_USER == LED[0])
+);
+
+\assert__conn:c_8 : assert property (@(posedge FPGA_CLK1_50) 
+ ((gp_out[29]) == 1'b0 && ! (1'b0) && ((~led_overtake[2])) != 1'b0 && ((led_overtake[2] & led_state[2])) == 1'b0) |-> (emu___LED_DISK[0] == LED[2])
+);
+
+\assert__conn:c_9 : assert property (@(posedge FPGA_CLK1_50) 
+ (! ((mcp_en || (SDCD_SPDIF && (~SW[2])))) && (~av_dis)) |-> (emu___SD_SCK == SDIO_CLK)
+);
+
+\assert__conn:c_10 : assert property (@(posedge FPGA_CLK1_50) 
+ ((~((~mcp_en) || mcp_sdcd))) |-> (emu___SD_SCK == SD_SPI_CLK)
+);
+
+\assert__conn:c_11 : assert property (@(posedge FPGA_CLK1_50) 
+ ((~((~mcp_en) || mcp_sdcd))) |-> (emu___SD_MOSI == SD_SPI_MOSI)
+);
+
+\assert__conn:c_12 : assert property (@(posedge FPGA_CLK1_50) 
+ (mcp_en && (mcp_en ? (~mcp_sdcd) : ((sog && (~cs1)) && (~VGA_EN)))) |-> (emu___SD_CS == SD_SPI_CS)
+);
+
+\assert__conn:c_13 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_CLK == SDRAM_CLK)
+);
+
+\assert__conn:c_14 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_CKE == SDRAM_CKE)
+);
+
+\assert__conn:c_15 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_A == SDRAM_A)
+);
+
+\assert__conn:c_16 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_BA == SDRAM_BA)
+);
+
+\assert__conn:c_17 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_DQML == SDRAM_DQML)
+);
+
+\assert__conn:c_18 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_DQMH == SDRAM_DQMH)
+);
+
+\assert__conn:c_19 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_nCS == SDRAM_nCS)
+);
+
+\assert__conn:c_20 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_nCAS == SDRAM_nCAS)
+);
+
+\assert__conn:c_21 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_nRAS == SDRAM_nRAS)
+);
+
+\assert__conn:c_22 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___SDRAM_nWE == SDRAM_nWE)
+);
+
+\assert__conn:c_23 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___ce_pix == emu___video_mixer___ce_pix)
+);
+
+\assert__conn:c_24 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___HSync == emu___video_mixer___HSync)
+);
+
+\assert__conn:c_25 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___VSync == emu___video_mixer___VSync)
+);
+
+\assert__conn:c_26 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___HBlank == emu___video_mixer___HBlank)
+);
+
+\assert__conn:c_27 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___VBlank == emu___video_mixer___VBlank)
+);
+
+\assert__conn:c_28 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___R == emu___video_mixer___R)
+);
+
+\assert__conn:c_29 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___G == emu___video_mixer___G)
+);
+
+\assert__conn:c_30 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video___B == emu___video_mixer___B)
+);
+
+\assert__conn:c_31 : assert property (@(posedge FPGA_CLK1_50) 
+ (FPGA_CLK2_50 == emu___CLK_50M)
+);
+
+\assert__conn:c_32 : assert property (@(posedge FPGA_CLK1_50) 
+ ((SDIO_DAT[0]) == 1'b0 && ! (mcp_en) && (SD_CD) == 1'b0) |-> (VGA_EN == emu___SD_MISO)
+);
+
+\assert__conn:c_33 : assert property (@(posedge FPGA_CLK1_50) 
+ ((VGA_EN) == 1'b0 && ! (mcp_en) && (SD_CD) == 1'b0) |-> (SDIO_DAT[0] == emu___SD_MISO)
+);
+
+\assert__conn:c_34 : assert property (@(posedge FPGA_CLK1_50) 
+ (mcp_en && (SD_CD) == 1'b0) |-> (SD_SPI_MISO == emu___SD_MISO)
+);
+
+\assert__conn:c_35 : assert property (@(posedge FPGA_CLK1_50) 
+ (! (mcp_en)) |-> (SDCD_SPDIF == emu___SD_CD)
+);
+
+\assert__conn:c_36 : assert property (@(posedge FPGA_CLK1_50) 
+ (! (mcp_en) && ((mcp_en ? SD_SPI_MISO : (VGA_EN || SDIO_DAT[0]))) == 1'b0) |-> (SDCD_SPDIF == emu___SD_MISO)
+);
+
+\assert__conn:c_37 : assert property (@(posedge FPGA_CLK1_50) 
+ ((USER_IO[2]) == 1'b0) |-> (SW[1] == emu___USER_IN[2])
+);
+
+\assert__conn:c_38 : assert property (@(posedge FPGA_CLK1_50) 
+ ((USER_IO[4]) == 1'b0) |-> (SW[1] == emu___USER_IN[4])
+);
+
+\assert__conn:c_39 : assert property (@(posedge FPGA_CLK1_50) 
+ ((USER_IO[5]) == 1'b0) |-> (SW[1] == emu___USER_IN[5])
+);
+
+\assert__conn:c_40 : assert property (@(posedge FPGA_CLK1_50) 
+ (USER_IO[0] == emu___USER_IN[0])
+);
+
+\assert__conn:c_41 : assert property (@(posedge FPGA_CLK1_50) 
+ (USER_IO[1] == emu___USER_IN[1])
+);
+
+\assert__conn:c_42 : assert property (@(posedge FPGA_CLK1_50) 
+ ((SW[1]) == 1'b0) |-> (USER_IO[2] == emu___USER_IN[2])
+);
+
+\assert__conn:c_43 : assert property (@(posedge FPGA_CLK1_50) 
+ (USER_IO[3] == emu___USER_IN[3])
+);
+
+\assert__conn:c_44 : assert property (@(posedge FPGA_CLK1_50) 
+ ((SW[1]) == 1'b0) |-> (USER_IO[4] == emu___USER_IN[4])
+);
+
+\assert__conn:c_45 : assert property (@(posedge FPGA_CLK1_50) 
+ ((SW[1]) == 1'b0) |-> (USER_IO[5] == emu___USER_IN[5])
+);
+
+\assert__conn:c_46 : assert property (@(posedge FPGA_CLK1_50) 
+ (USER_IO[6] == emu___USER_IN[6])
+);
+
+\assert__conn:c_47 : assert property (@(posedge FPGA_CLK1_50) 
+ (emu___video_mixer___VGA_DE == emu___video_freak___VGA_DE_IN)
+);
+
+endmodule
+
+bind sys_top \Connectivity_dynamic_properties \Connectivity_properties (
+    .FPGA_CLK1_50 (FPGA_CLK1_50 ),
+    .emu___CLK_VIDEO (emu.CLK_VIDEO ),
+    .emu___video_freak___CLK_VIDEO (emu.video_freak.CLK_VIDEO ),
+    .emu___video_mixer___CLK_VIDEO (emu.video_mixer.CLK_VIDEO ),
+    .emu___CE_PIXEL (emu.CE_PIXEL ),
+    .emu___video_freak___CE_PIXEL (emu.video_freak.CE_PIXEL ),
+    .emu___VGA_VS (emu.VGA_VS ),
+    .emu___video_freak___VGA_VS (emu.video_freak.VGA_VS ),
+    .emu___HDMI_WIDTH (emu.HDMI_WIDTH ),
+    .emu___video_freak___HDMI_WIDTH (emu.video_freak.HDMI_WIDTH ),
+    .emu___HDMI_HEIGHT (emu.HDMI_HEIGHT ),
+    .emu___video_freak___HDMI_HEIGHT (emu.video_freak.HDMI_HEIGHT ),
+    .emu___HDMI_FREEZE (emu.HDMI_FREEZE ),
+    .emu___video_mixer___HDMI_FREEZE (emu.video_mixer.HDMI_FREEZE ),
+    .LED (LED ),
+    .emu___LED_USER (emu.LED_USER ),
+    .led_overtake (led_overtake ),
+    .led_state (led_state ),
+    .emu___LED_DISK (emu.LED_DISK ),
+    .gp_out (gp_out ),
+    .SDCD_SPDIF (SDCD_SPDIF ),
+    .SDIO_CLK (SDIO_CLK ),
+    .SW (SW ),
+    .av_dis (av_dis ),
+    .emu___SD_SCK (emu.SD_SCK ),
+    .mcp_en (mcp_en ),
+    .SD_SPI_CLK (SD_SPI_CLK ),
+    .mcp_sdcd (mcp_sdcd ),
+    .SD_SPI_MOSI (SD_SPI_MOSI ),
+    .emu___SD_MOSI (emu.SD_MOSI ),
+    .SD_SPI_CS (SD_SPI_CS ),
+    .VGA_EN (VGA_EN ),
+    .cs1 (cs1 ),
+    .emu___SD_CS (emu.SD_CS ),
+    .sog (sog ),
+    .SDRAM_CLK (SDRAM_CLK ),
+    .emu___SDRAM_CLK (emu.SDRAM_CLK ),
+    .SDRAM_CKE (SDRAM_CKE ),
+    .emu___SDRAM_CKE (emu.SDRAM_CKE ),
+    .SDRAM_A (SDRAM_A ),
+    .emu___SDRAM_A (emu.SDRAM_A ),
+    .SDRAM_BA (SDRAM_BA ),
+    .emu___SDRAM_BA (emu.SDRAM_BA ),
+    .SDRAM_DQML (SDRAM_DQML ),
+    .emu___SDRAM_DQML (emu.SDRAM_DQML ),
+    .SDRAM_DQMH (SDRAM_DQMH ),
+    .emu___SDRAM_DQMH (emu.SDRAM_DQMH ),
+    .SDRAM_nCS (SDRAM_nCS ),
+    .emu___SDRAM_nCS (emu.SDRAM_nCS ),
+    .SDRAM_nCAS (SDRAM_nCAS ),
+    .emu___SDRAM_nCAS (emu.SDRAM_nCAS ),
+    .SDRAM_nRAS (SDRAM_nRAS ),
+    .emu___SDRAM_nRAS (emu.SDRAM_nRAS ),
+    .SDRAM_nWE (SDRAM_nWE ),
+    .emu___SDRAM_nWE (emu.SDRAM_nWE ),
+    .emu___video___ce_pix (emu.video.ce_pix ),
+    .emu___video_mixer___ce_pix (emu.video_mixer.ce_pix ),
+    .emu___video___HSync (emu.video.HSync ),
+    .emu___video_mixer___HSync (emu.video_mixer.HSync ),
+    .emu___video___VSync (emu.video.VSync ),
+    .emu___video_mixer___VSync (emu.video_mixer.VSync ),
+    .emu___video___HBlank (emu.video.HBlank ),
+    .emu___video_mixer___HBlank (emu.video_mixer.HBlank ),
+    .emu___video___VBlank (emu.video.VBlank ),
+    .emu___video_mixer___VBlank (emu.video_mixer.VBlank ),
+    .emu___video___R (emu.video.R ),
+    .emu___video_mixer___R (emu.video_mixer.R ),
+    .emu___video___G (emu.video.G ),
+    .emu___video_mixer___G (emu.video_mixer.G ),
+    .emu___video___B (emu.video.B ),
+    .emu___video_mixer___B (emu.video_mixer.B ),
+    .FPGA_CLK2_50 (FPGA_CLK2_50 ),
+    .emu___CLK_50M (emu.CLK_50M ),
+    .SDIO_DAT (SDIO_DAT ),
+    .SD_CD (SD_CD ),
+    .emu___SD_MISO (emu.SD_MISO ),
+    .SD_SPI_MISO (SD_SPI_MISO ),
+    .emu___SD_CD (emu.SD_CD ),
+    .USER_IO (USER_IO ),
+    .emu___USER_IN (emu.USER_IN ),
+    .emu___video_freak___VGA_DE_IN (emu.video_freak.VGA_DE_IN ),
+    .emu___video_mixer___VGA_DE (emu.video_mixer.VGA_DE )
+);

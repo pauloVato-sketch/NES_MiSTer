@@ -202,7 +202,7 @@ video_scale_int scale
 		property crop_boundary;
 			@(posedge CLK_VIDEO)
 			(vcalc && (CROP_SIZE < vtot)) |-> (vcrop == CROP_SIZE);
-		endproperty;
+		endproperty
 
 		crop_boundary_asrt: assert property (crop_boundary);
 //	`endif

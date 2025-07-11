@@ -59,4 +59,11 @@ reset -expression emu.reset_nes;
 # # Extract properties
 check_superlint -extract
 
+# Generate connectivity map
+check_conn -reverse -src {sys_top emu video video_mixer video_freak} -dest {sys_top emu video video_mixer video_freak} -force -save_as output_map.csv -load
 
+# Find connectivity between blocks
+
+check_conn -reverse -complexity complex -src {sys_top emu video video_mixer video_freak} -dest {sys_top emu video video_mixer video_freak} -force -save_as complex_output_map.csv -force
+
+# check_conn –prove

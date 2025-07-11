@@ -1,14 +1,14 @@
 # ----------------------------------------
 # Jasper Version Info
 # tool      : Jasper 2023.09
-# platform  : Linux 5.14.0-503.40.1.el9_5.x86_64
+# platform  : Linux 5.14.0-570.23.1.el9_6.x86_64
 # version   : 2023.09p002 64 bits
 # build date: 2023.11.21 13:10:30 UTC
 # ----------------------------------------
-# started   : 2025-06-11 15:51:07 -03
+# started   : 2025-07-11 16:36:08 -03
 # hostname  : localhost.localdomain.(none)
-# pid       : 24756
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:34389' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/Altered-NES/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/Altered-NES/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
+# pid       : 11065
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:38447' '-style' 'windows' '-data' 'AAAA+nicjY+7CsJAFETPGmzF7xCyxBeIpLCxCWrQgK0EtRMjSURIo5/qn6xjJKCdM9wZuJwLuwYI7845anmVosuCJRvmypitGiLGDJgQMFMHsqXPUGOVVruRiOlfVC3z/DSh4Vtm/fhpaDdgg7Q0PXxSTnLGjR1XzhTKi5yRU3LkoH1MIrrDSr9I9IKSvW7eegErBBxX' '-proj' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/pauloldn/poland/proj/NES_MiSTer/formal/jgproject/.tmp/.initCmds.tcl' 'NES.tcl'
 
 Any disclosure about the Cadence Design Systems software or its use
 model to any third party violates the written Non-Disclosure Agreement
@@ -157,7 +157,7 @@ Found file at: ../rtl/statemanager.vhd
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/regs_savestates.sv'
 % # Adição do macro SVA_ENABLE para os arquivos .sv (que podem conter assertions).
 % analyze +define+SVA_ENABLE=true -sv -f files_sv.f
-INFO (INL011): Processing "-f" file "/home/pauloldn/poland/Altered-NES/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/proj/NES_MiSTer/formal/files_sv.f".
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/sdram.sv'
 [WARN (VERI-2013)] ../rtl/sdram.sv(117): variable 'last_a' must explicitly be declared as automatic or static
 [WARN (VERI-2013)] ../rtl/sdram.sv(181): variable 'init_old' must explicitly be declared as automatic or static
@@ -204,65 +204,66 @@ INFO (INL011): Processing "-f" file "/home/pauloldn/poland/Altered-NES/formal/fi
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/dsp.v'
 [-- (VERI-1482)] Analyzing Verilog file '../rtl/compat.v'
 [-- (VERI-1482)] Analyzing Verilog file '../NES.sv'
-[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'gg_avail', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'bios_loaded', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(424): undeclared symbol 'bk_ena', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(425): undeclared symbol 'ss_slot', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(426): undeclared symbol 'statusUpdate', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(427): undeclared symbol 'info_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(428): undeclared symbol 'info', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(434): undeclared symbol 'loader_clk', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(435): undeclared symbol 'file_input', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(473): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(474): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(675): undeclared symbol 'reset_nes', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(706): undeclared symbol 'reticle', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(866): undeclared symbol 'gg_code', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(878): undeclared symbol 'emphasis', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(892): undeclared symbol 'max_diskside', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(895): undeclared symbol 'cpu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(896): undeclared symbol 'cpu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(897): undeclared symbol 'cpu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(898): undeclared symbol 'cpu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(899): undeclared symbol 'cpu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(900): undeclared symbol 'ppu_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(901): undeclared symbol 'ppu_read', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(902): undeclared symbol 'ppu_write', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(903): undeclared symbol 'ppu_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(904): undeclared symbol 'ppu_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(915): undeclared symbol 'save_written', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(920): undeclared symbol 'ss_save', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(921): undeclared symbol 'ss_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(925): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(926): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(927): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(928): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(929): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(931): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(932): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(933): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(934): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(935): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'savestate_load', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(938): undeclared symbol 'ss_din', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(939): undeclared symbol 'ss_dout', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(940): undeclared symbol 'ss_addr', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'ss_rnw', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'ss_req', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'ss_be', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(944): undeclared symbol 'ss_ack', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1052): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
-[INFO (VERI-2561)] ../NES.sv(1054): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
-[WARN (VERI-2013)] ../NES.sv(367): variable 'timeout' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(500): variable 'pald' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(500): variable 'pald2' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(501): variable 'state' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(713): variable 'num' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(798): variable 'cnt' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1324): variable 'old_load' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1324): variable 'old_save' must explicitly be declared as automatic or static
-[WARN (VERI-2013)] ../NES.sv(1325): variable 'old_downloading' must explicitly be declared as automatic or static
+[INFO (VERI-2561)] ../NES.sv(220): undeclared symbol 'hide_overscan', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'mapper_has_savestate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'gg_avail', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bios_loaded', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(440): undeclared symbol 'bk_ena', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(441): undeclared symbol 'ss_slot', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(442): undeclared symbol 'statusUpdate', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(443): undeclared symbol 'info_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(444): undeclared symbol 'info', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(450): undeclared symbol 'loader_clk', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(451): undeclared symbol 'file_input', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(489): undeclared symbol 'reconfig_to_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(490): undeclared symbol 'reconfig_from_pll', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(691): undeclared symbol 'reset_nes', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(722): undeclared symbol 'reticle', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(882): undeclared symbol 'gg_code', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(894): undeclared symbol 'emphasis', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(908): undeclared symbol 'max_diskside', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(911): undeclared symbol 'cpu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(912): undeclared symbol 'cpu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(913): undeclared symbol 'cpu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(914): undeclared symbol 'cpu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(915): undeclared symbol 'cpu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(916): undeclared symbol 'ppu_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(917): undeclared symbol 'ppu_read', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(918): undeclared symbol 'ppu_write', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(919): undeclared symbol 'ppu_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(920): undeclared symbol 'ppu_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(931): undeclared symbol 'save_written', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(936): undeclared symbol 'ss_save', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(937): undeclared symbol 'ss_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(941): undeclared symbol 'Savestate_SDRAMAddr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(942): undeclared symbol 'Savestate_SDRAMRdEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(943): undeclared symbol 'Savestate_SDRAMWrEn', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(944): undeclared symbol 'Savestate_SDRAMWriteData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(945): undeclared symbol 'Savestate_SDRAMReadData', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(947): undeclared symbol 'SaveStateBus_Din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(948): undeclared symbol 'SaveStateBus_Adr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(949): undeclared symbol 'SaveStateBus_wren', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(950): undeclared symbol 'SaveStateBus_rst', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(951): undeclared symbol 'SaveStateBus_Dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(952): undeclared symbol 'savestate_load', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(954): undeclared symbol 'ss_din', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(955): undeclared symbol 'ss_dout', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(956): undeclared symbol 'ss_addr', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(957): undeclared symbol 'ss_rnw', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(958): undeclared symbol 'ss_req', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(959): undeclared symbol 'ss_be', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(960): undeclared symbol 'ss_ack', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(1068): undeclared symbol 'sdram_ss_in', assumed default net type 'wire'
+[INFO (VERI-2561)] ../NES.sv(1070): undeclared symbol 'sdram_ss_out', assumed default net type 'wire'
+[WARN (VERI-2013)] ../NES.sv(383): variable 'timeout' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(516): variable 'pald' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(516): variable 'pald2' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(517): variable 'state' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(729): variable 'num' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(814): variable 'cnt' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_load' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1256): variable 'old_save' must explicitly be declared as automatic or static
+[WARN (VERI-2013)] ../NES.sv(1257): variable 'old_downloading' must explicitly be declared as automatic or static
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_freak.sv'
 [-- (VERI-1482)] Analyzing Verilog file '../sys/video_mixer.sv'
 [WARN (VERI-1875)] ../sys/video_mixer.sv(37): identifier 'DWIDTH' is used before its declaration
@@ -631,7 +632,7 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../rtl/miracle.sv(199): compiling module 'midi_uart'
 [INFO (VERI-1018)] ../rtl/miracle.sv(28): compiling module 'miraclepiano'
 [INFO (VERI-1018)] ../rtl/zapper.sv(4): compiling module 'zapper'
-[INFO (VERI-1018)] ../NES.sv(1455): compiling module 'GameLoader'
+[INFO (VERI-1018)] ../NES.sv(1387): compiling module 'GameLoader'
 [INFO (VERI-1018)] ../rtl/ppu.sv(172): compiling module 'ClockGen'
 [INFO (VERI-1018)] ../rtl/nes.v(32): compiling module 'DmaController'
 [INFO (VERI-1018)] ../rtl/apu.sv(4): compiling module 'LenCounterUnit'
@@ -925,25 +926,18 @@ INFO (ISW003): Top module name is "sys_top".
 [INFO (VERI-1018)] ../sys/gamma_corr.sv(1): compiling module 'gamma_corr'
 [INFO (VERI-2571)] ../sys/gamma_corr.sv(22): extracting RAM for identifier 'gamma_curve'
 [INFO (VERI-1018)] ../sys/video_mixer.sv(19): compiling module 'video_mixer:(LINE_LENGTH=260,GAMMA=1)'
-[INFO (VERI-1018)] ../sys/video_freak.sv(214): compiling module 'video_scale_int'
-[WARN (VERI-8028)] ../sys/video_freak.sv(238): missing/open ports on instance div of module sys_udiv
-[INFO (VERI-8005)] ../sys/video_freak.sv(246): Unintentional sequential element inferred for hinteger read before write using blocking assignment
-[INFO (VERI-1018)] ../sys/video_freak.sv(16): compiling module 'video_freak'
-[INFO (VERI-1018)] ../rtl/video_enclosing.sv(1): compiling module 'video_enclosing'
-[WARN (VERI-8028)] ../rtl/video_enclosing.sv(136): missing/open ports on instance video_mixer of module video_mixer
 [INFO (VERI-1018)] ../rtl/ddram.sv(22): compiling module 'ddram'
 [INFO (VERI-1018)] ../rtl/savestate_ui.sv(1): compiling module 'savestate_ui:(INFO_TIMEOUT_BITS=25)'
 [INFO (VERI-1018)] ../NES.sv(6): compiling module 'emu'
-[WARN (VERI-1330)] ../NES.sv(907): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
-[WARN (VERI-1330)] ../NES.sv(908): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
-[WARN (VERI-8028)] ../NES.sv(856): missing/open ports on instance nes of module NES
-[WARN (VERI-1330)] ../NES.sv(1257): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
-[WARN (VERI-1330)] ../NES.sv(1259): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
-[WARN (VERI-8028)] ../NES.sv(1200): missing/open ports on instance video_enclosing of module video_enclosing
+[WARN (VERI-1330)] ../NES.sv(222): actual bit length 10 differs from formal bit length 12 for port 'CROP_SIZE'
+[WARN (VERI-1330)] ../NES.sv(224): actual bit length 2 differs from formal bit length 3 for port 'SCALE'
+[WARN (VERI-1330)] ../NES.sv(923): actual bit length 10 differs from formal bit length 21 for port 'prg_mask'
+[WARN (VERI-1330)] ../NES.sv(924): actual bit length 10 differs from formal bit length 20 for port 'chr_mask'
+[WARN (VERI-8028)] ../NES.sv(872): missing/open ports on instance nes of module NES
 [INFO (VHDL-1067)] ../rtl/bus_savestates.vhd(27): processing 'eReg_SavestateV(adr=28,def="0000000000000000000000000000000000000000000000000000000000000000")(arch)'
-[WARN (VDB-1002)] ../NES.sv(675): net 'reset_nes' does not have a driver
-[WARN (VDB-1002)] ../NES.sv(1052): net 'sdram_ss_in[15]' does not have a driver
-[WARN (VDB-1013)] ../NES.sv(1265): input port 'ce_pix' is not connected on this instance
+[WARN (VDB-1002)] ../NES.sv(220): net 'hide_overscan' does not have a driver
+[WARN (VDB-1002)] ../NES.sv(691): net 'reset_nes' does not have a driver
+[WARN (VDB-1002)] ../NES.sv(1068): net 'sdram_ss_in[15]' does not have a driver
 [INFO (VERI-1018)] ../sys/sys_top.v(22): compiling module 'sys_top'
 [WARN (VERI-1166)] ../sys/sys_top.v(409): case condition never applies
 [WARN (VERI-1166)] ../sys/sys_top.v(410): case condition never applies
@@ -1063,10 +1057,9 @@ WARNING (WNL032): ../rtl/mappers/FDS.sv(587): division operator div_13u_2u (size
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
 WARNING (WNL032): ../rtl/mappers/FDS.sv(589): division operator div_13u_3u (size 13) automatically black boxed.
     Use the "elaborate -bbox_div" command to prevent automatic black-boxing.
-WARNING (WOBS004): ../NES.sv(1787): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
 WARNING (WOBS004): ../sys/video_freak.sv(167): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
 WARNING (WOBS004): ../sys/video_freak.sv(171): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
-WARNING (WNL010): Input port "ce_pix" of module "video_enclosing" is also being driven at ../rtl/video_enclosing.sv(122).
+WARNING (WOBS004): ../NES.sv(1719): Non-sequence cover property can have non-LRM-compliant semantics. For LRM semantics, use the "elaborate" flag "-lrm_cover_property".
 WARNING (WNL010): Input port "ADC_SDO" of module "sys_top" is also being driven at ../sys/sys_top.v(1720).
 INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
 INFO (IMDS005): Number of multiple-driven bits in design: 5436. Use "get_design_info -list multiple_driven" for more information.
@@ -1103,24 +1096,167 @@ INFO (IRS031): Running reset analysis: phase 3 of 4.
 INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
 INFO (IRS024): Reset iterations 0 to 9 analyzed.
 INFO (IRS024): Reset iterations 10 to 19 analyzed.
-INFO (IRS018): Reset analysis simulation executed for 18 iterations. Assigned values for 1551 of 29249 design flops, 0 of 8 design latches, 4153 of 4167 internal elements.
+INFO (IRS018): Reset analysis simulation executed for 18 iterations. Assigned values for 1553 of 29249 design flops, 0 of 8 design latches, 4153 of 4167 internal elements.
 WARNING (WRS031): 2 of 29249 design flop(s) with asynchronous reset condition, but not reset. Run "get_reset_info -x_value -with_reset_pin" to get a list of such flops.
 INFO (IRS039): Reset analysis complete.
 INFO (ISL009): Started detection of ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ checks
 INFO (ISL014): Started extracting properties for ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ checks
-INFO (ISL015): Extracted 7026 properties of ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ
+INFO (ISL015): Extracted 7019 properties of ASG_AR_OVFL, CAS_NO_UNIQ, CAS_NO_PRIO, BLK_NO_RCHB, ARY_IS_OOBI, EXP_AR_OVFL, ASG_IS_OVFL, EXP_IS_DVBZ
 INFO (ISL009): Started detection of BUS_IS_CONT, BUS_IS_FLOT checks
 WARNING (WSL077): Some signals were filtered and not extracted as bus checks.
     These signals exceed maximum multiple-driven number limit.
     For message help, type "help -message WSL044".
 INFO (ISL014): Started extracting properties for BUS_IS_CONT, BUS_IS_FLOT checks
 INFO (ISL015): Extracted 29 properties of BUS_IS_CONT, BUS_IS_FLOT
-7055
+7048
 [<embedded>] % 
-[<embedded>] % 
-[<embedded>] % schematic_viewer -draw -instance emu.video_enclosing
+[<embedded>] % # Generate connectivity map
+[<embedded>] % check_conn -reverse -src {sys_top emu video video_mixer video_freak} -dest {sys_top emu video video_mixer video_freak} -force -save_as output_map.csv -load
+==============================================================
+Summary
+==============================================================
+Generated 48 connections
+    straightforward : 31
+    simple          : 0
+    conditional     : 17
+    complex         : 0
+Saved connectivity map in /home/pauloldn/poland/proj/NES_MiSTer/formal/output_map.csv
+Loading map...
+[Connectivity] % 
+[Connectivity] % # Find connectivity between blocks
+[Connectivity] % 
+[Connectivity] % check_conn -reverse -complexity complex -src {sys_top emu video video_mixer video_freak} -dest {sys_top emu video video_mixer video_freak} -force -save_as complex_output_map.csv -force
+==============================================================
+Summary
+==============================================================
+Generated 48 connections
+    straightforward : 31
+    simple          : 0
+    conditional     : 17
+    complex         : 0
+Saved connectivity map in /home/pauloldn/poland/proj/NES_MiSTer/formal/complex_output_map.csv
+[Connectivity] % 
+[Connectivity] % # check_conn –prove
+[Connectivity] % check_sec -analyze -spec +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_ALU.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_MCode.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_Pack.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/bus_savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/statemanager.vhd} +define+SVA_ENABLE=true -sv {/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/regs_savestates.sv} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f} ;
+check_sec -analyze -imp +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/statemanager.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/bus_savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_ALU.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_MCode.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_Pack.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65.vhd} +define+SVA_ENABLE=true -sv {/home/pauloldn/poland/proj/NES_MiSTer/rtl/regs_savestates.sv} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/proj/NES_MiSTer/formal/files_sv.f} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/proj/NES_MiSTer/formal/files_mappers_sv.f} ;
+check_sec -elaborate -spec -top sys_top -bbox_m {alsa DSP48A1 dpram EEPROM_24C0x IIR_filter eseopll altddio_out spram hps_io pll pll_cfg sysmem cyclonev_hps_interface_mpu_general_purpose cyclonev_hps_interface_peripheral_uart sysmem_lite cyclonev_hps_interface_interrupts ddr_svc ascal pll_hdmi_adj pll_cfg_hdmi pll_hdmi cyclonev_hps_interface_peripheral_i2c cyclonev_clkselect pll_audio audio_out cyclonev_hps_interface_peripheral_spi_master} ;
+check_sec -elaborate -imp -top sys_top -bbox_m {alsa DSP48A1 dpram EEPROM_24C0x IIR_filter eseopll altddio_out spram hps_io pll pll_cfg sysmem cyclonev_hps_interface_mpu_general_purpose cyclonev_hps_interface_peripheral_uart sysmem_lite cyclonev_hps_interface_interrupts ddr_svc ascal pll_hdmi_adj pll_cfg_hdmi pll_hdmi cyclonev_hps_interface_peripheral_i2c cyclonev_clkselect pll_audio audio_out cyclonev_hps_interface_peripheral_spi_master} ;
+check_sec -setup ;
+check_sec -auto_map_reset_x_values on ;
+
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+ERROR (ESW010): The "-vhdl" switch is not allowed with "-sv".
+
+
+[Connectivity] % check_sec -analyze -spec +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_ALU.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_MCode.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65_Pack.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/t65/T65.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/bus_savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/statemanager.vhd} +define+SVA_ENABLE=true -sv {/home/pauloldn/poland/base_proj/NES_MiSTer/rtl/regs_savestates.sv} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f} ;
+check_sec -analyze -imp +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/statemanager.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/bus_savestates.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_ALU.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_MCode.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65_Pack.vhd} +define+SVA_ENABLE=true -vhdl {work::/home/pauloldn/poland/proj/NES_MiSTer/rtl/t65/T65.vhd} +define+SVA_ENABLE=true -sv {/home/pauloldn/poland/proj/NES_MiSTer/rtl/regs_savestates.sv} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/proj/NES_MiSTer/formal/files_sv.f} +define+SVA_ENABLE=true -sv -f {/home/pauloldn/poland/proj/NES_MiSTer/formal/files_mappers_sv.f} ;
+check_sec -elaborate -spec -top  -bbox_m {alsa DSP48A1 dpram EEPROM_24C0x IIR_filter eseopll altddio_out spram hps_io pll pll_cfg sysmem cyclonev_hps_interface_mpu_general_purpose cyclonev_hps_interface_peripheral_uart sysmem_lite cyclonev_hps_interface_interrupts ddr_svc ascal pll_hdmi_adj pll_cfg_hdmi pll_hdmi cyclonev_hps_interface_peripheral_i2c cyclonev_clkselect pll_audio audio_out cyclonev_hps_interface_peripheral_spi_master} ;
+check_sec -elaborate -imp -top  -bbox_m {alsa DSP48A1 dpram EEPROM_24C0x IIR_filter eseopll altddio_out spram hps_io pll pll_cfg sysmem cyclonev_hps_interface_mpu_general_purpose cyclonev_hps_interface_peripheral_uart sysmem_lite cyclonev_hps_interface_interrupts ddr_svc ascal pll_hdmi_adj pll_cfg_hdmi pll_hdmi cyclonev_hps_interface_peripheral_i2c cyclonev_clkselect pll_audio audio_out cyclonev_hps_interface_peripheral_spi_master} ;
+check_sec -setup ;
+check_sec -auto_map_reset_x_values on ;
+
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+ERROR (ESW010): The "-vhdl" switch is not allowed with "-sv".
+
+
+[Connectivity] % include /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl
+%% # ----------------------------------------------------------------------------
+%% # 0) At the very top, declare your “original” (SPEC) project root:
+%% # ----------------------------------------------------------------------------
+%% set spec_root  /home/pauloldn/poland/base_proj/NES_MiSTer
+/home/pauloldn/poland/base_proj/NES_MiSTer
+%% 
+%% # ----------------------------------------------------------------------------
+%% # 1) Analyze the SPEC (original) files using that variable:
+%% # ----------------------------------------------------------------------------
+%% check_sec -analyze -spec +define+SVA_ENABLE=true \
+    -vhdl {work::$spec_root/rtl/statemanager.vhd} \
+    -vhdl {work::$spec_root/rtl/bus_savestates.vhd} \
+    -vhdl {work::$spec_root/rtl/savestates.vhd} \
+    -vhdl {work::$spec_root/rtl/t65/T65_Pack.vhd} \
+    -vhdl {work::$spec_root/rtl/t65/T65_MCode.vhd} \
+    -vhdl {work::$spec_root/rtl/t65/T65_ALU.vhd} \
+    -vhdl {work::$spec_root/rtl/t65/T65.vhd} \
+    -sv   +define+SVA_ENABLE=true $spec_root/rtl/regs_savestates.sv \
+    -sv   +define+SVA_ENABLE=true -f $spec_root/formal/files_sv.f \
+    -sv   +define+SVA_ENABLE=true -f $spec_root/formal/files_mappers_sv.f
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_sv.f".
+INFO (INL011): Processing "-f" file "/home/pauloldn/poland/base_proj/NES_MiSTer/formal/files_mappers_sv.f".
+ERROR at line 9 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW010): The "-vhdl" switch is not allowed with "-sv".
+
+
+[Connectivity] % check_spec
+invalid command name "check_spec"
+
+[Connectivity] % check_sec
+ERROR (ESEC186): A required switch is missing. Use one of "-setup", "-map", "-generate_verification", "-interface", "-prove", "-signoff".
+    For more information, use "help check_sec -gui".
+
+
+[Connectivity] % check_sec -help
+ERROR (ESW087): No such switch "-help".
+
+
+[Connectivity] % help check_sec -gui
+[Connectivity] % include /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl
+%% # ----------------------------------------------------------------------------
+%% # 0) At the very top, declare your “original” (SPEC) project root:
+%% # ----------------------------------------------------------------------------
+%% set spec_root  /home/pauloldn/poland/base_proj/NES_MiSTer
+/home/pauloldn/poland/base_proj/NES_MiSTer
+%% #————————————————————————————————————————————
+%% # 1) SPEC (original) – VHDL only
+%% #————————————————————————————————————————————
+%% check_sec -analyze -spec +define+SVA_ENABLE=true \
+    -vhdl {$spec_root/rtl/statemanager.vhd} \
+    -vhdl {$spec_root/rtl/bus_savestates.vhd} \
+    -vhdl {$spec_root/rtl/savestates.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_Pack.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_MCode.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_ALU.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65.vhd}
+ERROR at line 8 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "$spec_root/rtl/statemanager.vhd" does not exist.
+
+
+[Connectivity] % include /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl
+%% # ----------------------------------------------------------------------------
+%% # 0) At the very top, declare your “original” (SPEC) project root:
+%% # ----------------------------------------------------------------------------
+%% set spec_root  /home/pauloldn/poland/base_proj/NES_MiSTer
+/home/pauloldn/poland/base_proj/NES_MiSTer
+%% #————————————————————————————————————————————
+%% # 1) SPEC (original) – VHDL only
+%% #————————————————————————————————————————————
+%% check_sec -analyze -spec +define+SVA_ENABLE=true \
+    -vhdl {$spec_root/rtl/statemanager.vhd} \
+    -vhdl {$spec_root/rtl/bus_savestates.vhd} \
+    -vhdl {$spec_root/rtl/savestates.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_Pack.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_MCode.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65_ALU.vhd} \
+    -vhdl {$spec_root/rtl/t65/T65.vhd}
+ERROR at line 8 in file /home/pauloldn/poland/proj/NES_MiSTer/formal/SEC.tcl, more info in Tcl-variable errorInfo
+ERROR (ESW046): The file "$spec_root/rtl/statemanager.vhd" does not exist.
+
+
+[Connectivity] % spec_root
+invalid command name "spec_root"
+
+[Connectivity] % print $spec_root
+invalid command name "print"
+
 INFO (IPL005): Received request to exit from the console.
 INFO (IPL014): Waiting for the Tcl-thread to exit.
-INFO (IPL018): The peak resident set memory use for this session was 0.739 GB.
+INFO (IPL018): The peak resident set memory use for this session was 0.741 GB.
 INFO (IPL015): The Tcl-thread exited with status 0.
 INFO (IPL016): Exiting the analysis session with status 0.
