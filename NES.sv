@@ -1783,9 +1783,9 @@ always @(posedge clk) begin
 end
 
 `ifdef SVA_ENABLE
-	`ifndef SYNTHESIS
+	//`ifndef SYNTHESIS
 		// Cover behavior: loading of ROM. 
 		cov_rom_load: cover property (@(posedge clk) (downloading && (type_fds || type_nes || type_nsf)) |->  (rom_loaded == 1));
-	`endif
+	//`endif
 `endif
 endmodule

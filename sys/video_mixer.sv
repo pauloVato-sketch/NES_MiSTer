@@ -206,6 +206,7 @@ always @(posedge CLK_VIDEO) begin
 		b <= bt;
 	end
 
+	// VGA_DE? hde & vde when hde rises.
 	hde <= scandoubler ? ~hb_sd : ~hb_g;
 	vde <= scandoubler ? ~vb_sd : ~vb_g;
 	vs  <= scandoubler ?  vs_sd :  vs_g;
@@ -219,8 +220,9 @@ always @(posedge CLK_VIDEO) begin
 		VGA_VS <= vs;
 		VGA_HS <= hs;
 
-		old_hde <= hde;
-		if(old_hde ^ hde) VGA_DE <= vde & hde;
+		//old_hde <= hde;
+		//if(old_hde ^ hde) 
+		VGA_DE <= vde & hde;
 	end
 end
 

@@ -180,6 +180,39 @@ video_freak video_freak
 	.VIDEO_ARY(VIDEO_ARY)
 );
 
+/*Propriedade para garantir que o sinal de ativação do VGA esteja
+ativo quando os sinais de blank estiverem zerados:
+*/
+property p_vga_de_matches_blanking;
+	@(posedge CLK_VIDEO)
+	disable iff (reset)
+	VGA_DE |=> ~(VBlank || HBlank);
+endproperty
+assertion_vga_blanking: assert property (p_vga_de_matches_blanking);
+
+/*Propriedade que garante que o sinal VBlank desativa antes do sinal
+HBlank, para evitar que parte da linha seja perdida e atrapalhe a resolução
+no HDMI:*/
+// Sequência de eventos do fim de VBlank até o enable do primeiro pixel
+sequence first_line_seq;
+  // 1) detecta fim de VBlank (equiv. a $fell(VBlank))
+  $rose(~VBlank)  
+    ##1  // 2) ainda em HBlank
+      HBlank  
+    ##1  // 3) HBlank cai
+      (!HBlank)  
+    ##1  // 4) VGA_DE sobe
+      VGA_DE_IN;
+endsequence
+
+// Propriedade que amarra a sequência ao clock e reset
+property p_first_line_proper_alignment;
+  @(posedge CLK_VIDEO)
+    disable iff (reset)
+    first_line_seq;
+endproperty
+
+assert_alignment_enclosing: assert property (p_first_line_proper_alignment);
 
 
 endmodule
